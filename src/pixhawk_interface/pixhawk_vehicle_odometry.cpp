@@ -20,8 +20,8 @@ void MultiThreadedNode::subscriber_pixhawk_odometry_callback(const px4_msgs::msg
   std::cout << "PIXHAWK ODOMETRY " << thread_string << std::endl;
 
   // If it's the "offset" message, store the offset state
-  if (time_current_ > OFFSET_ODOMETRY_TIME_SECONDS && 
-        time_current_ < ARM_START_TIME_SECONDS && 
+  if (time_current_ > global_params_.OFFSET_ODOMETRY_TIME_SECONDS && 
+        time_current_ < global_params_.TAKEOFF_START_TIME_SECONDS && 
         vehicle_state_->getIsOffsetOdometryMsg())
   {
     // std::cout << "OFFSET ODOMETRY MESSAGE" << std::endl;

@@ -28,32 +28,10 @@
 #include "vehicle_state.hpp"
 #include "user_defined_trajectory.hpp"
 #include "piecewise_polynomial_trajectory.hpp"
-#include "logging.hpp"
 #include "control.hpp"
 #include "pid.hpp"
 #include "mocap.hpp"
-
-// Flag for publishing data to the motors
-inline constexpr bool PUBLISH_ACTUATOR_MOTORS_FLAG = true;
-
-// Time in seconds at which we arm the motors
-inline constexpr double ARM_START_TIME_SECONDS = 9.5; 
-
-// Time in seconds at which we start the mission/takeoff
-inline constexpr double TAKEOFF_START_TIME_SECONDS = 10.0; 
-
-// Time in seconds at which we start the landing
-inline constexpr double LANDING_START_TIME_SECONDS = 25.0; 
-
-// Time in seconds at which we end the landing
-inline constexpr double LANDING_END_TIME_SECONDS = (LANDING_START_TIME_SECONDS + 4.0); 
-
-// Time in seconds at which we disarm the motors
-inline constexpr double DISARM_START_TIME_SECONDS = (LANDING_END_TIME_SECONDS + 2.0); 
-
-// Time in seconds at which we perform the offset of the VehicleState class members
-// This must always be performed before arming the vehicle
-inline constexpr double OFFSET_ODOMETRY_TIME_SECONDS = (ARM_START_TIME_SECONDS - 0.5);
+#include "config.hpp"
 
 using namespace std::chrono_literals;
 
@@ -72,6 +50,8 @@ public:
   std::shared_ptr<PiecewisePolynomialTrajectory> getUserDefinedTrajectory() const;
   std::shared_ptr<VehicleState> getVehicleState() const;
   std::shared_ptr<PID> getControl() const;
+  ConfigurationParameters getConfigurationParameters() const;
+  GlobalParameters getGlobalParameters() const;
 
 private:
   /*********************************************************************************************************************
@@ -104,6 +84,8 @@ private:
 	void publish_actuator_motors();
 	void publish_vehicle_command(uint16_t command, float param1 = 0.0, float param2 = 0.0);
 
+  void goIntoOffboardMode();
+
   std::atomic<uint64_t> timestamp_initial_;   //common synced initial timestamp
 	
 	std::atomic<double> time_current_; // current time
@@ -129,18 +111,14 @@ private:
   void controller_and_publisher_actuator_motors_callback();
 
   /*********************************************************************************************************************
-    CALLBACK GROUP 3
-   *********************************************************************************************************************
-  */
-  
-
-
-  /*********************************************************************************************************************
   OTHER
   *********************************************************************************************************************
   */
-  // Create a pointer to the LogData instance
-  std::shared_ptr<LogData> log_data_;
+  // Instance of the ConfigurationParameters struct that contains the configuration parameters coming from config.json
+  ConfigurationParameters config_;
+
+  // Instance of the GlobalParameters struct that contains the global parameters of the flightstack
+  GlobalParameters global_params_;
 
 };
 

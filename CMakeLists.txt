@@ -6,7 +6,7 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
 
-# Default to C++14
+# Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
 endif()
@@ -38,6 +38,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/logging)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/control)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/control/pid)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/mocap)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/config)
 
 
 
@@ -50,16 +51,17 @@ set(SOURCES
 	src/pixhawk_interface/vehicle_state.cpp
   src/user_defined_trajectory/user_defined_trajectory.cpp
   src/user_defined_trajectory/piecewise_polynomial_trajectory.cpp
-  src/logging/logging.cpp
   src/logging/logging_mocap.cpp
   src/control/control.cpp
   src/control/control_callback.cpp
   src/control/pid/pid.cpp
+  src/control/pid/logging_pid.cpp
 	src/utils/json_parser.cpp
   src/mocap/io_context.cpp
   src/mocap/udp_driver.cpp
   src/mocap/udp_socket.cpp
   src/mocap/mocap.cpp
+  src/config/config.cpp
 )
 
 # Add executable

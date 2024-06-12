@@ -98,7 +98,7 @@ public:
   const ControlInternalMembers& getControlInternalMembers() const;
   const std::chrono::duration<double, std::micro>& getAlgorithmExecutionTimeMicroseconds() const;
 
-  // Setter functions
+  // Setter function
   void setAlgorithmExecutionTimeMicroseconds(std::chrono::duration<double, std::micro> duration);
 
   Eigen::Matrix3d jacobianMatrixInverse(const double& roll, const double& pitch);
@@ -106,6 +106,18 @@ public:
   Eigen::Matrix3d rotationMatrix321GlobalToLocal(const double& roll, const double& pitch, const double& yaw);
 
   void computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info);
+
+  void computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& vehicle_info);
+
+  void compute_U1_RollRef_PitchRef(ControlInternalMembers& cim);
+
+  void computeAngularError(ControlInternalMembers& cim, ControlReferences& cr);
+
+  void computeTranslationalAndRotationalParameters(ControlInternalMembers& cim, ControlReferences& cr);
+
+  double wrapAngleToMinusPiAndPi(double alpha);
+
+  double makeYawAngularErrorContinuous(double yaw, double user_defined_yaw);
 
   //define_const_stepper
   runge_kutta4< state_type > stepper;
@@ -117,6 +129,9 @@ protected:
   ControlInternalMembers cim;
 
   ControlReferences cr;
+
+  // Third standard basis vector e_3
+  static inline const Eigen::Vector3d e3_basis = Eigen::Vector3d(0.0, 0.0, 1.0);
 
 private:
 

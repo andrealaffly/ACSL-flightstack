@@ -1,0 +1,5 @@
+{
+  "user_defined_trajectory_file": "bean_trajectory0p3.json",
+  "controller_type": "PID",
+  "hover_after_trajectory_time_seconds": 5.0
+}

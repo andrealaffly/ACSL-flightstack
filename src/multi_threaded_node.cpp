@@ -7,32 +7,20 @@ April 9, 2024
 #include "multi_threaded_node.hpp"
 
 MultiThreadedNode::MultiThreadedNode(rclcpp::NodeOptions options)
-: Node("MultiThreadedNode", options)  
+: Node("MultiThreadedNode", options),
+  offboard_flag_(0),
+  config_(readConfigurationParametersFile("config.json"))
 {
+
   vehicle_state_ = std::make_shared<VehicleState>(*this);
   user_defined_trajectory_ = std::make_shared<PiecewisePolynomialTrajectory>(*this);
   control_ = std::make_shared<PID>(*this);
-  log_data_ = std::make_shared<LogData>(*this);
 
+  // Initialize the Global Parameters
+  this->global_params_ = GlobalParameters(*this);
 
   timestamp_initial_ = this->get_clock()->now().nanoseconds() / 1000; 
   std::cout << "timestamp_initial_ :" << timestamp_initial_ << std::endl;
-
-  // Initialize logging
-	logInitializeLogging();
-
-  offboard_flag_ = 0;
-
-  // Initialize the matrices of the user-defined trajectory
-  // user_defined_trajectory_->readJSONfile(
-  //   "./src/flightstack/params/user_defined_trajectory/stadium.json");
-  user_defined_trajectory_->readJSONfile(
-    "./src/flightstack/params/user_defined_trajectory/takeoff_1meter.json");
-  // Set the polynomial coefficients of the various matrices
-  user_defined_trajectory_->setPolynomialCoefficientMatrices();
-
-  // Initialize controller gains
-  control_->readJSONfile("./src/flightstack/params/control/pid/gains_pid.json");
 
   // Perform the setup of the Pixhawk vehicle odometry subscription callback/thread
   setupPixhawkOdometrySubscriber();
@@ -81,6 +69,16 @@ std::shared_ptr<VehicleState> MultiThreadedNode::getVehicleState() const {
 // Getter function for control_ (FOR PID) 
 std::shared_ptr<PID> MultiThreadedNode::getControl() const {
   return control_;
+}
+
+// Getter function for config_
+ConfigurationParameters MultiThreadedNode::getConfigurationParameters() const {
+  return config_;
+}
+
+// Getter function for global_params_
+GlobalParameters MultiThreadedNode::getGlobalParameters() const {
+  return global_params_;
 }
 
 // Function that performs the setup of the Pixhawk vehicle odometry subscription callback/thread

@@ -1,11 +1,11 @@
-/* logging.hpp
+/* logging_pid.hpp
 
 	Mattia Gramuglia
 	April 18, 2024
 */
 
-#ifndef LOGGING_HPP
-#define LOGGING_HPP
+#ifndef LOGGING_PID_HPP
+#define LOGGING_PID_HPP
 
 #include <atomic>
 #include <cstddef>
@@ -53,13 +53,15 @@ extern src::logger logger_logdata;
 // Forward declaration of MultiThreadedNode class
 class MultiThreadedNode;
 
+// Forward declaration of PID class
+class PID;
 
-class LogData 
+class LogData_PID 
 {
 public:
 
 	// Constructor
-  LogData(MultiThreadedNode& node);
+  LogData_PID(MultiThreadedNode& node, PID& controller);
 
   // References to variables that will be logged
 	const std::atomic<uint64_t>& timestamp_initial;
@@ -91,6 +93,21 @@ public:
   const Eigen::Vector3d& euler_angles_rpy_dot;
   const Eigen::Vector4d& thrust_vector_quadcopter; 
   const Eigen::Vector4d& thrust_vector_quadcopter_normalized;
+  const Eigen::Matrix<double, 8, 1>& thrust_vector;
+  const Eigen::Matrix<double, 8, 1>& thrust_vector_normalized;
+  const Eigen::Vector3d& angular_error;
+  const Eigen::Vector3d& outer_loop_P; 
+  const Eigen::Vector3d& outer_loop_I; 
+  const Eigen::Vector3d& outer_loop_D; 
+  const Eigen::Vector3d& outer_loop_dynamic_inversion; 
+  const Eigen::Vector3d& inner_loop_P; 
+  const Eigen::Vector3d& inner_loop_I; 
+  const Eigen::Vector3d& inner_loop_D; 
+  const Eigen::Vector3d& inner_loop_dynamic_inversion; 
+
+  void logInitializeHeaders();
+  void logInitializeLogging();
+  void logLogData(const LogData_PID& data);
   
 
 private:
@@ -100,9 +117,5 @@ private:
 
 };
 
-void logInitializeHeaders();
-void logInitializeLogging();
-void logLogData(const LogData& data);
 
-
-#endif // LOGGING_HPP
+#endif // LOGGING_PID_HPP

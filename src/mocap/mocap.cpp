@@ -8,7 +8,7 @@
  *              Writes messages to pixhawk mocap_odometry topic for 
  *              EFK2 fusion.
  * 
- * GitHub:      https://github.com/girimugundankumar/acsl-flight-stack.git
+ * GitHub:      
  * Referenced:  https://github.com/ros-drivers/transport_drivers/tree/main
  **************************************************************************/
 #include "mocap.hpp"

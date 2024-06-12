@@ -6,7 +6,7 @@
  * 
  * Description: Class definition for UDP socket creation using IoContext.
  * 
- * GitHub:      https://github.com/girimugundankumar/acsl-flight-stack.git
+ * GitHub:      
  * Referenced:  https://github.com/ros-drivers/transport_drivers/tree/main
  **************************************************************************/
 

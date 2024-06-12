@@ -6,7 +6,7 @@
  * 
  * Description: Class declaration for UDP driver.
  * 
- * GitHub:      https://github.com/girimugundankumar/acsl-flight-stack.git
+ * GitHub:      
  * Referenced:  https://github.com/ros-drivers/transport_drivers/tree/main
  **************************************************************************/
 

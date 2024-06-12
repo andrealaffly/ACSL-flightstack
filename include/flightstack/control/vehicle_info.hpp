@@ -7,11 +7,15 @@
 #ifndef VEHICLE_INFO_HPP
 #define VEHICLE_INFO_HPP
 
-#define GRAVITATIONAL_ACCELERATION 9.80665 // [m/s^2]
-
 #include <cmath>
 
 #include <Eigen/Dense>
+
+inline constexpr double GRAVITATIONAL_ACCELERATION = 9.80665; // [m/s^2]
+
+inline constexpr double UPPER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON = 9.5;
+
+inline constexpr double LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON = 0.3;
 
 
 struct VehicleInfo 

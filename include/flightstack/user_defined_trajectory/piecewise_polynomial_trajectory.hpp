@@ -33,7 +33,9 @@ public:
   // Constructor
   PiecewisePolynomialTrajectory(MultiThreadedNode& node);
 
-  void readJSONfile(const std::string& jsonFile);
+  void initializePiecewisePolynomialTrajectory(const std::string& TrajectoryFileName);
+
+  void readJSONfile(const std::string& fileName);
 
   // Getter functions
   const std::vector<double>& getWaypointTimes() const;
@@ -71,7 +73,7 @@ private:
 
   PiecewisePolynomialTrajectoryInfo piecewise_polynomial_trajectory_info_;
 
-  // Polynomial coefficients for LANDING from (0, 0, -1) to (0, 0, 0) in 4 seconds
+  // Position polynomial coefficients for LANDING from (X, Y, -1) to (X, Y, 0) in 4 seconds
   const Eigen::VectorXd landing_position_coef_z_ = (Eigen::VectorXd(8) << 
     -0.001220703125,
     0.01708984375,
@@ -83,6 +85,7 @@ private:
     -1.0
   ).finished();
 
+  // Velocity polynomial coefficients for LANDING from (X, Y, -1) to (X, Y, 0) in 4 seconds
   const Eigen::VectorXd landing_velocity_coef_z_ = (Eigen::VectorXd(7) << 
     -0.00854492187499999,
     0.1025390625,
@@ -93,6 +96,7 @@ private:
     0.0
   ).finished();
 
+  // Acceleration polynomial coefficients for LANDING from (X, Y, -1) to (X, Y, 0) in 4 seconds
   const Eigen::VectorXd landing_acceleration_coef_z_ = (Eigen::VectorXd(6) << 
     -0.0512695312499999,
     0.5126953125,

@@ -14,6 +14,7 @@
 
 #include "control.hpp"
 #include "pid_gains.hpp"
+#include "logging_pid.hpp"
 
 
 /*
@@ -38,6 +39,26 @@ struct StatePID
 
 };
 
+/*
+  Description
+*/
+struct ControllerSpecificInternalMembers 
+{
+  // Constructor
+  ControllerSpecificInternalMembers();
+
+  Eigen::Vector3d outer_loop_P; // Proportional part of the control input of the outer loop
+  Eigen::Vector3d outer_loop_I; // Integral part of the control input of the outer loop
+  Eigen::Vector3d outer_loop_D; // Derivative part of the control input of the outer loop
+  Eigen::Vector3d outer_loop_dynamic_inversion; // Dynamic inversion term of the control input of the outer loop
+
+  Eigen::Vector3d inner_loop_P; // Proportional part of the control input of the inner loop
+  Eigen::Vector3d inner_loop_I; // Integral part of the control input of the inner loop
+  Eigen::Vector3d inner_loop_D; // Derivative part of the control input of the inner loop
+  Eigen::Vector3d inner_loop_dynamic_inversion; // Dynamic inversion term of the control input of the inner loop
+
+};
+
 
 class PID : public Control
 {
@@ -50,12 +71,30 @@ public:
   StatePID& getStatePID();
   const double& getTimeStepRK4() const; 
   const GainsPID& getGainsPID() const;
+  const ControllerSpecificInternalMembers& getControllerSpecificInternalMembers() const;
+  std::shared_ptr<LogData_PID> getLogData() const;
 
-  void readJSONfile(const std::string& jsonFile);
+  void readJSONfile(const std::string& fileName);
 
   void assignStateVariables(state_type &x, StatePID& state);
 
   void assignControlInternalMembersToDxdt(ControlInternalMembers& cim, state_type& dxdt, StatePID& state);
+
+  void computeFilterDifferentiatorVariables(ControlInternalMembers& cim, VehicleInfo& vehicle_info, StatePID& state_);
+
+  void computeOuterLoop(ControlInternalMembers& cim,
+                        VehicleInfo& vehicle_info,
+                        StatePID& state_, 
+                        ControlReferences& cr,
+                        GainsPID& gains_,
+                        ControllerSpecificInternalMembers& csim_);
+
+  void computeInnerLoop(ControlInternalMembers& cim,
+                        VehicleInfo& vehicle_info,
+                        StatePID& state_, 
+                        ControlReferences& cr,
+                        GainsPID& gains_,
+                        ControllerSpecificInternalMembers& csim_);
 
   void computeControlAlgorithm(state_type &x, state_type &dxdt, const double /* t */);
 
@@ -65,6 +104,11 @@ private:
   const double time_step_rk4_ = 0.01; // [s] time step for integrating using RK4
 
   GainsPID gains_;
+
+  ControllerSpecificInternalMembers csim_;
+
+  // Create a pointer to the LogData instance
+  std::shared_ptr<LogData_PID> log_data_;
 
 };
 

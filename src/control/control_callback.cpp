@@ -32,7 +32,7 @@ void MultiThreadedNode::controller_callback()
                                     std::placeholders::_2,
                                     std::placeholders::_3);
 
-  if (time_current_ > ARM_START_TIME_SECONDS)
+  if (time_current_ > global_params_.TAKEOFF_START_TIME_SECONDS)
   {
   // std::cout << "Starting DO_STEP " << std::endl;
   // Start time of the RK4 integration/Control algorithm
@@ -71,7 +71,6 @@ void MultiThreadedNode::controller_callback()
   // std::cout << "KI_rotational " << control_->getGainsPID().KI_rotational << std::endl;
 
 
-
-  logLogData(*log_data_);
+  control_->getLogData()->logLogData(*(control_->getLogData()));
 
 }

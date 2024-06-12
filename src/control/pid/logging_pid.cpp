@@ -1,17 +1,17 @@
-/* logging.cpp
+/* logging_pid.cpp
 
 Mattia Gramuglia
 April 18, 2024
 */
 
-#include "logging.hpp"
+#include "logging_pid.hpp"
 #include "multi_threaded_node.hpp"
 
 // Define the logger for LogData
 boost::log::sources::logger logger_logdata;
 
 // Constructor
-LogData::LogData(MultiThreadedNode& node) :
+LogData_PID::LogData_PID(MultiThreadedNode& node, PID& controller) :
 	timestamp_initial(node.getInitialTimestamp()), // Initialize timestamp_initial_ with the value from MultiThreadedNode
   time_current(node.getCurrentTime()),
 	user_defined_position(node.getUserDefinedTrajectory()->getUserDefinedPosition()),
@@ -26,24 +26,35 @@ LogData::LogData(MultiThreadedNode& node) :
   velocity(node.getVehicleState()->getVelocity()),
   angular_velocity(node.getVehicleState()->getAngularVelocity()),
   euler_angles_rpy(node.getVehicleState()->getEulerAnglesRPY()),
-  algorithm_execution_time_microseconds(node.getControl()->getAlgorithmExecutionTimeMicroseconds()),
-  mu_translational_raw(node.getControl()->getControlInternalMembers().mu_translational_raw),
-  mu_translational(node.getControl()->getControlInternalMembers().mu_translational),
-  U_control_inputs(node.getControl()->getControlInternalMembers().U_control_inputs),
-  roll_reference(node.getControl()->getControlInternalMembers().roll_reference),
-  pitch_reference(node.getControl()->getControlInternalMembers().pitch_reference),
-  roll_reference_dot(node.getControl()->getControlInternalMembers().roll_reference_dot),
-  pitch_reference_dot(node.getControl()->getControlInternalMembers().pitch_reference_dot),
-  roll_reference_dot_dot(node.getControl()->getControlInternalMembers().roll_reference_dot_dot),
-  pitch_reference_dot_dot(node.getControl()->getControlInternalMembers().pitch_reference_dot_dot),
-  euler_angles_rpy_dot(node.getControl()->getControlInternalMembers().euler_angles_rpy_dot),
-  thrust_vector_quadcopter(node.getControl()->getControlInternalMembers().thrust_vector_quadcopter),
-  thrust_vector_quadcopter_normalized(node.getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized),
+  algorithm_execution_time_microseconds(controller.getAlgorithmExecutionTimeMicroseconds()),
+  mu_translational_raw(controller.getControlInternalMembers().mu_translational_raw),
+  mu_translational(controller.getControlInternalMembers().mu_translational),
+  U_control_inputs(controller.getControlInternalMembers().U_control_inputs),
+  roll_reference(controller.getControlInternalMembers().roll_reference),
+  pitch_reference(controller.getControlInternalMembers().pitch_reference),
+  roll_reference_dot(controller.getControlInternalMembers().roll_reference_dot),
+  pitch_reference_dot(controller.getControlInternalMembers().pitch_reference_dot),
+  roll_reference_dot_dot(controller.getControlInternalMembers().roll_reference_dot_dot),
+  pitch_reference_dot_dot(controller.getControlInternalMembers().pitch_reference_dot_dot),
+  euler_angles_rpy_dot(controller.getControlInternalMembers().euler_angles_rpy_dot),
+  thrust_vector_quadcopter(controller.getControlInternalMembers().thrust_vector_quadcopter),
+  thrust_vector_quadcopter_normalized(controller.getControlInternalMembers().thrust_vector_quadcopter_normalized),
+  thrust_vector(controller.getControlInternalMembers().thrust_vector),
+  thrust_vector_normalized(controller.getControlInternalMembers().thrust_vector_normalized),
+  angular_error(controller.getControlInternalMembers().angular_error),
+  outer_loop_P(controller.getControllerSpecificInternalMembers().outer_loop_P),
+  outer_loop_I(controller.getControllerSpecificInternalMembers().outer_loop_I),
+  outer_loop_D(controller.getControllerSpecificInternalMembers().outer_loop_D),
+  outer_loop_dynamic_inversion(controller.getControllerSpecificInternalMembers().outer_loop_dynamic_inversion),
+  inner_loop_P(controller.getControllerSpecificInternalMembers().inner_loop_P),
+  inner_loop_I(controller.getControllerSpecificInternalMembers().inner_loop_I),
+  inner_loop_D(controller.getControllerSpecificInternalMembers().inner_loop_D),
+  inner_loop_dynamic_inversion(controller.getControllerSpecificInternalMembers().inner_loop_dynamic_inversion),
   node_(node) // node must be the last in the list to be initialized
 {}
 
 // Function to print headers
-void logInitializeHeaders()
+void LogData_PID::logInitializeHeaders()
 {
 	std::ostringstream oss;
 
@@ -98,21 +109,65 @@ void logInitializeHeaders()
       << "Roll_dot [rad/s], "
       << "Pitch_dot [rad/s], "
       << "Yaw_dot [rad/s], "
-      << "Thrust motors T1 [N], "
-      << "Thrust motors T2 [N], "
-      << "Thrust motors T3 [N], "
-      << "Thrust motors T4 [N], "
-      << "Thrust motors normalized T1 [-], "
-      << "Thrust motors normalized T2 [-], "
-      << "Thrust motors normalized T3 [-], "
-      << "Thrust motors normalized T4 [-], "
+      << "Thrust motors QUADCOPTER T1 [N], "
+      << "Thrust motors QUADCOPTER T2 [N], "
+      << "Thrust motors QUADCOPTER T3 [N], "
+      << "Thrust motors QUADCOPTER T4 [N], "
+      << "Thrust motors normalized QUADCOPTER T1 [-], "
+      << "Thrust motors normalized QUADCOPTER T2 [-], "
+      << "Thrust motors normalized QUADCOPTER T3 [-], "
+      << "Thrust motors normalized QUADCOPTER T4 [-], "
+      << "Thrust motors X8COPTER T1 [N], "
+      << "Thrust motors X8COPTER T2 [N], "
+      << "Thrust motors X8COPTER T3 [N], "
+      << "Thrust motors X8COPTER T4 [N], "
+      << "Thrust motors X8COPTER T5 [N], "
+      << "Thrust motors X8COPTER T6 [N], "
+      << "Thrust motors X8COPTER T7 [N], "
+      << "Thrust motors X8COPTER T8 [N], "
+      << "Thrust motors normalized X8COPTER T1 [-], "
+      << "Thrust motors normalized X8COPTER T2 [-], "
+      << "Thrust motors normalized X8COPTER T3 [-], "
+      << "Thrust motors normalized X8COPTER T4 [-], "
+      << "Thrust motors normalized X8COPTER T5 [-], "
+      << "Thrust motors normalized X8COPTER T6 [-], "
+      << "Thrust motors normalized X8COPTER T7 [-], "
+      << "Thrust motors normalized X8COPTER T8 [-], "
+      << "Roll error [rad], "
+      << "Pitch error [rad], "
+      << "Yaw error [rad], "
+      << "Outer loop Proportional term x [-], "
+      << "Outer loop Proportional term y [-], "
+      << "Outer loop Proportional term z [-], "
+      << "Outer loop Integral term x [-], "
+      << "Outer loop Integral term y [-], "
+      << "Outer loop Integral term z [-], "
+      << "Outer loop Derivative term x [-], "
+      << "Outer loop Derivative term y [-], "
+      << "Outer loop Derivative term z [-], "
+      << "Outer loop Dynamic Inversion term x [-], "
+      << "Outer loop Dynamic Inversion term y [-], "
+      << "Outer loop Dynamic Inversion term z [-], "
+      << "Inner loop Proportional term x [-], "
+      << "Inner loop Proportional term y [-], "
+      << "Inner loop Proportional term z [-], "
+      << "Inner loop Integral term x [-], "
+      << "Inner loop Integral term y [-], "
+      << "Inner loop Integral term z [-], "
+      << "Inner loop Derivative term x [-], "
+      << "Inner loop Derivative term y [-], "
+      << "Inner loop Derivative term z [-], "
+      << "Inner loop Dynamic Inversion term x [-], "
+      << "Inner loop Dynamic Inversion term y [-], "
+      << "Inner loop Dynamic Inversion term z [-], "
+      
   ;
       
 	BOOST_LOG(logger_logdata) << oss.str();
 }
 
 // Function to initialize the logging system
-void logInitializeLogging()
+void LogData_PID::logInitializeLogging()
 {
   // Get the current date and time
   auto now = std::chrono::system_clock::now();
@@ -194,7 +249,7 @@ void logInitializeLogging()
 }
 
 // Function to log the data
-void logLogData(const LogData& data)
+void LogData_PID::logLogData(const LogData_PID& data)
 {
 	std::ostringstream oss;
 
@@ -257,6 +312,49 @@ void logLogData(const LogData& data)
       << data.thrust_vector_quadcopter_normalized(1) << ", "
       << data.thrust_vector_quadcopter_normalized(2) << ", "
       << data.thrust_vector_quadcopter_normalized(3) << ", "
+      << data.thrust_vector(0) << ", "
+      << data.thrust_vector(1) << ", "
+      << data.thrust_vector(2) << ", "
+      << data.thrust_vector(3) << ", "
+      << data.thrust_vector(4) << ", "
+      << data.thrust_vector(5) << ", "
+      << data.thrust_vector(6) << ", "
+      << data.thrust_vector(7) << ", "
+      << data.thrust_vector_normalized(0) << ", "
+      << data.thrust_vector_normalized(1) << ", "
+      << data.thrust_vector_normalized(2) << ", "
+      << data.thrust_vector_normalized(3) << ", "
+      << data.thrust_vector_normalized(4) << ", "
+      << data.thrust_vector_normalized(5) << ", "
+      << data.thrust_vector_normalized(6) << ", "
+      << data.thrust_vector_normalized(7) << ", "
+      << data.angular_error(0) << ", "
+      << data.angular_error(1) << ", "
+      << data.angular_error(2) << ", "
+      << data.outer_loop_P(0) << ", "
+      << data.outer_loop_P(1) << ", "
+      << data.outer_loop_P(2) << ", "
+      << data.outer_loop_I(0) << ", "
+      << data.outer_loop_I(1) << ", "
+      << data.outer_loop_I(2) << ", "
+      << data.outer_loop_D(0) << ", "
+      << data.outer_loop_D(1) << ", "
+      << data.outer_loop_D(2) << ", "
+      << data.outer_loop_dynamic_inversion(0) << ", "
+      << data.outer_loop_dynamic_inversion(1) << ", "
+      << data.outer_loop_dynamic_inversion(2) << ", "
+      << data.inner_loop_P(0) << ", "
+      << data.inner_loop_P(1) << ", "
+      << data.inner_loop_P(2) << ", "
+      << data.inner_loop_I(0) << ", "
+      << data.inner_loop_I(1) << ", "
+      << data.inner_loop_I(2) << ", "
+      << data.inner_loop_D(0) << ", "
+      << data.inner_loop_D(1) << ", "
+      << data.inner_loop_D(2) << ", "
+      << data.inner_loop_dynamic_inversion(0) << ", "
+      << data.inner_loop_dynamic_inversion(1) << ", "
+      << data.inner_loop_dynamic_inversion(2) << ", "
       ;
 
 	BOOST_LOG(logger_logdata) << oss.str();

@@ -17,10 +17,10 @@ void MultiThreadedNode::publisher_actuator_motors_callback()
   std::cout << "PUBLISHER " << thread_string << std::endl;
 
   // Arm after ARM_START_TIME_SECONDS 
-  if (time_current_ > ARM_START_TIME_SECONDS && offboard_flag_ == 0)
+  if (time_current_ > global_params_.ARM_START_TIME_SECONDS && offboard_flag_ == 0)
 	{
     // Change to Offboard mode
-    this->publish_vehicle_command(px4_msgs::msg::VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1, 6);
+    this->goIntoOffboardMode();
 
     // Arm the vehicle
     this->arm();
@@ -28,20 +28,18 @@ void MultiThreadedNode::publisher_actuator_motors_callback()
     offboard_flag_ = 1;
   }
 
-	// Publish control input to the motors after TAKEOFF_START_TIME_SECONDS 
-//  if (time_current_ > TAKEOFF_START_TIME_SECONDS && offboard_flag_ == 1)
-//	{
-		if (PUBLISH_ACTUATOR_MOTORS_FLAG)
-		{
-			// offboard_control_mode needs to be paired with actuator_motors commands
-			publish_offboard_control_mode();
-			publish_actuator_motors();
-		}
+	// Publish control input to the motors
+	if (global_params_.PUBLISH_ACTUATOR_MOTORS_FLAG)
+	{
+		// offboard_control_mode needs to be paired with actuator_motors commands
+		publish_offboard_control_mode();
+		publish_actuator_motors();
+	}
     
-//  }
+
   
   // Disarm after DISARM_START_TIME_SECONDS
-  if (time_current_ > DISARM_START_TIME_SECONDS && offboard_flag_ == 1)
+  if (time_current_ > global_params_.DISARM_START_TIME_SECONDS && offboard_flag_ == 1)
 	{
 		// Disarm the vehicle
     this->disarm();
@@ -96,21 +94,47 @@ void MultiThreadedNode::publish_actuator_motors()
 {
 
 	px4_msgs::msg::ActuatorMotors msg{};
-	
-	msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[0];
-	msg.control[1] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[1];
-	msg.control[2] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[2];
-	msg.control[3] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[3];
-	msg.control[4] = 0.0;
-	msg.control[5] = 0.0;
-	msg.control[6] = 0.0;
-	msg.control[7] = 0.0;
+
+	if (time_current_ < global_params_.TAKEOFF_START_TIME_SECONDS || 
+		  time_current_ > global_params_.DISARM_START_TIME_SECONDS) 
+	{
+		msg.control[0] = 0.0;
+		msg.control[1] = 0.0;
+		msg.control[2] = 0.0;
+		msg.control[3] = 0.0;
+		msg.control[4] = 0.0;
+		msg.control[5] = 0.0;
+		msg.control[6] = 0.0;
+		msg.control[7] = 0.0;
+	} else {
+
+		/* // QUADCOPTER
+		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[0];
+		msg.control[1] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[1];
+		msg.control[2] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[2];
+		msg.control[3] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[3];
+		msg.control[4] = 0.0;
+		msg.control[5] = 0.0;
+		msg.control[6] = 0.0;
+		msg.control[7] = 0.0;
+		 */
+
+		// X8-COPTER
+		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[0];
+		msg.control[1] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[1];
+		msg.control[2] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[2];
+		msg.control[3] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[3];
+		msg.control[4] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[4];
+		msg.control[5] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[5];
+		msg.control[6] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[6];
+		msg.control[7] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[7];
+	}
 	
 	msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
 
 	msg.reversible_flags = 0;
 	
-	/*
+  
   std::cout << "\n\n";
   std::cout << "PUBLISHED ACTUATOR MOTORS"   << std::endl;
   std::cout << "=========================="  << std::endl;
@@ -118,8 +142,12 @@ void MultiThreadedNode::publish_actuator_motors()
 	std::cout << "publish_actuator_motors() motor_1      : " << msg.control[0] << std::endl;
 	std::cout << "publish_actuator_motors() motor_2      : " << msg.control[1] << std::endl;
 	std::cout << "publish_actuator_motors() motor_3      : " << msg.control[2] << std::endl;
-	std::cout << "publish_actuator_motors() motor_4      : " << msg.control[3] << "\n\n";
-	*/
+	std::cout << "publish_actuator_motors() motor_4      : " << msg.control[3] << std::endl;
+	std::cout << "publish_actuator_motors() motor_5      : " << msg.control[4] << std::endl;
+	std::cout << "publish_actuator_motors() motor_6      : " << msg.control[5] << std::endl;
+	std::cout << "publish_actuator_motors() motor_7      : " << msg.control[6] << std::endl;
+	std::cout << "publish_actuator_motors() motor_8      : " << msg.control[7] << "\n\n"; 
+	
 	
 	publisher_actuator_motors_->publish(msg);
 }
@@ -144,6 +172,15 @@ void MultiThreadedNode::publish_vehicle_command(uint16_t command, float param1, 
 	msg.from_external = true;
 	msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
 	publisher_vehicle_command_->publish(msg);
+}
+
+// Change to Offboard mode
+void MultiThreadedNode::goIntoOffboardMode()
+{
+	// Change to Offboard mode
+	this->publish_vehicle_command(px4_msgs::msg::VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1, 6);
+
+	RCLCPP_INFO(this->get_logger(), "Go into Offboard mode command send");
 }
 
 

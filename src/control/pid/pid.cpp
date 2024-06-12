@@ -12,15 +12,35 @@
 // Constructor
 PID::PID(MultiThreadedNode& node) : 
   Control(node)
-{}
+{
+  // Initialize controller gains
+  this->readJSONfile("gains_pid.json");
 
-// Constructor initializes the full_state and sets the Map references
+  log_data_ = std::make_shared<LogData_PID>(node, *this);
+
+  // Initialize logging
+	log_data_->logInitializeLogging();
+}
+
+// Constructor initializes the full_state and sets the Eigen::Map references
 StatePID::StatePID() : 
   full_state(10, 0.0), // 10-element full_state vector
   state_roll_ref_filter(full_state.data()), // Maps the elements [0:1]
   state_pitch_ref_filter(full_state.data() + 2), // Maps the elements [2:3]
   integral_translational_position_error(full_state.data() + 4), // Maps the elements [4:6]
   integral_angular_error(full_state.data() + 7) // Maps the elements [7:9]
+{}
+
+// Constructor
+ControllerSpecificInternalMembers::ControllerSpecificInternalMembers() : 
+  outer_loop_P(Eigen::Vector3d::Zero()),
+  outer_loop_I(Eigen::Vector3d::Zero()),
+  outer_loop_D(Eigen::Vector3d::Zero()),
+  outer_loop_dynamic_inversion(Eigen::Vector3d::Zero()),
+  inner_loop_P(Eigen::Vector3d::Zero()),
+  inner_loop_I(Eigen::Vector3d::Zero()),
+  inner_loop_D(Eigen::Vector3d::Zero()),
+  inner_loop_dynamic_inversion(Eigen::Vector3d::Zero())
 {}
 
 StatePID& PID::getStatePID()
@@ -38,13 +58,37 @@ const GainsPID& PID::getGainsPID() const
   return gains_;
 }
 
+// Getter function that returns a reference to the current getControllerSpecificInternalMembers object
+const ControllerSpecificInternalMembers& PID::getControllerSpecificInternalMembers() const
+{
+  return csim_;
+}
+
+/*
+  Getter function that returns a pointer to the log_data_ instance
+*/
+std::shared_ptr<LogData_PID> PID::getLogData() const
+{
+  return log_data_;
+}
+
 /*
   Function to read the tuning gains coming from the .json file and assign it to the
   gains_ struct instantiated in the PID class
 */
-void PID::readJSONfile(const std::string& jsonFile)
+void PID::readJSONfile(const std::string& fileName)
 {
+  // Define the path where the PID gains JSON files are located
+  const std::string path = "./src/flightstack/params/control/pid/";
+
+  // Concatenate the path with the file name
+  std::string jsonFile = path + fileName;
+
   std::ifstream file(jsonFile);
+  if (!file.is_open()) {
+    throw std::runtime_error("Could not open file: " + jsonFile);
+  }
+
 	nlohmann::json j;
 	file >> j;
 	
@@ -124,120 +168,165 @@ void PID::assignControlInternalMembersToDxdt(ControlInternalMembers& cim, state_
 }
 
 /*
-  PID Control algorithm
+  Function to compute the variables used for the differentiator of the reference roll and pitch angles.
+  This function calculates the internal states and derivatives (first and second) of the roll and pitch
+  reference angles using the provided filter coefficients and the current state variables.
 */
-void PID::computeControlAlgorithm(state_type &x, state_type &dxdt, const double /* t */) 
+void PID::computeFilterDifferentiatorVariables(ControlInternalMembers& cim, VehicleInfo& vehicle_info, StatePID& state_)
 {
-  // Assigning the input parameter 'x', which represents the full_state, to the member variables of the state
-  assignStateVariables(x, state_);
-  
-  // translational_position_error computation
-  cim.translational_position_error = cr.position - cr.user_defined_position;
-
-  // Set angular_position_reference_dot (angular_position_reference_dot[0] and angular_position_reference_dot[1] are
-  // automatically updated as they are referenced by roll_reference_dot and pitch_reference_dot)
-  cim.angular_position_reference_dot[2] = cr.user_defined_yaw_dot; 
-
-  // Set angular_position_reference_dot_dot (angular_position_reference_dot_dot[0] and 
-  // angular_position_reference_dot_dot[1] are automatically updated as they are referenced by roll_reference_dot
-  // and pitch_reference_dot)
-  cim.angular_position_reference_dot_dot[2] = cr.user_defined_yaw_dot_dot;
-
-  cim.jacobian_matrix_inverse = this->jacobianMatrixInverse(cr.euler_angles_rpy[0], cr.euler_angles_rpy[1]);
-
-  cim.rotation_matrix_321_global_to_local = this->rotationMatrix321GlobalToLocal(cr.euler_angles_rpy[0],
-                                                                                 cr.euler_angles_rpy[1],
-                                                                                 cr.euler_angles_rpy[2]);
-
-  cim.mu_translational_raw = vehicle_info.mass * (
-    - gains_.KP_translational * cim.translational_position_error
-    - gains_.KD_translational * (cr.velocity - cr.user_defined_velocity)
-    - gains_.KI_translational * state_.integral_translational_position_error
-    + cr.user_defined_acceleration
-  );
-
-  // Convert the mu_translational from global to local coordinates
-  cim.mu_translational = cim.rotation_matrix_321_global_to_local * cim.mu_translational_raw; // TEMPORARY UNTIL THE SAFETY MECHANISM IS IMPLEMENTED
-
-  cim.U_control_inputs[0] = std::sqrt(
-    std::pow(cim.mu_translational[0], 2)
-    + std::pow(cim.mu_translational[1], 2)
-    + std::pow((vehicle_info.mass * GRAVITATIONAL_ACCELERATION - cim.mu_translational[2]), 2)
-  );
-
-  double temporaryvar_roll_reference_1 = -(1/cim.U_control_inputs[0]) * (
-    cim.mu_translational[0] * std::sin(cr.user_defined_yaw)
-    - cim.mu_translational[1] * std::cos(cr.user_defined_yaw)
-  );
-  cim.roll_reference = std::atan2(
-    temporaryvar_roll_reference_1,
-    std::sqrt(1 - std::pow(temporaryvar_roll_reference_1, 2))
-  );
-
-  cim.pitch_reference = std::atan2(
-    - (cim.mu_translational[0] * std::cos(cr.user_defined_yaw)
-    +  cim.mu_translational[1] * std::sin(cr.user_defined_yaw)),
-    vehicle_info.mass * GRAVITATIONAL_ACCELERATION - cim.mu_translational[2]
-  );
-
-  // Compute angular error
-  cim.angular_error[0] = cr.euler_angles_rpy[0] - cim.roll_reference;
-  cim.angular_error[1] = cr.euler_angles_rpy[1] - cim.pitch_reference;
-  cim.angular_error[2] = std::fmod((cr.euler_angles_rpy[2] - cr.user_defined_yaw + M_PI), 2*M_PI) - M_PI;
-
   cim.internal_state_roll_ref_filter = vehicle_info.A_filter_roll_ref * state_.state_roll_ref_filter 
                                      + vehicle_info.B_filter_roll_ref * cim.roll_reference;
 
   cim.internal_state_pitch_ref_filter = vehicle_info.A_filter_pitch_ref * state_.state_pitch_ref_filter 
-                                    + vehicle_info.B_filter_pitch_ref * cim.pitch_reference;
+                                      + vehicle_info.B_filter_pitch_ref * cim.pitch_reference;
 
   cim.roll_reference_dot = vehicle_info.C_filter_roll_ref * state_.state_roll_ref_filter;
   cim.pitch_reference_dot = vehicle_info.C_filter_pitch_ref * state_.state_pitch_ref_filter;
 
   cim.roll_reference_dot_dot = vehicle_info.C_filter_roll_ref * cim.internal_state_roll_ref_filter;
   cim.pitch_reference_dot_dot = vehicle_info.C_filter_pitch_ref * cim.internal_state_pitch_ref_filter;
+}
 
-  cim.euler_angles_rpy_dot = cim.jacobian_matrix_inverse * cr.angular_velocity;
+/*
+  OUTER LOOP CONTROLLER
+*/
+void PID::computeOuterLoop(ControlInternalMembers& cim,
+                            VehicleInfo& vehicle_info,
+                            StatePID& state_, 
+                            ControlReferences& cr,
+                            GainsPID& gains_,
+                            ControllerSpecificInternalMembers& csim_)
+{
+  csim_.outer_loop_dynamic_inversion = - vehicle_info.mass * GRAVITATIONAL_ACCELERATION * this->e3_basis;
+  csim_.outer_loop_P = - gains_.KP_translational * cim.translational_position_error;
+  csim_.outer_loop_D = - gains_.KD_translational * (cr.velocity - cr.user_defined_velocity);
+  csim_.outer_loop_I = - gains_.KI_translational * state_.integral_translational_position_error;
 
-  cim.U2_U3_U4 = cr.angular_velocity.cross(vehicle_info.inertia_matrix * cr.angular_velocity) + 
+  cim.mu_translational_raw = csim_.outer_loop_dynamic_inversion + 
+    vehicle_info.mass * (
+      csim_.outer_loop_P
+    + csim_.outer_loop_D
+    + csim_.outer_loop_I
+    + cr.user_defined_acceleration
+  );
+}
+
+/*
+  INNER LOOP CONTROLLER
+*/
+void PID::computeInnerLoop(ControlInternalMembers& cim,
+                            VehicleInfo& vehicle_info,
+                            StatePID& state_, 
+                            ControlReferences& cr,
+                            GainsPID& gains_,
+                            ControllerSpecificInternalMembers& csim_)
+{
+  csim_.inner_loop_dynamic_inversion = cr.angular_velocity.cross(vehicle_info.inertia_matrix * cr.angular_velocity);
+  csim_.inner_loop_P = - gains_.KP_rotational * cim.angular_error;
+  csim_.inner_loop_D = - gains_.KD_rotational * (cim.euler_angles_rpy_dot - cim.angular_position_reference_dot);
+  csim_.inner_loop_I = - gains_.KI_rotational * state_.integral_angular_error;
+
+  cim.U2_U3_U4 = csim_.inner_loop_dynamic_inversion + 
     vehicle_info.inertia_matrix * (
-    - gains_.KP_rotational * cim.angular_error 
-    - gains_.KD_rotational * (cim.euler_angles_rpy_dot - cim.angular_position_reference_dot)
-    - gains_.KI_rotational * state_.integral_angular_error
+      csim_.inner_loop_P 
+    + csim_.inner_loop_D
+    + csim_.inner_loop_I
     + cim.angular_position_reference_dot_dot
   );
+}
 
-  // cim.thrust_vector = vehicle_info.mixer_matrix * cim.U_control_inputs; // FOR X8-COPTER
 
-  cim.thrust_vector_quadcopter = vehicle_info.mixer_matrix_quadcopter * cim.U_control_inputs; // FOR QUADCOPTER
+/*
+  PID Control algorithm
+*/
+void PID::computeControlAlgorithm(state_type &x, state_type &dxdt, const double /* t */) 
+{
+  // Assigning the input parameter 'x', which represents the full_state, to the member variables of the state
+  this->assignStateVariables(x, state_);
 
-  computeNormalizedThrustQuadcopterMode(cim, vehicle_info);
+  /*
+    This function calculates the translational position error, sets the reference angular rate 
+    and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative 
+    of the Euler angles, and the rotation matrix to go from global to local coordinates.
+  */
+  this->computeTranslationalAndRotationalParameters(cim, cr);
+  
+  /*
+    Compute OUTER LOOP CONTROLLER
+  */
+  this->computeOuterLoop(cim, vehicle_info, state_, cr, gains_, csim_);
+
+  // IMPLEMENT THE SAFETY MECHANISM HERE
+
+  /*
+  Compute:
+    the Total Thrust: cim.U_control_inputs[0],
+    the desired/reference roll angle: cim.roll_reference,
+    the desired/reference pitch angle: cim.pitch_reference.
+  */
+  this->compute_U1_RollRef_PitchRef(cim);
+
+  // Compute angular error
+  this->computeAngularError(cim, cr);
+
+  /*
+    Compute the variables used for the differentiator of the reference roll and pitch angles.
+  */
+  this->computeFilterDifferentiatorVariables(cim, vehicle_info, state_);
+
+  /*
+    Compute INNER LOOP CONTROLLER
+  */
+  this->computeInnerLoop(cim, vehicle_info, state_, cr, gains_, csim_);
+
+  /*
+    Compute the thrust in Newton that each motor needs to produce
+  */
+  // FOR X8-COPTER
+  cim.thrust_vector = vehicle_info.mixer_matrix * cim.U_control_inputs; 
+
+  // FOR QUADCOPTER
+  // cim.thrust_vector_quadcopter = vehicle_info.mixer_matrix_quadcopter * cim.U_control_inputs; 
+
+  /*
+  Convert the thrust that each motor needs to generate from Newton to
+  the normalized value comprised between 0 and 1 to be sent to Pixhawk
+  */
+  // FOR X8COPTER
+  this->computeNormalizedThrust(cim, vehicle_info);
+
+  // FOR QUADCOPTER
+  // this->computeNormalizedThrustQuadcopterMode(cim, vehicle_info);
+
+   
 
 
   // *************** DEBUGGING ***************
-  // std::cout << "ALIAS thrust_vector_quadcopter DEBUG inside controller: " << cim.thrust_vector_quadcopter << std::endl;
-  // std::cout << "ALIAS thrust_vector_quadcopter_normalized DEBUG inside controller: " << cim.thrust_vector_quadcopter_normalized << std::endl;
+  /* 
+  std::cout << "ALIAS thrust_vector_quadcopter DEBUG inside controller: " << cim.thrust_vector_quadcopter << std::endl;
+  std::cout << "ALIAS thrust_vector_quadcopter_normalized DEBUG inside controller: " << cim.thrust_vector_quadcopter_normalized << std::endl;
   
-  // std::cout << "ALIAS mixer_matrix DEBUG inside controller: " << vehicle_info.mixer_matrix << std::endl;
-  // std::cout << "ALIAS jacobian_matrix_inverse DEBUG inside controller: " << cim.jacobian_matrix_inverse << std::endl;
-  // std::cout << "ALIAS mass DEBUG inside controller: " << vehicle_info.mass << std::endl;
-  // std::cout << "ALIAS state_roll_ref_filter DEBUG inside controller: " << state_.state_roll_ref_filter << std::endl;
-  // std::cout << "ALIAS KP_translational DEBUG inside controller: " << gains_.KP_translational << std::endl;
+  std::cout << "ALIAS mixer_matrix DEBUG inside controller: " << vehicle_info.mixer_matrix << std::endl;
+  std::cout << "ALIAS jacobian_matrix_inverse DEBUG inside controller: " << cim.jacobian_matrix_inverse << std::endl;
+  std::cout << "ALIAS mass DEBUG inside controller: " << vehicle_info.mass << std::endl;
+  std::cout << "ALIAS state_roll_ref_filter DEBUG inside controller: " << state_.state_roll_ref_filter << std::endl;
+  std::cout << "ALIAS KP_translational DEBUG inside controller: " << gains_.KP_translational << std::endl;
 
-  // std::cout << "ALIAS user_defined_position DEBUG inside controller: " << cr.user_defined_position << std::endl;
-  // std::cout << "ALIAS user_defined_velocity DEBUG inside controller: " << cr.user_defined_velocity << std::endl;
-  // std::cout << "ALIAS user_defined_acceleration DEBUG inside controller: " << cr.user_defined_acceleration << std::endl;
-  // std::cout << "ALIAS user_defined_yaw_ DEBUG inside controller: " << cr.user_defined_yaw << std::endl;
-  // std::cout << "ALIAS user_defined_yaw_dot DEBUG inside controller: " << cr.user_defined_yaw_dot << std::endl;
-  // std::cout << "ALIAS user_defined_yaw_dot_dot DEBUG inside controller: " << cr.user_defined_yaw_dot_dot << std::endl;
+  std::cout << "ALIAS user_defined_position DEBUG inside controller: " << cr.user_defined_position << std::endl;
+  std::cout << "ALIAS user_defined_velocity DEBUG inside controller: " << cr.user_defined_velocity << std::endl;
+  std::cout << "ALIAS user_defined_acceleration DEBUG inside controller: " << cr.user_defined_acceleration << std::endl;
+  std::cout << "ALIAS user_defined_yaw_ DEBUG inside controller: " << cr.user_defined_yaw << std::endl;
+  std::cout << "ALIAS user_defined_yaw_dot DEBUG inside controller: " << cr.user_defined_yaw_dot << std::endl;
+  std::cout << "ALIAS user_defined_yaw_dot_dot DEBUG inside controller: " << cr.user_defined_yaw_dot_dot << std::endl;
 
-  // std::cout << "ALIAS position DEBUG inside controller: " << cr.position << std::endl;
-  // std::cout << "ALIAS velocity DEBUG inside controller: " << cr.velocity << std::endl;
-  // std::cout << "ALIAS euler_angles_rpy DEBUG inside controller: " << cr.euler_angles_rpy << std::endl;
-  // std::cout << "ALIAS angular_velocity DEBUG inside controller: " << cr.angular_velocity << std::endl;
+  std::cout << "ALIAS position DEBUG inside controller: " << cr.position << std::endl;
+  std::cout << "ALIAS velocity DEBUG inside controller: " << cr.velocity << std::endl;
+  std::cout << "ALIAS euler_angles_rpy DEBUG inside controller: " << cr.euler_angles_rpy << std::endl;
+  std::cout << "ALIAS angular_velocity DEBUG inside controller: " << cr.angular_velocity << std::endl;
+  */
   // ************* END DEBUGGING *************
 
   // Assigning the right-hand side of the differential equations to the first time derivative of the full_state
-  assignControlInternalMembersToDxdt(cim, dxdt, state_);
+  this->assignControlInternalMembersToDxdt(cim, dxdt, state_);
 
 }

@@ -18,14 +18,43 @@ PiecewisePolynomialTrajectory::PiecewisePolynomialTrajectory(MultiThreadedNode& 
   user_defined_position_previous_(Eigen::Vector3d::Zero()),
   user_defined_yaw_previous_(0),
   norm_velocity_XY_(0)
-{}
+{
+  // Initialize the user-defined trajectory
+  this->initializePiecewisePolynomialTrajectory(
+    this->getNode().getConfigurationParameters().user_defined_trajectory_file
+  );
+}
+
+/*
+  Function that performs the initialization of the PiecewisePolynomialTrajectory based on the name of the 
+  file provided as input
+*/
+void PiecewisePolynomialTrajectory::initializePiecewisePolynomialTrajectory(const std::string& TrajectoryFileName)
+{
+  // Initialize the matrices of the piecewise polynomial user-defined trajectory
+  this->readJSONfile(TrajectoryFileName);
+
+  // Set the polynomial coefficients of the various matrices
+  this->setPolynomialCoefficientMatrices();
+}
 
 /*
   Function to read the trajectory info coming from the .json file and assign it to the
   piecewise_polynomial_trajectory_info_ struct instantiated in the PiecewisePolynomialTrajectory class
 */
-void PiecewisePolynomialTrajectory::readJSONfile(const std::string& jsonFile) {
-	std::ifstream file(jsonFile);
+void PiecewisePolynomialTrajectory::readJSONfile(const std::string& fileName)
+{
+  // Define the path where the user-defined trajectory JSON files are located
+  const std::string path = "./src/flightstack/params/user_defined_trajectory/";
+
+  // Concatenate the path with the file name
+  std::string jsonFile = path + fileName;
+
+  std::ifstream file(jsonFile);
+  if (!file.is_open()) {
+    throw std::runtime_error("Could not open file: " + jsonFile);
+  }
+
 	nlohmann::json j;
 	file >> j;
 	
@@ -113,8 +142,7 @@ void PiecewisePolynomialTrajectory::setPolynomialCoefficientMatrices()
 void PiecewisePolynomialTrajectory::updateUserDefinedTrajectory(std::atomic<double>& time_current) 
 {
   // Adjust the time_current so that the mission starts TAKEOFF_START_TIME_SECONDS after the program is run
-  // time_current = time_current - TAKEOFF_START_TIME_SECONDS;
-  double temp_time_minus_takeoff = time_current - TAKEOFF_START_TIME_SECONDS;
+  double temp_time_minus_takeoff = time_current - this->getNode().getGlobalParameters().TAKEOFF_START_TIME_SECONDS;
   std::atomic<double> time_current_minus_takeoff(temp_time_minus_takeoff);
 
   // Adjust time and identify segment
@@ -127,39 +155,45 @@ void PiecewisePolynomialTrajectory::updateUserDefinedTrajectory(std::atomic<doub
   // If the current time has passed the last waypoint time but it is not greater than LANDING_START_TIME_SECONDS,
   // set the trajectory to perform HOVER in the last position
   if (time_current_minus_takeoff >= this->getWaypointTimes().back() && 
-        time_current_minus_takeoff < LANDING_START_TIME_SECONDS) 
+        time_current < this->getNode().getGlobalParameters().LANDING_START_TIME_SECONDS) 
   {
+    // std::cout << "User-defined trajectory: PERFORM HOVER IN LAST GOOD POSITION" << std::endl;
     this->setUserDefinedPosition(this->user_defined_position_previous_);
     this->setUserDefinedVelocity(Eigen::Vector3d::Zero());
     this->setUserDefinedAcceleration(Eigen::Vector3d::Zero());
 
   // If the current time has passed the LANDING_START_TIME_SECONDS but not the LANDING_END_TIME_SECONDS,
   // perform the LANDING meneuvre
-  } else if (time_current_minus_takeoff >= LANDING_START_TIME_SECONDS && 
-              time_current_minus_takeoff < LANDING_END_TIME_SECONDS)
+  } else if (time_current >= this->getNode().getGlobalParameters().LANDING_START_TIME_SECONDS && 
+              time_current < this->getNode().getGlobalParameters().LANDING_END_TIME_SECONDS)
   {
+    // std::cout << "User-defined trajectory: PERFORM THE LANDING MANEUVRE" << std::endl;
     // Evaluate and update user_defined_position_
     this->setUserDefinedPosition(Eigen::Vector3d(
-      0.0,
-      0.0,
-      evaluatePolynomial(landing_position_coef_z_, time_current_minus_takeoff - LANDING_START_TIME_SECONDS)));
+      this->user_defined_position_previous_[0],
+      this->user_defined_position_previous_[1],
+      evaluatePolynomial(landing_position_coef_z_,
+                         time_current - this->getNode().getGlobalParameters().LANDING_START_TIME_SECONDS)));
 
     // Evaluate and update user_defined_velocity_
     this->setUserDefinedVelocity(Eigen::Vector3d(
       0.0,
       0.0,
-      evaluatePolynomial(landing_velocity_coef_z_, time_current_minus_takeoff - LANDING_START_TIME_SECONDS)));
+      evaluatePolynomial(landing_velocity_coef_z_,
+                         time_current - this->getNode().getGlobalParameters().LANDING_START_TIME_SECONDS)));
 
     // Evaluate and update user_defined_acceleration_
     this->setUserDefinedAcceleration(Eigen::Vector3d(
       0.0,
       0.0,
-      evaluatePolynomial(landing_acceleration_coef_z_, time_current_minus_takeoff - LANDING_START_TIME_SECONDS)));
+      evaluatePolynomial(landing_acceleration_coef_z_,
+                         time_current - this->getNode().getGlobalParameters().LANDING_START_TIME_SECONDS)));
 
   // If the current time has passed the LANDING_END_TIME_SECONDS,
   // stay at the origin
-  } else if (time_current_minus_takeoff >= LANDING_END_TIME_SECONDS)
+  } else if (time_current >= this->getNode().getGlobalParameters().LANDING_END_TIME_SECONDS)
   {
+    // std::cout << "User-defined trajectory: END OF LANDING MANEUVRE" << std::endl;
     this->setUserDefinedPosition(Eigen::Vector3d::Zero());
     this->setUserDefinedVelocity(Eigen::Vector3d::Zero());
     this->setUserDefinedAcceleration(Eigen::Vector3d::Zero());
@@ -167,6 +201,7 @@ void PiecewisePolynomialTrajectory::updateUserDefinedTrajectory(std::atomic<doub
   // Follow the piecewise polynomial trajectory
   } else {
 
+    // std::cout << "User-defined trajectory: EXECUTE THE MAIN TRAJECTORY" << std::endl;
     // Evaluate and update user_defined_position_
     this->setUserDefinedPosition(Eigen::Vector3d(
       evaluatePolynomial(position_coef_x_.row(this->segment_), this->time_current_adjusted_),
@@ -190,13 +225,15 @@ void PiecewisePolynomialTrajectory::updateUserDefinedTrajectory(std::atomic<doub
   this->user_defined_position_previous_ = this->getUserDefinedPosition();
 
   // DEBUUUUUUG
-  /*
+  
+  /* 
   std::cout << "time_current_minus_takeoff:\n" << time_current_minus_takeoff << std::endl;
   std::cout << "getUserDefinedPosition:\n" << this->getUserDefinedPosition() << std::endl;
   std::cout << "getUserDefinedVelocity:\n" << this->getUserDefinedVelocity() << std::endl;
   std::cout << "getUserDefinedAcceleration:\n" << this->getUserDefinedAcceleration() << std::endl;
   std::cout << "segment_:\n" << this->segment_ << std::endl;
   */
+ 
   
 
 }
@@ -207,6 +244,11 @@ void PiecewisePolynomialTrajectory::updateUserDefinedTrajectory(std::atomic<doub
 */
 void PiecewisePolynomialTrajectory::updateUserDefinedYaw()
 {
+  // Adjust the time_current so that the mission starts TAKEOFF_START_TIME_SECONDS after the program is run
+  double temp_time_minus_takeoff = this->getNode().getCurrentTime() - 
+                                   this->getNode().getGlobalParameters().TAKEOFF_START_TIME_SECONDS;
+  std::atomic<double> time_current_minus_takeoff(temp_time_minus_takeoff);
+
   // Compute the 2D norm of the trajectory velocity in the XY plane
   this->norm_velocity_XY_ = norm2D(this->velocity_coef_x_.row(this->segment_),
                                    this->velocity_coef_y_.row(this->segment_),
@@ -214,18 +256,26 @@ void PiecewisePolynomialTrajectory::updateUserDefinedYaw()
 
   // If the norm of the velocity in the XY plane is close to zero OR If the current time has passed the
   // last waypoint time, THEN set the trajectory to keep the last yaw angle
-  if (this->norm_velocity_XY_ < 1e-3 || (this->getNode().getCurrentTime() >= this->getWaypointTimes().back())) {
+  if (this->norm_velocity_XY_ < 1e-3 || (time_current_minus_takeoff >= this->getWaypointTimes().back()))
+  {
+    // std::cout << "User-defined Yaw: KEEP LAST GOOD YAW ANGLE" << std::endl;
+
     this->setUserDefinedYaw(this->user_defined_yaw_previous_);
     this->setUserDefinedYawDot(0.0);
     this->setUserDefinedYawDotDot(0.0);
-    // std::cout << "DEBUG 2 - time_current_adjusted_: " << this->time_current_adjusted_ << std::endl;
-    // std::cout << "DEBUG 2 - current_time_: " << this->getNode().getCurrentTime() << std::endl;
+
+    // this->setUserDefinedYaw(-((2.0 * M_PI) / 60.0) * time_current_minus_takeoff);
+    // this->setUserDefinedYawDot(-(2.0 * M_PI) / 60.0);
+    // this->setUserDefinedYawDotDot(0.0);
 
   } else {
+    // std::cout << "User-defined Yaw: EXECUTE THE MAIN YAW TRAJECTORY" << std::endl;
+
     // Update the user-defined yaw angle
     this->setUserDefinedYaw(yawComputation(this->velocity_coef_x_.row(this->segment_),
                                            this->velocity_coef_y_.row(this->segment_),
                                            this->time_current_adjusted_)); 
+    // this->setUserDefinedYaw(0.0); 
 
     // Update the first derivative of the user-defined yaw angle
     this->setUserDefinedYawDot(yawDotComputation(this->velocity_coef_x_.row(this->segment_),
@@ -233,6 +283,8 @@ void PiecewisePolynomialTrajectory::updateUserDefinedYaw()
                                                  this->acceleration_coef_x_.row(this->segment_),
                                                  this->acceleration_coef_y_.row(this->segment_),
                                                  this->time_current_adjusted_));
+    // this->setUserDefinedYawDot(0.0);
+
 
     // Update the second derivative of the user-defined yaw angle
     this->setUserDefinedYawDotDot(yawDotDotComputation(this->velocity_coef_x_.row(this->segment_),
@@ -242,18 +294,19 @@ void PiecewisePolynomialTrajectory::updateUserDefinedYaw()
                                                        this->jerk_coef_x_.row(this->segment_),
                                                        this->jerk_coef_y_.row(this->segment_),
                                                        this->time_current_adjusted_));
-    // std::cout << "DEBUG 3 - time_current_adjusted_: " << this->time_current_adjusted_ << std::endl;
-    // std::cout << "DEBUG 3 - current_time_: " << this->getNode().getCurrentTime() << std::endl;
-    // std::cout << "DEBUG 3 - waypoint_times_ last element: " << this->getWaypointTimes().back() << std::endl;
-  }
+    // this->setUserDefinedYawDotDot(0.0);
+
+ }
 
   // Update user_defined_yaw_previous_
   this->user_defined_yaw_previous_ = this->getUserDefinedYaw();
 
   // DEBUUUUUUG
-  // std::cout << "getUserDefinedYaw:\n" << this->getUserDefinedYaw() << std::endl;
-  // std::cout << "getUserDefinedYawDot:\n" << this->getUserDefinedYawDot() << std::endl;
-  // std::cout << "getUserDefinedYawDotDot:\n" << this->getUserDefinedYawDotDot() << std::endl;
+  /* 
+  std::cout << "getUserDefinedYaw:\n" << this->getUserDefinedYaw() << std::endl;
+  std::cout << "getUserDefinedYawDot:\n" << this->getUserDefinedYawDot() << std::endl;
+  std::cout << "getUserDefinedYawDotDot:\n" << this->getUserDefinedYawDotDot() << std::endl;
+  */
 }
 
 /***********************************************************************************************************************
