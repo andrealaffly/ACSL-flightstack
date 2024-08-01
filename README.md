@@ -18,14 +18,14 @@ We strongly encourage control practitioners, researchers, and UAV enthusiasts to
 - **Provide constructive feedback**
 - **Propose edits through [GitHub](https://github.com/andrealaffly/ACSL-flightstack.git)**
 
-This flight stack is tailored for autonomous UAVs with collinear propellers, such as quadcopters, X8-copters, and hexacopters. Currently, it supports quadcopters and X8-copters. However, by modifying the mixer matrix—which defines the relationship between total thrust, moment of thrust, and thrust produced by each motor—this software can be extended to other UAV configurations with collinear propellers.
+This flight stack is tailored for autonomous UAVs with collinear propellers, such as quadcopters, X8-copters, and hexacopters. Currently, it supports quadcopters and X8-copters. However, by modifying the mixer matrix, which defines the relationship between total thrust, moment of thrust, and thrust produced by each motor, this software can be extended to other UAV configurations with collinear propellers.
 
 ## Outlook on the Control Architecture
 
 Autonomous UAVs with collinear propellers are inherently under-actuated. For this reason, the software includes:
 
-- **Inner Loop**: Handles rotational dynamics.
-- **Outer Loop**: Manages translational dynamics.
+- **Inner Loop**: Handles the rotational dynamics.
+- **Outer Loop**: Handles the translational dynamics.
 
 Both loops are governed by nonlinear equations of motion.
 
@@ -57,7 +57,6 @@ This flight stack is compatible with **[ROS2 Foxy](https://docs.ros.org/en/foxy/
 
 - [**Andrea L'Afflitto**](https://github.com/andrealaffly)
 - [**Mattia Gramuglia**](https://github.com/mattia-gramuglia)
-- [**Giri M. Kumar**](https://github.com/girimugundankumar)
 
 For more information, visit [https://lafflitto.com](https://lafflitto.com).
 
