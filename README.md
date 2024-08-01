@@ -4,7 +4,7 @@
 To clone this repo with all the needed submodules you can run the command:
 
 ```bash
-git clone --recurse-submodules https://github.com/andrealaffly/ACSL_flightstack_X8.git
+git clone --recurse-submodules https://github.com/andrealaffly/ACSL-flightstack.git
 ```
 
 ## Introduction
