@@ -1,8 +1,38 @@
-/* config.cpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-Mattia Gramuglia
-June 7, 2024
-*/
+/***********************************************************************************************************************
+ * File:        config.cpp
+ * Author:      Mattia Gramuglia
+ * Date:        June 7, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Configuration file
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
 #include "config.hpp"
 #include "multi_threaded_node.hpp"
@@ -11,7 +41,7 @@ June 7, 2024
   Function that reads the configuration parameters and assigns it to the members of the 
   ConfigurationParameters struct
 */
-ConfigurationParameters readConfigurationParametersFile(const std::string& configFileName)
+ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile(const std::string& configFileName)
 {
   // Define the path where the user-defined trajectory JSON files are located
   const std::string path = "./src/flightstack/params/config/";
@@ -33,16 +63,9 @@ ConfigurationParameters readConfigurationParametersFile(const std::string& confi
     config.user_defined_trajectory_file = config_json["user_defined_trajectory_file"].get<std::string>();
   }
 
-  if (config_json.contains("controller_type")) {
-    config.controller_type = config_json["controller_type"].get<std::string>();
-  }
-
   if (config_json.contains("hover_after_trajectory_time_seconds")) {
     config.hover_after_trajectory_time_seconds = config_json["hover_after_trajectory_time_seconds"].get<double>();
   }
-
-  // config.user_defined_trajectory_file = config_json["user_defined_trajectory_file"];
-  // config.controller_type = config_json["controller_type"];
 
   return config;
 }

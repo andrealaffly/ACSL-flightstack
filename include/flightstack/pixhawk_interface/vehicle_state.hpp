@@ -1,8 +1,38 @@
-/* vehicle_state.hpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-	Mattia Gramuglia
-	April 9, 2024
-*/
+/***********************************************************************************************************************
+ * File:        vehicle_state.hpp
+ * Author:      Mattia Gramuglia
+ * Date:        April 9, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Class storing the state of the vehicle coming from the flight controller (Pixhawk)
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
 #ifndef VEHICLE_STATE_HPP
 #define VEHICLE_STATE_HPP
@@ -31,7 +61,7 @@ public:
   Eigen::Vector3d& getAngularVelocity();
   Eigen::Vector3d& getEulerAnglesRPY();
   const std::atomic<uint64_t>& getInitialTimestamp() const;
-  std::atomic<double>& getTimeOdometryInSeconds();
+  double& getTimeOdometryInSeconds();
   bool getIsOffsetOdometryMsg() const;
   uint64_t getTimestampOffset() const;
   Eigen::Vector3d& getPositionOffset();
@@ -46,6 +76,7 @@ public:
   void setVelocity(const Eigen::Vector3d& velocity);
   void setAngularVelocity(const Eigen::Vector3d& angular_velocity);
   void setEulerAnglesRPY(const Eigen::Quaterniond& q);
+  void setTimeOdometryInSeconds();
   void setIsOffsetOdometryMsg(bool value);
   void setTimestampOffset(uint64_t timestamp_offset);
   void setPositionOffset(const Eigen::Vector3d& position_offset);
@@ -69,7 +100,7 @@ private:
 
   Eigen::Vector3d euler_angles_rpy_;   // [rad]
 
-  std::atomic<double> time_odometry_;  // [s]
+  double time_odometry_;  // [s]
 
   // Offset variables used to position Pixhawk in (0, 0, 0) with 0 yaw angle 
   // after the "offset" odometry message is received

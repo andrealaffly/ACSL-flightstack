@@ -1,8 +1,38 @@
-/* logging_pid.hpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-	Mattia Gramuglia
-	April 18, 2024
-*/
+/***********************************************************************************************************************
+ * File:        logging_pid.hpp
+ * Author:      Mattia Gramuglia
+ * Date:        April 18, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Logger for the PID controller.
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
 #ifndef LOGGING_PID_HPP
 #define LOGGING_PID_HPP
@@ -47,9 +77,6 @@ namespace expr = boost::log::expressions;
 namespace attrs = boost::log::attributes;
 namespace keywords = boost::log::keywords;
 
-// Define logger for LogData
-extern src::logger logger_logdata;
-
 // Forward declaration of MultiThreadedNode class
 class MultiThreadedNode;
 
@@ -60,61 +87,22 @@ class LogData_PID
 {
 public:
 
+  // Define logger for LogData
+  static src::logger logger_logdata;
+
 	// Constructor
   LogData_PID(MultiThreadedNode& node, PID& controller);
 
-  // References to variables that will be logged
-	const std::atomic<uint64_t>& timestamp_initial;
-	const std::atomic<double>& time_current;
-  const Eigen::Vector3d& user_defined_position;
-  const Eigen::Vector3d& user_defined_velocity;
-  const Eigen::Vector3d& user_defined_acceleration;
-  const double& user_defined_yaw;
-  const double& user_defined_yaw_dot;
-  const double& user_defined_yaw_dot_dot;
-
-  std::atomic<double>& time_odometry;
-  Eigen::Vector3d& position;           
-  Eigen::Quaterniond& q;               
-  Eigen::Vector3d& velocity;            
-  Eigen::Vector3d& angular_velocity;   
-  Eigen::Vector3d& euler_angles_rpy; 
-
-  const std::chrono::duration<double, std::micro>& algorithm_execution_time_microseconds;
-  const Eigen::Vector3d& mu_translational_raw;
-  const Eigen::Vector3d& mu_translational;
-  const Eigen::Vector4d& U_control_inputs;
-  const double& roll_reference;
-  const double& pitch_reference; 
-  const double& roll_reference_dot;
-  const double& pitch_reference_dot; 
-  const double& roll_reference_dot_dot;
-  const double& pitch_reference_dot_dot;
-  const Eigen::Vector3d& euler_angles_rpy_dot;
-  const Eigen::Vector4d& thrust_vector_quadcopter; 
-  const Eigen::Vector4d& thrust_vector_quadcopter_normalized;
-  const Eigen::Matrix<double, 8, 1>& thrust_vector;
-  const Eigen::Matrix<double, 8, 1>& thrust_vector_normalized;
-  const Eigen::Vector3d& angular_error;
-  const Eigen::Vector3d& outer_loop_P; 
-  const Eigen::Vector3d& outer_loop_I; 
-  const Eigen::Vector3d& outer_loop_D; 
-  const Eigen::Vector3d& outer_loop_dynamic_inversion; 
-  const Eigen::Vector3d& inner_loop_P; 
-  const Eigen::Vector3d& inner_loop_I; 
-  const Eigen::Vector3d& inner_loop_D; 
-  const Eigen::Vector3d& inner_loop_dynamic_inversion; 
-
   void logInitializeHeaders();
   void logInitializeLogging();
-  void logLogData(const LogData_PID& data);
-  
+  void logLogData();
 
 private:
 
 	MultiThreadedNode& node_;
-	
 
+  PID& controller_;
+	
 };
 
 

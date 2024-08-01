@@ -1,8 +1,39 @@
-/* pixhawk_actuator_motors.cpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-Mattia Gramuglia
-April 9, 2024
-*/
+/***********************************************************************************************************************
+ * File:        pixhawk_actuator_motors.cpp
+ * Author:      Mattia Gramuglia
+ * Date:        April 9, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Callback that is executed at a fixed specified rate defined by the "timer_controller_".
+ * 							Here are the functions needed to publish to Pixhawk the actuators control inputs.
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
 #include "multi_threaded_node.hpp"
 
@@ -11,10 +42,11 @@ April 9, 2024
 */
 void MultiThreadedNode::publisher_actuator_motors_callback()
 {
-  // Extract current thread
+  /* // Extract current thread
   auto thread_string = "THREAD " + string_thread_id();
 	std::cout << "\n\n";
   std::cout << "PUBLISHER " << thread_string << std::endl;
+	*/
 
   // Arm after ARM_START_TIME_SECONDS 
   if (time_current_ > global_params_.ARM_START_TIME_SECONDS && offboard_flag_ == 0)
@@ -36,8 +68,6 @@ void MultiThreadedNode::publisher_actuator_motors_callback()
 		publish_actuator_motors();
 	}
     
-
-  
   // Disarm after DISARM_START_TIME_SECONDS
   if (time_current_ > global_params_.DISARM_START_TIME_SECONDS && offboard_flag_ == 1)
 	{
@@ -98,14 +128,14 @@ void MultiThreadedNode::publish_actuator_motors()
 	if (time_current_ < global_params_.TAKEOFF_START_TIME_SECONDS || 
 		  time_current_ > global_params_.DISARM_START_TIME_SECONDS) 
 	{
-		msg.control[0] = 0.0;
-		msg.control[1] = 0.0;
-		msg.control[2] = 0.0;
-		msg.control[3] = 0.0;
-		msg.control[4] = 0.0;
-		msg.control[5] = 0.0;
-		msg.control[6] = 0.0;
-		msg.control[7] = 0.0;
+		msg.control[0] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[1] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[2] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[3] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[4] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[5] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[6] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[7] = MINIMUM_VALUE_PUBLISH_MOTORS;
 	} else {
 
 		/* // QUADCOPTER
@@ -117,7 +147,7 @@ void MultiThreadedNode::publish_actuator_motors()
 		msg.control[5] = 0.0;
 		msg.control[6] = 0.0;
 		msg.control[7] = 0.0;
-		 */
+		*/
 
 		// X8-COPTER
 		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[0];
@@ -134,8 +164,8 @@ void MultiThreadedNode::publish_actuator_motors()
 
 	msg.reversible_flags = 0;
 	
-  
-  std::cout << "\n\n";
+  /*
+	std::cout << "\n\n";
   std::cout << "PUBLISHED ACTUATOR MOTORS"   << std::endl;
   std::cout << "=========================="  << std::endl;
 	std::cout << "publish_actuator_motors() time_current_: " << time_current_ << " s" << std::endl;
@@ -146,8 +176,8 @@ void MultiThreadedNode::publish_actuator_motors()
 	std::cout << "publish_actuator_motors() motor_5      : " << msg.control[4] << std::endl;
 	std::cout << "publish_actuator_motors() motor_6      : " << msg.control[5] << std::endl;
 	std::cout << "publish_actuator_motors() motor_7      : " << msg.control[6] << std::endl;
-	std::cout << "publish_actuator_motors() motor_8      : " << msg.control[7] << "\n\n"; 
-	
+	std::cout << "publish_actuator_motors() motor_8      : " << msg.control[7] << "\n\n";
+	*/ 
 	
 	publisher_actuator_motors_->publish(msg);
 }

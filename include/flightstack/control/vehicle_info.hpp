@@ -1,8 +1,38 @@
-/* vehicle_info.hpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-	Mattia Gramuglia
-	April 22, 2024
-*/
+/***********************************************************************************************************************
+ * File:        vehicle_info.hpp
+ * Author:      Mattia Gramuglia
+ * Date:        April 22, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Vehicle properties such as mass, inertia matrix, motor thrust curves, etc.
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
 #ifndef VEHICLE_INFO_HPP
 #define VEHICLE_INFO_HPP
@@ -17,11 +47,13 @@ inline constexpr double UPPER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON = 9.5;
 
 inline constexpr double LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON = 0.3;
 
+inline constexpr double MINIMUM_VALUE_PUBLISH_MOTORS = 0.05;
+
 
 struct VehicleInfo 
 {
 
-  const float mass = 1.920; // [kg] vehicle mass
+  const double mass = 1.920; // [kg] vehicle mass
 
   const Eigen::Matrix3d inertia_matrix = (Eigen::Matrix3d() << 
      2.271990e-02, -6.557000e-06, -1.003498e-03,
@@ -30,44 +62,68 @@ struct VehicleInfo
   ).finished(); // [kg*m^2] inertia matrix of the vehicle system (drone frame + box + propellers) expressed in
                 // Pixhawk coordinate system (FRD - x-Front, y-Right, z-Down), computed at the vehicle center of mass
   
-  const float air_density = 1.225; // [kg/m^3] air density
+  const double air_density = 1.225; // [kg/m^3] air density
 
-  const float surface_area = 0.07; // [m^2] surface area of the drone to account fro the drag
+  const double surface_area = 0.07; // [m^2] surface area of the drone to account fro the drag
 
-  const float drag_coefficient = 1.28; // [-] drag coefficient (equal to that of a plate)
+  const double drag_coefficient = 1.28; // [-] drag coefficient (equal to that of a plate)
   const Eigen::Matrix3d drag_coefficient_matrix = (Eigen::Matrix3d() << 
     drag_coefficient, 0,                0,
     0,                drag_coefficient, 0,
     0,                0,                0
   ).finished();
 
-  const float distance_motors_cenetrline_x_dir = 0.0881269; // [m] distance between the centerline of the drone and the
+  const double distance_motors_cenetrline_x_dir = 0.0881269; // [m] distance between the centerline of the drone and the
                                                             // motors along x direction in local FRD frame
-  const float distance_motors_cenetrline_y_dir = 0.1083450; // [m] distance between the centerline of the drone and the
+  const double distance_motors_cenetrline_y_dir = 0.1083450; // [m] distance between the centerline of the drone and the
                                                             // motors along y direction in local FRD frame
-  const float propeller_drag_coefficient = 0.01; // [m] propellers drag coefficient
+  const double propeller_drag_coefficient = 0.01; // [m] propellers drag coefficient
 
-  const Eigen::Matrix2d A_filter_roll_ref = (Eigen::Matrix2d() << 
-    -15, -225, 
-     1,   0 
-  ).finished(); // A matrix of the roll_ref filter
+  // const Eigen::Matrix2d A_filter_roll_des = (Eigen::Matrix2d() << 
+  //   -40.824, -1049.8, 
+  //    1,   0 
+  // ).finished(); // A matrix of the roll_des filter
 
-  const Eigen::Vector2d B_filter_roll_ref = Eigen::Vector2d(1, 0); // B matrix of the roll_ref filter
+  // const Eigen::Vector2d B_filter_roll_des = Eigen::Vector2d(1, 0); // B matrix of the roll_des filter
 
-  const Eigen::RowVector2d C_filter_roll_ref = Eigen::RowVector2d(225, 0); // C matrix of the roll_ref filter
+  // const Eigen::RowVector2d C_filter_roll_des = Eigen::RowVector2d(1049.8, 0); // C matrix of the roll_des filter
 
-  const int D_filter_roll_ref = 0; // D matrix of the roll_ref filter
+  // const double D_filter_roll_des = 0.0; // D matrix of the roll_des filter
 
-  const Eigen::Matrix2d A_filter_pitch_ref = (Eigen::Matrix2d() << 
-    -15, -225, 
-      1,   0 
-  ).finished(); // A matrix of the pitch_ref filter
+  // const Eigen::Matrix2d A_filter_pitch_des = (Eigen::Matrix2d() << 
+  //   -40.824, -1049.8, 
+  //     1,   0 
+  // ).finished(); // A matrix of the pitch_des filter
 
-  const Eigen::Vector2d B_filter_pitch_ref = Eigen::Vector2d(1, 0); // B matrix of the pitch_ref filter
+  // const Eigen::Vector2d B_filter_pitch_des = Eigen::Vector2d(1, 0); // B matrix of the pitch_des filter
 
-  const Eigen::RowVector2d C_filter_pitch_ref = Eigen::RowVector2d(225, 0); // C matrix of the pitch_ref filter
+  // const Eigen::RowVector2d C_filter_pitch_des = Eigen::RowVector2d(1049.8, 0); // C matrix of the pitch_des filter
 
-  const int D_filter_pitch_ref = 0; // D matrix of the pitch_ref filter
+  // const double D_filter_pitch_des = 0.0; // D matrix of the pitch_des filter
+
+  // Filter/differentiator values to compute roll_desired_dot
+  Eigen::Matrix2d A_filter_roll_des;
+  Eigen::Vector2d B_filter_roll_des;
+  Eigen::RowVector2d C_filter_roll_des;
+  double D_filter_roll_des;
+
+  // Filter/differentiator values to compute pitch_desired_dot
+  Eigen::Matrix2d A_filter_pitch_des;
+  Eigen::Vector2d B_filter_pitch_des;
+  Eigen::RowVector2d C_filter_pitch_des;
+  double D_filter_pitch_des;
+
+  // Filter/differentiator values to compute roll_desired_dot_dot
+  Eigen::Matrix2d A_filter_roll_dot_des;
+  Eigen::Vector2d B_filter_roll_dot_des;
+  Eigen::RowVector2d C_filter_roll_dot_des;
+  double D_filter_roll_dot_des;
+
+  // Filter/differentiator values to compute pitch_desired_dot_dot
+  Eigen::Matrix2d A_filter_pitch_dot_des;
+  Eigen::Vector2d B_filter_pitch_dot_des;
+  Eigen::RowVector2d C_filter_pitch_dot_des;
+  double D_filter_pitch_dot_des;
 
   // Declare const matrix mixer_matrix using a lambda function
   const Eigen::Matrix<double, 8, 4> mixer_matrix = [this]() {

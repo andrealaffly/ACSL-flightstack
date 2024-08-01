@@ -23,32 +23,32 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_pid.cpp
+ * File:        logging_mrac.cpp
  * Author:      Mattia Gramuglia
- * Date:        April 18, 2024
+ * Date:        June 13, 2024
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 
- * Description: Logger for the PID controller.
+ * Description: Logger for the MRAC controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
  **********************************************************************************************************************/
 
-#include "pid.hpp"
-#include "logging_pid.hpp"
+#include "mrac.hpp"
+#include "logging_mrac.hpp"
 #include "multi_threaded_node.hpp"
 
 // Define the logger for LogData
-src::logger LogData_PID::logger_logdata;
+src::logger LogData_MRAC::logger_logdata;
 
 // Constructor
-LogData_PID::LogData_PID(MultiThreadedNode& node, PID& controller) :
+LogData_MRAC::LogData_MRAC(MultiThreadedNode& node, MRAC& controller) :
   node_(node),
   controller_(controller)
 {}
 
 // Function to print headers
-void LogData_PID::logInitializeHeaders()
+void LogData_MRAC::logInitializeHeaders()
 {
 	std::ostringstream oss;
 
@@ -154,14 +154,127 @@ void LogData_PID::logInitializeHeaders()
       << "Inner loop Dynamic Inversion term x [-], "
       << "Inner loop Dynamic Inversion term y [-], "
       << "Inner loop Dynamic Inversion term z [-], "
+      << "Translational reference model position x [m], "
+      << "Translational reference model position y [m], "
+      << "Translational reference model position z [m], "
+      << "Translational reference model velocity x [m/s], "
+      << "Translational reference model velocity y [m/s], "
+      << "Translational reference model velocity z [m/s], "
+      << "K_hat_x_translational index-00 [-], "
+      << "K_hat_x_translational index-10 [-], "
+      << "K_hat_x_translational index-20 [-], "
+      << "K_hat_x_translational index-30 [-], "
+      << "K_hat_x_translational index-40 [-], "
+      << "K_hat_x_translational index-50 [-], "
+      << "K_hat_x_translational index-01 [-], "
+      << "K_hat_x_translational index-11 [-], "
+      << "K_hat_x_translational index-21 [-], "
+      << "K_hat_x_translational index-31 [-], "
+      << "K_hat_x_translational index-41 [-], "
+      << "K_hat_x_translational index-51 [-], "
+      << "K_hat_x_translational index-02 [-], "
+      << "K_hat_x_translational index-12 [-], "
+      << "K_hat_x_translational index-22 [-], "
+      << "K_hat_x_translational index-32 [-], "
+      << "K_hat_x_translational index-42 [-], "
+      << "K_hat_x_translational index-52 [-], "
+      << "K_hat_r_translational index-00 [-], "
+      << "K_hat_r_translational index-10 [-], "
+      << "K_hat_r_translational index-20 [-], "
+      << "K_hat_r_translational index-01 [-], "
+      << "K_hat_r_translational index-11 [-], "
+      << "K_hat_r_translational index-21 [-], "
+      << "K_hat_r_translational index-02 [-], "
+      << "K_hat_r_translational index-12 [-], "
+      << "K_hat_r_translational index-22 [-], "
+      << "Theta_hat_translational index-00 [-], "
+      << "Theta_hat_translational index-10 [-], "
+      << "Theta_hat_translational index-20 [-], "
+      << "Theta_hat_translational index-30 [-], "
+      << "Theta_hat_translational index-40 [-], "
+      << "Theta_hat_translational index-50 [-], "
+      << "Theta_hat_translational index-01 [-], "
+      << "Theta_hat_translational index-11 [-], "
+      << "Theta_hat_translational index-21 [-], "
+      << "Theta_hat_translational index-31 [-], "
+      << "Theta_hat_translational index-41 [-], "
+      << "Theta_hat_translational index-51 [-], "
+      << "Theta_hat_translational index-02 [-], "
+      << "Theta_hat_translational index-12 [-], "
+      << "Theta_hat_translational index-22 [-], "
+      << "Theta_hat_translational index-32 [-], "
+      << "Theta_hat_translational index-42 [-], "
+      << "Theta_hat_translational index-52 [-], "
+      << "Rotational reference model omega x [rad/s], "
+      << "Rotational reference model omega y [rad/s], "
+      << "Rotational reference model omega z [rad/s], "
+      << "K_hat_x_rotational index-00 [-], "
+      << "K_hat_x_rotational index-10 [-], "
+      << "K_hat_x_rotational index-20 [-], "
+      << "K_hat_x_rotational index-01 [-], "
+      << "K_hat_x_rotational index-11 [-], "
+      << "K_hat_x_rotational index-21 [-], "
+      << "K_hat_x_rotational index-02 [-], "
+      << "K_hat_x_rotational index-12 [-], "
+      << "K_hat_x_rotational index-22 [-], "
+      << "K_hat_r_rotational index-00 [-], "
+      << "K_hat_r_rotational index-10 [-], "
+      << "K_hat_r_rotational index-20 [-], "
+      << "K_hat_r_rotational index-01 [-], "
+      << "K_hat_r_rotational index-11 [-], "
+      << "K_hat_r_rotational index-21 [-], "
+      << "K_hat_r_rotational index-02 [-], "
+      << "K_hat_r_rotational index-12 [-], "
+      << "K_hat_r_rotational index-22 [-], "
+      << "Theta_hat_rotational index-00 [-], "
+      << "Theta_hat_rotational index-10 [-], "
+      << "Theta_hat_rotational index-20 [-], "
+      << "Theta_hat_rotational index-30 [-], "
+      << "Theta_hat_rotational index-40 [-], "
+      << "Theta_hat_rotational index-50 [-], "
+      << "Theta_hat_rotational index-01 [-], "
+      << "Theta_hat_rotational index-11 [-], "
+      << "Theta_hat_rotational index-21 [-], "
+      << "Theta_hat_rotational index-31 [-], "
+      << "Theta_hat_rotational index-41 [-], "
+      << "Theta_hat_rotational index-51 [-], "
+      << "Theta_hat_rotational index-02 [-], "
+      << "Theta_hat_rotational index-12 [-], "
+      << "Theta_hat_rotational index-22 [-], "
+      << "Theta_hat_rotational index-32 [-], "
+      << "Theta_hat_rotational index-42 [-], "
+      << "Theta_hat_rotational index-52 [-], "
+      << "r_cmd_translational x [N], "
+      << "r_cmd_translational y [N], "
+      << "r_cmd_translational z [N], "
+      << "mu_PID_baseline_translational x [N], "
+      << "mu_PID_baseline_translational y [N], "
+      << "mu_PID_baseline_translational z [N], "
+      << "mu_adaptive_translational x [N], "
+      << "mu_adaptive_translational y [N], "
+      << "mu_adaptive_translational z [N], "
+      << "omega_cmd_rotational x [rad/s], "
+      << "omega_cmd_rotational y [rad/s], "
+      << "omega_cmd_rotational z [rad/s], "
+      << "r_cmd_rotational x [rad/s^2], "
+      << "r_cmd_rotational y [rad/s^2], "
+      << "r_cmd_rotational z [rad/s^2], "
+      << "tau_PID_baseline_rotational x [Nm], "
+      << "tau_PID_baseline_rotational y [Nm], "
+      << "tau_PID_baseline_rotational z [Nm], "
+      << "tau_adaptive_rotational x [Nm], "
+      << "tau_adaptive_rotational y [Nm], "
+      << "tau_adaptive_rotational z [Nm], "
+      << "dead_zone_value_translational [-], "
+      << "dead_zone_value_rotational [-], "
       
   ;
       
-	BOOST_LOG(LogData_PID::logger_logdata) << oss.str();
+	BOOST_LOG(LogData_MRAC::logger_logdata) << oss.str();
 }
 
 // Function to initialize the logging system
-void LogData_PID::logInitializeLogging()
+void LogData_MRAC::logInitializeLogging()
 {
   // Get the current date and time
   auto now = std::chrono::system_clock::now();
@@ -173,7 +286,7 @@ void LogData_PID::logInitializeLogging()
   std::string current_date = date_ss.str();
 
   // Create the directory path for the logs
-  std::string log_base_directory = "./src/flightstack/log/" + current_date  + "/" + ControlType::getControllerName();
+  std::string log_base_directory = "./src/flightstack/log/" + current_date + "/" + ControlType::getControllerName();
 
   // Check if the directory exists, and create it if it doesn't
   if (!std::filesystem::exists(log_base_directory)) {
@@ -198,7 +311,7 @@ void LogData_PID::logInitializeLogging()
   std::string log_filename = log_ss.str();
 
   // Add the "Tag" attribute with a constant value of "LogDataTag" to the logger
-  LogData_PID::logger_logdata.add_attribute("Tag", attrs::constant<std::string>("LogDataTag"));
+  LogData_MRAC::logger_logdata.add_attribute("Tag", attrs::constant<std::string>("LogDataTag"));
 
   // Define a synchronous sink with a text ostream backend
   typedef sinks::synchronous_sink<sinks::text_ostream_backend> text_sink;
@@ -227,9 +340,9 @@ void LogData_PID::logInitializeLogging()
   logging::add_common_attributes(); // Add attributes like timestamp
 
   // Copy the gains file to the gains_directory with a new name containing the time info
-  std::string source_file = "./src/flightstack/params/control/pid/gains_pid.json";
+  std::string source_file = "./src/flightstack/params/control/mrac/gains_mrac.json";
   std::stringstream target_ss;
-  target_ss << gains_directory << "/gains_pid_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".json";
+  target_ss << gains_directory << "/gains_mrac_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".json";
   std::string target_file = target_ss.str();
 
   if (std::filesystem::exists(source_file)) {
@@ -243,11 +356,11 @@ void LogData_PID::logInitializeLogging()
 }
 
 // Function to log the data
-void LogData_PID::logLogData()
+void LogData_MRAC::logLogData()
 {
 	std::ostringstream oss;
 
-	oss << node_.getInitialTimestamp() << ", "
+  oss << node_.getInitialTimestamp() << ", "
 	    << node_.getCurrentTime() << ", "
       << node_.getUserDefinedTrajectory()->getUserDefinedPosition()(0) << ", "
       << node_.getUserDefinedTrajectory()->getUserDefinedPosition()(1) << ", "
@@ -349,8 +462,121 @@ void LogData_PID::logLogData()
       << controller_.getControllerSpecificInternalMembers().inner_loop_dynamic_inversion(0) << ", "
       << controller_.getControllerSpecificInternalMembers().inner_loop_dynamic_inversion(1) << ", "
       << controller_.getControllerSpecificInternalMembers().inner_loop_dynamic_inversion(2) << ", "
+      << controller_.getStateController().x_ref_translational(0) << ", "
+      << controller_.getStateController().x_ref_translational(1) << ", "
+      << controller_.getStateController().x_ref_translational(2) << ", "
+      << controller_.getStateController().x_ref_translational(3) << ", "
+      << controller_.getStateController().x_ref_translational(4) << ", "
+      << controller_.getStateController().x_ref_translational(5) << ", "
+      << controller_.getStateController().K_hat_x_translational(0,0) << ", "
+      << controller_.getStateController().K_hat_x_translational(1,0) << ", "
+      << controller_.getStateController().K_hat_x_translational(2,0) << ", "
+      << controller_.getStateController().K_hat_x_translational(3,0) << ", "
+      << controller_.getStateController().K_hat_x_translational(4,0) << ", "
+      << controller_.getStateController().K_hat_x_translational(5,0) << ", "
+      << controller_.getStateController().K_hat_x_translational(0,1) << ", "
+      << controller_.getStateController().K_hat_x_translational(1,1) << ", "
+      << controller_.getStateController().K_hat_x_translational(2,1) << ", "
+      << controller_.getStateController().K_hat_x_translational(3,1) << ", "
+      << controller_.getStateController().K_hat_x_translational(4,1) << ", "
+      << controller_.getStateController().K_hat_x_translational(5,1) << ", "
+      << controller_.getStateController().K_hat_x_translational(0,2) << ", "
+      << controller_.getStateController().K_hat_x_translational(1,2) << ", "
+      << controller_.getStateController().K_hat_x_translational(2,2) << ", "
+      << controller_.getStateController().K_hat_x_translational(3,2) << ", "
+      << controller_.getStateController().K_hat_x_translational(4,2) << ", "
+      << controller_.getStateController().K_hat_x_translational(5,2) << ", "
+      << controller_.getStateController().K_hat_r_translational(0,0) << ", "
+      << controller_.getStateController().K_hat_r_translational(1,0) << ", "
+      << controller_.getStateController().K_hat_r_translational(2,0) << ", "
+      << controller_.getStateController().K_hat_r_translational(0,1) << ", "
+      << controller_.getStateController().K_hat_r_translational(1,1) << ", "
+      << controller_.getStateController().K_hat_r_translational(2,1) << ", "
+      << controller_.getStateController().K_hat_r_translational(0,2) << ", "
+      << controller_.getStateController().K_hat_r_translational(1,2) << ", "
+      << controller_.getStateController().K_hat_r_translational(2,2) << ", "
+      << controller_.getStateController().Theta_hat_translational(0,0) << ", "
+      << controller_.getStateController().Theta_hat_translational(1,0) << ", "
+      << controller_.getStateController().Theta_hat_translational(2,0) << ", "
+      << controller_.getStateController().Theta_hat_translational(3,0) << ", "
+      << controller_.getStateController().Theta_hat_translational(4,0) << ", "
+      << controller_.getStateController().Theta_hat_translational(5,0) << ", "
+      << controller_.getStateController().Theta_hat_translational(0,1) << ", "
+      << controller_.getStateController().Theta_hat_translational(1,1) << ", "
+      << controller_.getStateController().Theta_hat_translational(2,1) << ", "
+      << controller_.getStateController().Theta_hat_translational(3,1) << ", "
+      << controller_.getStateController().Theta_hat_translational(4,1) << ", "
+      << controller_.getStateController().Theta_hat_translational(5,1) << ", "
+      << controller_.getStateController().Theta_hat_translational(0,2) << ", "
+      << controller_.getStateController().Theta_hat_translational(1,2) << ", "
+      << controller_.getStateController().Theta_hat_translational(2,2) << ", "
+      << controller_.getStateController().Theta_hat_translational(3,2) << ", "
+      << controller_.getStateController().Theta_hat_translational(4,2) << ", "
+      << controller_.getStateController().Theta_hat_translational(5,2) << ", "
+      << controller_.getStateController().omega_ref_rotational(0) << ", "
+      << controller_.getStateController().omega_ref_rotational(1) << ", "
+      << controller_.getStateController().omega_ref_rotational(2) << ", "
+      << controller_.getStateController().K_hat_x_rotational(0,0) << ", "
+      << controller_.getStateController().K_hat_x_rotational(1,0) << ", "
+      << controller_.getStateController().K_hat_x_rotational(2,0) << ", "
+      << controller_.getStateController().K_hat_x_rotational(0,1) << ", "
+      << controller_.getStateController().K_hat_x_rotational(1,1) << ", "
+      << controller_.getStateController().K_hat_x_rotational(2,1) << ", "
+      << controller_.getStateController().K_hat_x_rotational(0,2) << ", "
+      << controller_.getStateController().K_hat_x_rotational(1,2) << ", "
+      << controller_.getStateController().K_hat_x_rotational(2,2) << ", "
+      << controller_.getStateController().K_hat_r_rotational(0,0) << ", "
+      << controller_.getStateController().K_hat_r_rotational(1,0) << ", "
+      << controller_.getStateController().K_hat_r_rotational(2,0) << ", "
+      << controller_.getStateController().K_hat_r_rotational(0,1) << ", "
+      << controller_.getStateController().K_hat_r_rotational(1,1) << ", "
+      << controller_.getStateController().K_hat_r_rotational(2,1) << ", "
+      << controller_.getStateController().K_hat_r_rotational(0,2) << ", "
+      << controller_.getStateController().K_hat_r_rotational(1,2) << ", "
+      << controller_.getStateController().K_hat_r_rotational(2,2) << ", "
+      << controller_.getStateController().Theta_hat_rotational(0,0) << ", "
+      << controller_.getStateController().Theta_hat_rotational(1,0) << ", "
+      << controller_.getStateController().Theta_hat_rotational(2,0) << ", "
+      << controller_.getStateController().Theta_hat_rotational(3,0) << ", "
+      << controller_.getStateController().Theta_hat_rotational(4,0) << ", "
+      << controller_.getStateController().Theta_hat_rotational(5,0) << ", "
+      << controller_.getStateController().Theta_hat_rotational(0,1) << ", "
+      << controller_.getStateController().Theta_hat_rotational(1,1) << ", "
+      << controller_.getStateController().Theta_hat_rotational(2,1) << ", "
+      << controller_.getStateController().Theta_hat_rotational(3,1) << ", "
+      << controller_.getStateController().Theta_hat_rotational(4,1) << ", "
+      << controller_.getStateController().Theta_hat_rotational(5,1) << ", "
+      << controller_.getStateController().Theta_hat_rotational(0,2) << ", "
+      << controller_.getStateController().Theta_hat_rotational(1,2) << ", "
+      << controller_.getStateController().Theta_hat_rotational(2,2) << ", "
+      << controller_.getStateController().Theta_hat_rotational(3,2) << ", "
+      << controller_.getStateController().Theta_hat_rotational(4,2) << ", "
+      << controller_.getStateController().Theta_hat_rotational(5,2) << ", "
+      << controller_.getControllerSpecificInternalMembers().r_cmd_translational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().r_cmd_translational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().r_cmd_translational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().mu_PID_baseline_translational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().mu_PID_baseline_translational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().mu_PID_baseline_translational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().mu_adaptive_translational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().mu_adaptive_translational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().mu_adaptive_translational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().omega_cmd_rotational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().omega_cmd_rotational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().omega_cmd_rotational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().r_cmd_rotational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().r_cmd_rotational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().r_cmd_rotational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().tau_PID_baseline_rotational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().tau_PID_baseline_rotational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().tau_PID_baseline_rotational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().tau_adaptive_rotational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().tau_adaptive_rotational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().tau_adaptive_rotational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().dead_zone_value_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().dead_zone_value_rotational << ", "
       ;
 
-	BOOST_LOG(LogData_PID::logger_logdata) << oss.str();
+	BOOST_LOG(LogData_MRAC::logger_logdata) << oss.str();
 }
 

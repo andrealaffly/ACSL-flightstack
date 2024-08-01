@@ -1,27 +1,76 @@
-/* control.cpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-	Mattia Gramuglia
-	April 19, 2024
-*/
+/***********************************************************************************************************************
+ * File:        control.cpp
+ * Author:      Mattia Gramuglia
+ * Date:        April 19, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: General class that contains common members used by most of the control algorithms.
+ *              Control algorithm classes inherit from this class.
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
-
-#include "control.hpp"
 #include "multi_threaded_node.hpp"
+#include "control.hpp"
+
 
 // Constructor
-ControlInternalMembers::ControlInternalMembers() : 
+Control::ControlInternalMembers::ControlInternalMembers() : 
+  mu_translational_raw(Eigen::Vector3d::Zero()),
+  mu_translational(Eigen::Vector3d::Zero()),
+  U_control_inputs(Eigen::Vector4d::Zero()),
   U2_U3_U4(U_control_inputs.segment<3>(1)),
-  roll_reference(angular_position_reference[0]),
-  pitch_reference(angular_position_reference[1]),
-  roll_reference_dot(angular_position_reference_dot[0]),
-  pitch_reference_dot(angular_position_reference_dot[1]),
-  roll_reference_dot_dot(angular_position_reference_dot_dot[0]),
-  pitch_reference_dot_dot(angular_position_reference_dot_dot[1])
-
+  angular_position_desired(Eigen::Vector3d::Zero()),
+  angular_position_desired_dot(Eigen::Vector3d::Zero()),
+  angular_position_desired_dot_dot(Eigen::Vector3d::Zero()),
+  roll_desired(angular_position_desired[0]),
+  pitch_desired(angular_position_desired[1]),
+  roll_desired_dot(angular_position_desired_dot[0]),
+  pitch_desired_dot(angular_position_desired_dot[1]),
+  roll_desired_dot_dot(angular_position_desired_dot_dot[0]),
+  pitch_desired_dot_dot(angular_position_desired_dot_dot[1]),
+  internal_state_roll_des_filter(Eigen::Vector2d::Zero()),
+  internal_state_pitch_des_filter(Eigen::Vector2d::Zero()),
+  internal_state_roll_dot_des_filter(Eigen::Vector2d::Zero()),
+  internal_state_pitch_dot_des_filter(Eigen::Vector2d::Zero()),
+  jacobian_matrix_inverse(Eigen::Matrix3d::Zero()),
+  rotation_matrix_321_global_to_local(Eigen::Matrix3d::Zero()),
+  euler_angles_rpy_dot(Eigen::Vector3d::Zero()),
+  angular_error(Eigen::Vector3d::Zero()),
+  translational_position_error(Eigen::Vector3d::Zero()),
+  thrust_vector(Eigen::Matrix<double, 8, 1>::Zero()),
+  thrust_vector_normalized(Eigen::Matrix<double, 8, 1>::Zero()),
+  thrust_vector_quadcopter(Eigen::Vector4d::Zero()),
+  thrust_vector_quadcopter_normalized(Eigen::Vector4d::Zero())
 {}
 
 //Constructor
-ControlReferences::ControlReferences(MultiThreadedNode& node) :
+Control::ControlReferences::ControlReferences(MultiThreadedNode& node) :
   user_defined_position(node.getUserDefinedTrajectory()->getUserDefinedPosition()),
   user_defined_velocity(node.getUserDefinedTrajectory()->getUserDefinedVelocity()),
   user_defined_acceleration(node.getUserDefinedTrajectory()->getUserDefinedAcceleration()),
@@ -38,7 +87,47 @@ ControlReferences::ControlReferences(MultiThreadedNode& node) :
 Control::Control(MultiThreadedNode& node) :
   cr(node),
   node_(node)
-{}
+{
+  this->readJSONdifferentiatorFile();
+}
+
+/*
+  Function to read the differentiator gains coming from the .json file and assign it to the vehicle info 
+  in vehicle_info.hpp
+*/
+void Control::readJSONdifferentiatorFile()
+{
+  // Define the JSON file where the differentiator gains are located
+  const std::string jsonFile = "./src/flightstack/params/control/differentiator_gains.json";
+
+  std::ifstream file(jsonFile);
+  if (!file.is_open()) {
+    throw std::runtime_error("Could not open file: " + jsonFile);
+  }
+
+	nlohmann::json j;
+	file >> j;
+	
+  this->vehicle_info.A_filter_roll_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_roll_des"]);
+  this->vehicle_info.B_filter_roll_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_roll_des"]);
+  this->vehicle_info.C_filter_roll_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_roll_des"]);
+  this->vehicle_info.D_filter_roll_des = j["D_filter_roll_des"];
+
+  this->vehicle_info.A_filter_pitch_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_pitch_des"]);
+  this->vehicle_info.B_filter_pitch_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_pitch_des"]);
+  this->vehicle_info.C_filter_pitch_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_pitch_des"]);
+  this->vehicle_info.D_filter_pitch_des = j["D_filter_pitch_des"];
+
+  this->vehicle_info.A_filter_roll_dot_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_roll_dot_des"]);
+  this->vehicle_info.B_filter_roll_dot_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_roll_dot_des"]);
+  this->vehicle_info.C_filter_roll_dot_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_roll_dot_des"]);
+  this->vehicle_info.D_filter_roll_dot_des = j["D_filter_roll_dot_des"];
+
+  this->vehicle_info.A_filter_pitch_dot_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_pitch_dot_des"]);
+  this->vehicle_info.B_filter_pitch_dot_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_pitch_dot_des"]);
+  this->vehicle_info.C_filter_pitch_dot_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_pitch_dot_des"]);
+  this->vehicle_info.D_filter_pitch_dot_des = j["D_filter_pitch_dot_des"];
+}
 
 // Getter function that returns a reference to the current MultiThreadedNode object
 MultiThreadedNode& Control::getNode() const {
@@ -52,7 +141,7 @@ const VehicleInfo& Control::getVehicleInfo() const
 }
 
 // Getter function that returns a reference to the current ControlInternalMembers object
-const ControlInternalMembers& Control::getControlInternalMembers() const
+const Control::ControlInternalMembers& Control::getControlInternalMembers() const
 {
   return cim;
 }
@@ -67,6 +156,52 @@ const std::chrono::duration<double, std::micro>& Control::getAlgorithmExecutionT
 void Control::setAlgorithmExecutionTimeMicroseconds(std::chrono::duration<double, std::micro> duration)
 {
   algorithm_execution_time_microseconds_ = duration;
+}
+
+// Function that computes the Jacobian matrix given roll and pitch angles
+Eigen::Matrix3d Control::jacobianMatrix(const double& roll, const double& pitch)
+{
+  Eigen::Matrix3d jacobian_matrix;
+
+  jacobian_matrix(0, 0) = 1;
+  jacobian_matrix(0, 1) = 0;
+  jacobian_matrix(0, 2) = -std::sin(pitch);
+
+  jacobian_matrix(1, 0) = 0;
+  jacobian_matrix(1, 1) = std::cos(roll);
+  jacobian_matrix(1, 2) = std::sin(roll) * std::cos(pitch);
+
+  jacobian_matrix(2, 0) = 0;
+  jacobian_matrix(2, 1) = -std::sin(roll);
+  jacobian_matrix(2, 2) = std::cos(roll) * std::cos(pitch);
+
+  return jacobian_matrix;
+}
+
+// Function that computes the time derivative of the Jacobian matrix given
+// roll and pitch angles and their time derivatives
+Eigen::Matrix3d Control::jacobianMatrixDot(const double& roll,
+                                           const double& pitch,
+                                           const double& roll_dot, 
+                                           const double& pitch_dot)
+{
+  Eigen::Matrix3d jacobian_matrix_dot;
+
+  jacobian_matrix_dot(0, 0) = 0;
+  jacobian_matrix_dot(0, 1) = 0;
+  jacobian_matrix_dot(0, 2) = -std::cos(pitch) * pitch_dot;
+
+  jacobian_matrix_dot(1, 0) = 0;
+  jacobian_matrix_dot(1, 1) = -std::sin(roll) * roll_dot;
+  jacobian_matrix_dot(1, 2) = std::cos(roll) * std::cos(pitch) * roll_dot
+                              - std::sin(roll) * std::sin(pitch) * pitch_dot;
+
+  jacobian_matrix_dot(2, 0) = 0;
+  jacobian_matrix_dot(2, 1) = -std::cos(roll) * roll_dot;
+  jacobian_matrix_dot(2, 2) = -std::sin(roll) * std::cos(pitch) * roll_dot
+                              - std::cos(roll) * std::sin(pitch) * pitch_dot;
+
+  return jacobian_matrix_dot;
 }
 
 // Function that returns a 3x3 Jacobian matrix inverse given roll and pitch angles.
@@ -131,13 +266,18 @@ Eigen::Matrix3d Control::rotationMatrix321GlobalToLocal(const double& roll, cons
 }
 
 /*
-  Function that takes as input the thrust that each motor needs to generate in Newton and converts it
-  in the normalized value comprised between 0 and 1 according to the experimental thrust/motor curve 
-  obtained experimentally using the thrust stand.
+  Function that takes as input U1,U2,U3,U4. It computes the thrust that each motor needs to generate in Newton
+  and converts it in the normalized value comprised between 0 and 1 according to the experimental 
+  thrust/motor curve obtained experimentally using the thrust stand.
   For QUADCOPTER 
 */
 void Control::computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info)
 {
+  /*
+    Compute the thrust in Newton that each motor needs to produce
+  */
+  cim.thrust_vector_quadcopter = vehicle_info.mixer_matrix_quadcopter * cim.U_control_inputs;
+
   /* 
   Apply upper saturation at UPPER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON and
   lower saturation at LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON
@@ -165,13 +305,18 @@ void Control::computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim,
 }
 
 /*
-  Function that takes as input the thrust that each motor needs to generate in Newton and converts it
-  in the normalized value comprised between 0 and 1 according to the experimental thrust/motor curve 
-  obtained experimentally using the thrust stand.
+  Function that takes as input U1,U2,U3,U4. It computes the thrust that each motor needs to generate in Newton
+  and converts it in the normalized value comprised between 0 and 1 according to the experimental 
+  thrust/motor curve obtained experimentally using the thrust stand.
   For X8-COPTER 
 */
 void Control::computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& vehicle_info)
 {
+  /*
+    Compute the thrust in Newton that each motor needs to produce
+  */
+  cim.thrust_vector = vehicle_info.mixer_matrix * cim.U_control_inputs;
+
   /* 
   Apply upper saturation at UPPER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON and
   lower saturation at LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON
@@ -217,11 +362,11 @@ void Control::computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& 
 /*
   Function that computes:
     the Total Thrust U1,
-    the desired/reference roll angle RollRef,
-    the desired/reference pitch angle PitchRef.
-  U1 will be fed to mixer matrix, while RollRef and PitchRef will be fed to the inner loop.
+    the desired roll angle RollDes,
+    the desired pitch angle PitchDes.
+  U1 will be fed to mixer matrix, while RollDes and PitchDes will be fed to the inner loop.
 */
-void Control::compute_U1_RollRef_PitchRef(ControlInternalMembers& cim)
+void Control::compute_U1_RollDes_PitchDes(ControlInternalMembers& cim)
 {
   // Convert the mu_translational from global to local coordinates
   cim.mu_translational = cim.rotation_matrix_321_global_to_local * cim.mu_translational_raw; 
@@ -232,48 +377,61 @@ void Control::compute_U1_RollRef_PitchRef(ControlInternalMembers& cim)
     + std::pow(cim.mu_translational[2], 2)
   );
 
-  double temporaryvar_roll_reference_1 = cim.mu_translational[1] / cim.U_control_inputs[0];
-  cim.roll_reference = std::atan2(
-    temporaryvar_roll_reference_1,
-    std::sqrt(1 - std::pow(temporaryvar_roll_reference_1, 2))
+  double temporaryvar_roll_desired_1 = cim.mu_translational[1] / cim.U_control_inputs[0];
+  cim.roll_desired= std::atan2(
+    temporaryvar_roll_desired_1,
+    std::sqrt(1 - std::pow(temporaryvar_roll_desired_1, 2))
   );
 
-  cim.pitch_reference = std::atan2(-cim.mu_translational[0], -cim.mu_translational[2]);
+  cim.pitch_desired = std::atan2(-cim.mu_translational[0], -cim.mu_translational[2]);
+}
+
+/*
+  Function that computes the translational position error
+*/
+void Control::computeTranslationalPositionError(ControlInternalMembers& cim,
+                                                const Eigen::Vector3d& position,
+                                                const Eigen::Vector3d& desired_position)
+{
+  cim.translational_position_error = position - desired_position;
 }
 
 /*
   Function to compute the angular error for roll, pitch, and yaw angles.
   This function calculates the difference between the current euler angles
-  (roll, pitch, yaw) and the reference angles, taking into account the
+  (roll, pitch, yaw) and the desired angles, taking into account the
   wrapping of the yaw angle to ensure it remains within the range [-pi, pi]
   to handle the discontinuity at +/- pi.
 */
-void Control::computeAngularError(ControlInternalMembers& cim, ControlReferences& cr)
+void Control::computeAngularError(ControlInternalMembers& cim,
+                                  const Eigen::Vector3d& euler_angles_rpy,
+                                  const Eigen::Vector3d& angular_position_desired)
 {
-  cim.angular_error[0] = cr.euler_angles_rpy[0] - cim.roll_reference;
-  cim.angular_error[1] = cr.euler_angles_rpy[1] - cim.pitch_reference;
-  cim.angular_error[2] = makeYawAngularErrorContinuous(cr.euler_angles_rpy[2], cr.user_defined_yaw);
+  cim.angular_error[0] = euler_angles_rpy[0] - angular_position_desired[0];
+  cim.angular_error[1] = euler_angles_rpy[1] - angular_position_desired[1];
+  cim.angular_error[2] = makeYawAngularErrorContinuous(euler_angles_rpy[2], angular_position_desired[2]);
 }
 
 /*
-  Function to compute the translational position error and various rotational parameters.
-  This function calculates the translational position error, sets the reference angular rate 
-  and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative 
-  of the Euler angles, and the rotation matrix to go from global to local coordinates.
+  Function to compute various rotational parameters.
+  This function sets the desired angle, angular rate and angular acceleration for yaw,
+  computes the inverse of the Jacobian matrix, the derivative of the Euler angles,
+  and the rotation matrix to go from global to local coordinates.
 */
-void Control::computeTranslationalAndRotationalParameters(ControlInternalMembers& cim, ControlReferences& cr)
+void Control::computeRotationalParameters(ControlInternalMembers& cim, ControlReferences& cr)
 {
-  // translational_position_error computation
-  cim.translational_position_error = cr.position - cr.user_defined_position;
+  // Set angular_position_desired (angular_position_desired[0] and angular_position_desired[1] are
+  // automatically updated as they are referenced by roll_desired and pitch_desired)
+  cim.angular_position_desired[2] = cr.user_defined_yaw;
 
-  // Set angular_position_reference_dot (angular_position_reference_dot[0] and angular_position_reference_dot[1] are
-  // automatically updated as they are referenced by roll_reference_dot and pitch_reference_dot)
-  cim.angular_position_reference_dot[2] = cr.user_defined_yaw_dot; 
+  // Set angular_position_desired_dot (angular_position_desired_dot[0] and angular_position_desired_dot[1] are
+  // automatically updated as they are referenced by roll_desired_dot and pitch_desired_dot)
+  cim.angular_position_desired_dot[2] = cr.user_defined_yaw_dot; 
 
-  // Set angular_position_reference_dot_dot (angular_position_reference_dot_dot[0] and 
-  // angular_position_reference_dot_dot[1] are automatically updated as they are referenced by roll_reference_dot
-  // and pitch_reference_dot)
-  cim.angular_position_reference_dot_dot[2] = cr.user_defined_yaw_dot_dot;
+  // Set angular_position_desired_dot_dot (angular_position_desired_dot_dot[0] and 
+  // angular_position_desired_dot_dot[1] are automatically updated as they are referenced by roll_desired_dot_dot
+  // and pitch_desired_dot_dot)
+  cim.angular_position_desired_dot_dot[2] = cr.user_defined_yaw_dot_dot;
 
   cim.jacobian_matrix_inverse = this->jacobianMatrixInverse(cr.euler_angles_rpy[0], cr.euler_angles_rpy[1]);
 
@@ -319,7 +477,6 @@ double Control::makeYawAngularErrorContinuous(double yaw, double user_defined_ya
   
   return continuos_error;
 }
-
 
 
 

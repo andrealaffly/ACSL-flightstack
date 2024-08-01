@@ -22,72 +22,88 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
 
-/***********************************************************************************************************************  
- * Part of the code in this file leverages the following material.
- *
- * Referenced:  https://github.com/ros-drivers/transport_drivers/tree/main
- *              Copyright 2021 LeoDrive.
- *            
- *              Licensed under the Apache License, Version 2.0 (the "License");
- *              you may not use this file except in compliance with the License.
- *              You may obtain a copy of the License at
- *               
- *                  http://www.apache.org/licenses/LICENSE-2.0
- *              
- *              Unless required by applicable law or agreed to in writing, software
- *              distributed under the License is distributed on an "AS IS" BASIS,
- *              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *              See the License for the specific language governing permissions and
- *              limitations under the License.
- **********************************************************************************************************************/
-
 /***********************************************************************************************************************
- * File:        udp_driver.hpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
+ * File:        logging_mrac.hpp
+ * Author:      Mattia Gramuglia
+ * Date:        June 13, 2024
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 
- * Description: Class for UDP driver.
+ * Description: Logger for the MRAC controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
  **********************************************************************************************************************/
 
-#ifndef UDP_DRIVER_HPP_
-#define UDP_DRIVER_HPP_
+#ifndef LOGGING_MRAC_HPP
+#define LOGGING_MRAC_HPP
 
-#include <iostream>
-#include <memory>
+#include <atomic>
+#include <cstddef>
+#include <chrono>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <ostream>
+#include <sstream>
 #include <string>
 
-#include "udp_socket.hpp"
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/date_time/posix_time/posix_time_types.hpp>
+#include <boost/log/attributes.hpp>
+#include <boost/log/attributes/scoped_attribute.hpp>
+#include <boost/log/core.hpp>
+#include <boost/log/expressions.hpp>
+#include <boost/log/sinks/sync_frontend.hpp>
+#include <boost/log/sinks/text_ostream_backend.hpp>
+#include <boost/log/sources/basic_logger.hpp>
+#include <boost/log/sources/logger.hpp>
+#include <boost/log/sources/record_ostream.hpp>
+#include <boost/log/sources/severity_channel_logger.hpp>
+#include <boost/log/sources/severity_logger.hpp>
+#include <boost/log/support/date_time.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/utility/setup/common_attributes.hpp>
+#include <boost/log/utility/setup/file.hpp>
+#include <boost/log/utility/value_ref.hpp>
+#include <boost/phoenix/bind.hpp>
+#include <boost/smart_ptr/make_shared_object.hpp>
+#include <boost/smart_ptr/shared_ptr.hpp>
+#include <Eigen/Dense>
 
-namespace _drivers_
-{
-namespace _udp_driver_
-{
+namespace logging = boost::log;
+namespace sinks = boost::log::sinks;
+namespace src = boost::log::sources;
+namespace expr = boost::log::expressions;
+namespace attrs = boost::log::attributes;
+namespace keywords = boost::log::keywords;
 
-class UdpDriver
+// Forward declaration of MultiThreadedNode class
+class MultiThreadedNode;
+
+// Forward declaration of MRAC class
+class MRAC;
+
+class LogData_MRAC
 {
 public:
-	explicit UdpDriver(const IoContext & ctx);
 
-	void init_sender(const std::string & ip, uint16_t port);
-	void init_sender(
-		const std::string & remote_ip, uint16_t remote_port,
-		const std::string & host_ip, uint16_t host_port);
-	void init_receiver(const std::string & ip, uint16_t port);
+  // Define logger for LogData
+  static src::logger logger_logdata;
 
-	std::shared_ptr<UdpSocket> sender() const;
-	std::shared_ptr<UdpSocket> receiver() const;
+	// Constructor
+  LogData_MRAC(MultiThreadedNode& node, MRAC& controller);
+
+  void logInitializeHeaders();
+  void logInitializeLogging();
+  void logLogData();
 
 private:
-	const IoContext & m_ctx;
-	std::shared_ptr<UdpSocket> m_sender;
-	std::shared_ptr<UdpSocket> m_receiver;
+
+	MultiThreadedNode& node_;
+
+  MRAC& controller_;
+	
 };
 
-}   // namespace _udp_driver_
-}   // namespace _drivers_
 
-#endif  // UDP_DRIVER_HPP_
+#endif // LOGGING_MRAC_HPP

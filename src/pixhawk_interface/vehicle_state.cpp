@@ -1,8 +1,38 @@
-/* vehicle_state.cpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-	Mattia Gramuglia
-	April 9, 2024
-*/
+/***********************************************************************************************************************
+ * File:        vehicle_state.cpp
+ * Author:      Mattia Gramuglia
+ * Date:        April 9, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Class storing the state of the vehicle coming from the flight controller (Pixhawk)
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
 #include "vehicle_state.hpp"
 #include "multi_threaded_node.hpp"
@@ -11,12 +41,13 @@
 VehicleState::VehicleState(MultiThreadedNode& node) :
   node_(node),
   timestamp_initial_(node.getInitialTimestamp()), // Initialize timestamp_initial_ with the value from MultiThreadedNode
-  timestamp_(0),
+  timestamp_(node.getInitialTimestamp()),
   position_(Eigen::Vector3d::Zero()),
   q_(Eigen::Quaterniond::Identity()),
   velocity_(Eigen::Vector3d::Zero()),
   angular_velocity_(Eigen::Vector3d::Zero()),
   euler_angles_rpy_(Eigen::Vector3d::Zero()),
+  time_odometry_(0.0),
   is_offset_odometry_msg_(true),
   timestamp_offset_(0),
   position_offset_(Eigen::Vector3d::Zero()),
@@ -61,9 +92,8 @@ const std::atomic<uint64_t>& VehicleState::getInitialTimestamp() const {
 }
 
 // Getter function for the time in seconds that has passed from the initial timestamp to the latest received message
-std::atomic<double>& VehicleState::getTimeOdometryInSeconds()
+double& VehicleState::getTimeOdometryInSeconds()
 {
-  time_odometry_ = (timestamp_ - timestamp_initial_) / 1e6;
   return time_odometry_;
 }
 
@@ -127,6 +157,12 @@ void VehicleState::setAngularVelocity(const Eigen::Vector3d& angular_velocity) {
 void VehicleState::setEulerAnglesRPY(const Eigen::Quaterniond& q) {
   Eigen::Vector3d euler_angles_rpy = quaternionToEulerAnglesRPY(q);
   euler_angles_rpy_ = euler_angles_rpy;
+}
+
+// Setter function for the time in seconds that has passed from the initial timestamp to the latest received message
+void VehicleState::setTimeOdometryInSeconds()
+{
+  time_odometry_ = static_cast<double>(timestamp_ - timestamp_initial_) / 1e6;
 }
 
 // Setter function for the is_offset_odometry_msg_

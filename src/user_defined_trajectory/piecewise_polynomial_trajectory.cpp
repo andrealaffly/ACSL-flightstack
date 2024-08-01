@@ -1,8 +1,40 @@
-/* piecewise_polynomial_trajectory.cpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-	Mattia Gramuglia
-	April 15, 2024
-*/
+/***********************************************************************************************************************
+ * File:        piecewise_polynomial_trajectory.cpp
+ * Author:      Mattia Gramuglia
+ * Date:        April 15, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Piecewise polynomial minimu-jerk trajectory computed offline through a MATLAB script.
+ *              The heading (yaw) angle is kept tangential to the trajectory in the X-Y plane and computed online
+ *              along with its first and second derivative.
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
 #include <fstream>
 #include <nlohmann/json.hpp>
@@ -190,11 +222,11 @@ void PiecewisePolynomialTrajectory::updateUserDefinedTrajectory(std::atomic<doub
                          time_current - this->getNode().getGlobalParameters().LANDING_START_TIME_SECONDS)));
 
   // If the current time has passed the LANDING_END_TIME_SECONDS,
-  // stay at the origin
+  // stay at the last good location
   } else if (time_current >= this->getNode().getGlobalParameters().LANDING_END_TIME_SECONDS)
   {
     // std::cout << "User-defined trajectory: END OF LANDING MANEUVRE" << std::endl;
-    this->setUserDefinedPosition(Eigen::Vector3d::Zero());
+    this->setUserDefinedPosition(this->user_defined_position_previous_);
     this->setUserDefinedVelocity(Eigen::Vector3d::Zero());
     this->setUserDefinedAcceleration(Eigen::Vector3d::Zero());
 

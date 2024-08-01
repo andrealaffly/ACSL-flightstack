@@ -1,14 +1,42 @@
-/* logging_mocap.cpp
+/***********************************************************************************************************************
+ * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *    disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ *    following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *    products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ **********************************************************************************************************************/
 
-Mattia Gramuglia
-May 10, 2024
-*/
+/***********************************************************************************************************************
+ * File:        logging_mocap.cpp
+ * Author:      Mattia Gramuglia
+ * Date:        May 10, 2024
+ * For info:    Andrea L'Afflitto 
+ *              a.lafflitto@vt.edu
+ * 
+ * Description: Logger for the motion capture (MOCAP) system.
+ * 
+ * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ **********************************************************************************************************************/
 
+#include "config.hpp"
 #include "logging_mocap.hpp"
 #include "mocap.hpp"
-
-// Define the logger for MocapData
-src::logger logger_mocapdata;
 
 
 namespace _drivers_
@@ -16,28 +44,16 @@ namespace _drivers_
 namespace _udp_driver_
 {
 
+// Define the logger for MocapData
+src::logger MocapData::logger_mocapdata;
+
 // Constructor
 MocapData::MocapData(UdpReceiverNode& node) :
-	timestamp_mocap(node.getTimestampMocap()), // Initialize timestamp_initial_ with the value from MultiThreadedNode
-  time_mocap(node.getTimeMocap()),
-	x(node.getMocapStates().x),
-  y(node.getMocapStates().y),
-  z(node.getMocapStates().z),
-  q0(node.getMocapStates().q0),
-  q1(node.getMocapStates().q1),
-  q2(node.getMocapStates().q2),
-  q3(node.getMocapStates().q3),
-  vx(node.getMocapStates().vx),
-  vy(node.getMocapStates().vy),
-  vz(node.getMocapStates().vz),
-  rollspeed(node.getMocapStates().rollspeed),
-  pitchspeed(node.getMocapStates().pitchspeed),
-  yawspeed(node.getMocapStates().yawspeed),
 	node_(node) // node must be the last in the list to be initialized
 {}
 
 // Function to print headers
-void logInitializeHeaders()
+void MocapData::logInitializeHeaders()
 {
 	std::ostringstream oss;
 
@@ -58,11 +74,11 @@ void logInitializeHeaders()
       << "Mocap Angular velocity z [rad/s], "
   ;
       
-	BOOST_LOG(logger_mocapdata) << oss.str();
+	BOOST_LOG(MocapData::logger_mocapdata) << oss.str();
 }
 
 // Function to initialize the logging system
-void logInitializeLogging()
+void MocapData::logInitializeLogging()
 {
   // Get the current date and time
   auto now = std::chrono::system_clock::now();
@@ -74,7 +90,7 @@ void logInitializeLogging()
   std::string current_date = date_ss.str();
 
   // Create the directory path for the logs
-  std::string log_base_directory = "./src/flightstack/log/" + current_date;
+  std::string log_base_directory = "./src/flightstack/log/" + current_date + "/" + ControlType::getControllerName();
 
   // Check if the directory exists, and create it if it doesn't
   if (!std::filesystem::exists(log_base_directory)) {
@@ -92,7 +108,7 @@ void logInitializeLogging()
   mocap_ss << mocap_directory << "/mocap_log_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".log";
   std::string mocap_log_filename = mocap_ss.str();
 
-  logger_mocapdata.add_attribute("Tag", attrs::constant< std::string >("MocapTag"));
+  MocapData::logger_mocapdata.add_attribute("Tag", attrs::constant< std::string >("MocapTag"));
 
   // Define a synchronous sink with a text ostream backend
   typedef sinks::synchronous_sink<sinks::text_ostream_backend> text_sink;
@@ -118,42 +134,34 @@ void logInitializeLogging()
   // Set a filter for the sink
   mocap_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "MocapTag");
 
-  // // Initialize logging with the dynamically generated mocap log file name
-  // logging::register_simple_formatter_factory<logging::trivial::severity_level, char>("Severity");
-  // logging::add_file_log(
-  //   keywords::file_name = mocap_log_filename, // Dynamic mocap log file name
-  //   keywords::format = "[%TimeStamp%] [%ThreadID%] [%Tag%] [%ProcessID%] [%LineID%] %Message%"
-  // );
-
-
   logging::add_common_attributes(); // Add attributes like timestamp
 
   logInitializeHeaders();
 }
 
 // Function to log the data
-void logMocapData(const MocapData& data)
+void MocapData::logMocapData()
 {
 	std::ostringstream oss;
 
-	oss << data.timestamp_mocap << ", "
-	    << data.time_mocap << ", "
-      << data.x << ", "
-      << data.y << ", "
-      << data.z << ", "
-      << data.q0 << ", "
-      << data.q1 << ", "
-      << data.q2 << ", "
-      << data.q3 << ", "
-      << data.vx << ", "
-      << data.vy << ", "
-      << data.vz << ", "
-      << data.rollspeed << ", "
-      << data.pitchspeed << ", "
-      << data.yawspeed << ", "
+	oss << node_.getTimestampMocap() << ", "
+	    << node_.getTimeMocap() << ", "
+      << node_.getMocapStates().x << ", "
+      << node_.getMocapStates().y << ", "
+      << node_.getMocapStates().z << ", "
+      << node_.getMocapStates().q0 << ", "
+      << node_.getMocapStates().q1 << ", "
+      << node_.getMocapStates().q2 << ", "
+      << node_.getMocapStates().q3 << ", "
+      << node_.getMocapStates().vx << ", "
+      << node_.getMocapStates().vy << ", "
+      << node_.getMocapStates().vz << ", "
+      << node_.getMocapStates().rollspeed << ", "
+      << node_.getMocapStates().pitchspeed << ", "
+      << node_.getMocapStates().yawspeed << ", "
       ;
 
-	BOOST_LOG(logger_mocapdata) << oss.str();
+	BOOST_LOG(MocapData::logger_mocapdata) << oss.str();
 }
 
 } // namespace _udp_driver_    

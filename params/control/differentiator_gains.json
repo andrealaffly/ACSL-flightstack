@@ -1,0 +1,89 @@
+{
+  "A_filter_roll_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-72, -1600],
+      [1, 0]
+    ]
+  },
+  "B_filter_roll_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_roll_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1600, 0]
+    ]
+  },
+  "D_filter_roll_des": 0.0,
+  
+  "A_filter_pitch_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-72, -1600],
+      [1, 0]
+    ]
+  },
+  "B_filter_pitch_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_pitch_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1600, 0]
+    ]
+  },
+  "D_filter_pitch_des": 0.0,
+
+  "A_filter_roll_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-50, -2500],
+      [1, 0]
+    ]
+  },
+  "B_filter_roll_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_roll_dot_des": {
+    "scaling_coef": 0.15,
+    "matrix": [
+      [2500, 0]
+    ]
+  },
+  "D_filter_roll_dot_des": 0.0,
+  
+  "A_filter_pitch_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-50, -2500],
+      [1, 0]
+    ]
+  },
+  "B_filter_pitch_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_pitch_dot_des": {
+    "scaling_coef": 0.15,
+    "matrix": [
+      [2500, 0]
+    ]
+  },
+  "D_filter_pitch_dot_des": 0.0
+}
