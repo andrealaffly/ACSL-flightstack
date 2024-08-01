@@ -16,7 +16,7 @@ We strongly encourage control practitioners, researchers, and UAV enthusiasts to
 - **Use this code**
 - **Improve it**
 - **Provide constructive feedback**
-- **Propose edits through [GitHub](https://github.com/andrealaffly/ACSL_flightstack_X8.git)**
+- **Propose edits through [GitHub](https://github.com/andrealaffly/ACSL-flightstack.git)**
 
 This flight stack is tailored for autonomous UAVs with collinear propellers, such as quadcopters, X8-copters, and hexacopters. Currently, it supports quadcopters and X8-copters. However, by modifying the mixer matrix—which defines the relationship between total thrust, moment of thrust, and thrust produced by each motor—this software can be extended to other UAV configurations with collinear propellers.
 
