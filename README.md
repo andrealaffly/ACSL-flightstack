@@ -46,7 +46,7 @@ Future versions of the software will include additional control systems.
 
 ## Hardware Requirements
 
-This flight stack is compatible with **ROS2 (Foxy or Galactic)** and has been tested on an **ODROID M1S** companion computer interfaced with a **Pixhawk 6c**. The companion computer runs **Ubuntu 20.04 Linux**. The firmware version of the flight controller is **PX4 v1.15.0**.
+This flight stack is compatible with **[ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html)** or **[Galactic](https://docs.ros.org/en/galactic/Installation.html)** and has been tested on an **[ODROID M1S](https://www.hardkernel.com/shop/odroid-m1s-with-8gbyte-ram-io-header/)** companion computer interfaced with a **[Pixhawk 6c](https://docs.px4.io/main/en/flight_controller/pixhawk6c.html)**. The companion computer runs **Ubuntu 20.04 Linux**. The firmware version of the flight controller is **[PX4 v1.15.0](https://docs.px4.io/v1.15/en/)**.
 
 ### Assumed UAV State
 
