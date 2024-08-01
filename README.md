@@ -22,7 +22,7 @@ This flight stack is tailored for autonomous UAVs with collinear propellers, suc
 
 ## Outlook on the Control Architecture
 
-Autonomous UAVs with collinear propellers are inherently under-actuated. To manage this, the software includes:
+Autonomous UAVs with collinear propellers are inherently under-actuated. For this reason, the software includes:
 
 - **Inner Loop**: Handles rotational dynamics.
 - **Outer Loop**: Manages translational dynamics.
