@@ -38,7 +38,7 @@ This software currently offers two control solutions for the inner and outer loo
 
 For further details on these control architectures, refer to the following publications:
 
-- M. Gramuglia, G. M. Kumar, and A. L'Afflitto, ["Two-Layer Adaptive Funnel MRAC with Applications to the Control of Multi-Rotor UAVs,"](https://doi.org/10.1109/RoMoCo60539.2024.10604361){:target="_blank"} *2024 13th International Workshop on Robot Motion and Control (RoMoCo),* Poznań, Poland, 2024, pp. 31-36.
+- M. Gramuglia, G. M. Kumar, and A. L'Afflitto, ["Two-Layer Adaptive Funnel MRAC with Applications to the Control of Multi-Rotor UAVs,"](https://doi.org/10.1109/RoMoCo60539.2024.10604361) *2024 13th International Workshop on Robot Motion and Control (RoMoCo),* Poznań, Poland, 2024, pp. 31-36.
 - M. Gramuglia, G. M. Kumar, and A. L’Afflitto, ["A Hybrid Model Reference Adaptive Control System for Multi-Rotor Unmanned Aerial Vehicles,"](https://doi.org/10.2514/6.2024-0755) *AIAA SCITECH 2024 Forum, 2024.*
 - E. Lavretsky and K. Wise, *"Robust and Adaptive Control: With Aerospace Applications,"*, London, UK: Springer, 2012.
 
