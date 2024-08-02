@@ -52,7 +52,7 @@
  *              Writes messages to pixhawk mocap_odometry topic for 
  *              EFK2 fusion.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef MOCAP_HPP_

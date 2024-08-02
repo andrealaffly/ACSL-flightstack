@@ -31,7 +31,7 @@
  * 
  * Description: Logger for the motion capture (MOCAP) system.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef LOGGING_MOCAP_HPP

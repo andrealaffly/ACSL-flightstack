@@ -31,7 +31,7 @@
  * 
  * Description: Tuning gains of the PID controller.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef PID_GAINS_HPP

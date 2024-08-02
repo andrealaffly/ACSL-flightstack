@@ -50,7 +50,7 @@
  * 
  * Description: Class for UDP socket creation using IoContext.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef UDP_SOCKET_HPP_

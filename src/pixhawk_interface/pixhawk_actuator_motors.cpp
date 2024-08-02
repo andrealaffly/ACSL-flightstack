@@ -32,7 +32,7 @@
  * Description: Callback that is executed at a fixed specified rate defined by the "timer_controller_".
  * 							Here are the functions needed to publish to Pixhawk the actuators control inputs.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #include "multi_threaded_node.hpp"

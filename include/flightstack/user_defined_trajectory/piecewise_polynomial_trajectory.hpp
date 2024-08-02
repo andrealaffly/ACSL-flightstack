@@ -33,7 +33,7 @@
  *              The heading (yaw) angle is kept tangential to the trajectory in the X-Y plane and computed online
  *              along with its first and second derivative.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef PIECEWISE_POLYNOMIAL_TRAJECTORY_HPP

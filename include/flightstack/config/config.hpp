@@ -31,7 +31,7 @@
  * 
  * Description: Configuration file. Here you specify which controller you want to run at compile time.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef CONFIG_HPP

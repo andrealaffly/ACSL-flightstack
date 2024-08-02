@@ -31,7 +31,7 @@
  * 
  * Description: Logger for the MRAC controller.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef LOGGING_MRAC_HPP

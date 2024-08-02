@@ -31,7 +31,7 @@
  * 
  * Description: Main file. Here select at compile time if you want to use GPS or MOCAP.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef MAIN_HPP

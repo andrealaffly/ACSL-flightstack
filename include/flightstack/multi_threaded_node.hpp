@@ -31,7 +31,7 @@
  * 
  * Description: Multithreaded ROS2 node that joins together all the flight stack components
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef MULTI_THREADED_NODE_HPP

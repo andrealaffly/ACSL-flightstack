@@ -32,7 +32,7 @@
  * Description: General class that contains common members used by most of the control algorithms.
  *              Control algorithm classes inherit from this class.
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef CONTROL_HPP
