@@ -52,6 +52,9 @@ This flight stack is compatible with **[ROS2 Foxy](https://docs.ros.org/en/foxy/
 
 - Provided by a motion capture system over UDP (or, alternatively, GNSS).
 - IMU (Inertial Measurement Unit) from the Pixhawk flight controller.
+  
+## Demo
+A demo of this flight stack is available on **[YouTube](https://youtu.be/Ykjjg21iAm0)**
 
 ## Maintenance Team
 
