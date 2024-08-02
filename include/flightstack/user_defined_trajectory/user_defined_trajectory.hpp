@@ -31,7 +31,7 @@
  * 
  * Description: Class that contains the common members that each type of user-defined trajectory class will inherit
  * 
- * GitHub:    https://github.com/andrealaffly/ACSL_flightstack_X8.git
+ * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #ifndef USER_DEFINED_TRAJECTORY_HPP
