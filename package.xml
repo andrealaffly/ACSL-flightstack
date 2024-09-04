@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>flightstack</name>
-  <version>0.0.0</version>
-  <description>Package of the ACSL flightstack</description>
+  <version>1.0.0</version>
+  <description>Flightstack of the Advanced Control Systems Lab at Virginia Tech</description>
   <maintainer email="mgramuglia@vt.edu">Mattia Gramuglia</maintainer>
-  <license>Apache License 2.0</license>
+  <license>BSD-3-Clause license</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   
