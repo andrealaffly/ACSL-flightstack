@@ -10,4 +10,7 @@
 # Except the template file inside the log directory
 !/log/_example_log_20240418_183819.log
 
+# Ignore .vscode folder
+/.vscode/
+
 
