@@ -62,6 +62,7 @@
 #include "piecewise_polynomial_trajectory.hpp"
 #include "control.hpp"
 #include "mocap.hpp"
+#include "print_helpers.hpp"
 
 
 using namespace std::chrono_literals;
@@ -122,9 +123,7 @@ private:
 
   std::atomic<uint64_t> timestamp_initial_;   //common synced initial timestamp
 
-  int counter_time_current_;
 	std::atomic<double> time_current_; // current time
-  void printCurrentTimeToConsole();
 
   /*
     flag for the arm/disarm logic:

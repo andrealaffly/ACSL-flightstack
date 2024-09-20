@@ -41,7 +41,6 @@ MultiThreadedNode::MultiThreadedNode(rclcpp::NodeOptions options)
   config_(ConfigurationParameters::readConfigurationParametersFile("config.json")),
   vehicle_state_(std::make_shared<VehicleState>(*this)),
   timestamp_initial_(this->get_clock()->now().nanoseconds() / 1000),
-  counter_time_current_(0),
   offboard_flag_(0),
   user_defined_trajectory_(std::make_shared<PiecewisePolynomialTrajectory>(*this)),
   control_(std::make_shared<ControlType>(*this)),

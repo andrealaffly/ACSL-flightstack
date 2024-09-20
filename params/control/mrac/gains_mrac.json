@@ -154,6 +154,132 @@
     "dead_zone_delta_translational": 0.5,
     "dead_zone_e0_translational": 0.15,
 
+    "x_e_x_translational": {
+      "scaling_coef": 0.0,
+      "matrix": [
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0]
+      ]
+    },
+    "S_diagonal_x_translational": {
+      "scaling_coef": 1.0,
+      "matrix": [
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0]
+      ]
+    },
+    "alpha_x_translational": 0.5,
+
+    "x_e_r_translational": {
+      "scaling_coef": 0.0,
+      "matrix": [
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0]
+      ]
+    },
+    "S_diagonal_r_translational": {
+      "scaling_coef": 0.3,
+      "matrix": [
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0]
+      ]
+    },
+    "alpha_r_translational": 0.5,
+
+    "x_e_Theta_translational": {
+      "scaling_coef": 0.0,
+      "matrix": [
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0]
+      ]
+    },
+    "S_diagonal_Theta_translational": {
+      "scaling_coef": 1.0,
+      "matrix": [
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0]
+      ]
+    },
+    "alpha_Theta_translational": 0.5,
+
     "Gamma_x_rotational": {
       "scaling_coef": 0.1,
       "matrix": [
@@ -193,6 +319,114 @@
     "sigma_r_rotational": 0.5,
     "sigma_Theta_rotational": 0.5,
     "dead_zone_delta_rotational": 0.5,
-    "dead_zone_e0_rotational": 0.002
+    "dead_zone_e0_rotational": 0.002,
+
+    "x_e_x_rotational": {
+      "scaling_coef": 0.0,
+      "matrix": [
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0]
+      ]
+    },
+    "S_diagonal_x_rotational": {
+      "scaling_coef": 0.1,
+      "matrix": [
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0]
+      ]
+    },
+    "alpha_x_rotational": 0.5,
+
+    "x_e_r_rotational": {
+      "scaling_coef": 0.0,
+      "matrix": [
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0]
+      ]
+    },
+    "S_diagonal_r_rotational": {
+      "scaling_coef": 0.02,
+      "matrix": [
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0]
+      ]
+    },
+    "alpha_r_rotational": 0.5,
+
+    "x_e_Theta_rotational": {
+      "scaling_coef": 0.0,
+      "matrix": [
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0],
+        [0.0]
+      ]
+    },
+    "S_diagonal_Theta_rotational": {
+      "scaling_coef": 0.8,
+      "matrix": [
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0],
+        [1.0]
+      ]
+    },
+    "alpha_Theta_rotational": 0.5
   }
 }

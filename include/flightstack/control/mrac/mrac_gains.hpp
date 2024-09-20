@@ -94,6 +94,23 @@ struct GainsMRAC
   double dead_zone_delta_translational;
   double dead_zone_e0_translational;
 
+  // TRANSLATIONAL parameters ROBUST MRAC (ellipsoid projection operator)
+  Eigen::Matrix<double, 18, 1> x_e_x_translational;
+  Eigen::Matrix<double, 18, 1> S_diagonal_x_translational;
+  Eigen::Matrix<double, 18, 18> S_x_translational;
+  double alpha_x_translational;
+  double epsilon_x_translational;
+  Eigen::Matrix<double, 9, 1> x_e_r_translational;
+  Eigen::Matrix<double, 9, 1> S_diagonal_r_translational;
+  Eigen::Matrix<double, 9, 9> S_r_translational;
+  double alpha_r_translational;
+  double epsilon_r_translational;
+  Eigen::Matrix<double, 18, 1> x_e_Theta_translational;
+  Eigen::Matrix<double, 18, 1> S_diagonal_Theta_translational;
+  Eigen::Matrix<double, 18, 18> S_Theta_translational;
+  double alpha_Theta_translational;
+  double epsilon_Theta_translational;
+
   // ROTATIONAL gains ADAPTIVE controller
   Eigen::Matrix<double, 3, 3> Gamma_x_rotational;
   Eigen::Matrix<double, 3, 3> Gamma_r_rotational;
@@ -111,6 +128,23 @@ struct GainsMRAC
   // ROTATIONAL parameters ROBUST MRAC (dead-zone modification)
   double dead_zone_delta_rotational;
   double dead_zone_e0_rotational;
+
+  // ROTATIONAL parameters ROBUST MRAC (ellipsoid projection operator)
+  Eigen::Matrix<double, 9, 1> x_e_x_rotational;
+  Eigen::Matrix<double, 9, 1> S_diagonal_x_rotational;
+  Eigen::Matrix<double, 9, 9> S_x_rotational;
+  double alpha_x_rotational;
+  double epsilon_x_rotational;
+  Eigen::Matrix<double, 9, 1> x_e_r_rotational;
+  Eigen::Matrix<double, 9, 1> S_diagonal_r_rotational;
+  Eigen::Matrix<double, 9, 9> S_r_rotational;
+  double alpha_r_rotational;
+  double epsilon_r_rotational;
+  Eigen::Matrix<double, 18, 1> x_e_Theta_rotational;
+  Eigen::Matrix<double, 18, 1> S_diagonal_Theta_rotational;
+  Eigen::Matrix<double, 18, 18> S_Theta_rotational;
+  double alpha_Theta_rotational;
+  double epsilon_Theta_rotational;
 
   /*****************************************************************************************
    *  PLANT & REFERENCE MODEL parameters

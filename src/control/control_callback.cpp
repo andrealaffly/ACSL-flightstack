@@ -50,8 +50,9 @@ void MultiThreadedNode::controller_callback()
   std::cout << "CONTROLLER " << thread_string << std::endl;
  */
   this->updateCurrentTimeInSeconds();
-  this->printCurrentTimeToConsole();
-  
+
+  // Print current time to the console
+  helper::FLIGHTSTACK_INFO_STREAM_NO_TAG(this->time_current_, 100);
   
   user_defined_trajectory_->updateUserDefinedTrajectory(this->time_current_);
 	user_defined_trajectory_->updateUserDefinedYaw();
@@ -135,18 +136,4 @@ void MultiThreadedNode::controller_callback()
   // Logging data
   control_->getLogData()->logLogData();
 
-}
-
-/*
-  Function that prints the current time to the console only every few controller cycles
-*/
-inline void MultiThreadedNode::printCurrentTimeToConsole()
-{
-  if (this->counter_time_current_ == 10)
-  {
-    std::cout << "Current Time: " << this->time_current_ << " s\n";
-    this->counter_time_current_ = 0;
-  }
-  
-  this->counter_time_current_++;
 }
