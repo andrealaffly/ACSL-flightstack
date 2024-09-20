@@ -186,6 +186,15 @@ void MRAC::readJSONfile(const std::string& fileName)
   gains_.sigma_Theta_translational = j["ADAPTIVE"]["sigma_Theta_translational"];
   gains_.dead_zone_delta_translational = j["ADAPTIVE"]["dead_zone_delta_translational"];
   gains_.dead_zone_e0_translational = j["ADAPTIVE"]["dead_zone_e0_translational"];
+  gains_.x_e_x_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_x_translational"]);
+  gains_.S_diagonal_x_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["S_diagonal_x_translational"]);
+  gains_.alpha_x_translational = j["ADAPTIVE"]["alpha_x_translational"];
+  gains_.x_e_r_translational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["x_e_r_translational"]);
+  gains_.S_diagonal_r_translational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["S_diagonal_r_translational"]);
+  gains_.alpha_r_translational = j["ADAPTIVE"]["alpha_r_translational"];
+  gains_.x_e_Theta_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_Theta_translational"]);
+  gains_.S_diagonal_Theta_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["S_diagonal_Theta_translational"]);
+  gains_.alpha_Theta_translational = j["ADAPTIVE"]["alpha_Theta_translational"];
   gains_.Gamma_x_rotational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["Gamma_x_rotational"]);
 	gains_.Gamma_r_rotational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["Gamma_r_rotational"]);
   gains_.Gamma_Theta_rotational = extractMatrixFromJSON<double, 6, 6>(j["ADAPTIVE"]["Gamma_Theta_rotational"]);
@@ -195,8 +204,15 @@ void MRAC::readJSONfile(const std::string& fileName)
   gains_.sigma_Theta_rotational = j["ADAPTIVE"]["sigma_Theta_rotational"];
   gains_.dead_zone_delta_rotational = j["ADAPTIVE"]["dead_zone_delta_rotational"];
   gains_.dead_zone_e0_rotational = j["ADAPTIVE"]["dead_zone_e0_rotational"];
-
-
+  gains_.x_e_x_rotational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["x_e_x_rotational"]);
+  gains_.S_diagonal_x_rotational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["S_diagonal_x_rotational"]);
+  gains_.alpha_x_rotational = j["ADAPTIVE"]["alpha_x_rotational"];
+  gains_.x_e_r_rotational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["x_e_r_rotational"]);
+  gains_.S_diagonal_r_rotational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["S_diagonal_r_rotational"]);
+  gains_.alpha_r_rotational = j["ADAPTIVE"]["alpha_r_rotational"];
+  gains_.x_e_Theta_rotational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_Theta_rotational"]);
+  gains_.S_diagonal_Theta_rotational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["S_diagonal_Theta_rotational"]);
+  gains_.alpha_Theta_rotational = j["ADAPTIVE"]["alpha_Theta_rotational"];
 
 }
 
@@ -245,6 +261,22 @@ void MRAC::initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& 
   // Solve the continuos Lyapunov equation to compute P_rotational
   gains_.P_rotational = RealContinuousLyapunovEquation(gains_.A_ref_rotational,
                                                        gains_.Q_rotational);
+
+  // Projection operator. Generate the S matrices from their ellipsoid semi-axis terms contained in S_diagonal
+  gains_.S_x_translational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_x_translational);
+  gains_.S_r_translational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_r_translational);
+  gains_.S_Theta_translational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_Theta_translational);
+  gains_.S_x_rotational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_x_rotational);
+  gains_.S_r_rotational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_r_rotational);
+  gains_.S_Theta_rotational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_Theta_rotational);
+
+  // Projection operator. Compute epsilon from alpha
+  gains_.epsilon_x_translational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_x_translational);
+  gains_.epsilon_r_translational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_r_translational);
+  gains_.epsilon_Theta_translational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_Theta_translational);
+  gains_.epsilon_x_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_x_rotational);
+  gains_.epsilon_r_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_r_rotational);
+  gains_.epsilon_Theta_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_Theta_rotational);
   
 }
 
@@ -389,27 +421,50 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
                                                                     gains_.dead_zone_delta_translational,
                                                                     gains_.dead_zone_e0_translational);
 
-  // Adaptive laws
+  // Adaptive law K_hat_x
   csim_.K_hat_x_dot_translational = - gains_.Gamma_x_translational * csim_.dead_zone_value_translational * (
                                         x_translational * 
                                         eTranspose_P_B_translational
                                         + gains_.sigma_x_translational * 
                                           eTranspose_P_B_norm_translational * 
                                           state_.K_hat_x_translational);
+  // Projection operator K_hat_x
+  csim_.K_hat_x_dot_translational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_x_translational, 
+                                                     csim_.K_hat_x_dot_translational,
+                                                     gains_.x_e_x_translational,
+                                                     gains_.S_x_translational,
+                                                     gains_.epsilon_x_translational);
 
+  // Adaptive law K_hat_r
   csim_.K_hat_r_dot_translational = - gains_.Gamma_r_translational * csim_.dead_zone_value_translational * (
                                         csim_.r_cmd_translational * 
                                         eTranspose_P_B_translational
                                         + gains_.sigma_r_translational * 
                                           eTranspose_P_B_norm_translational * 
                                           state_.K_hat_r_translational);
+  // Projection operator K_hat_r
+  csim_.K_hat_r_dot_translational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_r_translational, 
+                                                     csim_.K_hat_r_dot_translational,
+                                                     gains_.x_e_r_translational,
+                                                     gains_.S_r_translational,
+                                                     gains_.epsilon_r_translational);
 
+  // Adaptive law Theta_hat
   csim_.Theta_hat_dot_translational = gains_.Gamma_Theta_translational * csim_.dead_zone_value_translational * (
                                         csim_.augmented_regressor_vector_translational * 
                                         eTranspose_P_B_translational
                                         - gains_.sigma_Theta_translational * 
                                           eTranspose_P_B_norm_translational * 
                                           state_.Theta_hat_translational);
+  // Projection operator Theta_hat
+  csim_.Theta_hat_dot_translational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.Theta_hat_translational, 
+                                                     csim_.Theta_hat_dot_translational,
+                                                     gains_.x_e_Theta_translational,
+                                                     gains_.S_Theta_translational,
+                                                     gains_.epsilon_Theta_translational);
 
   // Adaptive control law
   csim_.mu_adaptive_translational = 
@@ -495,28 +550,51 @@ void MRAC::computeOuterLoopDEBUGGING(ControlInternalMembers& cim,
                                                                     gains_.dead_zone_delta_translational,
                                                                     gains_.dead_zone_e0_translational);
 
-  // Adaptive laws
+  // Adaptive law K_hat_x
   csim_.K_hat_x_dot_translational = - gains_.Gamma_x_translational * csim_.dead_zone_value_translational * (
                                         x_translational * 
                                         eTranspose_P_B_translational
                                         + gains_.sigma_x_translational * 
                                           eTranspose_P_B_norm_translational * 
                                           state_.K_hat_x_translational);
+  // Projection operator K_hat_x
+  csim_.K_hat_x_dot_translational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_x_translational, 
+                                                     csim_.K_hat_x_dot_translational,
+                                                     gains_.x_e_x_translational,
+                                                     gains_.S_x_translational,
+                                                     gains_.epsilon_x_translational);
 
+  // Adaptive law K_hat_r
   csim_.K_hat_r_dot_translational = - gains_.Gamma_r_translational * csim_.dead_zone_value_translational * (
                                         csim_.r_cmd_translational * 
                                         eTranspose_P_B_translational
                                         + gains_.sigma_r_translational * 
                                           eTranspose_P_B_norm_translational * 
                                           state_.K_hat_r_translational);
+  // Projection operator K_hat_r
+  csim_.K_hat_r_dot_translational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_r_translational, 
+                                                     csim_.K_hat_r_dot_translational,
+                                                     gains_.x_e_r_translational,
+                                                     gains_.S_r_translational,
+                                                     gains_.epsilon_r_translational);
 
+  // Adaptive law Theta_hat
   csim_.Theta_hat_dot_translational = gains_.Gamma_Theta_translational * csim_.dead_zone_value_translational * (
                                         csim_.augmented_regressor_vector_translational * 
                                         eTranspose_P_B_translational
                                         - gains_.sigma_Theta_translational * 
                                           eTranspose_P_B_norm_translational * 
                                           state_.Theta_hat_translational);
-
+  // Projection operator Theta_hat
+  csim_.Theta_hat_dot_translational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.Theta_hat_translational, 
+                                                     csim_.Theta_hat_dot_translational,
+                                                     gains_.x_e_Theta_translational,
+                                                     gains_.S_Theta_translational,
+                                                     gains_.epsilon_Theta_translational);
+                                                     
   // Adaptive control law
   csim_.mu_adaptive_translational = 
       state_.K_hat_x_translational.transpose() * x_translational
@@ -625,27 +703,50 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
                                                                  gains_.dead_zone_delta_rotational,
                                                                  gains_.dead_zone_e0_rotational);
 
-  // Adaptive laws
+  // Adaptive law K_hat_x
   csim_.K_hat_x_dot_rotational = - gains_.Gamma_x_rotational * csim_.dead_zone_value_rotational * (
                                     cr.angular_velocity * 
                                     eTranspose_P_B_rotational
                                     + gains_.sigma_x_rotational * 
                                       eTranspose_P_B_norm_rotational * 
                                       state_.K_hat_x_rotational);
-
+  // Projection operator K_hat_x
+  csim_.K_hat_x_dot_rotational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_x_rotational, 
+                                                     csim_.K_hat_x_dot_rotational,
+                                                     gains_.x_e_x_rotational,
+                                                     gains_.S_x_rotational,
+                                                     gains_.epsilon_x_rotational);
+            
+  // Adaptive law K_hat_r
   csim_.K_hat_r_dot_rotational = - gains_.Gamma_r_rotational * csim_.dead_zone_value_rotational * (
                                     csim_.r_cmd_rotational * 
                                     eTranspose_P_B_rotational
                                     + gains_.sigma_r_rotational * 
                                       eTranspose_P_B_norm_rotational * 
                                       state_.K_hat_r_rotational);
+  // Projection operator K_hat_r
+  csim_.K_hat_r_dot_rotational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_r_rotational, 
+                                                     csim_.K_hat_r_dot_rotational,
+                                                     gains_.x_e_r_rotational,
+                                                     gains_.S_r_rotational,
+                                                     gains_.epsilon_r_rotational);
 
+  // Adaptive law Theta_hat
   csim_.Theta_hat_dot_rotational = gains_.Gamma_Theta_rotational * csim_.dead_zone_value_rotational * (
                                     csim_.augmented_regressor_vector_rotational * 
                                     eTranspose_P_B_rotational
                                     - gains_.sigma_Theta_rotational * 
                                       eTranspose_P_B_norm_rotational * 
                                       state_.Theta_hat_rotational);
+  // Projection operator Theta_hat
+  csim_.Theta_hat_dot_rotational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.Theta_hat_rotational, 
+                                                     csim_.Theta_hat_dot_rotational,
+                                                     gains_.x_e_Theta_rotational,
+                                                     gains_.S_Theta_rotational,
+                                                     gains_.epsilon_Theta_rotational);
 
   // Adaptive control law
   csim_.tau_adaptive_rotational = 
@@ -756,27 +857,50 @@ void MRAC::computeInnerLoopDEBUGGING(ControlInternalMembers& cim,
                                                                  gains_.dead_zone_delta_rotational,
                                                                  gains_.dead_zone_e0_rotational);
 
-  // Adaptive laws
+  // Adaptive law K_hat_x
   csim_.K_hat_x_dot_rotational = - gains_.Gamma_x_rotational * csim_.dead_zone_value_rotational * (
                                     cr.angular_velocity * 
                                     eTranspose_P_B_rotational
                                     + gains_.sigma_x_rotational * 
                                       eTranspose_P_B_norm_rotational * 
                                       state_.K_hat_x_rotational);
+  // Projection operator K_hat_x
+  csim_.K_hat_x_dot_rotational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_x_rotational, 
+                                                     csim_.K_hat_x_dot_rotational,
+                                                     gains_.x_e_x_rotational,
+                                                     gains_.S_x_rotational,
+                                                     gains_.epsilon_x_rotational);
 
+  // Adaptive law K_hat_r
   csim_.K_hat_r_dot_rotational = - gains_.Gamma_r_rotational * csim_.dead_zone_value_rotational * (
                                     csim_.r_cmd_rotational * 
                                     eTranspose_P_B_rotational
                                     + gains_.sigma_r_rotational * 
                                       eTranspose_P_B_norm_rotational * 
                                       state_.K_hat_r_rotational);
+  // Projection operator K_hat_r
+  csim_.K_hat_r_dot_rotational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.K_hat_r_rotational, 
+                                                     csim_.K_hat_r_dot_rotational,
+                                                     gains_.x_e_r_rotational,
+                                                     gains_.S_r_rotational,
+                                                     gains_.epsilon_r_rotational);
 
+  // Adaptive law Theta_hat
   csim_.Theta_hat_dot_rotational = gains_.Gamma_Theta_rotational * csim_.dead_zone_value_rotational * (
                                     csim_.augmented_regressor_vector_rotational * 
                                     eTranspose_P_B_rotational
                                     - gains_.sigma_Theta_rotational * 
                                       eTranspose_P_B_norm_rotational * 
                                       state_.Theta_hat_rotational);
+  // Projection operator Theta_hat
+  csim_.Theta_hat_dot_rotational = 
+    projection_operator::ellipsoid::projectionMatrix(state_.Theta_hat_rotational, 
+                                                     csim_.Theta_hat_dot_rotational,
+                                                     gains_.x_e_Theta_rotational,
+                                                     gains_.S_Theta_rotational,
+                                                     gains_.epsilon_Theta_rotational);
 
   // Adaptive control law
   csim_.tau_adaptive_rotational = 

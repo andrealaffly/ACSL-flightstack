@@ -46,6 +46,7 @@
 #include "control.hpp"
 #include "mrac_gains.hpp"
 #include "continuous_lyapunov_equation.hpp"
+#include "projection_operator.hpp"
 
 // Forward declaration of LogData_MRAC class
 class LogData_MRAC;
