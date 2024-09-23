@@ -36,6 +36,11 @@
 
 #include "main.hpp"
 
+/**
+ * @param argc
+ * @param argv[].
+ */
+
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
