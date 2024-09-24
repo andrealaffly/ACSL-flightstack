@@ -34,6 +34,9 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @brief contains the Functions that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct .
+ */
 #include "config.hpp"
 #include "multi_threaded_node.hpp"
 
@@ -41,6 +44,11 @@
   Function that reads the configuration parameters and assigns it to the members of the 
   ConfigurationParameters struct
 */
+
+/**
+ * @param configFileName Name of the JSON file containing the config parameters
+ * @return config struct containing the configuration parameters .
+ */
 ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile(const std::string& configFileName)
 {
   // Define the path where the user-defined trajectory JSON files are located
@@ -70,6 +78,9 @@ ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile
   return config;
 }
 
+/**
+ * @brief GlobalParameters Constructor.
+ */
 // Constructor
 GlobalParameters::GlobalParameters(MultiThreadedNode& node) :
   PUBLISH_ACTUATOR_MOTORS_FLAG(true),
