@@ -52,6 +52,10 @@ This flight stack is compatible with **[ROS2 Foxy](https://docs.ros.org/en/foxy/
 
 - Provided by a motion capture system over UDP (or, alternatively, GNSS).
 - IMU (Inertial Measurement Unit) from the Pixhawk flight controller.
+
+## How to Plot Log Data
+
+The GitHub repository **[ACSL-flightstack-accessories](https://github.com/andrealaffly/ACSL-flightstack-accessories)** provides MATLAB scripts to plot flight log data and examples of flight tests data.
   
 ## Demo
 A demo of this flight stack is available on **[YouTube](https://youtu.be/Ykjjg21iAm0)**
