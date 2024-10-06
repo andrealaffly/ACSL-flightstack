@@ -1,0 +1,901 @@
+\hypertarget{structGainsMRAC}{}\doxysection{Gains\+MRAC Struct Reference}
+\label{structGainsMRAC}\index{GainsMRAC@{GainsMRAC}}
+
+
+{\ttfamily \#include $<$mrac\+\_\+gains.\+hpp$>$}
+
+
+
+Collaboration diagram for Gains\+MRAC\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{structGainsMRAC__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a9937e67674b7e5f58d6bd19c2487c5f7}{KP\+\_\+refmod\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a0a79d06861d6ca282256d831bc0ec66a}{KD\+\_\+refmod\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a3dd5e5057c4e302bcdb5a90ee070a736}{KI\+\_\+refmod\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a070aa2e03ebbabbc7e33ad3f6143fea2}{KP\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a7a363cab76456da5365159d288d6243b}{KD\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a7ff0427dc5c575646f2b57f37b127c6d}{KI\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a06a8d4dbc2b1a544aaaa8cb8baefddd6}{KP\+\_\+omega\+\_\+cmd\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_ade17daa417e68746b32c0b2fd2415e16}{KI\+\_\+omega\+\_\+cmd\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a33c6c866ed1853dc40ffee81d8e338e0}{KP\+\_\+omega\+\_\+ref\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a60c3ec24b9bb7c72e7308df72aae9694}{KI\+\_\+omega\+\_\+ref\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a28be2bec2f705679b4492492b909f05d}{KP\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_a625f851dad53585e6a663aaea761f987}{KD\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structGainsMRAC_adf296a68f8fd1dda192eda132745c640}{KI\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 6 $>$ \mbox{\hyperlink{structGainsMRAC_a0e789d417fdba7493996873aedb0fd5f}{Gamma\+\_\+x\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a578837b3c30a1d453874d00e1297028f}{Gamma\+\_\+r\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 6 $>$ \mbox{\hyperlink{structGainsMRAC_a8d28d4c116b0121a3224919e4bc407b0}{Gamma\+\_\+\+Theta\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 6 $>$ \mbox{\hyperlink{structGainsMRAC_af96321d833ed29299a0dd939ecd26775}{Q\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 6 $>$ \mbox{\hyperlink{structGainsMRAC_a89829c97f3006eeee013f1348805c60c}{P\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a72be9c6e4e47c19ba7ff4e4e83d48260}{sigma\+\_\+x\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_ae3a829e3a9b03ffd80824eef9782d4da}{sigma\+\_\+r\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_ab155f7c47d8eb2cd3d4606a6580c8544}{sigma\+\_\+\+Theta\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a9765f46d1513b7cf982c75ce5c71aa8f}{dead\+\_\+zone\+\_\+delta\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_aed30da316b8932184f1bfcad4bbcbcab}{dead\+\_\+zone\+\_\+e0\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 1 $>$ \mbox{\hyperlink{structGainsMRAC_a727aa01f7f2b3ec218aa80658c2514a7}{x\+\_\+e\+\_\+x\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 1 $>$ \mbox{\hyperlink{structGainsMRAC_a4586f63df3e8d80e2035139d9649d3e5}{S\+\_\+diagonal\+\_\+x\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 18 $>$ \mbox{\hyperlink{structGainsMRAC_a61baf3a8edf8e252e4a9be1e5af4e195}{S\+\_\+x\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_aa4a711247e62f4673eea5abe96375b16}{alpha\+\_\+x\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a35bbbc55626531624d3bd680e924b14e}{epsilon\+\_\+x\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 1 $>$ \mbox{\hyperlink{structGainsMRAC_a3b7dc5bac2c676a888378a71d15ea486}{x\+\_\+e\+\_\+r\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 1 $>$ \mbox{\hyperlink{structGainsMRAC_a87d1eb2fb676b6a4af2c9a644614aefa}{S\+\_\+diagonal\+\_\+r\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 9 $>$ \mbox{\hyperlink{structGainsMRAC_a868ffda34e5fa746bed7dcd40ae1d13f}{S\+\_\+r\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_aa270b59b71be1e7122fb1b2ca9eaeef6}{alpha\+\_\+r\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a00a9676aa0d33ba5bd2e91741640e162}{epsilon\+\_\+r\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 1 $>$ \mbox{\hyperlink{structGainsMRAC_a5170d3835b0d8a94c93beedf7303b99b}{x\+\_\+e\+\_\+\+Theta\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 1 $>$ \mbox{\hyperlink{structGainsMRAC_a9534260b5f4661462b9dd6e91cb78963}{S\+\_\+diagonal\+\_\+\+Theta\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 18 $>$ \mbox{\hyperlink{structGainsMRAC_a613276bdfe65e327f9490b69442706c7}{S\+\_\+\+Theta\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_abaa70748e07e3ab5a1bdc8aac7021538}{alpha\+\_\+\+Theta\+\_\+translational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_abb4fa4b33c413772c475c01c25b45a2f}{epsilon\+\_\+\+Theta\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a2d3c8a8bba829105b9ee162f3b957359}{Gamma\+\_\+x\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a401aa0a58735b94ea39489b246b78330}{Gamma\+\_\+r\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 6 $>$ \mbox{\hyperlink{structGainsMRAC_a6e12639ff1012121c24db7ee9ae14b1b}{Gamma\+\_\+\+Theta\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a5d35144c82a90aed78dee5fddd49ec9b}{Q\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a0d9e34a277cb683bfd7a9f52d720b6ec}{P\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_ab2b53cb7e7fe0757fec809745c364bcb}{sigma\+\_\+x\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_ab9741db84caa6a71477daab8a0bd5c05}{sigma\+\_\+r\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_ad9ec6c33b12f4b09c401d074e3a5232f}{sigma\+\_\+\+Theta\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a49fe753e3f85c1f373933087c2dad7be}{dead\+\_\+zone\+\_\+delta\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a162c5ee0a7574bbc350127ab3b7ac122}{dead\+\_\+zone\+\_\+e0\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 1 $>$ \mbox{\hyperlink{structGainsMRAC_ac9973cb5e139801b4495a99b7f875fdf}{x\+\_\+e\+\_\+x\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 1 $>$ \mbox{\hyperlink{structGainsMRAC_afcf1a1c78a7345c65965e63a4b76384d}{S\+\_\+diagonal\+\_\+x\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 9 $>$ \mbox{\hyperlink{structGainsMRAC_ab72edeb2684ec09075bf9b8bfa8bcca0}{S\+\_\+x\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_af566a5560e628e6df9e4b91367db9636}{alpha\+\_\+x\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_ab8fc0ccffdaa107c3b38a409ac457648}{epsilon\+\_\+x\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 1 $>$ \mbox{\hyperlink{structGainsMRAC_aa15b7e4ef8138c9f274a05e19e224365}{x\+\_\+e\+\_\+r\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 1 $>$ \mbox{\hyperlink{structGainsMRAC_a1386729b9172b99ccf2f2f79c6726fa4}{S\+\_\+diagonal\+\_\+r\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 9, 9 $>$ \mbox{\hyperlink{structGainsMRAC_a3d6d16c6148e815b61c26156ea0ca2cb}{S\+\_\+r\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a390d56341c7b608ed3cc6662775630ca}{alpha\+\_\+r\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_a59a93c449508e0ed79ebd37e60f1579f}{epsilon\+\_\+r\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 1 $>$ \mbox{\hyperlink{structGainsMRAC_aace629d04fbac1da6582f9957c441e3e}{x\+\_\+e\+\_\+\+Theta\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 1 $>$ \mbox{\hyperlink{structGainsMRAC_ab54b3bcff950164b670091092b4af440}{S\+\_\+diagonal\+\_\+\+Theta\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 18, 18 $>$ \mbox{\hyperlink{structGainsMRAC_ad8cbaa027ad23ab999c4bd862f0f289c}{S\+\_\+\+Theta\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_af7ca00c9423eba95e8c29221dd5b079e}{alpha\+\_\+\+Theta\+\_\+rotational}}
+\item 
+double \mbox{\hyperlink{structGainsMRAC_abc10a7fc93f5ad4617cbe8cf6243eeb1}{epsilon\+\_\+\+Theta\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 6 $>$ \mbox{\hyperlink{structGainsMRAC_a04b0e23f0e5566b9e9ebabd6cf49d7a2}{A\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a8e584593a27f67c609f4303b844fc247}{B\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 6 $>$ \mbox{\hyperlink{structGainsMRAC_a29004d3dcf1cc2cdb17268ac3207808b}{A\+\_\+ref\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 6, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a5b072a2c59e283defd97243398821e30}{B\+\_\+ref\+\_\+translational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a10ca09d7ccacc8ba2f15f20a87a70bba}{A\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_a70c7713ec3d343c2084f3482fda1b14c}{B\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_ac91aa910877e14023e079777e68cc074}{A\+\_\+ref\+\_\+rotational}}
+\item 
+Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \mbox{\hyperlink{structGainsMRAC_afda23f31329b7f43b89e5cc91470a1bf}{B\+\_\+ref\+\_\+rotational}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{mrac__gains_8hpp}{mrac\+\_\+gains.\+hpp}} Author\+: Mattia Gramuglia Date\+: June 13, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Tuning gains of the \mbox{\hyperlink{classMRAC}{MRAC}} controller.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+
+Definition at line 47 of file mrac\+\_\+gains.\+hpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structGainsMRAC_ac91aa910877e14023e079777e68cc074}\label{structGainsMRAC_ac91aa910877e14023e079777e68cc074}} 
+\index{GainsMRAC@{GainsMRAC}!A\_ref\_rotational@{A\_ref\_rotational}}
+\index{A\_ref\_rotational@{A\_ref\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{A\_ref\_rotational}{A\_ref\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+A\+\_\+ref\+\_\+rotational}
+
+
+
+Definition at line 165 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a29004d3dcf1cc2cdb17268ac3207808b}\label{structGainsMRAC_a29004d3dcf1cc2cdb17268ac3207808b}} 
+\index{GainsMRAC@{GainsMRAC}!A\_ref\_translational@{A\_ref\_translational}}
+\index{A\_ref\_translational@{A\_ref\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{A\_ref\_translational}{A\_ref\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 6$>$ Gains\+MRAC\+::\+A\+\_\+ref\+\_\+translational}
+
+
+
+Definition at line 157 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a10ca09d7ccacc8ba2f15f20a87a70bba}\label{structGainsMRAC_a10ca09d7ccacc8ba2f15f20a87a70bba}} 
+\index{GainsMRAC@{GainsMRAC}!A\_rotational@{A\_rotational}}
+\index{A\_rotational@{A\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{A\_rotational}{A\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+A\+\_\+rotational}
+
+
+
+Definition at line 161 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a04b0e23f0e5566b9e9ebabd6cf49d7a2}\label{structGainsMRAC_a04b0e23f0e5566b9e9ebabd6cf49d7a2}} 
+\index{GainsMRAC@{GainsMRAC}!A\_translational@{A\_translational}}
+\index{A\_translational@{A\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{A\_translational}{A\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 6$>$ Gains\+MRAC\+::\+A\+\_\+translational}
+
+PLANT \& REFERENCE MODEL parameters 
+
+Definition at line 153 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a390d56341c7b608ed3cc6662775630ca}\label{structGainsMRAC_a390d56341c7b608ed3cc6662775630ca}} 
+\index{GainsMRAC@{GainsMRAC}!alpha\_r\_rotational@{alpha\_r\_rotational}}
+\index{alpha\_r\_rotational@{alpha\_r\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{alpha\_r\_rotational}{alpha\_r\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::alpha\+\_\+r\+\_\+rotational}
+
+
+
+Definition at line 141 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_aa270b59b71be1e7122fb1b2ca9eaeef6}\label{structGainsMRAC_aa270b59b71be1e7122fb1b2ca9eaeef6}} 
+\index{GainsMRAC@{GainsMRAC}!alpha\_r\_translational@{alpha\_r\_translational}}
+\index{alpha\_r\_translational@{alpha\_r\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{alpha\_r\_translational}{alpha\_r\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::alpha\+\_\+r\+\_\+translational}
+
+
+
+Definition at line 106 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_af7ca00c9423eba95e8c29221dd5b079e}\label{structGainsMRAC_af7ca00c9423eba95e8c29221dd5b079e}} 
+\index{GainsMRAC@{GainsMRAC}!alpha\_Theta\_rotational@{alpha\_Theta\_rotational}}
+\index{alpha\_Theta\_rotational@{alpha\_Theta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{alpha\_Theta\_rotational}{alpha\_Theta\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::alpha\+\_\+\+Theta\+\_\+rotational}
+
+
+
+Definition at line 146 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_abaa70748e07e3ab5a1bdc8aac7021538}\label{structGainsMRAC_abaa70748e07e3ab5a1bdc8aac7021538}} 
+\index{GainsMRAC@{GainsMRAC}!alpha\_Theta\_translational@{alpha\_Theta\_translational}}
+\index{alpha\_Theta\_translational@{alpha\_Theta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{alpha\_Theta\_translational}{alpha\_Theta\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::alpha\+\_\+\+Theta\+\_\+translational}
+
+
+
+Definition at line 111 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_af566a5560e628e6df9e4b91367db9636}\label{structGainsMRAC_af566a5560e628e6df9e4b91367db9636}} 
+\index{GainsMRAC@{GainsMRAC}!alpha\_x\_rotational@{alpha\_x\_rotational}}
+\index{alpha\_x\_rotational@{alpha\_x\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{alpha\_x\_rotational}{alpha\_x\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::alpha\+\_\+x\+\_\+rotational}
+
+
+
+Definition at line 136 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_aa4a711247e62f4673eea5abe96375b16}\label{structGainsMRAC_aa4a711247e62f4673eea5abe96375b16}} 
+\index{GainsMRAC@{GainsMRAC}!alpha\_x\_translational@{alpha\_x\_translational}}
+\index{alpha\_x\_translational@{alpha\_x\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{alpha\_x\_translational}{alpha\_x\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::alpha\+\_\+x\+\_\+translational}
+
+
+
+Definition at line 101 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_afda23f31329b7f43b89e5cc91470a1bf}\label{structGainsMRAC_afda23f31329b7f43b89e5cc91470a1bf}} 
+\index{GainsMRAC@{GainsMRAC}!B\_ref\_rotational@{B\_ref\_rotational}}
+\index{B\_ref\_rotational@{B\_ref\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{B\_ref\_rotational}{B\_ref\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+B\+\_\+ref\+\_\+rotational}
+
+
+
+Definition at line 166 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a5b072a2c59e283defd97243398821e30}\label{structGainsMRAC_a5b072a2c59e283defd97243398821e30}} 
+\index{GainsMRAC@{GainsMRAC}!B\_ref\_translational@{B\_ref\_translational}}
+\index{B\_ref\_translational@{B\_ref\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{B\_ref\_translational}{B\_ref\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 3$>$ Gains\+MRAC\+::\+B\+\_\+ref\+\_\+translational}
+
+
+
+Definition at line 158 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a70c7713ec3d343c2084f3482fda1b14c}\label{structGainsMRAC_a70c7713ec3d343c2084f3482fda1b14c}} 
+\index{GainsMRAC@{GainsMRAC}!B\_rotational@{B\_rotational}}
+\index{B\_rotational@{B\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{B\_rotational}{B\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+B\+\_\+rotational}
+
+
+
+Definition at line 162 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a8e584593a27f67c609f4303b844fc247}\label{structGainsMRAC_a8e584593a27f67c609f4303b844fc247}} 
+\index{GainsMRAC@{GainsMRAC}!B\_translational@{B\_translational}}
+\index{B\_translational@{B\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{B\_translational}{B\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 3$>$ Gains\+MRAC\+::\+B\+\_\+translational}
+
+
+
+Definition at line 154 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a49fe753e3f85c1f373933087c2dad7be}\label{structGainsMRAC_a49fe753e3f85c1f373933087c2dad7be}} 
+\index{GainsMRAC@{GainsMRAC}!dead\_zone\_delta\_rotational@{dead\_zone\_delta\_rotational}}
+\index{dead\_zone\_delta\_rotational@{dead\_zone\_delta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{dead\_zone\_delta\_rotational}{dead\_zone\_delta\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::dead\+\_\+zone\+\_\+delta\+\_\+rotational}
+
+
+
+Definition at line 129 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a9765f46d1513b7cf982c75ce5c71aa8f}\label{structGainsMRAC_a9765f46d1513b7cf982c75ce5c71aa8f}} 
+\index{GainsMRAC@{GainsMRAC}!dead\_zone\_delta\_translational@{dead\_zone\_delta\_translational}}
+\index{dead\_zone\_delta\_translational@{dead\_zone\_delta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{dead\_zone\_delta\_translational}{dead\_zone\_delta\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::dead\+\_\+zone\+\_\+delta\+\_\+translational}
+
+
+
+Definition at line 94 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a162c5ee0a7574bbc350127ab3b7ac122}\label{structGainsMRAC_a162c5ee0a7574bbc350127ab3b7ac122}} 
+\index{GainsMRAC@{GainsMRAC}!dead\_zone\_e0\_rotational@{dead\_zone\_e0\_rotational}}
+\index{dead\_zone\_e0\_rotational@{dead\_zone\_e0\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{dead\_zone\_e0\_rotational}{dead\_zone\_e0\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::dead\+\_\+zone\+\_\+e0\+\_\+rotational}
+
+
+
+Definition at line 130 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_aed30da316b8932184f1bfcad4bbcbcab}\label{structGainsMRAC_aed30da316b8932184f1bfcad4bbcbcab}} 
+\index{GainsMRAC@{GainsMRAC}!dead\_zone\_e0\_translational@{dead\_zone\_e0\_translational}}
+\index{dead\_zone\_e0\_translational@{dead\_zone\_e0\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{dead\_zone\_e0\_translational}{dead\_zone\_e0\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::dead\+\_\+zone\+\_\+e0\+\_\+translational}
+
+
+
+Definition at line 95 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a59a93c449508e0ed79ebd37e60f1579f}\label{structGainsMRAC_a59a93c449508e0ed79ebd37e60f1579f}} 
+\index{GainsMRAC@{GainsMRAC}!epsilon\_r\_rotational@{epsilon\_r\_rotational}}
+\index{epsilon\_r\_rotational@{epsilon\_r\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{epsilon\_r\_rotational}{epsilon\_r\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::epsilon\+\_\+r\+\_\+rotational}
+
+
+
+Definition at line 142 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a00a9676aa0d33ba5bd2e91741640e162}\label{structGainsMRAC_a00a9676aa0d33ba5bd2e91741640e162}} 
+\index{GainsMRAC@{GainsMRAC}!epsilon\_r\_translational@{epsilon\_r\_translational}}
+\index{epsilon\_r\_translational@{epsilon\_r\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{epsilon\_r\_translational}{epsilon\_r\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::epsilon\+\_\+r\+\_\+translational}
+
+
+
+Definition at line 107 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_abc10a7fc93f5ad4617cbe8cf6243eeb1}\label{structGainsMRAC_abc10a7fc93f5ad4617cbe8cf6243eeb1}} 
+\index{GainsMRAC@{GainsMRAC}!epsilon\_Theta\_rotational@{epsilon\_Theta\_rotational}}
+\index{epsilon\_Theta\_rotational@{epsilon\_Theta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{epsilon\_Theta\_rotational}{epsilon\_Theta\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::epsilon\+\_\+\+Theta\+\_\+rotational}
+
+
+
+Definition at line 147 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_abb4fa4b33c413772c475c01c25b45a2f}\label{structGainsMRAC_abb4fa4b33c413772c475c01c25b45a2f}} 
+\index{GainsMRAC@{GainsMRAC}!epsilon\_Theta\_translational@{epsilon\_Theta\_translational}}
+\index{epsilon\_Theta\_translational@{epsilon\_Theta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{epsilon\_Theta\_translational}{epsilon\_Theta\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::epsilon\+\_\+\+Theta\+\_\+translational}
+
+
+
+Definition at line 112 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ab8fc0ccffdaa107c3b38a409ac457648}\label{structGainsMRAC_ab8fc0ccffdaa107c3b38a409ac457648}} 
+\index{GainsMRAC@{GainsMRAC}!epsilon\_x\_rotational@{epsilon\_x\_rotational}}
+\index{epsilon\_x\_rotational@{epsilon\_x\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{epsilon\_x\_rotational}{epsilon\_x\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::epsilon\+\_\+x\+\_\+rotational}
+
+
+
+Definition at line 137 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a35bbbc55626531624d3bd680e924b14e}\label{structGainsMRAC_a35bbbc55626531624d3bd680e924b14e}} 
+\index{GainsMRAC@{GainsMRAC}!epsilon\_x\_translational@{epsilon\_x\_translational}}
+\index{epsilon\_x\_translational@{epsilon\_x\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{epsilon\_x\_translational}{epsilon\_x\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::epsilon\+\_\+x\+\_\+translational}
+
+
+
+Definition at line 102 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a401aa0a58735b94ea39489b246b78330}\label{structGainsMRAC_a401aa0a58735b94ea39489b246b78330}} 
+\index{GainsMRAC@{GainsMRAC}!Gamma\_r\_rotational@{Gamma\_r\_rotational}}
+\index{Gamma\_r\_rotational@{Gamma\_r\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Gamma\_r\_rotational}{Gamma\_r\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+Gamma\+\_\+r\+\_\+rotational}
+
+
+
+Definition at line 116 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a578837b3c30a1d453874d00e1297028f}\label{structGainsMRAC_a578837b3c30a1d453874d00e1297028f}} 
+\index{GainsMRAC@{GainsMRAC}!Gamma\_r\_translational@{Gamma\_r\_translational}}
+\index{Gamma\_r\_translational@{Gamma\_r\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Gamma\_r\_translational}{Gamma\_r\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+Gamma\+\_\+r\+\_\+translational}
+
+
+
+Definition at line 81 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a6e12639ff1012121c24db7ee9ae14b1b}\label{structGainsMRAC_a6e12639ff1012121c24db7ee9ae14b1b}} 
+\index{GainsMRAC@{GainsMRAC}!Gamma\_Theta\_rotational@{Gamma\_Theta\_rotational}}
+\index{Gamma\_Theta\_rotational@{Gamma\_Theta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Gamma\_Theta\_rotational}{Gamma\_Theta\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 6$>$ Gains\+MRAC\+::\+Gamma\+\_\+\+Theta\+\_\+rotational}
+
+
+
+Definition at line 117 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a8d28d4c116b0121a3224919e4bc407b0}\label{structGainsMRAC_a8d28d4c116b0121a3224919e4bc407b0}} 
+\index{GainsMRAC@{GainsMRAC}!Gamma\_Theta\_translational@{Gamma\_Theta\_translational}}
+\index{Gamma\_Theta\_translational@{Gamma\_Theta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Gamma\_Theta\_translational}{Gamma\_Theta\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 6$>$ Gains\+MRAC\+::\+Gamma\+\_\+\+Theta\+\_\+translational}
+
+
+
+Definition at line 82 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a2d3c8a8bba829105b9ee162f3b957359}\label{structGainsMRAC_a2d3c8a8bba829105b9ee162f3b957359}} 
+\index{GainsMRAC@{GainsMRAC}!Gamma\_x\_rotational@{Gamma\_x\_rotational}}
+\index{Gamma\_x\_rotational@{Gamma\_x\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Gamma\_x\_rotational}{Gamma\_x\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+Gamma\+\_\+x\+\_\+rotational}
+
+
+
+Definition at line 115 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a0e789d417fdba7493996873aedb0fd5f}\label{structGainsMRAC_a0e789d417fdba7493996873aedb0fd5f}} 
+\index{GainsMRAC@{GainsMRAC}!Gamma\_x\_translational@{Gamma\_x\_translational}}
+\index{Gamma\_x\_translational@{Gamma\_x\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Gamma\_x\_translational}{Gamma\_x\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 6$>$ Gains\+MRAC\+::\+Gamma\+\_\+x\+\_\+translational}
+
+ADAPTIVE parameters 
+
+Definition at line 80 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a0a79d06861d6ca282256d831bc0ec66a}\label{structGainsMRAC_a0a79d06861d6ca282256d831bc0ec66a}} 
+\index{GainsMRAC@{GainsMRAC}!KD\_refmod\_translational@{KD\_refmod\_translational}}
+\index{KD\_refmod\_translational@{KD\_refmod\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KD\_refmod\_translational}{KD\_refmod\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KD\+\_\+refmod\+\_\+translational}
+
+
+
+Definition at line 54 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a625f851dad53585e6a663aaea761f987}\label{structGainsMRAC_a625f851dad53585e6a663aaea761f987}} 
+\index{GainsMRAC@{GainsMRAC}!KD\_rotational@{KD\_rotational}}
+\index{KD\_rotational@{KD\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KD\_rotational}{KD\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KD\+\_\+rotational}
+
+
+
+Definition at line 73 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a7a363cab76456da5365159d288d6243b}\label{structGainsMRAC_a7a363cab76456da5365159d288d6243b}} 
+\index{GainsMRAC@{GainsMRAC}!KD\_translational@{KD\_translational}}
+\index{KD\_translational@{KD\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KD\_translational}{KD\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KD\+\_\+translational}
+
+
+
+Definition at line 59 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ade17daa417e68746b32c0b2fd2415e16}\label{structGainsMRAC_ade17daa417e68746b32c0b2fd2415e16}} 
+\index{GainsMRAC@{GainsMRAC}!KI\_omega\_cmd\_rotational@{KI\_omega\_cmd\_rotational}}
+\index{KI\_omega\_cmd\_rotational@{KI\_omega\_cmd\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KI\_omega\_cmd\_rotational}{KI\_omega\_cmd\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KI\+\_\+omega\+\_\+cmd\+\_\+rotational}
+
+
+
+Definition at line 65 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a60c3ec24b9bb7c72e7308df72aae9694}\label{structGainsMRAC_a60c3ec24b9bb7c72e7308df72aae9694}} 
+\index{GainsMRAC@{GainsMRAC}!KI\_omega\_ref\_rotational@{KI\_omega\_ref\_rotational}}
+\index{KI\_omega\_ref\_rotational@{KI\_omega\_ref\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KI\_omega\_ref\_rotational}{KI\_omega\_ref\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KI\+\_\+omega\+\_\+ref\+\_\+rotational}
+
+
+
+Definition at line 69 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a3dd5e5057c4e302bcdb5a90ee070a736}\label{structGainsMRAC_a3dd5e5057c4e302bcdb5a90ee070a736}} 
+\index{GainsMRAC@{GainsMRAC}!KI\_refmod\_translational@{KI\_refmod\_translational}}
+\index{KI\_refmod\_translational@{KI\_refmod\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KI\_refmod\_translational}{KI\_refmod\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KI\+\_\+refmod\+\_\+translational}
+
+
+
+Definition at line 55 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_adf296a68f8fd1dda192eda132745c640}\label{structGainsMRAC_adf296a68f8fd1dda192eda132745c640}} 
+\index{GainsMRAC@{GainsMRAC}!KI\_rotational@{KI\_rotational}}
+\index{KI\_rotational@{KI\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KI\_rotational}{KI\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KI\+\_\+rotational}
+
+
+
+Definition at line 74 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a7ff0427dc5c575646f2b57f37b127c6d}\label{structGainsMRAC_a7ff0427dc5c575646f2b57f37b127c6d}} 
+\index{GainsMRAC@{GainsMRAC}!KI\_translational@{KI\_translational}}
+\index{KI\_translational@{KI\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KI\_translational}{KI\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KI\+\_\+translational}
+
+
+
+Definition at line 60 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a06a8d4dbc2b1a544aaaa8cb8baefddd6}\label{structGainsMRAC_a06a8d4dbc2b1a544aaaa8cb8baefddd6}} 
+\index{GainsMRAC@{GainsMRAC}!KP\_omega\_cmd\_rotational@{KP\_omega\_cmd\_rotational}}
+\index{KP\_omega\_cmd\_rotational@{KP\_omega\_cmd\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KP\_omega\_cmd\_rotational}{KP\_omega\_cmd\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KP\+\_\+omega\+\_\+cmd\+\_\+rotational}
+
+
+
+Definition at line 64 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a33c6c866ed1853dc40ffee81d8e338e0}\label{structGainsMRAC_a33c6c866ed1853dc40ffee81d8e338e0}} 
+\index{GainsMRAC@{GainsMRAC}!KP\_omega\_ref\_rotational@{KP\_omega\_ref\_rotational}}
+\index{KP\_omega\_ref\_rotational@{KP\_omega\_ref\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KP\_omega\_ref\_rotational}{KP\_omega\_ref\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KP\+\_\+omega\+\_\+ref\+\_\+rotational}
+
+
+
+Definition at line 68 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a9937e67674b7e5f58d6bd19c2487c5f7}\label{structGainsMRAC_a9937e67674b7e5f58d6bd19c2487c5f7}} 
+\index{GainsMRAC@{GainsMRAC}!KP\_refmod\_translational@{KP\_refmod\_translational}}
+\index{KP\_refmod\_translational@{KP\_refmod\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KP\_refmod\_translational}{KP\_refmod\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KP\+\_\+refmod\+\_\+translational}
+
+BASELINE parameters 
+
+Definition at line 53 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a28be2bec2f705679b4492492b909f05d}\label{structGainsMRAC_a28be2bec2f705679b4492492b909f05d}} 
+\index{GainsMRAC@{GainsMRAC}!KP\_rotational@{KP\_rotational}}
+\index{KP\_rotational@{KP\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KP\_rotational}{KP\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KP\+\_\+rotational}
+
+
+
+Definition at line 72 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a070aa2e03ebbabbc7e33ad3f6143fea2}\label{structGainsMRAC_a070aa2e03ebbabbc7e33ad3f6143fea2}} 
+\index{GainsMRAC@{GainsMRAC}!KP\_translational@{KP\_translational}}
+\index{KP\_translational@{KP\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{KP\_translational}{KP\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Gains\+MRAC\+::\+KP\+\_\+translational}
+
+
+
+Definition at line 58 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a0d9e34a277cb683bfd7a9f52d720b6ec}\label{structGainsMRAC_a0d9e34a277cb683bfd7a9f52d720b6ec}} 
+\index{GainsMRAC@{GainsMRAC}!P\_rotational@{P\_rotational}}
+\index{P\_rotational@{P\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{P\_rotational}{P\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+P\+\_\+rotational}
+
+
+
+Definition at line 121 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a89829c97f3006eeee013f1348805c60c}\label{structGainsMRAC_a89829c97f3006eeee013f1348805c60c}} 
+\index{GainsMRAC@{GainsMRAC}!P\_translational@{P\_translational}}
+\index{P\_translational@{P\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{P\_translational}{P\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 6$>$ Gains\+MRAC\+::\+P\+\_\+translational}
+
+
+
+Definition at line 86 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a5d35144c82a90aed78dee5fddd49ec9b}\label{structGainsMRAC_a5d35144c82a90aed78dee5fddd49ec9b}} 
+\index{GainsMRAC@{GainsMRAC}!Q\_rotational@{Q\_rotational}}
+\index{Q\_rotational@{Q\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Q\_rotational}{Q\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 3, 3$>$ Gains\+MRAC\+::\+Q\+\_\+rotational}
+
+
+
+Definition at line 120 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_af96321d833ed29299a0dd939ecd26775}\label{structGainsMRAC_af96321d833ed29299a0dd939ecd26775}} 
+\index{GainsMRAC@{GainsMRAC}!Q\_translational@{Q\_translational}}
+\index{Q\_translational@{Q\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{Q\_translational}{Q\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 6, 6$>$ Gains\+MRAC\+::\+Q\+\_\+translational}
+
+
+
+Definition at line 85 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a1386729b9172b99ccf2f2f79c6726fa4}\label{structGainsMRAC_a1386729b9172b99ccf2f2f79c6726fa4}} 
+\index{GainsMRAC@{GainsMRAC}!S\_diagonal\_r\_rotational@{S\_diagonal\_r\_rotational}}
+\index{S\_diagonal\_r\_rotational@{S\_diagonal\_r\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_diagonal\_r\_rotational}{S\_diagonal\_r\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 1$>$ Gains\+MRAC\+::\+S\+\_\+diagonal\+\_\+r\+\_\+rotational}
+
+
+
+Definition at line 139 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a87d1eb2fb676b6a4af2c9a644614aefa}\label{structGainsMRAC_a87d1eb2fb676b6a4af2c9a644614aefa}} 
+\index{GainsMRAC@{GainsMRAC}!S\_diagonal\_r\_translational@{S\_diagonal\_r\_translational}}
+\index{S\_diagonal\_r\_translational@{S\_diagonal\_r\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_diagonal\_r\_translational}{S\_diagonal\_r\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 1$>$ Gains\+MRAC\+::\+S\+\_\+diagonal\+\_\+r\+\_\+translational}
+
+
+
+Definition at line 104 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ab54b3bcff950164b670091092b4af440}\label{structGainsMRAC_ab54b3bcff950164b670091092b4af440}} 
+\index{GainsMRAC@{GainsMRAC}!S\_diagonal\_Theta\_rotational@{S\_diagonal\_Theta\_rotational}}
+\index{S\_diagonal\_Theta\_rotational@{S\_diagonal\_Theta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_diagonal\_Theta\_rotational}{S\_diagonal\_Theta\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 1$>$ Gains\+MRAC\+::\+S\+\_\+diagonal\+\_\+\+Theta\+\_\+rotational}
+
+
+
+Definition at line 144 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a9534260b5f4661462b9dd6e91cb78963}\label{structGainsMRAC_a9534260b5f4661462b9dd6e91cb78963}} 
+\index{GainsMRAC@{GainsMRAC}!S\_diagonal\_Theta\_translational@{S\_diagonal\_Theta\_translational}}
+\index{S\_diagonal\_Theta\_translational@{S\_diagonal\_Theta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_diagonal\_Theta\_translational}{S\_diagonal\_Theta\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 1$>$ Gains\+MRAC\+::\+S\+\_\+diagonal\+\_\+\+Theta\+\_\+translational}
+
+
+
+Definition at line 109 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_afcf1a1c78a7345c65965e63a4b76384d}\label{structGainsMRAC_afcf1a1c78a7345c65965e63a4b76384d}} 
+\index{GainsMRAC@{GainsMRAC}!S\_diagonal\_x\_rotational@{S\_diagonal\_x\_rotational}}
+\index{S\_diagonal\_x\_rotational@{S\_diagonal\_x\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_diagonal\_x\_rotational}{S\_diagonal\_x\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 1$>$ Gains\+MRAC\+::\+S\+\_\+diagonal\+\_\+x\+\_\+rotational}
+
+
+
+Definition at line 134 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a4586f63df3e8d80e2035139d9649d3e5}\label{structGainsMRAC_a4586f63df3e8d80e2035139d9649d3e5}} 
+\index{GainsMRAC@{GainsMRAC}!S\_diagonal\_x\_translational@{S\_diagonal\_x\_translational}}
+\index{S\_diagonal\_x\_translational@{S\_diagonal\_x\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_diagonal\_x\_translational}{S\_diagonal\_x\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 1$>$ Gains\+MRAC\+::\+S\+\_\+diagonal\+\_\+x\+\_\+translational}
+
+
+
+Definition at line 99 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a3d6d16c6148e815b61c26156ea0ca2cb}\label{structGainsMRAC_a3d6d16c6148e815b61c26156ea0ca2cb}} 
+\index{GainsMRAC@{GainsMRAC}!S\_r\_rotational@{S\_r\_rotational}}
+\index{S\_r\_rotational@{S\_r\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_r\_rotational}{S\_r\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 9$>$ Gains\+MRAC\+::\+S\+\_\+r\+\_\+rotational}
+
+
+
+Definition at line 140 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a868ffda34e5fa746bed7dcd40ae1d13f}\label{structGainsMRAC_a868ffda34e5fa746bed7dcd40ae1d13f}} 
+\index{GainsMRAC@{GainsMRAC}!S\_r\_translational@{S\_r\_translational}}
+\index{S\_r\_translational@{S\_r\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_r\_translational}{S\_r\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 9$>$ Gains\+MRAC\+::\+S\+\_\+r\+\_\+translational}
+
+
+
+Definition at line 105 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ad8cbaa027ad23ab999c4bd862f0f289c}\label{structGainsMRAC_ad8cbaa027ad23ab999c4bd862f0f289c}} 
+\index{GainsMRAC@{GainsMRAC}!S\_Theta\_rotational@{S\_Theta\_rotational}}
+\index{S\_Theta\_rotational@{S\_Theta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_Theta\_rotational}{S\_Theta\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 18$>$ Gains\+MRAC\+::\+S\+\_\+\+Theta\+\_\+rotational}
+
+
+
+Definition at line 145 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a613276bdfe65e327f9490b69442706c7}\label{structGainsMRAC_a613276bdfe65e327f9490b69442706c7}} 
+\index{GainsMRAC@{GainsMRAC}!S\_Theta\_translational@{S\_Theta\_translational}}
+\index{S\_Theta\_translational@{S\_Theta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_Theta\_translational}{S\_Theta\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 18$>$ Gains\+MRAC\+::\+S\+\_\+\+Theta\+\_\+translational}
+
+
+
+Definition at line 110 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ab72edeb2684ec09075bf9b8bfa8bcca0}\label{structGainsMRAC_ab72edeb2684ec09075bf9b8bfa8bcca0}} 
+\index{GainsMRAC@{GainsMRAC}!S\_x\_rotational@{S\_x\_rotational}}
+\index{S\_x\_rotational@{S\_x\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_x\_rotational}{S\_x\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 9$>$ Gains\+MRAC\+::\+S\+\_\+x\+\_\+rotational}
+
+
+
+Definition at line 135 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a61baf3a8edf8e252e4a9be1e5af4e195}\label{structGainsMRAC_a61baf3a8edf8e252e4a9be1e5af4e195}} 
+\index{GainsMRAC@{GainsMRAC}!S\_x\_translational@{S\_x\_translational}}
+\index{S\_x\_translational@{S\_x\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{S\_x\_translational}{S\_x\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 18$>$ Gains\+MRAC\+::\+S\+\_\+x\+\_\+translational}
+
+
+
+Definition at line 100 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ab9741db84caa6a71477daab8a0bd5c05}\label{structGainsMRAC_ab9741db84caa6a71477daab8a0bd5c05}} 
+\index{GainsMRAC@{GainsMRAC}!sigma\_r\_rotational@{sigma\_r\_rotational}}
+\index{sigma\_r\_rotational@{sigma\_r\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{sigma\_r\_rotational}{sigma\_r\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::sigma\+\_\+r\+\_\+rotational}
+
+
+
+Definition at line 125 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ae3a829e3a9b03ffd80824eef9782d4da}\label{structGainsMRAC_ae3a829e3a9b03ffd80824eef9782d4da}} 
+\index{GainsMRAC@{GainsMRAC}!sigma\_r\_translational@{sigma\_r\_translational}}
+\index{sigma\_r\_translational@{sigma\_r\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{sigma\_r\_translational}{sigma\_r\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::sigma\+\_\+r\+\_\+translational}
+
+
+
+Definition at line 90 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ad9ec6c33b12f4b09c401d074e3a5232f}\label{structGainsMRAC_ad9ec6c33b12f4b09c401d074e3a5232f}} 
+\index{GainsMRAC@{GainsMRAC}!sigma\_Theta\_rotational@{sigma\_Theta\_rotational}}
+\index{sigma\_Theta\_rotational@{sigma\_Theta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{sigma\_Theta\_rotational}{sigma\_Theta\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::sigma\+\_\+\+Theta\+\_\+rotational}
+
+
+
+Definition at line 126 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ab155f7c47d8eb2cd3d4606a6580c8544}\label{structGainsMRAC_ab155f7c47d8eb2cd3d4606a6580c8544}} 
+\index{GainsMRAC@{GainsMRAC}!sigma\_Theta\_translational@{sigma\_Theta\_translational}}
+\index{sigma\_Theta\_translational@{sigma\_Theta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{sigma\_Theta\_translational}{sigma\_Theta\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::sigma\+\_\+\+Theta\+\_\+translational}
+
+
+
+Definition at line 91 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ab2b53cb7e7fe0757fec809745c364bcb}\label{structGainsMRAC_ab2b53cb7e7fe0757fec809745c364bcb}} 
+\index{GainsMRAC@{GainsMRAC}!sigma\_x\_rotational@{sigma\_x\_rotational}}
+\index{sigma\_x\_rotational@{sigma\_x\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{sigma\_x\_rotational}{sigma\_x\_rotational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::sigma\+\_\+x\+\_\+rotational}
+
+
+
+Definition at line 124 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a72be9c6e4e47c19ba7ff4e4e83d48260}\label{structGainsMRAC_a72be9c6e4e47c19ba7ff4e4e83d48260}} 
+\index{GainsMRAC@{GainsMRAC}!sigma\_x\_translational@{sigma\_x\_translational}}
+\index{sigma\_x\_translational@{sigma\_x\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{sigma\_x\_translational}{sigma\_x\_translational}}
+{\footnotesize\ttfamily double Gains\+MRAC\+::sigma\+\_\+x\+\_\+translational}
+
+
+
+Definition at line 89 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_aa15b7e4ef8138c9f274a05e19e224365}\label{structGainsMRAC_aa15b7e4ef8138c9f274a05e19e224365}} 
+\index{GainsMRAC@{GainsMRAC}!x\_e\_r\_rotational@{x\_e\_r\_rotational}}
+\index{x\_e\_r\_rotational@{x\_e\_r\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{x\_e\_r\_rotational}{x\_e\_r\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 1$>$ Gains\+MRAC\+::x\+\_\+e\+\_\+r\+\_\+rotational}
+
+
+
+Definition at line 138 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a3b7dc5bac2c676a888378a71d15ea486}\label{structGainsMRAC_a3b7dc5bac2c676a888378a71d15ea486}} 
+\index{GainsMRAC@{GainsMRAC}!x\_e\_r\_translational@{x\_e\_r\_translational}}
+\index{x\_e\_r\_translational@{x\_e\_r\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{x\_e\_r\_translational}{x\_e\_r\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 1$>$ Gains\+MRAC\+::x\+\_\+e\+\_\+r\+\_\+translational}
+
+
+
+Definition at line 103 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_aace629d04fbac1da6582f9957c441e3e}\label{structGainsMRAC_aace629d04fbac1da6582f9957c441e3e}} 
+\index{GainsMRAC@{GainsMRAC}!x\_e\_Theta\_rotational@{x\_e\_Theta\_rotational}}
+\index{x\_e\_Theta\_rotational@{x\_e\_Theta\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{x\_e\_Theta\_rotational}{x\_e\_Theta\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 1$>$ Gains\+MRAC\+::x\+\_\+e\+\_\+\+Theta\+\_\+rotational}
+
+
+
+Definition at line 143 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a5170d3835b0d8a94c93beedf7303b99b}\label{structGainsMRAC_a5170d3835b0d8a94c93beedf7303b99b}} 
+\index{GainsMRAC@{GainsMRAC}!x\_e\_Theta\_translational@{x\_e\_Theta\_translational}}
+\index{x\_e\_Theta\_translational@{x\_e\_Theta\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{x\_e\_Theta\_translational}{x\_e\_Theta\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 1$>$ Gains\+MRAC\+::x\+\_\+e\+\_\+\+Theta\+\_\+translational}
+
+
+
+Definition at line 108 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_ac9973cb5e139801b4495a99b7f875fdf}\label{structGainsMRAC_ac9973cb5e139801b4495a99b7f875fdf}} 
+\index{GainsMRAC@{GainsMRAC}!x\_e\_x\_rotational@{x\_e\_x\_rotational}}
+\index{x\_e\_x\_rotational@{x\_e\_x\_rotational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{x\_e\_x\_rotational}{x\_e\_x\_rotational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 9, 1$>$ Gains\+MRAC\+::x\+\_\+e\+\_\+x\+\_\+rotational}
+
+
+
+Definition at line 133 of file mrac\+\_\+gains.\+hpp.
+
+\mbox{\Hypertarget{structGainsMRAC_a727aa01f7f2b3ec218aa80658c2514a7}\label{structGainsMRAC_a727aa01f7f2b3ec218aa80658c2514a7}} 
+\index{GainsMRAC@{GainsMRAC}!x\_e\_x\_translational@{x\_e\_x\_translational}}
+\index{x\_e\_x\_translational@{x\_e\_x\_translational}!GainsMRAC@{GainsMRAC}}
+\doxysubsubsection{\texorpdfstring{x\_e\_x\_translational}{x\_e\_x\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 18, 1$>$ Gains\+MRAC\+::x\+\_\+e\+\_\+x\+\_\+translational}
+
+
+
+Definition at line 98 of file mrac\+\_\+gains.\+hpp.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/flightstack/control/mrac/\mbox{\hyperlink{mrac__gains_8hpp}{mrac\+\_\+gains.\+hpp}}\end{DoxyCompactItemize}

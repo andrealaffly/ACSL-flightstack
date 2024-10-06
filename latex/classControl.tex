@@ -1,0 +1,408 @@
+\hypertarget{classControl}{}\doxysection{Control Class Reference}
+\label{classControl}\index{Control@{Control}}
+
+
+{\ttfamily \#include $<$control.\+hpp$>$}
+
+
+
+Inheritance diagram for Control\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classControl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Control\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classControl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}}
+\item 
+struct \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classControl_a4922b4ac95cc6c99d6495d199a2b0341}{Control}} (\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&node)
+\item 
+void \mbox{\hyperlink{classControl_a1eab73a95b10b5a63cbd8d800a758ead}{read\+JSONdifferentiator\+File}} ()
+\item 
+\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \& \mbox{\hyperlink{classControl_a2cf6154e153dd758915a2bc161ed24c5}{get\+Node}} () const
+\item 
+const \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \& \mbox{\hyperlink{classControl_af775d977d740a3592ad829951edee801}{get\+Vehicle\+Info}} () const
+\item 
+const \mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \& \mbox{\hyperlink{classControl_ad0466904a92578730543a75df5cfa827}{get\+Control\+Internal\+Members}} () const
+\item 
+const std\+::chrono\+::duration$<$ double, std\+::micro $>$ \& \mbox{\hyperlink{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}{get\+Algorithm\+Execution\+Time\+Microseconds}} () const
+\item 
+void \mbox{\hyperlink{classControl_ae0d996fda796eaf7ab720ab1ee1d34c4}{set\+Algorithm\+Execution\+Time\+Microseconds}} (std\+::chrono\+::duration$<$ double, std\+::micro $>$ duration)
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classControl_aa589fd1c954f8d63a9ef995b8dd5ccb1}{jacobian\+Matrix}} (const double \&roll, const double \&pitch)
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classControl_a4c5af85d65d8e66614eb97f0232d9b2d}{jacobian\+Matrix\+Dot}} (const double \&roll, const double \&pitch, const double \&roll\+\_\+dot, const double \&pitch\+\_\+dot)
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classControl_ad7b21fb6bffb4c4071b00242947f2aac}{jacobian\+Matrix\+Inverse}} (const double \&roll, const double \&pitch)
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classControl_a98a2f5751bf4fae0665cbe183628c550}{rotation\+Matrix321\+Global\+To\+Local}} (const double \&roll, const double \&pitch, const double \&yaw)
+\item 
+void \mbox{\hyperlink{classControl_afca7288639f8c9289fd414ebcd508aa4}{compute\+Normalized\+Thrust\+Quadcopter\+Mode}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}})
+\item 
+void \mbox{\hyperlink{classControl_ab7ec1e80f76087f51ef7b8d6f8c45c63}{compute\+Normalized\+Thrust}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}})
+\item 
+void \mbox{\hyperlink{classControl_a4859f39257b9384c051316c0cf02398b}{compute\+\_\+\+U1\+\_\+\+Roll\+Des\+\_\+\+Pitch\+Des}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}})
+\item 
+void \mbox{\hyperlink{classControl_a731703653e915ffd50d9b0d5ed1f8f14}{compute\+Translational\+Position\+Error}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, const Eigen\+::\+Vector3d \&position, const Eigen\+::\+Vector3d \&desired\+\_\+position)
+\item 
+void \mbox{\hyperlink{classControl_a8e37a20bfb4992e505262ad1bf5b563f}{compute\+Angular\+Error}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, const Eigen\+::\+Vector3d \&euler\+\_\+angles\+\_\+rpy, const Eigen\+::\+Vector3d \&angular\+\_\+position\+\_\+desired)
+\item 
+void \mbox{\hyperlink{classControl_a7c874356ff204682dcf8f09e339c3ad0}{compute\+Rotational\+Parameters}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&\mbox{\hyperlink{classControl_a72c21299fee71707c64758f1c3e72406}{cr}})
+\item 
+double \mbox{\hyperlink{classControl_a3cc4923aa36244bff55cc2dfb75b7b6c}{wrap\+Angle\+To\+Minus\+Pi\+And\+Pi}} (double alpha)
+\item 
+double \mbox{\hyperlink{classControl_a7813a075a84dda26a1891bcf94248500}{make\+Yaw\+Angular\+Error\+Continuous}} (double yaw, double user\+\_\+defined\+\_\+yaw)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classControl_ac52abfb18cc1482d6172add98732f270}{assign\+Elements\+To\+Dxdt}} (T \&entity, \mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} \&dxdt, int \&current\+\_\+index)
+\item 
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{classControl_aed596228f5ea4862a2a0498b2948ff51}{dead\+Zone\+Modulation\+Function}} (const T \&e\+\_\+vector, const double \&delta, const double \&e\+\_\+0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+runge\+\_\+kutta4$<$ \mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} $>$ \mbox{\hyperlink{classControl_a6929ceaeb95d02424bac55b29178ef32}{stepper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}
+\item 
+\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}
+\item 
+\mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \mbox{\hyperlink{classControl_a72c21299fee71707c64758f1c3e72406}{cr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Eigen\+::\+Vector3d \mbox{\hyperlink{classControl_aa8d388b470751180ac3c8a95aa19ab81}{e3\+\_\+basis}} = Eigen\+::\+Vector3d(0.\+0, 0.\+0, 1.\+0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \& \mbox{\hyperlink{classControl_ab527a7573a89e2a435ead0578c40ba07}{node\+\_\+}}
+\item 
+std\+::chrono\+::duration$<$ double, std\+::micro $>$ \mbox{\hyperlink{classControl_a918636042dff2a19372b7be55539801b}{algorithm\+\_\+execution\+\_\+time\+\_\+microseconds\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 60 of file control.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classControl_a4922b4ac95cc6c99d6495d199a2b0341}\label{classControl_a4922b4ac95cc6c99d6495d199a2b0341}} 
+\index{Control@{Control}!Control@{Control}}
+\index{Control@{Control}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{Control()}{Control()}}
+{\footnotesize\ttfamily Control\+::\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file control.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classControl_ac52abfb18cc1482d6172add98732f270}\label{classControl_ac52abfb18cc1482d6172add98732f270}} 
+\index{Control@{Control}!assignElementsToDxdt@{assignElementsToDxdt}}
+\index{assignElementsToDxdt@{assignElementsToDxdt}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{assignElementsToDxdt()}{assignElementsToDxdt()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Control\+::assign\+Elements\+To\+Dxdt (\begin{DoxyParamCaption}\item[{T \&}]{entity,  }\item[{\mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} \&}]{dxdt,  }\item[{int \&}]{current\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 173 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_a4859f39257b9384c051316c0cf02398b}\label{classControl_a4859f39257b9384c051316c0cf02398b}} 
+\index{Control@{Control}!compute\_U1\_RollDes\_PitchDes@{compute\_U1\_RollDes\_PitchDes}}
+\index{compute\_U1\_RollDes\_PitchDes@{compute\_U1\_RollDes\_PitchDes}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{compute\_U1\_RollDes\_PitchDes()}{compute\_U1\_RollDes\_PitchDes()}}
+{\footnotesize\ttfamily void Control\+::compute\+\_\+\+U1\+\_\+\+Roll\+Des\+\_\+\+Pitch\+Des (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim }\end{DoxyParamCaption})}
+
+
+
+Definition at line 369 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a8e37a20bfb4992e505262ad1bf5b563f}\label{classControl_a8e37a20bfb4992e505262ad1bf5b563f}} 
+\index{Control@{Control}!computeAngularError@{computeAngularError}}
+\index{computeAngularError@{computeAngularError}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{computeAngularError()}{computeAngularError()}}
+{\footnotesize\ttfamily void Control\+::compute\+Angular\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{const Eigen\+::\+Vector3d \&}]{euler\+\_\+angles\+\_\+rpy,  }\item[{const Eigen\+::\+Vector3d \&}]{angular\+\_\+position\+\_\+desired }\end{DoxyParamCaption})}
+
+
+
+Definition at line 406 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_ab7ec1e80f76087f51ef7b8d6f8c45c63}\label{classControl_ab7ec1e80f76087f51ef7b8d6f8c45c63}} 
+\index{Control@{Control}!computeNormalizedThrust@{computeNormalizedThrust}}
+\index{computeNormalizedThrust@{computeNormalizedThrust}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{computeNormalizedThrust()}{computeNormalizedThrust()}}
+{\footnotesize\ttfamily void Control\+::compute\+Normalized\+Thrust (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 313 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_afca7288639f8c9289fd414ebcd508aa4}\label{classControl_afca7288639f8c9289fd414ebcd508aa4}} 
+\index{Control@{Control}!computeNormalizedThrustQuadcopterMode@{computeNormalizedThrustQuadcopterMode}}
+\index{computeNormalizedThrustQuadcopterMode@{computeNormalizedThrustQuadcopterMode}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{computeNormalizedThrustQuadcopterMode()}{computeNormalizedThrustQuadcopterMode()}}
+{\footnotesize\ttfamily void Control\+::compute\+Normalized\+Thrust\+Quadcopter\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 274 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a7c874356ff204682dcf8f09e339c3ad0}\label{classControl_a7c874356ff204682dcf8f09e339c3ad0}} 
+\index{Control@{Control}!computeRotationalParameters@{computeRotationalParameters}}
+\index{computeRotationalParameters@{computeRotationalParameters}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{computeRotationalParameters()}{computeRotationalParameters()}}
+{\footnotesize\ttfamily void Control\+::compute\+Rotational\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&}]{cr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 421 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a731703653e915ffd50d9b0d5ed1f8f14}\label{classControl_a731703653e915ffd50d9b0d5ed1f8f14}} 
+\index{Control@{Control}!computeTranslationalPositionError@{computeTranslationalPositionError}}
+\index{computeTranslationalPositionError@{computeTranslationalPositionError}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{computeTranslationalPositionError()}{computeTranslationalPositionError()}}
+{\footnotesize\ttfamily void Control\+::compute\+Translational\+Position\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{const Eigen\+::\+Vector3d \&}]{position,  }\item[{const Eigen\+::\+Vector3d \&}]{desired\+\_\+position }\end{DoxyParamCaption})}
+
+
+
+Definition at line 392 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_aed596228f5ea4862a2a0498b2948ff51}\label{classControl_aed596228f5ea4862a2a0498b2948ff51}} 
+\index{Control@{Control}!deadZoneModulationFunction@{deadZoneModulationFunction}}
+\index{deadZoneModulationFunction@{deadZoneModulationFunction}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{deadZoneModulationFunction()}{deadZoneModulationFunction()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double Control\+::dead\+Zone\+Modulation\+Function (\begin{DoxyParamCaption}\item[{const T \&}]{e\+\_\+vector,  }\item[{const double \&}]{delta,  }\item[{const double \&}]{e\+\_\+0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 197 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}\label{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}} 
+\index{Control@{Control}!getAlgorithmExecutionTimeMicroseconds@{getAlgorithmExecutionTimeMicroseconds}}
+\index{getAlgorithmExecutionTimeMicroseconds@{getAlgorithmExecutionTimeMicroseconds}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmExecutionTimeMicroseconds()}{getAlgorithmExecutionTimeMicroseconds()}}
+{\footnotesize\ttfamily const std\+::chrono\+::duration$<$ double, std\+::micro $>$ \& Control\+::get\+Algorithm\+Execution\+Time\+Microseconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 150 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_ad0466904a92578730543a75df5cfa827}\label{classControl_ad0466904a92578730543a75df5cfa827}} 
+\index{Control@{Control}!getControlInternalMembers@{getControlInternalMembers}}
+\index{getControlInternalMembers@{getControlInternalMembers}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{getControlInternalMembers()}{getControlInternalMembers()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+::\+Control\+Internal\+Members}} \& Control\+::get\+Control\+Internal\+Members (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 144 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a2cf6154e153dd758915a2bc161ed24c5}\label{classControl_a2cf6154e153dd758915a2bc161ed24c5}} 
+\index{Control@{Control}!getNode@{getNode}}
+\index{getNode@{getNode}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{getNode()}{getNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \& Control\+::get\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 133 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_af775d977d740a3592ad829951edee801}\label{classControl_af775d977d740a3592ad829951edee801}} 
+\index{Control@{Control}!getVehicleInfo@{getVehicleInfo}}
+\index{getVehicleInfo@{getVehicleInfo}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{getVehicleInfo()}{getVehicleInfo()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \& Control\+::get\+Vehicle\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 138 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_aa589fd1c954f8d63a9ef995b8dd5ccb1}\label{classControl_aa589fd1c954f8d63a9ef995b8dd5ccb1}} 
+\index{Control@{Control}!jacobianMatrix@{jacobianMatrix}}
+\index{jacobianMatrix@{jacobianMatrix}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{jacobianMatrix()}{jacobianMatrix()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Control\+::jacobian\+Matrix (\begin{DoxyParamCaption}\item[{const double \&}]{roll,  }\item[{const double \&}]{pitch }\end{DoxyParamCaption})}
+
+
+
+Definition at line 162 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a4c5af85d65d8e66614eb97f0232d9b2d}\label{classControl_a4c5af85d65d8e66614eb97f0232d9b2d}} 
+\index{Control@{Control}!jacobianMatrixDot@{jacobianMatrixDot}}
+\index{jacobianMatrixDot@{jacobianMatrixDot}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{jacobianMatrixDot()}{jacobianMatrixDot()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Control\+::jacobian\+Matrix\+Dot (\begin{DoxyParamCaption}\item[{const double \&}]{roll,  }\item[{const double \&}]{pitch,  }\item[{const double \&}]{roll\+\_\+dot,  }\item[{const double \&}]{pitch\+\_\+dot }\end{DoxyParamCaption})}
+
+
+
+Definition at line 183 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_ad7b21fb6bffb4c4071b00242947f2aac}\label{classControl_ad7b21fb6bffb4c4071b00242947f2aac}} 
+\index{Control@{Control}!jacobianMatrixInverse@{jacobianMatrixInverse}}
+\index{jacobianMatrixInverse@{jacobianMatrixInverse}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{jacobianMatrixInverse()}{jacobianMatrixInverse()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Control\+::jacobian\+Matrix\+Inverse (\begin{DoxyParamCaption}\item[{const double \&}]{roll,  }\item[{const double \&}]{pitch }\end{DoxyParamCaption})}
+
+
+
+Definition at line 208 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a7813a075a84dda26a1891bcf94248500}\label{classControl_a7813a075a84dda26a1891bcf94248500}} 
+\index{Control@{Control}!makeYawAngularErrorContinuous@{makeYawAngularErrorContinuous}}
+\index{makeYawAngularErrorContinuous@{makeYawAngularErrorContinuous}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{makeYawAngularErrorContinuous()}{makeYawAngularErrorContinuous()}}
+{\footnotesize\ttfamily double Control\+::make\+Yaw\+Angular\+Error\+Continuous (\begin{DoxyParamCaption}\item[{double}]{yaw,  }\item[{double}]{user\+\_\+defined\+\_\+yaw }\end{DoxyParamCaption})}
+
+
+
+Definition at line 457 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a1eab73a95b10b5a63cbd8d800a758ead}\label{classControl_a1eab73a95b10b5a63cbd8d800a758ead}} 
+\index{Control@{Control}!readJSONdifferentiatorFile@{readJSONdifferentiatorFile}}
+\index{readJSONdifferentiatorFile@{readJSONdifferentiatorFile}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{readJSONdifferentiatorFile()}{readJSONdifferentiatorFile()}}
+{\footnotesize\ttfamily void Control\+::read\+JSONdifferentiator\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 98 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a98a2f5751bf4fae0665cbe183628c550}\label{classControl_a98a2f5751bf4fae0665cbe183628c550}} 
+\index{Control@{Control}!rotationMatrix321GlobalToLocal@{rotationMatrix321GlobalToLocal}}
+\index{rotationMatrix321GlobalToLocal@{rotationMatrix321GlobalToLocal}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{rotationMatrix321GlobalToLocal()}{rotationMatrix321GlobalToLocal()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Control\+::rotation\+Matrix321\+Global\+To\+Local (\begin{DoxyParamCaption}\item[{const double \&}]{roll,  }\item[{const double \&}]{pitch,  }\item[{const double \&}]{yaw }\end{DoxyParamCaption})}
+
+
+
+Definition at line 238 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_ae0d996fda796eaf7ab720ab1ee1d34c4}\label{classControl_ae0d996fda796eaf7ab720ab1ee1d34c4}} 
+\index{Control@{Control}!setAlgorithmExecutionTimeMicroseconds@{setAlgorithmExecutionTimeMicroseconds}}
+\index{setAlgorithmExecutionTimeMicroseconds@{setAlgorithmExecutionTimeMicroseconds}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{setAlgorithmExecutionTimeMicroseconds()}{setAlgorithmExecutionTimeMicroseconds()}}
+{\footnotesize\ttfamily void Control\+::set\+Algorithm\+Execution\+Time\+Microseconds (\begin{DoxyParamCaption}\item[{std\+::chrono\+::duration$<$ double, std\+::micro $>$}]{duration }\end{DoxyParamCaption})}
+
+
+
+Definition at line 156 of file control.\+cpp.
+
+\mbox{\Hypertarget{classControl_a3cc4923aa36244bff55cc2dfb75b7b6c}\label{classControl_a3cc4923aa36244bff55cc2dfb75b7b6c}} 
+\index{Control@{Control}!wrapAngleToMinusPiAndPi@{wrapAngleToMinusPiAndPi}}
+\index{wrapAngleToMinusPiAndPi@{wrapAngleToMinusPiAndPi}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{wrapAngleToMinusPiAndPi()}{wrapAngleToMinusPiAndPi()}}
+{\footnotesize\ttfamily double Control\+::wrap\+Angle\+To\+Minus\+Pi\+And\+Pi (\begin{DoxyParamCaption}\item[{double}]{alpha }\end{DoxyParamCaption})}
+
+
+
+Definition at line 448 of file control.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classControl_a918636042dff2a19372b7be55539801b}\label{classControl_a918636042dff2a19372b7be55539801b}} 
+\index{Control@{Control}!algorithm\_execution\_time\_microseconds\_@{algorithm\_execution\_time\_microseconds\_}}
+\index{algorithm\_execution\_time\_microseconds\_@{algorithm\_execution\_time\_microseconds\_}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{algorithm\_execution\_time\_microseconds\_}{algorithm\_execution\_time\_microseconds\_}}
+{\footnotesize\ttfamily std\+::chrono\+::duration$<$double, std\+::micro$>$ Control\+::algorithm\+\_\+execution\+\_\+time\+\_\+microseconds\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 219 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_ae617f475a998d077429d22807fe9ff89}\label{classControl_ae617f475a998d077429d22807fe9ff89}} 
+\index{Control@{Control}!cim@{cim}}
+\index{cim@{cim}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{cim}{cim}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} Control\+::cim\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 208 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_a72c21299fee71707c64758f1c3e72406}\label{classControl_a72c21299fee71707c64758f1c3e72406}} 
+\index{Control@{Control}!cr@{cr}}
+\index{cr@{cr}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{cr}{cr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} Control\+::cr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 210 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_aa8d388b470751180ac3c8a95aa19ab81}\label{classControl_aa8d388b470751180ac3c8a95aa19ab81}} 
+\index{Control@{Control}!e3\_basis@{e3\_basis}}
+\index{e3\_basis@{e3\_basis}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{e3\_basis}{e3\_basis}}
+{\footnotesize\ttfamily const Eigen\+::\+Vector3d Control\+::e3\+\_\+basis = Eigen\+::\+Vector3d(0.\+0, 0.\+0, 1.\+0)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 213 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_ab527a7573a89e2a435ead0578c40ba07}\label{classControl_ab527a7573a89e2a435ead0578c40ba07}} 
+\index{Control@{Control}!node\_@{node\_}}
+\index{node\_@{node\_}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{node\_}{node\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}}\& Control\+::node\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 217 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_a6929ceaeb95d02424bac55b29178ef32}\label{classControl_a6929ceaeb95d02424bac55b29178ef32}} 
+\index{Control@{Control}!stepper@{stepper}}
+\index{stepper@{stepper}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{stepper}{stepper}}
+{\footnotesize\ttfamily runge\+\_\+kutta4$<$ \mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} $>$ Control\+::stepper}
+
+
+
+Definition at line 170 of file control.\+hpp.
+
+\mbox{\Hypertarget{classControl_abf64312fbd5890115a4341e12358274a}\label{classControl_abf64312fbd5890115a4341e12358274a}} 
+\index{Control@{Control}!vehicle\_info@{vehicle\_info}}
+\index{vehicle\_info@{vehicle\_info}!Control@{Control}}
+\doxysubsubsection{\texorpdfstring{vehicle\_info}{vehicle\_info}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} Control\+::vehicle\+\_\+info\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 206 of file control.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/flightstack/control/\mbox{\hyperlink{control_8hpp}{control.\+hpp}}\item 
+src/control/\mbox{\hyperlink{control_8cpp}{control.\+cpp}}\end{DoxyCompactItemize}

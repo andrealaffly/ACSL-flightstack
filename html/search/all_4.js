@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['d_5ffilter_5fpitch_5fdes_104',['D_filter_pitch_des',['../structVehicleInfo.html#aaa59beb9c61bcf353315aa5dcb9f5284',1,'VehicleInfo']]],
+  ['d_5ffilter_5fpitch_5fdot_5fdes_105',['D_filter_pitch_dot_des',['../structVehicleInfo.html#a7d4b236c820712b74bb8dd43479a0abd',1,'VehicleInfo']]],
+  ['d_5ffilter_5froll_5fdes_106',['D_filter_roll_des',['../structVehicleInfo.html#ab135245e0ebf55d1e95d226656d33193',1,'VehicleInfo']]],
+  ['d_5ffilter_5froll_5fdot_5fdes_107',['D_filter_roll_dot_des',['../structVehicleInfo.html#a0d8e4113dfae722d5f05496a79b36079',1,'VehicleInfo']]],
+  ['dead_5fzone_5fdelta_5frotational_108',['dead_zone_delta_rotational',['../structGainsMRAC.html#a49fe753e3f85c1f373933087c2dad7be',1,'GainsMRAC']]],
+  ['dead_5fzone_5fdelta_5ftranslational_109',['dead_zone_delta_translational',['../structGainsMRAC.html#a9765f46d1513b7cf982c75ce5c71aa8f',1,'GainsMRAC']]],
+  ['dead_5fzone_5fe0_5frotational_110',['dead_zone_e0_rotational',['../structGainsMRAC.html#a162c5ee0a7574bbc350127ab3b7ac122',1,'GainsMRAC']]],
+  ['dead_5fzone_5fe0_5ftranslational_111',['dead_zone_e0_translational',['../structGainsMRAC.html#aed30da316b8932184f1bfcad4bbcbcab',1,'GainsMRAC']]],
+  ['dead_5fzone_5fvalue_5frotational_112',['dead_zone_value_rotational',['../structMRAC_1_1ControllerSpecificInternalMembers.html#a5de57fe8e739b7ba4b7bf9d7a0da39d9',1,'MRAC::ControllerSpecificInternalMembers']]],
+  ['dead_5fzone_5fvalue_5ftranslational_113',['dead_zone_value_translational',['../structMRAC_1_1ControllerSpecificInternalMembers.html#ad7e18e360f56a994ab8a561a4ea1cbb6',1,'MRAC::ControllerSpecificInternalMembers']]],
+  ['deadzonemodulationfunction_114',['deadZoneModulationFunction',['../classControl.html#aed596228f5ea4862a2a0498b2948ff51',1,'Control']]],
+  ['debugmocapdata2screen_115',['debugMocapData2screen',['../class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a723be77cad6835335b5c2565c1987d16',1,'_drivers_::_udp_driver_::UdpReceiverNode']]],
+  ['dh_5fdx_5fjacobian_116',['dh_dx_jacobian',['../structprojection__operator_1_1ConvexFunctionOutput.html#a4f6860d2aeb7a881bf7b78f20fd058cc',1,'projection_operator::ConvexFunctionOutput']]],
+  ['disarm_117',['disarm',['../classMultiThreadedNode.html#a64a130cbec9f2d2027a54c76c531c5cb',1,'MultiThreadedNode']]],
+  ['disarm_5fstart_5ftime_5fseconds_118',['DISARM_START_TIME_SECONDS',['../structGlobalParameters.html#a1d44745f3e2c42523509e0dfd6b585a5',1,'GlobalParameters']]],
+  ['distance_5fmotors_5fcenetrline_5fx_5fdir_119',['distance_motors_cenetrline_x_dir',['../structVehicleInfo.html#a147db9131e3cfabb72ca8de5c6c1cf16',1,'VehicleInfo']]],
+  ['distance_5fmotors_5fcenetrline_5fy_5fdir_120',['distance_motors_cenetrline_y_dir',['../structVehicleInfo.html#a32be020766301ca1738335588413c95f',1,'VehicleInfo']]],
+  ['drag_5fcoefficient_121',['drag_coefficient',['../structVehicleInfo.html#a9525f45db80679b9fb9d0af03df15988',1,'VehicleInfo']]],
+  ['drag_5fcoefficient_5fmatrix_122',['drag_coefficient_matrix',['../structVehicleInfo.html#aacb360f4e88f9ecd25ad258c656f7660',1,'VehicleInfo']]]
+];

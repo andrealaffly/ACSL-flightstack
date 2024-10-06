@@ -1,0 +1,127 @@
+\hypertarget{structPID_1_1StateController}{}\doxysection{PID\+::State\+Controller Struct Reference}
+\label{structPID_1_1StateController}\index{PID::StateController@{PID::StateController}}
+
+
+{\ttfamily \#include $<$pid.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPID_1_1StateController_a2cc898148a7b246e8a26afb4396dc188}{State\+Controller}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{structPID_1_1StateController_a49532c9c2f5eb0b7dbd40822ca0e5a56}{full\+\_\+state}}
+\item 
+Eigen\+::\+Map$<$ Eigen\+::\+Vector2d $>$ \mbox{\hyperlink{structPID_1_1StateController_a6bae80c61caa2673ae583edce90202ed}{state\+\_\+roll\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Map$<$ Eigen\+::\+Vector2d $>$ \mbox{\hyperlink{structPID_1_1StateController_aa72579f6292d8e9747d239e946f2e0b4}{state\+\_\+pitch\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Map$<$ Eigen\+::\+Vector2d $>$ \mbox{\hyperlink{structPID_1_1StateController_a8f61cb2f364242b76177c07a179dc162}{state\+\_\+roll\+\_\+dot\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Map$<$ Eigen\+::\+Vector2d $>$ \mbox{\hyperlink{structPID_1_1StateController_a364859d05d33564d1366f88ba0593461}{state\+\_\+pitch\+\_\+dot\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Map$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{structPID_1_1StateController_aa52fe86f901366d19d9011c48be34965}{integral\+\_\+translational\+\_\+position\+\_\+error}}
+\item 
+Eigen\+::\+Map$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{structPID_1_1StateController_ab718af625dcf52fa9d140c203de2ea90}{integral\+\_\+angular\+\_\+error}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 62 of file pid.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structPID_1_1StateController_a2cc898148a7b246e8a26afb4396dc188}\label{structPID_1_1StateController_a2cc898148a7b246e8a26afb4396dc188}} 
+\index{PID::StateController@{PID::StateController}!StateController@{StateController}}
+\index{StateController@{StateController}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{StateController()}{StateController()}}
+{\footnotesize\ttfamily PID\+::\+State\+Controller\+::\+State\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 56 of file pid.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structPID_1_1StateController_a49532c9c2f5eb0b7dbd40822ca0e5a56}\label{structPID_1_1StateController_a49532c9c2f5eb0b7dbd40822ca0e5a56}} 
+\index{PID::StateController@{PID::StateController}!full\_state@{full\_state}}
+\index{full\_state@{full\_state}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{full\_state}{full\_state}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ PID\+::\+State\+Controller\+::full\+\_\+state}
+
+
+
+Definition at line 67 of file pid.\+hpp.
+
+\mbox{\Hypertarget{structPID_1_1StateController_ab718af625dcf52fa9d140c203de2ea90}\label{structPID_1_1StateController_ab718af625dcf52fa9d140c203de2ea90}} 
+\index{PID::StateController@{PID::StateController}!integral\_angular\_error@{integral\_angular\_error}}
+\index{integral\_angular\_error@{integral\_angular\_error}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{integral\_angular\_error}{integral\_angular\_error}}
+{\footnotesize\ttfamily Eigen\+::\+Map$<$Eigen\+::\+Vector3d$>$ PID\+::\+State\+Controller\+::integral\+\_\+angular\+\_\+error}
+
+
+
+Definition at line 79 of file pid.\+hpp.
+
+\mbox{\Hypertarget{structPID_1_1StateController_aa52fe86f901366d19d9011c48be34965}\label{structPID_1_1StateController_aa52fe86f901366d19d9011c48be34965}} 
+\index{PID::StateController@{PID::StateController}!integral\_translational\_position\_error@{integral\_translational\_position\_error}}
+\index{integral\_translational\_position\_error@{integral\_translational\_position\_error}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{integral\_translational\_position\_error}{integral\_translational\_position\_error}}
+{\footnotesize\ttfamily Eigen\+::\+Map$<$Eigen\+::\+Vector3d$>$ PID\+::\+State\+Controller\+::integral\+\_\+translational\+\_\+position\+\_\+error}
+
+
+
+Definition at line 78 of file pid.\+hpp.
+
+\mbox{\Hypertarget{structPID_1_1StateController_aa72579f6292d8e9747d239e946f2e0b4}\label{structPID_1_1StateController_aa72579f6292d8e9747d239e946f2e0b4}} 
+\index{PID::StateController@{PID::StateController}!state\_pitch\_des\_filter@{state\_pitch\_des\_filter}}
+\index{state\_pitch\_des\_filter@{state\_pitch\_des\_filter}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{state\_pitch\_des\_filter}{state\_pitch\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Map$<$Eigen\+::\+Vector2d$>$ PID\+::\+State\+Controller\+::state\+\_\+pitch\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 75 of file pid.\+hpp.
+
+\mbox{\Hypertarget{structPID_1_1StateController_a364859d05d33564d1366f88ba0593461}\label{structPID_1_1StateController_a364859d05d33564d1366f88ba0593461}} 
+\index{PID::StateController@{PID::StateController}!state\_pitch\_dot\_des\_filter@{state\_pitch\_dot\_des\_filter}}
+\index{state\_pitch\_dot\_des\_filter@{state\_pitch\_dot\_des\_filter}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{state\_pitch\_dot\_des\_filter}{state\_pitch\_dot\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Map$<$Eigen\+::\+Vector2d$>$ PID\+::\+State\+Controller\+::state\+\_\+pitch\+\_\+dot\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 77 of file pid.\+hpp.
+
+\mbox{\Hypertarget{structPID_1_1StateController_a6bae80c61caa2673ae583edce90202ed}\label{structPID_1_1StateController_a6bae80c61caa2673ae583edce90202ed}} 
+\index{PID::StateController@{PID::StateController}!state\_roll\_des\_filter@{state\_roll\_des\_filter}}
+\index{state\_roll\_des\_filter@{state\_roll\_des\_filter}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{state\_roll\_des\_filter}{state\_roll\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Map$<$Eigen\+::\+Vector2d$>$ PID\+::\+State\+Controller\+::state\+\_\+roll\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 74 of file pid.\+hpp.
+
+\mbox{\Hypertarget{structPID_1_1StateController_a8f61cb2f364242b76177c07a179dc162}\label{structPID_1_1StateController_a8f61cb2f364242b76177c07a179dc162}} 
+\index{PID::StateController@{PID::StateController}!state\_roll\_dot\_des\_filter@{state\_roll\_dot\_des\_filter}}
+\index{state\_roll\_dot\_des\_filter@{state\_roll\_dot\_des\_filter}!PID::StateController@{PID::StateController}}
+\doxysubsubsection{\texorpdfstring{state\_roll\_dot\_des\_filter}{state\_roll\_dot\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Map$<$Eigen\+::\+Vector2d$>$ PID\+::\+State\+Controller\+::state\+\_\+roll\+\_\+dot\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 76 of file pid.\+hpp.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/flightstack/control/pid/\mbox{\hyperlink{pid_8hpp}{pid.\+hpp}}\item 
+src/control/pid/\mbox{\hyperlink{pid_8cpp}{pid.\+cpp}}\end{DoxyCompactItemize}

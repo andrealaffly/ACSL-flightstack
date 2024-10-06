@@ -1,0 +1,504 @@
+\hypertarget{classPiecewisePolynomialTrajectory}{}\doxysection{Piecewise\+Polynomial\+Trajectory Class Reference}
+\label{classPiecewisePolynomialTrajectory}\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+
+
+{\ttfamily \#include $<$piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp$>$}
+
+
+
+Inheritance diagram for Piecewise\+Polynomial\+Trajectory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classPiecewisePolynomialTrajectory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Piecewise\+Polynomial\+Trajectory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPiecewisePolynomialTrajectory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPiecewisePolynomialTrajectory_aa80e3d0f4c5072351ea59ca406ba31db}{Piecewise\+Polynomial\+Trajectory}} (\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&node)
+\item 
+void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a02c8821c516bfdd5588cd7c1c03a4ccc}{initialize\+Piecewise\+Polynomial\+Trajectory}} (const std\+::string \&Trajectory\+File\+Name)
+\item 
+void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a2f59816b97e53ba13b146a1f92bb9007}{read\+JSONfile}} (const std\+::string \&file\+Name)
+\item 
+const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_aea01406b07425b17a3812d9c166b17ab}{get\+Waypoint\+Times}} () const
+\item 
+const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a8fa9bec41a099a3188332212d4c8a86f}{get\+Piecewise\+Polynomial\+Coefficients}} () const
+\item 
+const std\+::atomic$<$ double $>$ \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a1536287923c17cba2768cb4b3f82db95}{get\+Time\+Current\+Adjusted}} () const
+\item 
+const int \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a70e25a8621fa2eb32a05b755fc4e2d1d}{get\+Segment}} () const
+\item 
+const double \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a3b2c15353f387ddd35c2c8ea853dfa8c}{get\+User\+Defined\+Yaw\+Previous}} () const
+\item 
+const double \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a869a8702861ea3a0fa6e9431be89c46f}{get\+Norm\+Velocity\+XY}} () const
+\item 
+void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a5b45e1caa8f8575990acfbd04a98ef5d}{set\+Polynomial\+Coefficient\+Matrices}} ()
+\item 
+void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a46e9a5b0d9c0013b32559ac70272d67a}{update\+User\+Defined\+Trajectory}} (std\+::atomic$<$ double $>$ \&time\+\_\+current)
+\item 
+void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a63c972656132e722c5bfa0b53d8cd5ef}{update\+User\+Defined\+Yaw}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::atomic$<$ double $>$ \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a8c15c1b7ab973cae0ebe08f80ef4d11a}{time\+\_\+current\+\_\+adjusted\+\_\+}}
+\item 
+int \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a8effcadc13ae6ec5ecb4a044976521c6}{segment\+\_\+}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classPiecewisePolynomialTrajectory_afa9719c07eb6928b415a83efd390206e}{user\+\_\+defined\+\_\+position\+\_\+previous\+\_\+}}
+\item 
+double \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a9e25190de4150449894f57e2e8a3f790}{user\+\_\+defined\+\_\+yaw\+\_\+previous\+\_\+}}
+\item 
+double \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a2372571c2fcbda724206ed51f34403bf}{norm\+\_\+velocity\+\_\+\+XY\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_ac95bc337aa4414283c74d0f27dbf8f6a}{position\+\_\+coef\+\_\+x\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_ab439b4de3f81945ceaaf651e7b96f4fa}{position\+\_\+coef\+\_\+y\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_ab5d2a52e9a447674393cf3a93c836d8b}{position\+\_\+coef\+\_\+z\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a28d5b3e0395a5005e83e89525b710ece}{velocity\+\_\+coef\+\_\+x\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_afb40dcc5df7500f06408a57b7c3e74ac}{velocity\+\_\+coef\+\_\+y\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_aa0226ea0fa125b1bb50c57ccb13d6131}{velocity\+\_\+coef\+\_\+z\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a39e89838a8dbf839411ac9d8a23b4d77}{acceleration\+\_\+coef\+\_\+x\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a66ee9484254469c2d63f5ffb17c582b7}{acceleration\+\_\+coef\+\_\+y\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_ac3e867ffe91f5e3229afc230508b8b71}{acceleration\+\_\+coef\+\_\+z\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a594ff754686a3d68fc5a104dc5f5d43b}{jerk\+\_\+coef\+\_\+x\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a0f9ccc2ba9e24406dec47d916f862fb1}{jerk\+\_\+coef\+\_\+y\+\_\+}}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a91e7c216c36c6085bf7bf8248f95827f}{jerk\+\_\+coef\+\_\+z\+\_\+}}
+\item 
+\mbox{\hyperlink{structPiecewisePolynomialTrajectoryInfo}{Piecewise\+Polynomial\+Trajectory\+Info}} \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a470b2a841ffb596dd7b80e1f36bde521}{piecewise\+\_\+polynomial\+\_\+trajectory\+\_\+info\+\_\+}}
+\item 
+const Eigen\+::\+Vector\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_afacc3f08668fce48df9968e6ea2371ff}{landing\+\_\+position\+\_\+coef\+\_\+z\+\_\+}}
+\item 
+const Eigen\+::\+Vector\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a77e98dc703dff456c96d53c75c609d74}{landing\+\_\+velocity\+\_\+coef\+\_\+z\+\_\+}}
+\item 
+const Eigen\+::\+Vector\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a6acf6e588c27d90cd57002fea9365c1f}{landing\+\_\+acceleration\+\_\+coef\+\_\+z\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 61 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_aa80e3d0f4c5072351ea59ca406ba31db}\label{classPiecewisePolynomialTrajectory_aa80e3d0f4c5072351ea59ca406ba31db}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{PiecewisePolynomialTrajectory()}{PiecewisePolynomialTrajectory()}}
+{\footnotesize\ttfamily Piecewise\+Polynomial\+Trajectory\+::\+Piecewise\+Polynomial\+Trajectory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp}{piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp}} Author\+: Mattia Gramuglia Date\+: April 15, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Piecewise polynomial minimu-\/jerk trajectory computed offline through a MATLAB script. The heading (yaw) angle is kept tangential to the trajectory in the X-\/Y plane and computed online along with its first and second derivative.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+
+Definition at line 46 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a869a8702861ea3a0fa6e9431be89c46f}\label{classPiecewisePolynomialTrajectory_a869a8702861ea3a0fa6e9431be89c46f}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getNormVelocityXY@{getNormVelocityXY}}
+\index{getNormVelocityXY@{getNormVelocityXY}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{getNormVelocityXY()}{getNormVelocityXY()}}
+{\footnotesize\ttfamily const double \& Piecewise\+Polynomial\+Trajectory\+::get\+Norm\+Velocity\+XY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 128 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a8fa9bec41a099a3188332212d4c8a86f}\label{classPiecewisePolynomialTrajectory_a8fa9bec41a099a3188332212d4c8a86f}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getPiecewisePolynomialCoefficients@{getPiecewisePolynomialCoefficients}}
+\index{getPiecewisePolynomialCoefficients@{getPiecewisePolynomialCoefficients}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{getPiecewisePolynomialCoefficients()}{getPiecewisePolynomialCoefficients()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \& Piecewise\+Polynomial\+Trajectory\+::get\+Piecewise\+Polynomial\+Coefficients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 107 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a70e25a8621fa2eb32a05b755fc4e2d1d}\label{classPiecewisePolynomialTrajectory_a70e25a8621fa2eb32a05b755fc4e2d1d}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getSegment@{getSegment}}
+\index{getSegment@{getSegment}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{getSegment()}{getSegment()}}
+{\footnotesize\ttfamily const int \& Piecewise\+Polynomial\+Trajectory\+::get\+Segment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 118 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a1536287923c17cba2768cb4b3f82db95}\label{classPiecewisePolynomialTrajectory_a1536287923c17cba2768cb4b3f82db95}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getTimeCurrentAdjusted@{getTimeCurrentAdjusted}}
+\index{getTimeCurrentAdjusted@{getTimeCurrentAdjusted}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{getTimeCurrentAdjusted()}{getTimeCurrentAdjusted()}}
+{\footnotesize\ttfamily const std\+::atomic$<$ double $>$ \& Piecewise\+Polynomial\+Trajectory\+::get\+Time\+Current\+Adjusted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 113 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a3b2c15353f387ddd35c2c8ea853dfa8c}\label{classPiecewisePolynomialTrajectory_a3b2c15353f387ddd35c2c8ea853dfa8c}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getUserDefinedYawPrevious@{getUserDefinedYawPrevious}}
+\index{getUserDefinedYawPrevious@{getUserDefinedYawPrevious}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{getUserDefinedYawPrevious()}{getUserDefinedYawPrevious()}}
+{\footnotesize\ttfamily const double \& Piecewise\+Polynomial\+Trajectory\+::get\+User\+Defined\+Yaw\+Previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 123 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_aea01406b07425b17a3812d9c166b17ab}\label{classPiecewisePolynomialTrajectory_aea01406b07425b17a3812d9c166b17ab}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getWaypointTimes@{getWaypointTimes}}
+\index{getWaypointTimes@{getWaypointTimes}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{getWaypointTimes()}{getWaypointTimes()}}
+{\footnotesize\ttfamily const std\+::vector$<$ double $>$ \& Piecewise\+Polynomial\+Trajectory\+::get\+Waypoint\+Times (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 101 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a02c8821c516bfdd5588cd7c1c03a4ccc}\label{classPiecewisePolynomialTrajectory_a02c8821c516bfdd5588cd7c1c03a4ccc}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!initializePiecewisePolynomialTrajectory@{initializePiecewisePolynomialTrajectory}}
+\index{initializePiecewisePolynomialTrajectory@{initializePiecewisePolynomialTrajectory}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{initializePiecewisePolynomialTrajectory()}{initializePiecewisePolynomialTrajectory()}}
+{\footnotesize\ttfamily void Piecewise\+Polynomial\+Trajectory\+::initialize\+Piecewise\+Polynomial\+Trajectory (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Trajectory\+File\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a2f59816b97e53ba13b146a1f92bb9007}\label{classPiecewisePolynomialTrajectory_a2f59816b97e53ba13b146a1f92bb9007}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!readJSONfile@{readJSONfile}}
+\index{readJSONfile@{readJSONfile}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{readJSONfile()}{readJSONfile()}}
+{\footnotesize\ttfamily void Piecewise\+Polynomial\+Trajectory\+::read\+JSONfile (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a5b45e1caa8f8575990acfbd04a98ef5d}\label{classPiecewisePolynomialTrajectory_a5b45e1caa8f8575990acfbd04a98ef5d}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!setPolynomialCoefficientMatrices@{setPolynomialCoefficientMatrices}}
+\index{setPolynomialCoefficientMatrices@{setPolynomialCoefficientMatrices}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{setPolynomialCoefficientMatrices()}{setPolynomialCoefficientMatrices()}}
+{\footnotesize\ttfamily void Piecewise\+Polynomial\+Trajectory\+::set\+Polynomial\+Coefficient\+Matrices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a46e9a5b0d9c0013b32559ac70272d67a}\label{classPiecewisePolynomialTrajectory_a46e9a5b0d9c0013b32559ac70272d67a}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!updateUserDefinedTrajectory@{updateUserDefinedTrajectory}}
+\index{updateUserDefinedTrajectory@{updateUserDefinedTrajectory}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{updateUserDefinedTrajectory()}{updateUserDefinedTrajectory()}}
+{\footnotesize\ttfamily void Piecewise\+Polynomial\+Trajectory\+::update\+User\+Defined\+Trajectory (\begin{DoxyParamCaption}\item[{std\+::atomic$<$ double $>$ \&}]{time\+\_\+current }\end{DoxyParamCaption})}
+
+
+
+Definition at line 174 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a63c972656132e722c5bfa0b53d8cd5ef}\label{classPiecewisePolynomialTrajectory_a63c972656132e722c5bfa0b53d8cd5ef}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!updateUserDefinedYaw@{updateUserDefinedYaw}}
+\index{updateUserDefinedYaw@{updateUserDefinedYaw}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{updateUserDefinedYaw()}{updateUserDefinedYaw()}}
+{\footnotesize\ttfamily void Piecewise\+Polynomial\+Trajectory\+::update\+User\+Defined\+Yaw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 277 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a39e89838a8dbf839411ac9d8a23b4d77}\label{classPiecewisePolynomialTrajectory_a39e89838a8dbf839411ac9d8a23b4d77}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!acceleration\_coef\_x\_@{acceleration\_coef\_x\_}}
+\index{acceleration\_coef\_x\_@{acceleration\_coef\_x\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{acceleration\_coef\_x\_}{acceleration\_coef\_x\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::acceleration\+\_\+coef\+\_\+x\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 99 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a66ee9484254469c2d63f5ffb17c582b7}\label{classPiecewisePolynomialTrajectory_a66ee9484254469c2d63f5ffb17c582b7}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!acceleration\_coef\_y\_@{acceleration\_coef\_y\_}}
+\index{acceleration\_coef\_y\_@{acceleration\_coef\_y\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{acceleration\_coef\_y\_}{acceleration\_coef\_y\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::acceleration\+\_\+coef\+\_\+y\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 100 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ac3e867ffe91f5e3229afc230508b8b71}\label{classPiecewisePolynomialTrajectory_ac3e867ffe91f5e3229afc230508b8b71}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!acceleration\_coef\_z\_@{acceleration\_coef\_z\_}}
+\index{acceleration\_coef\_z\_@{acceleration\_coef\_z\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{acceleration\_coef\_z\_}{acceleration\_coef\_z\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::acceleration\+\_\+coef\+\_\+z\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 101 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a594ff754686a3d68fc5a104dc5f5d43b}\label{classPiecewisePolynomialTrajectory_a594ff754686a3d68fc5a104dc5f5d43b}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!jerk\_coef\_x\_@{jerk\_coef\_x\_}}
+\index{jerk\_coef\_x\_@{jerk\_coef\_x\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{jerk\_coef\_x\_}{jerk\_coef\_x\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::jerk\+\_\+coef\+\_\+x\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 102 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a0f9ccc2ba9e24406dec47d916f862fb1}\label{classPiecewisePolynomialTrajectory_a0f9ccc2ba9e24406dec47d916f862fb1}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!jerk\_coef\_y\_@{jerk\_coef\_y\_}}
+\index{jerk\_coef\_y\_@{jerk\_coef\_y\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{jerk\_coef\_y\_}{jerk\_coef\_y\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::jerk\+\_\+coef\+\_\+y\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 103 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a91e7c216c36c6085bf7bf8248f95827f}\label{classPiecewisePolynomialTrajectory_a91e7c216c36c6085bf7bf8248f95827f}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!jerk\_coef\_z\_@{jerk\_coef\_z\_}}
+\index{jerk\_coef\_z\_@{jerk\_coef\_z\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{jerk\_coef\_z\_}{jerk\_coef\_z\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::jerk\+\_\+coef\+\_\+z\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 104 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a6acf6e588c27d90cd57002fea9365c1f}\label{classPiecewisePolynomialTrajectory_a6acf6e588c27d90cd57002fea9365c1f}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!landing\_acceleration\_coef\_z\_@{landing\_acceleration\_coef\_z\_}}
+\index{landing\_acceleration\_coef\_z\_@{landing\_acceleration\_coef\_z\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{landing\_acceleration\_coef\_z\_}{landing\_acceleration\_coef\_z\_}}
+{\footnotesize\ttfamily const Eigen\+::\+Vector\+Xd Piecewise\+Polynomial\+Trajectory\+::landing\+\_\+acceleration\+\_\+coef\+\_\+z\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (Eigen::VectorXd(6) << }
+\DoxyCodeLine{    -\/0.0512695312499999,}
+\DoxyCodeLine{    0.5126953125,}
+\DoxyCodeLine{    -\/1.640625,}
+\DoxyCodeLine{    1.640625,}
+\DoxyCodeLine{    0.0,}
+\DoxyCodeLine{    0.0}
+\DoxyCodeLine{  ).finished()}
+
+\end{DoxyCode}
+
+
+Definition at line 132 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_afacc3f08668fce48df9968e6ea2371ff}\label{classPiecewisePolynomialTrajectory_afacc3f08668fce48df9968e6ea2371ff}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!landing\_position\_coef\_z\_@{landing\_position\_coef\_z\_}}
+\index{landing\_position\_coef\_z\_@{landing\_position\_coef\_z\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{landing\_position\_coef\_z\_}{landing\_position\_coef\_z\_}}
+{\footnotesize\ttfamily const Eigen\+::\+Vector\+Xd Piecewise\+Polynomial\+Trajectory\+::landing\+\_\+position\+\_\+coef\+\_\+z\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (Eigen::VectorXd(8) << }
+\DoxyCodeLine{    -\/0.001220703125,}
+\DoxyCodeLine{    0.01708984375,}
+\DoxyCodeLine{    -\/0.0820312499999999,}
+\DoxyCodeLine{    0.13671875,}
+\DoxyCodeLine{    0.0,}
+\DoxyCodeLine{    0.0,}
+\DoxyCodeLine{    0.0,}
+\DoxyCodeLine{    -\/1.0}
+\DoxyCodeLine{  ).finished()}
+
+\end{DoxyCode}
+
+
+Definition at line 109 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a77e98dc703dff456c96d53c75c609d74}\label{classPiecewisePolynomialTrajectory_a77e98dc703dff456c96d53c75c609d74}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!landing\_velocity\_coef\_z\_@{landing\_velocity\_coef\_z\_}}
+\index{landing\_velocity\_coef\_z\_@{landing\_velocity\_coef\_z\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{landing\_velocity\_coef\_z\_}{landing\_velocity\_coef\_z\_}}
+{\footnotesize\ttfamily const Eigen\+::\+Vector\+Xd Piecewise\+Polynomial\+Trajectory\+::landing\+\_\+velocity\+\_\+coef\+\_\+z\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (Eigen::VectorXd(7) << }
+\DoxyCodeLine{    -\/0.00854492187499999,}
+\DoxyCodeLine{    0.1025390625,}
+\DoxyCodeLine{    -\/0.41015625,}
+\DoxyCodeLine{    0.546874999999999,}
+\DoxyCodeLine{    0.0,}
+\DoxyCodeLine{    0.0,}
+\DoxyCodeLine{    0.0}
+\DoxyCodeLine{  ).finished()}
+
+\end{DoxyCode}
+
+
+Definition at line 121 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a2372571c2fcbda724206ed51f34403bf}\label{classPiecewisePolynomialTrajectory_a2372571c2fcbda724206ed51f34403bf}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!norm\_velocity\_XY\_@{norm\_velocity\_XY\_}}
+\index{norm\_velocity\_XY\_@{norm\_velocity\_XY\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{norm\_velocity\_XY\_}{norm\_velocity\_XY\_}}
+{\footnotesize\ttfamily double Piecewise\+Polynomial\+Trajectory\+::norm\+\_\+velocity\+\_\+\+XY\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 90 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a470b2a841ffb596dd7b80e1f36bde521}\label{classPiecewisePolynomialTrajectory_a470b2a841ffb596dd7b80e1f36bde521}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!piecewise\_polynomial\_trajectory\_info\_@{piecewise\_polynomial\_trajectory\_info\_}}
+\index{piecewise\_polynomial\_trajectory\_info\_@{piecewise\_polynomial\_trajectory\_info\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{piecewise\_polynomial\_trajectory\_info\_}{piecewise\_polynomial\_trajectory\_info\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPiecewisePolynomialTrajectoryInfo}{Piecewise\+Polynomial\+Trajectory\+Info}} Piecewise\+Polynomial\+Trajectory\+::piecewise\+\_\+polynomial\+\_\+trajectory\+\_\+info\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 106 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ac95bc337aa4414283c74d0f27dbf8f6a}\label{classPiecewisePolynomialTrajectory_ac95bc337aa4414283c74d0f27dbf8f6a}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!position\_coef\_x\_@{position\_coef\_x\_}}
+\index{position\_coef\_x\_@{position\_coef\_x\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{position\_coef\_x\_}{position\_coef\_x\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::position\+\_\+coef\+\_\+x\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 93 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ab439b4de3f81945ceaaf651e7b96f4fa}\label{classPiecewisePolynomialTrajectory_ab439b4de3f81945ceaaf651e7b96f4fa}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!position\_coef\_y\_@{position\_coef\_y\_}}
+\index{position\_coef\_y\_@{position\_coef\_y\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{position\_coef\_y\_}{position\_coef\_y\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::position\+\_\+coef\+\_\+y\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 94 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ab5d2a52e9a447674393cf3a93c836d8b}\label{classPiecewisePolynomialTrajectory_ab5d2a52e9a447674393cf3a93c836d8b}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!position\_coef\_z\_@{position\_coef\_z\_}}
+\index{position\_coef\_z\_@{position\_coef\_z\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{position\_coef\_z\_}{position\_coef\_z\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::position\+\_\+coef\+\_\+z\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 95 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a8effcadc13ae6ec5ecb4a044976521c6}\label{classPiecewisePolynomialTrajectory_a8effcadc13ae6ec5ecb4a044976521c6}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!segment\_@{segment\_}}
+\index{segment\_@{segment\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{segment\_}{segment\_}}
+{\footnotesize\ttfamily int Piecewise\+Polynomial\+Trajectory\+::segment\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 87 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a8c15c1b7ab973cae0ebe08f80ef4d11a}\label{classPiecewisePolynomialTrajectory_a8c15c1b7ab973cae0ebe08f80ef4d11a}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!time\_current\_adjusted\_@{time\_current\_adjusted\_}}
+\index{time\_current\_adjusted\_@{time\_current\_adjusted\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{time\_current\_adjusted\_}{time\_current\_adjusted\_}}
+{\footnotesize\ttfamily std\+::atomic$<$double$>$ Piecewise\+Polynomial\+Trajectory\+::time\+\_\+current\+\_\+adjusted\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 86 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_afa9719c07eb6928b415a83efd390206e}\label{classPiecewisePolynomialTrajectory_afa9719c07eb6928b415a83efd390206e}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!user\_defined\_position\_previous\_@{user\_defined\_position\_previous\_}}
+\index{user\_defined\_position\_previous\_@{user\_defined\_position\_previous\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{user\_defined\_position\_previous\_}{user\_defined\_position\_previous\_}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Piecewise\+Polynomial\+Trajectory\+::user\+\_\+defined\+\_\+position\+\_\+previous\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 88 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a9e25190de4150449894f57e2e8a3f790}\label{classPiecewisePolynomialTrajectory_a9e25190de4150449894f57e2e8a3f790}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!user\_defined\_yaw\_previous\_@{user\_defined\_yaw\_previous\_}}
+\index{user\_defined\_yaw\_previous\_@{user\_defined\_yaw\_previous\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{user\_defined\_yaw\_previous\_}{user\_defined\_yaw\_previous\_}}
+{\footnotesize\ttfamily double Piecewise\+Polynomial\+Trajectory\+::user\+\_\+defined\+\_\+yaw\+\_\+previous\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 89 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a28d5b3e0395a5005e83e89525b710ece}\label{classPiecewisePolynomialTrajectory_a28d5b3e0395a5005e83e89525b710ece}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!velocity\_coef\_x\_@{velocity\_coef\_x\_}}
+\index{velocity\_coef\_x\_@{velocity\_coef\_x\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{velocity\_coef\_x\_}{velocity\_coef\_x\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::velocity\+\_\+coef\+\_\+x\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 96 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_afb40dcc5df7500f06408a57b7c3e74ac}\label{classPiecewisePolynomialTrajectory_afb40dcc5df7500f06408a57b7c3e74ac}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!velocity\_coef\_y\_@{velocity\_coef\_y\_}}
+\index{velocity\_coef\_y\_@{velocity\_coef\_y\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{velocity\_coef\_y\_}{velocity\_coef\_y\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::velocity\+\_\+coef\+\_\+y\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 97 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+\mbox{\Hypertarget{classPiecewisePolynomialTrajectory_aa0226ea0fa125b1bb50c57ccb13d6131}\label{classPiecewisePolynomialTrajectory_aa0226ea0fa125b1bb50c57ccb13d6131}} 
+\index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!velocity\_coef\_z\_@{velocity\_coef\_z\_}}
+\index{velocity\_coef\_z\_@{velocity\_coef\_z\_}!PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}}
+\doxysubsubsection{\texorpdfstring{velocity\_coef\_z\_}{velocity\_coef\_z\_}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Piecewise\+Polynomial\+Trajectory\+::velocity\+\_\+coef\+\_\+z\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 98 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/flightstack/user\+\_\+defined\+\_\+trajectory/\mbox{\hyperlink{piecewise__polynomial__trajectory_8hpp}{piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp}}\item 
+src/user\+\_\+defined\+\_\+trajectory/\mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp}{piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp}}\end{DoxyCompactItemize}

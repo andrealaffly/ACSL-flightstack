@@ -37,6 +37,8 @@
 #include "main.hpp"
 
 /**
+ * @file main.cpp
+ * @brief FlightStack (Multirotor) main.cpp file
  * @param argc
  * @param argv[].
  */

@@ -1,0 +1,47 @@
+\hypertarget{namespaceprojection__operator_1_1ellipsoid}{}\doxysection{projection\+\_\+operator\+::ellipsoid Namespace Reference}
+\label{namespaceprojection__operator_1_1ellipsoid}\index{projection\_operator::ellipsoid@{projection\_operator::ellipsoid}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int N$>$ }\\\mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}$<$ N $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_a37b27c2a1f3d69d7aa0be231ea4d5fc6}{convex\+Function}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+e, const Eigen\+::\+Matrix$<$ double, N, N $>$ \&S, const double epsilon)
+\item 
+{\footnotesize template$<$int N$>$ }\\Eigen\+::\+Matrix$<$ double, N, 1 $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_ac45ca812de980e8f831959ea1cc4f241}{projection\+Vector}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+d, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+e, const Eigen\+::\+Matrix$<$ double, N, N $>$ \&S, const double epsilon)
+\item 
+{\footnotesize template$<$typename Derived1 , typename Derived2 $>$ }\\auto \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_a129854ec60147e673b036ebd6b02cfce}{projection\+Matrix}} (const Eigen\+::\+Matrix\+Base$<$ Derived1 $>$ \&matrix, const Eigen\+::\+Matrix\+Base$<$ Derived2 $>$ \&matrix\+\_\+d, const Eigen\+::\+Matrix$<$ double, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time, 1 $>$ \&x\+\_\+e, const Eigen\+::\+Matrix$<$ double, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time $>$ \&S, const double epsilon) -\/$>$ Eigen\+::\+Matrix$<$ typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceprojection__operator_1_1ellipsoid_a37b27c2a1f3d69d7aa0be231ea4d5fc6}\label{namespaceprojection__operator_1_1ellipsoid_a37b27c2a1f3d69d7aa0be231ea4d5fc6}} 
+\index{projection\_operator::ellipsoid@{projection\_operator::ellipsoid}!convexFunction@{convexFunction}}
+\index{convexFunction@{convexFunction}!projection\_operator::ellipsoid@{projection\_operator::ellipsoid}}
+\doxysubsubsection{\texorpdfstring{convexFunction()}{convexFunction()}}
+{\footnotesize\ttfamily template$<$int N$>$ \\
+\mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}$<$N$>$ projection\+\_\+operator\+::ellipsoid\+::convex\+Function (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x,  }\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x\+\_\+e,  }\item[{const Eigen\+::\+Matrix$<$ double, N, N $>$ \&}]{S,  }\item[{const double}]{epsilon }\end{DoxyParamCaption})}
+
+
+
+Definition at line 209 of file projection\+\_\+operator.\+hpp.
+
+\mbox{\Hypertarget{namespaceprojection__operator_1_1ellipsoid_a129854ec60147e673b036ebd6b02cfce}\label{namespaceprojection__operator_1_1ellipsoid_a129854ec60147e673b036ebd6b02cfce}} 
+\index{projection\_operator::ellipsoid@{projection\_operator::ellipsoid}!projectionMatrix@{projectionMatrix}}
+\index{projectionMatrix@{projectionMatrix}!projection\_operator::ellipsoid@{projection\_operator::ellipsoid}}
+\doxysubsubsection{\texorpdfstring{projectionMatrix()}{projectionMatrix()}}
+{\footnotesize\ttfamily template$<$typename Derived1 , typename Derived2 $>$ \\
+auto projection\+\_\+operator\+::ellipsoid\+::projection\+Matrix (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived1 $>$ \&}]{matrix,  }\item[{const Eigen\+::\+Matrix\+Base$<$ Derived2 $>$ \&}]{matrix\+\_\+d,  }\item[{const Eigen\+::\+Matrix$<$ double, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time, 1 $>$ \&}]{x\+\_\+e,  }\item[{const Eigen\+::\+Matrix$<$ double, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time $>$ \&}]{S,  }\item[{const double}]{epsilon }\end{DoxyParamCaption}) -\/$>$ Eigen\+::\+Matrix$<$typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time$>$ }
+
+
+
+Definition at line 270 of file projection\+\_\+operator.\+hpp.
+
+\mbox{\Hypertarget{namespaceprojection__operator_1_1ellipsoid_ac45ca812de980e8f831959ea1cc4f241}\label{namespaceprojection__operator_1_1ellipsoid_ac45ca812de980e8f831959ea1cc4f241}} 
+\index{projection\_operator::ellipsoid@{projection\_operator::ellipsoid}!projectionVector@{projectionVector}}
+\index{projectionVector@{projectionVector}!projection\_operator::ellipsoid@{projection\_operator::ellipsoid}}
+\doxysubsubsection{\texorpdfstring{projectionVector()}{projectionVector()}}
+{\footnotesize\ttfamily template$<$int N$>$ \\
+Eigen\+::\+Matrix$<$double, N, 1$>$ projection\+\_\+operator\+::ellipsoid\+::projection\+Vector (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x,  }\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x\+\_\+d,  }\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x\+\_\+e,  }\item[{const Eigen\+::\+Matrix$<$ double, N, N $>$ \&}]{S,  }\item[{const double}]{epsilon }\end{DoxyParamCaption})}
+
+
+
+Definition at line 235 of file projection\+\_\+operator.\+hpp.
+

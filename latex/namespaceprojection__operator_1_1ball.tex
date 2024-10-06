@@ -1,0 +1,47 @@
+\hypertarget{namespaceprojection__operator_1_1ball}{}\doxysection{projection\+\_\+operator\+::ball Namespace Reference}
+\label{namespaceprojection__operator_1_1ball}\index{projection\_operator::ball@{projection\_operator::ball}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int N$>$ }\\\mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}$<$ N $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}{convex\+Function}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const double x\+\_\+max, const double epsilon)
+\item 
+{\footnotesize template$<$int N$>$ }\\Eigen\+::\+Matrix$<$ double, N, 1 $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ae6d6d86afbd57c120adc9ebf0c3a02f5}{projection\+Vector}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+d, const double x\+\_\+max, const double epsilon)
+\item 
+{\footnotesize template$<$typename Derived1 , typename Derived2 $>$ }\\auto \mbox{\hyperlink{namespaceprojection__operator_1_1ball_a23f6da124afe115b40aa29ced98bb185}{projection\+Matrix}} (const Eigen\+::\+Matrix\+Base$<$ Derived1 $>$ \&matrix, const Eigen\+::\+Matrix\+Base$<$ Derived2 $>$ \&matrix\+\_\+d, const double x\+\_\+max, const double epsilon) -\/$>$ Eigen\+::\+Matrix$<$ typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}\label{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}} 
+\index{projection\_operator::ball@{projection\_operator::ball}!convexFunction@{convexFunction}}
+\index{convexFunction@{convexFunction}!projection\_operator::ball@{projection\_operator::ball}}
+\doxysubsubsection{\texorpdfstring{convexFunction()}{convexFunction()}}
+{\footnotesize\ttfamily template$<$int N$>$ \\
+\mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}$<$N$>$ projection\+\_\+operator\+::ball\+::convex\+Function (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x,  }\item[{const double}]{x\+\_\+max,  }\item[{const double}]{epsilon }\end{DoxyParamCaption})}
+
+
+
+Definition at line 112 of file projection\+\_\+operator.\+hpp.
+
+\mbox{\Hypertarget{namespaceprojection__operator_1_1ball_a23f6da124afe115b40aa29ced98bb185}\label{namespaceprojection__operator_1_1ball_a23f6da124afe115b40aa29ced98bb185}} 
+\index{projection\_operator::ball@{projection\_operator::ball}!projectionMatrix@{projectionMatrix}}
+\index{projectionMatrix@{projectionMatrix}!projection\_operator::ball@{projection\_operator::ball}}
+\doxysubsubsection{\texorpdfstring{projectionMatrix()}{projectionMatrix()}}
+{\footnotesize\ttfamily template$<$typename Derived1 , typename Derived2 $>$ \\
+auto projection\+\_\+operator\+::ball\+::projection\+Matrix (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived1 $>$ \&}]{matrix,  }\item[{const Eigen\+::\+Matrix\+Base$<$ Derived2 $>$ \&}]{matrix\+\_\+d,  }\item[{const double}]{x\+\_\+max,  }\item[{const double}]{epsilon }\end{DoxyParamCaption}) -\/$>$ Eigen\+::\+Matrix$<$typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time$>$ }
+
+
+
+Definition at line 163 of file projection\+\_\+operator.\+hpp.
+
+\mbox{\Hypertarget{namespaceprojection__operator_1_1ball_ae6d6d86afbd57c120adc9ebf0c3a02f5}\label{namespaceprojection__operator_1_1ball_ae6d6d86afbd57c120adc9ebf0c3a02f5}} 
+\index{projection\_operator::ball@{projection\_operator::ball}!projectionVector@{projectionVector}}
+\index{projectionVector@{projectionVector}!projection\_operator::ball@{projection\_operator::ball}}
+\doxysubsubsection{\texorpdfstring{projectionVector()}{projectionVector()}}
+{\footnotesize\ttfamily template$<$int N$>$ \\
+Eigen\+::\+Matrix$<$double, N, 1$>$ projection\+\_\+operator\+::ball\+::projection\+Vector (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x,  }\item[{const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&}]{x\+\_\+d,  }\item[{const double}]{x\+\_\+max,  }\item[{const double}]{epsilon }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file projection\+\_\+operator.\+hpp.
+

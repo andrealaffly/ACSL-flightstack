@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['k_5fhat_5fr_5fdot_5frotational_250',['K_hat_r_dot_rotational',['../structMRAC_1_1ControllerSpecificInternalMembers.html#a00a04d976457697cbfa267a3f0386f69',1,'MRAC::ControllerSpecificInternalMembers']]],
+  ['k_5fhat_5fr_5fdot_5ftranslational_251',['K_hat_r_dot_translational',['../structMRAC_1_1ControllerSpecificInternalMembers.html#a1a3388c7f8359fc4da1f4c1112ad99ca',1,'MRAC::ControllerSpecificInternalMembers']]],
+  ['k_5fhat_5fr_5frotational_252',['K_hat_r_rotational',['../structMRAC_1_1StateController.html#a2771f856f67d07784502404fb9a3a7ed',1,'MRAC::StateController']]],
+  ['k_5fhat_5fr_5ftranslational_253',['K_hat_r_translational',['../structMRAC_1_1StateController.html#aa276d83bdae12a1cf9c0d213a587ab9b',1,'MRAC::StateController']]],
+  ['k_5fhat_5fx_5fdot_5frotational_254',['K_hat_x_dot_rotational',['../structMRAC_1_1ControllerSpecificInternalMembers.html#a23dda5924858403a2e343bfcc56c9e36',1,'MRAC::ControllerSpecificInternalMembers']]],
+  ['k_5fhat_5fx_5fdot_5ftranslational_255',['K_hat_x_dot_translational',['../structMRAC_1_1ControllerSpecificInternalMembers.html#a1984bd8c7e7fc862e8cc405e45be37f1',1,'MRAC::ControllerSpecificInternalMembers']]],
+  ['k_5fhat_5fx_5frotational_256',['K_hat_x_rotational',['../structMRAC_1_1StateController.html#abcb9af87b1f224fa6b2f47720c4f3800',1,'MRAC::StateController']]],
+  ['k_5fhat_5fx_5ftranslational_257',['K_hat_x_translational',['../structMRAC_1_1StateController.html#a8690b1751dc55f00be677e44a048fc7e',1,'MRAC::StateController']]],
+  ['kd_5frefmod_5ftranslational_258',['KD_refmod_translational',['../structGainsMRAC.html#a0a79d06861d6ca282256d831bc0ec66a',1,'GainsMRAC']]],
+  ['kd_5frotational_259',['KD_rotational',['../structGainsMRAC.html#a625f851dad53585e6a663aaea761f987',1,'GainsMRAC::KD_rotational()'],['../structGainsPID.html#a0405f0929d37dd7e4f6dfb8d63dab314',1,'GainsPID::KD_rotational()']]],
+  ['kd_5ftranslational_260',['KD_translational',['../structGainsMRAC.html#a7a363cab76456da5365159d288d6243b',1,'GainsMRAC::KD_translational()'],['../structGainsPID.html#a5a97fc799862bf18254a9449cd74299c',1,'GainsPID::KD_translational()']]],
+  ['ki_5fomega_5fcmd_5frotational_261',['KI_omega_cmd_rotational',['../structGainsMRAC.html#ade17daa417e68746b32c0b2fd2415e16',1,'GainsMRAC']]],
+  ['ki_5fomega_5fref_5frotational_262',['KI_omega_ref_rotational',['../structGainsMRAC.html#a60c3ec24b9bb7c72e7308df72aae9694',1,'GainsMRAC']]],
+  ['ki_5frefmod_5ftranslational_263',['KI_refmod_translational',['../structGainsMRAC.html#a3dd5e5057c4e302bcdb5a90ee070a736',1,'GainsMRAC']]],
+  ['ki_5frotational_264',['KI_rotational',['../structGainsMRAC.html#adf296a68f8fd1dda192eda132745c640',1,'GainsMRAC::KI_rotational()'],['../structGainsPID.html#aa4fade2213575d4274901c8b9e220ee1',1,'GainsPID::KI_rotational()']]],
+  ['ki_5ftranslational_265',['KI_translational',['../structGainsMRAC.html#a7ff0427dc5c575646f2b57f37b127c6d',1,'GainsMRAC::KI_translational()'],['../structGainsPID.html#a9b1d232b58fd2e8b8a472b5fe062bfe2',1,'GainsPID::KI_translational()']]],
+  ['kp_5fomega_5fcmd_5frotational_266',['KP_omega_cmd_rotational',['../structGainsMRAC.html#a06a8d4dbc2b1a544aaaa8cb8baefddd6',1,'GainsMRAC']]],
+  ['kp_5fomega_5fref_5frotational_267',['KP_omega_ref_rotational',['../structGainsMRAC.html#a33c6c866ed1853dc40ffee81d8e338e0',1,'GainsMRAC']]],
+  ['kp_5frefmod_5ftranslational_268',['KP_refmod_translational',['../structGainsMRAC.html#a9937e67674b7e5f58d6bd19c2487c5f7',1,'GainsMRAC']]],
+  ['kp_5frotational_269',['KP_rotational',['../structGainsMRAC.html#a28be2bec2f705679b4492492b909f05d',1,'GainsMRAC::KP_rotational()'],['../structGainsPID.html#adbe7de10c2adddabaa5ec0a9247ab67b',1,'GainsPID::KP_rotational()']]],
+  ['kp_5ftranslational_270',['KP_translational',['../structGainsMRAC.html#a070aa2e03ebbabbc7e33ad3f6143fea2',1,'GainsMRAC::KP_translational()'],['../structGainsPID.html#a6a2de9d24ebd974cebfb40639d091c8f',1,'GainsPID::KP_translational()']]]
+];

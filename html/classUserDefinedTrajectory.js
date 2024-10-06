@@ -1,0 +1,26 @@
+var classUserDefinedTrajectory =
+[
+    [ "UserDefinedTrajectory", "classUserDefinedTrajectory.html#af5f06459f1ffeed68373cb2c464fe8ea", null ],
+    [ "getInitialTimestamp", "classUserDefinedTrajectory.html#a0f62ecece8c2424a1d3b9b9dd0c559e4", null ],
+    [ "getNode", "classUserDefinedTrajectory.html#ab525455b107785ef0da9ec06ea55e965", null ],
+    [ "getUserDefinedAcceleration", "classUserDefinedTrajectory.html#af6585dc4d1bca7a27bb322a07f7cd7ba", null ],
+    [ "getUserDefinedPosition", "classUserDefinedTrajectory.html#a731c0381ca36f2af565087886f18ad9c", null ],
+    [ "getUserDefinedVelocity", "classUserDefinedTrajectory.html#ad0ca4419cb77715fa9a8a7459afbd253", null ],
+    [ "getUserDefinedYaw", "classUserDefinedTrajectory.html#a61e5a1fe997190c05676674eade94cc3", null ],
+    [ "getUserDefinedYawDot", "classUserDefinedTrajectory.html#aadf4d9b1517250108beccec254ed8578", null ],
+    [ "getUserDefinedYawDotDot", "classUserDefinedTrajectory.html#a60fe67d6c75955806468591112673a21", null ],
+    [ "setUserDefinedAcceleration", "classUserDefinedTrajectory.html#a7da3ac10cfd6f1d2d1c6568e6ab467f0", null ],
+    [ "setUserDefinedPosition", "classUserDefinedTrajectory.html#ac27d5947c6c256460570da46fefb8678", null ],
+    [ "setUserDefinedVelocity", "classUserDefinedTrajectory.html#a528a38413431b9c5c98300afd53dfbb8", null ],
+    [ "setUserDefinedYaw", "classUserDefinedTrajectory.html#abf5b980322355ea1b18e8b22b6236851", null ],
+    [ "setUserDefinedYawDot", "classUserDefinedTrajectory.html#afb8a612619e2e6fd915b2d47ed6a1a4e", null ],
+    [ "setUserDefinedYawDotDot", "classUserDefinedTrajectory.html#a1a7fbd5512a19ae83216a4817f063f69", null ],
+    [ "node_", "classUserDefinedTrajectory.html#aceb7e09f64ae02a8c1251fb428199641", null ],
+    [ "timestamp_initial_", "classUserDefinedTrajectory.html#ae4025f5c9ab49c1df1e80022d78540f6", null ],
+    [ "user_defined_acceleration_", "classUserDefinedTrajectory.html#aaded403e6d4b0efe0b521357a3f79591", null ],
+    [ "user_defined_position_", "classUserDefinedTrajectory.html#a8865abe8383b94a1f3dbb03db2a4807b", null ],
+    [ "user_defined_velocity_", "classUserDefinedTrajectory.html#ab9883050791c5ed5d286b35e9b8fbdab", null ],
+    [ "user_defined_yaw_", "classUserDefinedTrajectory.html#aafe8a4210b1ebabf266eb8e89dee0943", null ],
+    [ "user_defined_yaw_dot_", "classUserDefinedTrajectory.html#ad0cc4758be9c2e568918829a4aca1704", null ],
+    [ "user_defined_yaw_dot_dot_", "classUserDefinedTrajectory.html#af87095362eea5cb60ec0b0254c7c2980", null ]
+];

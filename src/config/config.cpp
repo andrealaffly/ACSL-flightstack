@@ -35,7 +35,8 @@
  **********************************************************************************************************************/
 
 /**
- * @brief contains the Functions that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct .
+ * @file config.cpp
+ * @brief Contains the functions that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct .
  */
 #include "config.hpp"
 #include "multi_threaded_node.hpp"
@@ -46,6 +47,7 @@
 */
 
 /**
+ * @brief Function that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct
  * @param configFileName Name of the JSON file containing the config parameters
  * @return config struct containing the configuration parameters .
  */

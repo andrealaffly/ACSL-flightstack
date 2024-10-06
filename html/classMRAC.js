@@ -1,0 +1,25 @@
+var classMRAC =
+[
+    [ "ControllerSpecificInternalMembers", "structMRAC_1_1ControllerSpecificInternalMembers.html", "structMRAC_1_1ControllerSpecificInternalMembers" ],
+    [ "StateController", "structMRAC_1_1StateController.html", "structMRAC_1_1StateController" ],
+    [ "MRAC", "classMRAC.html#a96ef66af1308909c455ed4010363b6f1", null ],
+    [ "assignSystemToDxdt", "classMRAC.html#a3e73bc317fb0b7488ca58913cea5f634", null ],
+    [ "computeControlAlgorithm", "classMRAC.html#a4f4587bf36d8977c318bc22240b347d6", null ],
+    [ "computeFilterDifferentiatorVariables", "classMRAC.html#a51f5e7772d7f4b184e072cf28f523f62", null ],
+    [ "computeInnerLoop", "classMRAC.html#af7288854f607ce1fbedbf9101b5d6a71", null ],
+    [ "computeInnerLoopDEBUGGING", "classMRAC.html#aa329e097d567c9695f36dcf50fe264af", null ],
+    [ "computeOuterLoop", "classMRAC.html#adf727d6eb0087e81fe1cd9661bcafc46", null ],
+    [ "computeOuterLoopDEBUGGING", "classMRAC.html#a60553e4a308beab552080a51b4cb5e7d", null ],
+    [ "getControllerSpecificInternalMembers", "classMRAC.html#a9a7a6b2bf4528777eabf88feae8c30ad", null ],
+    [ "getGains", "classMRAC.html#a2966683253e39e608a3ba052970d1d67", null ],
+    [ "getLogData", "classMRAC.html#a8a215fd9aff4cee50bb265f0c91f190e", null ],
+    [ "getStateController", "classMRAC.html#aa008fd7ad41501775dead88bc96e3043", null ],
+    [ "getTimeStepRK4", "classMRAC.html#abb1f28fbcb316464eadb0e5b38c119d3", null ],
+    [ "initializeControllerParameters", "classMRAC.html#a01976c11a5fb7022ee7a8258acb02310", null ],
+    [ "readJSONfile", "classMRAC.html#af0e10274b5bbfb541addfe78dfacf689", null ],
+    [ "csim_", "classMRAC.html#acb8fa36e0f495cafa8676f48b1a85fe1", null ],
+    [ "gains_", "classMRAC.html#ac798b35fcf37b5cf639cf6f8c5babe05", null ],
+    [ "log_data_", "classMRAC.html#ac42fabe72fbf3979bc57a2e6b8e363bd", null ],
+    [ "state_", "classMRAC.html#ad9479a70d42a041232322b946a93f4d8", null ],
+    [ "time_step_rk4_", "classMRAC.html#a3471c5e0066efa640d9598849e219670", null ]
+];

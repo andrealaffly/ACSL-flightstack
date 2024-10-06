@@ -1,0 +1,19 @@
+<map id="include/flightstack" name="include/flightstack">
+<area shape="rect" id="node2" href="dir_a4d9ea318c8f8e0bb208bfcb0bb2f841.html" title="config" alt="" coords="37,159,109,207"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000001_000002.html" title="1" alt="" coords="125,151,134,166"/>
+<area shape="rect" id="node5" href="dir_791f1e551dc0faf5993d97833bb2b20c.html" title="mocap" alt="" coords="133,159,205,207"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000001_000007.html" title="1" alt="" coords="198,141,207,156"/>
+<area shape="rect" id="node6" href="dir_be371bf222cb535adc5cff340ece7f2c.html" title="pixhawk_interface" alt="" coords="230,159,373,207"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000001_000008.html" title="1" alt="" coords="277,132,286,146"/>
+<area shape="rect" id="node8" href="dir_f6341ff669c7bea8b7c1e0f18b0a65a9.html" title="utils" alt="" coords="283,351,355,399"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000001_000010.html" title="3" alt="" coords="351,334,360,348"/>
+<area shape="rect" id="node3" href="dir_cef24d03f213de90457a619409a342bf.html" title="control" alt="" coords="64,255,136,303"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000002_000003.html" title="2" alt="" coords="92,227,101,242"/>
+<area shape="rect" id="node7" href="dir_1a52e058fb132ee44ae51a858d55a195.html" title="user_defined_trajectory" alt="" coords="38,351,213,399"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000003_000009.html" title="1" alt="" coords="118,323,127,338"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000003_000010.html" title="1" alt="" coords="264,337,274,352"/>
+<area shape="rect" id="node4" href="dir_14b20f9844bee33b3171de69740f76d9.html" title="logging" alt="" coords="160,255,232,303"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000007_000006.html" title="1" alt="" coords="188,227,197,242"/>
+<area shape="rect" id="clust2" href="dir_b3718a5b9243a5beb0b1ed52b7acfae0.html" alt="" coords="27,52,411,409"/>
+<area shape="rect" id="clust1" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="16,16,421,420"/>
+</map>

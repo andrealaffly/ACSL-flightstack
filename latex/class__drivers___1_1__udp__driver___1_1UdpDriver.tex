@@ -1,0 +1,152 @@
+\hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver}{}\doxysection{\+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::Udp\+Driver Class Reference}
+\label{class__drivers___1_1__udp__driver___1_1UdpDriver}\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+
+
+{\ttfamily \#include $<$udp\+\_\+driver.\+hpp$>$}
+
+
+
+Collaboration diagram for \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::Udp\+Driver\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{class__drivers___1_1__udp__driver___1_1UdpDriver__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_a16ca165b9a0de8475401e2add9f97b4c}{Udp\+Driver}} (const \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}} \&ctx)
+\item 
+void \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_ad0a169a656c012b50ecd385ece538c83}{init\+\_\+sender}} (const std\+::string \&ip, uint16\+\_\+t port)
+\item 
+void \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_a769c9914f27703c668e0cf3111ac7382}{init\+\_\+sender}} (const std\+::string \&remote\+\_\+ip, uint16\+\_\+t remote\+\_\+port, const std\+::string \&host\+\_\+ip, uint16\+\_\+t host\+\_\+port)
+\item 
+void \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_a65a99f0ff1c88e641db734abf49e4918}{init\+\_\+receiver}} (const std\+::string \&ip, uint16\+\_\+t port)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}} $>$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_a41a30446d1c44ccaaf368bc1c430f150}{sender}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}} $>$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_ad4ef6016ae5190289e58880e6457d739}{receiver}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}} \& \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_ab38c8a4686bdebee179cbece958238b9}{m\+\_\+ctx}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}} $>$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_a1b0f7dd51a7390daf3df8b80fc33edc7}{m\+\_\+sender}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}} $>$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpDriver_a66ab7ac603d4db4eef44e27239a832b6}{m\+\_\+receiver}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 70 of file udp\+\_\+driver.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_a16ca165b9a0de8475401e2add9f97b4c}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_a16ca165b9a0de8475401e2add9f97b4c}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!UdpDriver@{UdpDriver}}
+\index{UdpDriver@{UdpDriver}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{UdpDriver()}{UdpDriver()}}
+{\footnotesize\ttfamily \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::\+Udp\+Driver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}} \&}]{ctx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 63 of file udp\+\_\+driver.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_a65a99f0ff1c88e641db734abf49e4918}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_a65a99f0ff1c88e641db734abf49e4918}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!init\_receiver@{init\_receiver}}
+\index{init\_receiver@{init\_receiver}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{init\_receiver()}{init\_receiver()}}
+{\footnotesize\ttfamily void \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::init\+\_\+receiver (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ip,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Definition at line 80 of file udp\+\_\+driver.\+cpp.
+
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_ad0a169a656c012b50ecd385ece538c83}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_ad0a169a656c012b50ecd385ece538c83}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!init\_sender@{init\_sender}}
+\index{init\_sender@{init\_sender}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{init\_sender()}{init\_sender()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::init\+\_\+sender (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ip,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Definition at line 68 of file udp\+\_\+driver.\+cpp.
+
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_a769c9914f27703c668e0cf3111ac7382}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_a769c9914f27703c668e0cf3111ac7382}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!init\_sender@{init\_sender}}
+\index{init\_sender@{init\_sender}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{init\_sender()}{init\_sender()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::init\+\_\+sender (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{remote\+\_\+ip,  }\item[{uint16\+\_\+t}]{remote\+\_\+port,  }\item[{const std\+::string \&}]{host\+\_\+ip,  }\item[{uint16\+\_\+t}]{host\+\_\+port }\end{DoxyParamCaption})}
+
+
+
+Definition at line 73 of file udp\+\_\+driver.\+cpp.
+
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_ad4ef6016ae5190289e58880e6457d739}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_ad4ef6016ae5190289e58880e6457d739}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!receiver@{receiver}}
+\index{receiver@{receiver}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{receiver()}{receiver()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}} $>$ \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::receiver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 100 of file udp\+\_\+driver.\+cpp.
+
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_a41a30446d1c44ccaaf368bc1c430f150}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_a41a30446d1c44ccaaf368bc1c430f150}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!sender@{sender}}
+\index{sender@{sender}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{sender()}{sender()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}} $>$ \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::sender (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 95 of file udp\+\_\+driver.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_ab38c8a4686bdebee179cbece958238b9}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_ab38c8a4686bdebee179cbece958238b9}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!m\_ctx@{m\_ctx}}
+\index{m\_ctx@{m\_ctx}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{m\_ctx}{m\_ctx}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}}\& \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::m\+\_\+ctx\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 85 of file udp\+\_\+driver.\+hpp.
+
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_a66ab7ac603d4db4eef44e27239a832b6}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_a66ab7ac603d4db4eef44e27239a832b6}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!m\_receiver@{m\_receiver}}
+\index{m\_receiver@{m\_receiver}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{m\_receiver}{m\_receiver}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}}$>$ \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::m\+\_\+receiver\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 87 of file udp\+\_\+driver.\+hpp.
+
+\mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpDriver_a1b0f7dd51a7390daf3df8b80fc33edc7}\label{class__drivers___1_1__udp__driver___1_1UdpDriver_a1b0f7dd51a7390daf3df8b80fc33edc7}} 
+\index{\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}!m\_sender@{m\_sender}}
+\index{m\_sender@{m\_sender}!\_drivers\_::\_udp\_driver\_::UdpDriver@{\_drivers\_::\_udp\_driver\_::UdpDriver}}
+\doxysubsubsection{\texorpdfstring{m\_sender}{m\_sender}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpSocket}{Udp\+Socket}}$>$ \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Driver\+::m\+\_\+sender\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 86 of file udp\+\_\+driver.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/flightstack/mocap/\mbox{\hyperlink{udp__driver_8hpp}{udp\+\_\+driver.\+hpp}}\item 
+src/mocap/\mbox{\hyperlink{udp__driver_8cpp}{udp\+\_\+driver.\+cpp}}\end{DoxyCompactItemize}
