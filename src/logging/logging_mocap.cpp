@@ -34,6 +34,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file logging_mocap.cpp
+ * @brief Logger for the motion capture (MOCAP) system. 
+ */
+
 #include "config.hpp"
 #include "logging_mocap.hpp"
 #include "mocap.hpp"
@@ -48,11 +53,20 @@ namespace _udp_driver_
 src::logger MocapData::logger_mocapdata;
 
 // Constructor
+/**
+ * MocapData
+ * @brief Construct a new Mocap Data:: Mocap Data object
+ * @param node 
+ */
 MocapData::MocapData(UdpReceiverNode& node) :
 	node_(node) // node must be the last in the list to be initialized
 {}
 
-// Function to print headers
+/**
+ * @brief MocapData Initializing headers
+ * @param None
+ * 
+ */
 void MocapData::logInitializeHeaders()
 {
 	std::ostringstream oss;
@@ -78,6 +92,12 @@ void MocapData::logInitializeHeaders()
 }
 
 // Function to initialize the logging system
+
+/*!
+ * @brief Function to initialize the logging system
+ * @param None
+ */
+
 void MocapData::logInitializeLogging()
 {
   // Get the current date and time

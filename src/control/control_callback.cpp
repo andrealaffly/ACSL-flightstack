@@ -34,14 +34,16 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file control_callback.cpp
+ * Callback that is executed at a fixed specified rate defined by the "timer_controller_".
+ */
 #include "control.hpp"
 #include "multi_threaded_node.hpp"
 
 
-/*
-  Callback function that is executed at a fixed specified rate defined by the "timer_controller_"
-*/
+
+
 void MultiThreadedNode::controller_callback()
 {
   /* // Extract current thread

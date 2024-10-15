@@ -33,7 +33,10 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file multi_threaded_node.hpp
+ * Multithreaded ROS2 node that joins together all the flight stack components
+ */
 #ifndef MULTI_THREADED_NODE_HPP
 #define MULTI_THREADED_NODE_HPP
 
@@ -67,11 +70,13 @@
 
 using namespace std::chrono_literals;
 
+/**
+ * Multithreaded Node Class
+ */
 class MultiThreadedNode : public rclcpp::Node
 {
 public:
   MultiThreadedNode(rclcpp::NodeOptions options);
-
   void arm();
 	void disarm();
   void updateCurrentTimeInSeconds();
@@ -101,6 +106,10 @@ private:
   // Create a VehicleState instance
   std::shared_ptr<VehicleState>  vehicle_state_;
 
+  /**
+   * @file multi_threaded_node.hpp 
+   * @param None
+   */
   void setupPixhawkOdometrySubscriber();
 
   /*********************************************************************************************************************
@@ -138,6 +147,10 @@ private:
 
   void setupPixhawkActuatorMotorsPublisher();
 
+  /**
+   * @brief Callback function that is executed at a fixed specified rate defined by the "timer_controller_"
+   * @param None
+   */
   void controller_callback();
 
   // Create a pointer to the Control instance
@@ -153,6 +166,10 @@ private:
   GlobalParameters global_params_;
 
 };
+/**
+ * @class MultiThreadedNode multi_threaded_node.h "inc/multi_threaded_node.h"
+ * @brief Multithreaded Node Class
+ */
 
 std::string string_thread_id();
 

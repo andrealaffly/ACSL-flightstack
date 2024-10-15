@@ -1,19 +1,22 @@
 \hypertarget{config_8hpp}{}\doxysection{include/flightstack/config/config.hpp File Reference}
 \label{config_8hpp}\index{include/flightstack/config/config.hpp@{include/flightstack/config/config.hpp}}
+
+
+Configuration file. Here you specify which cotroller you want to run at compile time.  
+
+
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
 {\ttfamily \#include \char`\"{}mrac.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}logging\+\_\+mrac.\+hpp\char`\"{}}\newline
-Include dependency graph for config.\+hpp\+:
-\nopagebreak
+Include dependency graph for config.\+hpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{config_8hpp__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,9 +27,9 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structConfigurationParameters}{Configuration\+Parameters}}
-\item 
+\begin{DoxyCompactList}\small\item\em Configurations Parameters set from config.\+json. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structGlobalParameters}{Global\+Parameters}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Global parameteres shared among all the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,6 +46,26 @@ using \mbox{\hyperlink{config_8hpp_aa00283f0401d9c8b44adfba32b3d9b23}{Control\+T
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Configuration file. Here you specify which cotroller you want to run at compile time. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{config_8hpp}{config.\+hpp}} Author\+: Mattia Gramuglia Date\+: June 7, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Configuration file. Here you specify which controller you want to run at compile time.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+
 \doxysubsection{Macro Definition Documentation}
 \mbox{\Hypertarget{config_8hpp_a994eeabd9eb5820bb4d796b389ef852a}\label{config_8hpp_a994eeabd9eb5820bb4d796b389ef852a}} 
 \index{config.hpp@{config.hpp}!\_\_MRAC\_\_@{\_\_MRAC\_\_}}
@@ -52,7 +75,7 @@ using \mbox{\hyperlink{config_8hpp_aa00283f0401d9c8b44adfba32b3d9b23}{Control\+T
 
 
 
-Definition at line 52 of file config.\+hpp.
+Definition at line 62 of file config.\+hpp.
 
 \mbox{\Hypertarget{config_8hpp_ae12c52ff77067ccbfafda6157b4590bd}\label{config_8hpp_ae12c52ff77067ccbfafda6157b4590bd}} 
 \index{config.hpp@{config.hpp}!\_\_PID\_\_@{\_\_PID\_\_}}
@@ -62,7 +85,7 @@ Definition at line 52 of file config.\+hpp.
 
 CONTROLLER selection 
 
-Definition at line 51 of file config.\+hpp.
+Definition at line 61 of file config.\+hpp.
 
 \mbox{\Hypertarget{config_8hpp_ab62bf635925d1f7b6275b305e86d8c92}\label{config_8hpp_ab62bf635925d1f7b6275b305e86d8c92}} 
 \index{config.hpp@{config.hpp}!SELECTED\_CONTROLLER@{SELECTED\_CONTROLLER}}
@@ -72,7 +95,7 @@ Definition at line 51 of file config.\+hpp.
 
 
 
-Definition at line 55 of file config.\+hpp.
+Definition at line 65 of file config.\+hpp.
 
 
 
@@ -85,5 +108,5 @@ Definition at line 55 of file config.\+hpp.
 
 
 
-Definition at line 69 of file config.\+hpp.
+Definition at line 79 of file config.\+hpp.
 

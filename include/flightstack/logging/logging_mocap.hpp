@@ -34,6 +34,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file logging_mocap.hpp
+ * @brief Logger for the motion capture (MOCAP) system.
+ * 
+ */
 #ifndef LOGGING_MOCAP_HPP
 #define LOGGING_MOCAP_HPP
 
@@ -85,6 +90,11 @@ namespace _udp_driver_
 // Forward declaration of UdpReceiverNode class
 class UdpReceiverNode;
 
+/**
+ * @class MocapData
+ * @brief Logs mocap data
+ * 
+ */
 class MocapData 
 {
 public:
@@ -95,8 +105,19 @@ public:
 	// Constructor
   MocapData(UdpReceiverNode& node);
 
+  /**
+   * @param None
+   */
   void logInitializeHeaders();
+
+  /**
+   * @param None
+   */
   void logInitializeLogging();
+
+  /**
+   * @param None
+   */
   void logMocapData();
 
 private:

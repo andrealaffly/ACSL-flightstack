@@ -53,6 +53,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file udp_socket.hpp
+ * @brief Class for UDP socket creation using IoContext
+ */
 #ifndef UDP_SOCKET_HPP_
 #define UDP_SOCKET_HPP_
 
@@ -76,6 +80,9 @@ namespace _udp_driver_
 
 using Functor = std::function<void (const std::vector<uint8_t> &)>;
 
+/**
+ * @class UdpSocket
+ */
 class UdpSocket
 {
 public:
@@ -103,31 +110,43 @@ public:
 	bool isOpen() const;
 	void bind();
 
-	/*
-	* Blocking Send Operation
-	*/
+	/**
+	 * Blocking Send Operation
+	 */
 	std::size_t send(std::vector<uint8_t> & buff);
 
-	/*
-	* Blocking Receive Operation
-	*/
+	/**
+	 * Blocking Receive Operation
+	 */
 	size_t receive(std::vector<uint8_t> & buff);
 
-	/*
-	* NonBlocking Send Operation
-	*/
+	/**
+	 * NonBlocking Send Operation
+	 * @param buff 
+	 */
 	void asyncSend(std::vector<uint8_t> & buff);
 
-	/*
-	* NonBlocking Receive Operation
-	*/
+	/**
+	 * NonBlocking Receive Operation
+	 * @param func 
+	 */
 	void asyncReceive(Functor func);
 
 private:
+	/**
+	 * asyncSendHandler
+	 * @param error 
+	 * @param bytes_transferred 
+	 */
 	void asyncSendHandler(
 		const asio::error_code & error,
 		std::size_t bytes_transferred);
 
+	/**
+	 * asyncReceiveHandler
+	 * @param error 
+	 * @param bytes_transferred 
+	 */
 	void asyncReceiveHandler(
 		const asio::error_code & error,
 		std::size_t bytes_transferred);

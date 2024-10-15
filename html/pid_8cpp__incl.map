@@ -20,12 +20,12 @@
 <area shape="rect" id="node16" title=" " alt="" coords="4445,155,4623,196"/>
 <area shape="rect" id="node17" title=" " alt="" coords="4647,155,4818,196"/>
 <area shape="rect" id="node18" title=" " alt="" coords="4842,155,5013,196"/>
-<area shape="rect" id="node19" href="$config_8hpp.html" title=" " alt="" coords="3991,251,4080,278"/>
+<area shape="rect" id="node19" href="$config_8hpp.html" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="3991,251,4080,278"/>
 <area shape="rect" id="node22" href="$vehicle__state_8hpp.html" title=" " alt="" coords="3285,251,3423,278"/>
 <area shape="rect" id="node25" href="$user__defined__trajectory_8hpp.html" title=" " alt="" coords="3285,341,3487,367"/>
 <area shape="rect" id="node26" href="$piecewise__polynomial__trajectory_8hpp.html" title=" " alt="" coords="3800,244,3967,285"/>
 <area shape="rect" id="node27" href="$control_8hpp.html" title=" " alt="" coords="3737,162,3832,189"/>
-<area shape="rect" id="node28" href="$mocap_8hpp.html" title=" " alt="" coords="5120,251,5215,278"/>
+<area shape="rect" id="node28" href="$mocap_8hpp.html" title="Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap_odometry topic for..." alt="" coords="5120,251,5215,278"/>
 <area shape="rect" id="node30" href="$print__helpers_8hpp.html" title=" " alt="" coords="4156,251,4291,278"/>
 <area shape="rect" id="node21" title=" " alt="" coords="3473,423,3576,449"/>
 <area shape="rect" id="node23" title=" " alt="" coords="3165,423,3228,449"/>

@@ -1,5 +1,10 @@
 \hypertarget{mocap_8hpp}{}\doxysection{include/flightstack/mocap/mocap.hpp File Reference}
 \label{mocap_8hpp}\index{include/flightstack/mocap/mocap.hpp@{include/flightstack/mocap/mocap.hpp}}
+
+
+Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap\+\_\+odometry topic for EFK2 fusion.  
+
+
 {\ttfamily \#include $<$chrono$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
@@ -13,16 +18,14 @@
 {\ttfamily \#include $<$px4\+\_\+msgs/msg/vehicle\+\_\+odometry.\+hpp$>$}\newline
 {\ttfamily \#include \char`\"{}udp\+\_\+driver.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}logging\+\_\+mocap.\+hpp\char`\"{}}\newline
-Include dependency graph for mocap.\+hpp\+:
-\nopagebreak
+Include dependency graph for mocap.\+hpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{mocap_8hpp__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -35,7 +38,7 @@ This graph shows which files directly or indirectly include this file\+:
 struct \mbox{\hyperlink{struct__drivers___1_1__udp__driver___1_1mocap__states}{\+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::mocap\+\_\+states}}
 \begin{DoxyCompactList}\small\item\em Define struct variables to store parsed data. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode}{\+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Receiver\+Node}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode}{Udp\+Receiver\+Node}} class which can receive UDP datagrams. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -78,6 +81,32 @@ constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_a45289b30613008d14c525850b1ff
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap\+\_\+odometry topic for EFK2 fusion. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. Part of the code in this file leverages the following material.
+
+Referenced\+: \href{https://github.com/ros-drivers/transport_drivers/tree/main}{\texttt{ https\+://github.\+com/ros-\/drivers/transport\+\_\+drivers/tree/main}} Copyright 2021 Leo\+Drive.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+AS IS\char`\"{} BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. File\+: \mbox{\hyperlink{mocap_8hpp}{mocap.\+hpp}} Author\+: Giri Mugundan Kumar Date\+: April 20, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Node definition for UDP socket as a lifecycle node. Writes messages to pixhawk mocap\+\_\+odometry topic for EFK2 fusion.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{mocap_8hpp_a0b9177049bd66ba72942a529a537e984}\label{mocap_8hpp_a0b9177049bd66ba72942a529a537e984}} 
 \index{mocap.hpp@{mocap.hpp}!LNI@{LNI}}
@@ -87,7 +116,7 @@ constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_a45289b30613008d14c525850b1ff
 
 
 
-Definition at line 99 of file mocap.\+hpp.
+Definition at line 104 of file mocap.\+hpp.
 
 
 
@@ -100,7 +129,7 @@ Definition at line 99 of file mocap.\+hpp.
 
 
 
-Definition at line 81 of file mocap.\+hpp.
+Definition at line 86 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_a4950a8d87881832aeb19bc9dc823e949}\label{mocap_8hpp_a4950a8d87881832aeb19bc9dc823e949}} 
 \index{mocap.hpp@{mocap.hpp}!ODROID\_M1S\_IP@{ODROID\_M1S\_IP}}
@@ -110,7 +139,7 @@ Definition at line 81 of file mocap.\+hpp.
 
 
 
-Definition at line 82 of file mocap.\+hpp.
+Definition at line 87 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_a369edc1aaf5f53fd968090572d783620}\label{mocap_8hpp_a369edc1aaf5f53fd968090572d783620}} 
 \index{mocap.hpp@{mocap.hpp}!ODROID\_M1S\_PORT@{ODROID\_M1S\_PORT}}
@@ -120,7 +149,7 @@ Definition at line 82 of file mocap.\+hpp.
 
 
 
-Definition at line 84 of file mocap.\+hpp.
+Definition at line 89 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_acd945371fa34d41309e582fc09a2ed68}\label{mocap_8hpp_acd945371fa34d41309e582fc09a2ed68}} 
 \index{mocap.hpp@{mocap.hpp}!POSE\_FRAME\_FRD@{POSE\_FRAME\_FRD}}
@@ -130,7 +159,7 @@ Definition at line 84 of file mocap.\+hpp.
 
 
 
-Definition at line 91 of file mocap.\+hpp.
+Definition at line 96 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_a9498fc7a67b5e2359244405014fa1185}\label{mocap_8hpp_a9498fc7a67b5e2359244405014fa1185}} 
 \index{mocap.hpp@{mocap.hpp}!POSE\_FRAME\_NED@{POSE\_FRAME\_NED}}
@@ -140,7 +169,7 @@ Definition at line 91 of file mocap.\+hpp.
 
 
 
-Definition at line 90 of file mocap.\+hpp.
+Definition at line 95 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_a2ddbf2c1c54f051762a17fecea9e5614}\label{mocap_8hpp_a2ddbf2c1c54f051762a17fecea9e5614}} 
 \index{mocap.hpp@{mocap.hpp}!POSE\_FRAME\_UNKNOWN@{POSE\_FRAME\_UNKNOWN}}
@@ -154,7 +183,7 @@ Definition at line 90 of file mocap.\+hpp.
 
 
 
-Definition at line 89 of file mocap.\+hpp.
+Definition at line 94 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_a45289b30613008d14c525850b1ffd343}\label{mocap_8hpp_a45289b30613008d14c525850b1ffd343}} 
 \index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_BODY\_FRD@{VELOCITY\_FRAME\_BODY\_FRD}}
@@ -164,7 +193,7 @@ Definition at line 89 of file mocap.\+hpp.
 
 
 
-Definition at line 96 of file mocap.\+hpp.
+Definition at line 101 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_addf6acdd93e3173b761c9c8c624c4a45}\label{mocap_8hpp_addf6acdd93e3173b761c9c8c624c4a45}} 
 \index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_FRD@{VELOCITY\_FRAME\_FRD}}
@@ -174,7 +203,7 @@ Definition at line 96 of file mocap.\+hpp.
 
 
 
-Definition at line 95 of file mocap.\+hpp.
+Definition at line 100 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_ad7d0cce572b25f60daef3129ecc2f4d5}\label{mocap_8hpp_ad7d0cce572b25f60daef3129ecc2f4d5}} 
 \index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_NED@{VELOCITY\_FRAME\_NED}}
@@ -184,7 +213,7 @@ Definition at line 95 of file mocap.\+hpp.
 
 
 
-Definition at line 94 of file mocap.\+hpp.
+Definition at line 99 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{mocap_8hpp_aedd733ab9aa07f9cc7c114ac25d74b57}\label{mocap_8hpp_aedd733ab9aa07f9cc7c114ac25d74b57}} 
 \index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_UNKNOWN@{VELOCITY\_FRAME\_UNKNOWN}}
@@ -194,5 +223,5 @@ Definition at line 94 of file mocap.\+hpp.
 
 
 
-Definition at line 93 of file mocap.\+hpp.
+Definition at line 98 of file mocap.\+hpp.
 

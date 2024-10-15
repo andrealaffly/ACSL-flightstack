@@ -34,6 +34,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file config.hpp
+ * @brief Configuration file. Here you specify which cotroller you want to run at compile time.
+ * 
+ */
 #ifndef CONFIG_HPP
 #define CONFIG_HPP
 
@@ -41,6 +46,11 @@
 #include <nlohmann/json.hpp>
 
 // Forward declaration of MultiThreadedNode class
+
+/**
+ * @class MultiThreadedNode
+ * 
+ */
 class MultiThreadedNode;
 
 /*********************************************************************************************************************
@@ -77,6 +87,12 @@ using ControlType = MRAC;
   Configurations Parameters set from config.json 
 **********************************************************************************************************************
 */
+
+/**
+ * @struct ConfigurationParameters
+ * @brief Configurations Parameters set from config.json
+ * 
+ */
 struct ConfigurationParameters
 {
   // Name of the piecewise polynomial user-defined trajectory file
@@ -93,6 +109,12 @@ struct ConfigurationParameters
   Global Parameters shared among all the program
 **********************************************************************************************************************
 */
+
+/**
+ * @struct GlobalParameters
+ * @brief Global parameteres shared among all the program
+ * 
+ */
 struct GlobalParameters
 {
   // Flag for publishing data to the motors

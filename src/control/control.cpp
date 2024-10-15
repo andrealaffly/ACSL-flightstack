@@ -35,6 +35,12 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file control.cpp
+ * @brief This file contains the general class containing the common memvers used by most of the control algorithms.
+ * Control algorithm classes inherit from this class.
+ */
+
 #include "multi_threaded_node.hpp"
 #include "control.hpp"
 
@@ -95,6 +101,15 @@ Control::Control(MultiThreadedNode& node) :
   Function to read the differentiator gains coming from the .json file and assign it to the vehicle info 
   in vehicle_info.hpp
 */
+
+/**
+ * @file multi_threaded_node.hpp
+ * @fn This function reads the differentiator gains from a specified JSON file
+ * and updates the vehicle_info structure accordingly.
+ *  
+ * @param None
+ */
+
 void Control::readJSONdifferentiatorFile()
 {
   // Define the JSON file where the differentiator gains are located
@@ -271,6 +286,8 @@ Eigen::Matrix3d Control::rotationMatrix321GlobalToLocal(const double& roll, cons
   thrust/motor curve obtained experimentally using the thrust stand.
   For QUADCOPTER 
 */
+
+
 void Control::computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info)
 {
   /*

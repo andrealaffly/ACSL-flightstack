@@ -6,8 +6,8 @@
 <area shape="rect" id="node5" href="$structControl_1_1ControlReferences.html" title=" " alt="" coords="401,323,599,349"/>
 <area shape="rect" id="node6" href="$structVehicleInfo.html" title=" " alt="" coords="453,373,547,400"/>
 <area shape="rect" id="node7" title=" " alt="" coords="57,372,137,399"/>
-<area shape="rect" id="node8" href="$classMultiThreadedNode.html" title=" " alt="" coords="425,447,575,473"/>
+<area shape="rect" id="node8" href="$classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,447,575,473"/>
 <area shape="rect" id="node9" title=" " alt="" coords="45,423,148,449"/>
-<area shape="rect" id="node10" href="$structConfigurationParameters.html" title=" " alt="" coords="5,473,188,500"/>
-<area shape="rect" id="node11" href="$structGlobalParameters.html" title=" " alt="" coords="27,524,166,551"/>
+<area shape="rect" id="node10" href="$structConfigurationParameters.html" title="Configurations Parameters set from config.json." alt="" coords="5,473,188,500"/>
+<area shape="rect" id="node11" href="$structGlobalParameters.html" title="Global parameteres shared among all the program." alt="" coords="27,524,166,551"/>
 </map>

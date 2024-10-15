@@ -23,11 +23,11 @@
 <area shape="rect" id="node22" title=" " alt="" coords="949,169,1127,211"/>
 <area shape="rect" id="node23" title=" " alt="" coords="1151,169,1322,211"/>
 <area shape="rect" id="node24" title=" " alt="" coords="1346,169,1517,211"/>
-<area shape="rect" id="node25" href="$config_8hpp.html" title=" " alt="" coords="1541,177,1631,203"/>
+<area shape="rect" id="node25" href="$config_8hpp.html" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="1541,177,1631,203"/>
 <area shape="rect" id="node28" href="$control_8hpp.html" title=" " alt="" coords="311,341,405,367"/>
 <area shape="rect" id="node40" href="$json__parser_8hpp.html" title=" " alt="" coords="1345,430,1469,457"/>
 <area shape="rect" id="node41" href="$vehicle__state_8hpp.html" title=" " alt="" coords="1911,430,2048,457"/>
-<area shape="rect" id="node42" href="$mocap_8hpp.html" title=" " alt="" coords="2713,341,2808,367"/>
+<area shape="rect" id="node42" href="$mocap_8hpp.html" title="Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap_odometry topic for..." alt="" coords="2713,341,2808,367"/>
 <area shape="rect" id="node49" href="$print__helpers_8hpp.html" title=" " alt="" coords="3665,430,3800,457"/>
 <area shape="rect" id="node26" href="$mrac_8hpp.html" title=" " alt="" coords="1165,259,1247,285"/>
 <area shape="rect" id="node34" href="$logging__mrac_8hpp.html" title=" " alt="" coords="1747,430,1886,457"/>
@@ -46,7 +46,7 @@
 <area shape="rect" id="node44" title=" " alt="" coords="2936,423,3119,464"/>
 <area shape="rect" id="node45" title=" " alt="" coords="3143,423,3293,464"/>
 <area shape="rect" id="node46" title=" " alt="" coords="2699,423,2849,464"/>
-<area shape="rect" id="node47" href="$udp__driver_8hpp.html" title=" " alt="" coords="3471,430,3589,457"/>
-<area shape="rect" id="node48" href="$logging__mocap_8hpp.html" title=" " alt="" coords="2423,430,2573,457"/>
+<area shape="rect" id="node47" href="$udp__driver_8hpp.html" title="Class for udp driver." alt="" coords="3471,430,3589,457"/>
+<area shape="rect" id="node48" href="$logging__mocap_8hpp.html" title="Logger for the motion capture (MOCAP) system." alt="" coords="2423,430,2573,457"/>
 <area shape="rect" id="node50" title=" " alt="" coords="3717,512,3809,539"/>
 </map>

@@ -55,6 +55,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file mocap.hpp
+ * @brief Node definition for UDP socket as a lifecyle node
+ * Writes messages to pixhawk mocap_odometry topic for EFK2 fusion
+ */
 #ifndef MOCAP_HPP_
 #define MOCAP_HPP_
 
@@ -104,6 +109,10 @@ namespace _udp_driver_
 {
 
 /// Define struct variables to store parsed data
+/**
+ * @struct mocap_states
+ * @brief Define struct variables to store parsed data
+ */
   struct mocap_states
   {
     double x; 
@@ -121,14 +130,20 @@ namespace _udp_driver_
     double yawspeed;
   };
 
-/// \brief UdpReceiverNode class which can receive UDP datagrams
+
+/**
+ * @class UDPReciverNode
+ * @brief UdpRecieverNode class which can recieve UDP datagrams
+ */
 class UdpReceiverNode final
   : public lc::LifecycleNode
 {
 public:
-  /// \brief Constructor which accepts IoContext
-  /// \param[in] ctx A shared IoContext
-  /// \param[in] pointer to vehicle states in flight_bridge
+  /**
+   * @brief Constructor which accpets IOContext
+   * @param[in] ctx
+   * @param[out] pointer
+   */
   UdpReceiverNode(const IoContext & ctx, const std::atomic<uint64_t>& timestamp_initial);
 
   /// \brief Destructor - required to manage owned IoContext
@@ -171,6 +186,10 @@ public:
 private:
 
   /// \brief Get the parameters for the ip and port to ping
+  /**
+   * @brief Get the parameters for the ip and port to ping
+   * @param None
+   */
   void get_params();
 
   /// Pointer to the asio context owned by this node for async communication
@@ -201,6 +220,10 @@ private:
   struct mocap_states mc;
 
   /// \brief Debugger function to output the mocap data.
+  /**
+   * @param None
+   * @brief Debugger function to output mocap data
+   */
   void debugMocapData2screen();
 
   // Create a pointer to the MocapData instance

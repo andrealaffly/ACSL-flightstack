@@ -9,9 +9,9 @@
 <area shape="rect" id="node6" href="$structControl_1_1ControlReferences.html" title=" " alt="" coords="401,759,599,785"/>
 <area shape="rect" id="node7" href="$structVehicleInfo.html" title=" " alt="" coords="453,649,547,676"/>
 <area shape="rect" id="node8" title=" " alt="" coords="57,657,137,684"/>
-<area shape="rect" id="node9" href="$classMultiThreadedNode.html" title=" " alt="" coords="425,708,575,735"/>
+<area shape="rect" id="node9" href="$classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,708,575,735"/>
 <area shape="rect" id="node10" title=" " alt="" coords="45,809,148,836"/>
-<area shape="rect" id="node11" href="$structConfigurationParameters.html" title=" " alt="" coords="5,708,188,735"/>
-<area shape="rect" id="node12" href="$structGlobalParameters.html" title=" " alt="" coords="27,759,166,785"/>
+<area shape="rect" id="node11" href="$structConfigurationParameters.html" title="Configurations Parameters set from config.json." alt="" coords="5,708,188,735"/>
+<area shape="rect" id="node12" href="$structGlobalParameters.html" title="Global parameteres shared among all the program." alt="" coords="27,759,166,785"/>
 <area shape="rect" id="node13" href="$structPID_1_1StateController.html" title=" " alt="" coords="863,677,1013,704"/>
 </map>

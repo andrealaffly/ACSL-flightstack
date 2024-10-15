@@ -36,6 +36,11 @@
 
 #include "multi_threaded_node.hpp"
 
+ /**
+  * @file multi_threaded_node.cpp.
+  * @brief Multithreaded ROS2 ndoe that joins together all the flight stakc components
+  */
+
 MultiThreadedNode::MultiThreadedNode(rclcpp::NodeOptions options)
 : Node("MultiThreadedNode", options),
   config_(ConfigurationParameters::readConfigurationParametersFile("config.json")),
@@ -69,6 +74,9 @@ std::string string_thread_id()
 /*
   Function that when called updates the PRIVATE variable "time_current_" to the current time
 */
+
+
+
 void MultiThreadedNode::updateCurrentTimeInSeconds()
 {
   time_current_ = ((this->get_clock()->now().nanoseconds() / 1000) - timestamp_initial_) / 1e6;
@@ -109,7 +117,6 @@ GlobalParameters MultiThreadedNode::getGlobalParameters() const {
   return global_params_;
 }
 
-// Function that performs the setup of the Pixhawk vehicle odometry subscription callback/thread
 void MultiThreadedNode::setupPixhawkOdometrySubscriber()
 {
   // Pixhawk vehicle odometry subscription callback group

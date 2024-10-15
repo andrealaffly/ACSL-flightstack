@@ -1,5 +1,5 @@
 <map id="include/flightstack/config/config.hpp" name="include/flightstack/config/config.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="4891,5,5032,47"/>
+<area shape="rect" id="node1" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="4891,5,5032,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="4926,355,4999,382"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5208,355,5355,382"/>
 <area shape="rect" id="node4" href="$mrac_8hpp.html" title=" " alt="" coords="5829,95,5912,121"/>

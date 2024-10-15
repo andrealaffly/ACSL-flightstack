@@ -52,7 +52,10 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file udp_driver.cpp
+ * @brief Class for UDP driver
+ */
 #include "udp_driver.hpp"
 
 namespace _drivers_
@@ -60,11 +63,20 @@ namespace _drivers_
 namespace _udp_driver_
 {
 
+/**
+ * @brief Construct a new Udp Driver:: Udp Driver object
+ * 
+ * @param ctx 
+ */
 UdpDriver::UdpDriver(const IoContext & ctx)
 : m_ctx(ctx)
 {
 }
 
+/**
+ * @param ip 
+ * @param port 
+ */
 void UdpDriver::init_sender(const std::string & ip, uint16_t port)
 {
   m_sender = std::make_shared<UdpSocket>(m_ctx, ip, port);
@@ -77,6 +89,11 @@ void UdpDriver::init_sender(
   m_sender = std::make_shared<UdpSocket>(m_ctx, remote_ip, remote_port, host_ip, host_port);
 }
 
+/**
+ * @brief Testing
+ * @param ip 
+ * @param port 
+ */
 void UdpDriver::init_receiver(const std::string & ip, uint16_t port)
 {
   try {

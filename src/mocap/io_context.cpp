@@ -54,6 +54,10 @@
  **********************************************************************************************************************/
 
 #include "io_context.hpp"
+/**
+ * @file io_context.cpp
+ * @brief Class for IoContext to manage thread for udp
+ */
 
 namespace _drivers_
 {
@@ -61,6 +65,9 @@ namespace _common_
 {
 
 // Delegating to the modified constructor with -1 for default CPU
+/**
+ * Delegating to the modified constructor with -1 for default CPU
+ */
 IoContext::IoContext()
 : IoContext(std::thread::hardware_concurrency()) {}
 
@@ -101,6 +108,10 @@ uint32_t IoContext::serviceThreadCount()
   return m_ios_thread_workers->size();
 }
 
+/**
+ * @brief IoContext::waitForExit()
+ * @param None
+ */
 void IoContext::waitForExit()
 {
   if (!ios().stopped()) {

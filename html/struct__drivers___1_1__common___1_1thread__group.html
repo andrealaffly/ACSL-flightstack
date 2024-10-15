@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Doxytest: _drivers_::_common_::thread_group Struct Reference</title>
+<title>ACSL Flightstack Documentation: _drivers_::_common_::thread_group Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Doxytest
+   <div id="projectname">ACSL Flightstack Documentation
    </div>
   </td>
  </tr>
@@ -74,9 +74,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>! A workaround of boost::thread_group  
- <a href="struct__drivers___1_1__common___1_1thread__group.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -91,6 +88,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeb9691462c9946e25602b069826def65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44ef5c190872bd7a6924e7b1a24c1986"><td class="memTemplParams" colspan="2">template&lt;class ... Args&gt; </td></tr>
 <tr class="memitem:a44ef5c190872bd7a6924e7b1a24c1986"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct__drivers___1_1__common___1_1thread__group.html#a44ef5c190872bd7a6924e7b1a24c1986">create_thread</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a44ef5c190872bd7a6924e7b1a24c1986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a thread object.  <a href="struct__drivers___1_1__common___1_1thread__group.html#a44ef5c190872bd7a6924e7b1a24c1986">More...</a><br /></td></tr>
 <tr class="separator:a44ef5c190872bd7a6924e7b1a24c1986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a290a854cbcb36fbaf2fd31da84cf49ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__drivers___1_1__common___1_1thread__group.html#a290a854cbcb36fbaf2fd31da84cf49ed">add_thread</a> (std::thread &amp;&amp;t)</td></tr>
 <tr class="separator:a290a854cbcb36fbaf2fd31da84cf49ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,9 +103,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa85ff62e482c709013a49e51f5ba1e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>! A workaround of boost::thread_group </p>
+<div class="textblock"><p>A workaround of boost::thead_group Copied from <a href="https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2">https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00074">74</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00080">80</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a17dc19daa61ba0a6eeeeb7210563b8a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17dc19daa61ba0a6eeeeb7210563b8a3">&#9670;&nbsp;</a></span>thread_group() <span class="overload">[1/3]</span></h2>
@@ -210,8 +208,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>add_thread </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00086">86</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00101">101</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
 
 </div>
 </div>
@@ -241,7 +245,15 @@ template&lt;class ... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00084">84</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
+<p>Create a thread object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00095">95</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
 
 </div>
 </div>
@@ -267,8 +279,14 @@ template&lt;class ... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>join_all </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00090">90</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00112">112</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
 
 </div>
 </div>
@@ -320,8 +338,9 @@ template&lt;class ... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>std::size_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00088">88</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00106">106</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
 
 </div>
 </div>
@@ -338,7 +357,7 @@ template&lt;class ... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00076">76</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io__context_8hpp_source.html#l00082">82</a> of file <a class="el" href="io__context_8hpp_source.html">io_context.hpp</a>.</p>
 
 </div>
 </div>

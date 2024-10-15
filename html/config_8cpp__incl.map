@@ -1,6 +1,6 @@
 <map id="src/config/config.cpp" name="src/config/config.cpp">
 <area shape="rect" id="node1" title="Contains the functions that reads the configuration parameters and assigns it to the members of the C..." alt="" coords="3149,5,3303,32"/>
-<area shape="rect" id="node2" href="$config_8hpp.html" title=" " alt="" coords="2655,162,2744,189"/>
+<area shape="rect" id="node2" href="$config_8hpp.html" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="2655,162,2744,189"/>
 <area shape="rect" id="node36" href="$multi__threaded__node_8hpp.html" title=" " alt="" coords="3653,80,3841,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="2785,519,2859,546"/>
 <area shape="rect" id="node4" title=" " alt="" coords="3017,519,3163,546"/>
@@ -47,6 +47,6 @@
 <area shape="rect" id="node46" title=" " alt="" coords="4839,155,5010,196"/>
 <area shape="rect" id="node47" href="$json__parser_8hpp.html" title=" " alt="" coords="2972,430,3096,457"/>
 <area shape="rect" id="node48" href="$vehicle__state_8hpp.html" title=" " alt="" coords="2657,430,2795,457"/>
-<area shape="rect" id="node49" href="$mocap_8hpp.html" title=" " alt="" coords="3836,162,3931,189"/>
+<area shape="rect" id="node49" href="$mocap_8hpp.html" title="Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap_odometry topic for..." alt="" coords="3836,162,3931,189"/>
 <area shape="rect" id="node50" href="$print__helpers_8hpp.html" title=" " alt="" coords="3983,430,4117,457"/>
 </map>

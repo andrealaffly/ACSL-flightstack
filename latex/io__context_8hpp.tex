@@ -1,21 +1,24 @@
 \hypertarget{io__context_8hpp}{}\doxysection{include/flightstack/mocap/io\+\_\+context.hpp File Reference}
 \label{io__context_8hpp}\index{include/flightstack/mocap/io\_context.hpp@{include/flightstack/mocap/io\_context.hpp}}
+
+
+Class for Io\+Context to manage thread for udp.  
+
+
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include $<$asio.\+hpp$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$rclcpp/logging.\+hpp$>$}\newline
-Include dependency graph for io\+\_\+context.\+hpp\+:
-\nopagebreak
+Include dependency graph for io\+\_\+context.\+hpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{io__context_8hpp__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,7 +29,7 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{\+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group}}
-\begin{DoxyCompactList}\small\item\em ! A workaround of boost\+::thread\+\_\+group \end{DoxyCompactList}\item 
+\item 
 class \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{\+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::\+Io\+Context}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
@@ -36,3 +39,30 @@ class \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{\+\_\+driver
 \item 
  \mbox{\hyperlink{namespace__drivers___1_1__common__}{\+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for Io\+Context to manage thread for udp. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. Part of the code in this file leverages the following material.
+
+Referenced\+: \href{https://github.com/ros-drivers/transport_drivers/tree/main}{\texttt{ https\+://github.\+com/ros-\/drivers/transport\+\_\+drivers/tree/main}} Copyright 2021 Leo\+Drive.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+AS IS\char`\"{} BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. File\+: \mbox{\hyperlink{io__context_8hpp}{io\+\_\+context.\+hpp}} Author\+: Giri Mugundan Kumar Date\+: April 21, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Class for Io\+Context to manage thread for udp.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 

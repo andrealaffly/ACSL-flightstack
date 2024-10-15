@@ -2,11 +2,6 @@
 \label{struct__drivers___1_1__common___1_1thread__group}\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
 
 
-! A workaround of boost\+::thread\+\_\+group  
-
-
-
-
 {\ttfamily \#include $<$io\+\_\+context.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -21,7 +16,7 @@
 \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_aeb9691462c9946e25602b069826def65}{thread\+\_\+group}} (\mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \&\&)=delete
 \item 
 {\footnotesize template$<$class ... Args$>$ }\\void \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_a44ef5c190872bd7a6924e7b1a24c1986}{create\+\_\+thread}} (Args \&\&... args)
-\item 
+\begin{DoxyCompactList}\small\item\em Create a thread object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_a290a854cbcb36fbaf2fd31da84cf49ed}{add\+\_\+thread}} (std\+::thread \&\&t)
 \item 
 std\+::size\+\_\+t \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_ac4b5db9f3e84a9fffedee8da821e517c}{size}} () const
@@ -36,9 +31,9 @@ std\+::vector$<$ std\+::thread $>$ \mbox{\hyperlink{struct__drivers___1_1__commo
 
 
 \doxysubsection{Detailed Description}
-! A workaround of boost\+::thread\+\_\+group 
+A workaround of boost\+::thead\+\_\+group Copied from \href{https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2}{\texttt{ https\+://gist.\+github.\+com/coin-\/au-\/carre/ceb8a790cec3b3535b015be3ec2a1ce2}} 
 
-Definition at line 74 of file io\+\_\+context.\+hpp.
+Definition at line 80 of file io\+\_\+context.\+hpp.
 
 
 
@@ -70,9 +65,14 @@ Definition at line 74 of file io\+\_\+context.\+hpp.
 \doxysubsubsection{\texorpdfstring{add\_thread()}{add\_thread()}}
 {\footnotesize\ttfamily void \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::add\+\_\+thread (\begin{DoxyParamCaption}\item[{std\+::thread \&\&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+add\+\_\+thread 
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
 
 
-Definition at line 86 of file io\+\_\+context.\+hpp.
+Definition at line 101 of file io\+\_\+context.\+hpp.
 
 \mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_a44ef5c190872bd7a6924e7b1a24c1986}\label{struct__drivers___1_1__common___1_1thread__group_a44ef5c190872bd7a6924e7b1a24c1986}} 
 \index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!create\_thread@{create\_thread}}
@@ -83,7 +83,16 @@ void \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::create\+\
 
 
 
-Definition at line 84 of file io\+\_\+context.\+hpp.
+Create a thread object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file io\+\_\+context.\+hpp.
 
 \mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_af7b7775504d010f647d5dee016338f9b}\label{struct__drivers___1_1__common___1_1thread__group_af7b7775504d010f647d5dee016338f9b}} 
 \index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!join\_all@{join\_all}}
@@ -91,9 +100,14 @@ Definition at line 84 of file io\+\_\+context.\+hpp.
 \doxysubsubsection{\texorpdfstring{join\_all()}{join\_all()}}
 {\footnotesize\ttfamily void \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::join\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+join\+\_\+all 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
 
 
-Definition at line 90 of file io\+\_\+context.\+hpp.
+Definition at line 112 of file io\+\_\+context.\+hpp.
 
 \mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_ab5ba1854830bf0d16b35c4a9215c2eaf}\label{struct__drivers___1_1__common___1_1thread__group_ab5ba1854830bf0d16b35c4a9215c2eaf}} 
 \index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!operator=@{operator=}}
@@ -107,9 +121,12 @@ Definition at line 90 of file io\+\_\+context.\+hpp.
 \doxysubsubsection{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily std\+::size\+\_\+t \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t 
+\end{DoxyReturn}
 
 
-Definition at line 88 of file io\+\_\+context.\+hpp.
+Definition at line 106 of file io\+\_\+context.\+hpp.
 
 
 
@@ -122,7 +139,7 @@ Definition at line 88 of file io\+\_\+context.\+hpp.
 
 
 
-Definition at line 76 of file io\+\_\+context.\+hpp.
+Definition at line 82 of file io\+\_\+context.\+hpp.
 
 
 

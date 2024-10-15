@@ -53,6 +53,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file io_context.hpp
+ * @brief Class for IoContext to manage thread for udp
+ */
 #ifndef IO_CONTEXT_HPP_
 #define IO_CONTEXT_HPP_
 
@@ -69,8 +73,10 @@ namespace _drivers_
 namespace _common_
 {
 
-///! A workaround of boost::thread_group
-// Copied from https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2
+/**
+ * A workaround of boost::thead_group
+ * Copied from https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2
+ */
 struct thread_group
 {
   std::vector<std::thread> tg;
@@ -81,12 +87,28 @@ struct thread_group
   thread_group(thread_group &&)                   = delete;
 
   template<class ... Args>
+  /**
+   * @brief Create a thread object
+   * 
+   * @param args 
+   */
   void create_thread(Args && ... args) {tg.emplace_back(std::forward<Args>(args)...);}
-
+  
+  /**
+   * add_thread
+   * @param t 
+   */
   void add_thread(std::thread && t) {tg.emplace_back(std::move(t));}
 
+  /**
+   * @return std::size_t 
+   */
   std::size_t size() const {return tg.size();}
 
+  /**
+   *  join_all
+   *  @param None
+   */
   void join_all()
   {
     for (auto & thread : tg) {
@@ -98,10 +120,18 @@ struct thread_group
 
 };
 
+/**
+ * @class IoContext
+ */
 class IoContext
 {
 public:
   IoContext();
+  /**
+   * @brief Construct a new Io Context object
+   * 
+   * @param threads_count 
+   */
   explicit IoContext(size_t threads_count);
   ~IoContext();
 
@@ -113,9 +143,19 @@ public:
   bool isServiceStopped();
   uint32_t serviceThreadCount();
 
+  /**
+   * waitForExit
+   * @param None
+   */
   void waitForExit();
 
   template<class F>
+  
+  /**
+   * post
+   * 
+   * @param f 
+   */
   void post(F f)
   {
     ios().post(f);
