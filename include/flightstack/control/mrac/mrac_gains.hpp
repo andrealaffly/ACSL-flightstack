@@ -33,7 +33,10 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file mrac_gains.hpp
+ * @brief Tuning gains of the MRAC controller
+ */
 #ifndef MRAC_GAINS_HPP
 #define MRAC_GAINS_HPP
 
@@ -44,6 +47,10 @@
 
 
 // Struct containing the MRAC tuning gains coming from the .json file 
+/**
+ * @struct GainsMRAC
+ * struct containing the MRAC tuning gains coming from the .json file
+ */
 struct GainsMRAC
 {
   /*****************************************************************************************

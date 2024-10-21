@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file logging_mrac.hpp
+ * @brief Logger for the MRAC controller
+ */
 #ifndef LOGGING_MRAC_HPP
 #define LOGGING_MRAC_HPP
 
@@ -77,28 +81,57 @@ namespace expr = boost::log::expressions;
 namespace attrs = boost::log::attributes;
 namespace keywords = boost::log::keywords;
 
-// Forward declaration of MultiThreadedNode class
+/**
+ * @class MultiThreadedNode
+ * Forward decleration of MultiThreadedNode class
+ */
 class MultiThreadedNode;
 
-// Forward declaration of MRAC class
+/**
+ * @class MRAC
+ */
 class MRAC;
 
+/**
+ * @class LogData_MRAC
+ * Forward decleration of LogData_MRAC class
+ */
 class LogData_MRAC
 {
 public:
 
-  // Define logger for LogData
+  /**
+   * Define logger for LogData
+   */
   static src::logger logger_logdata;
 
 	// Constructor
+  /** 
+   * @param node 
+   * @param controller 
+   */
   LogData_MRAC(MultiThreadedNode& node, MRAC& controller);
 
+  /**
+   * @brief Function to print headers
+   * @param None
+   */
   void logInitializeHeaders();
+
+  /**
+   * @brief Function to initialize the logging system
+   * @param None
+   */
   void logInitializeLogging();
+
+  /**
+   * @brief Function to log the data
+   * @param None
+   */
   void logLogData();
 
 private:
-
+  
 	MultiThreadedNode& node_;
 
   MRAC& controller_;

@@ -2,25 +2,25 @@
 <area shape="rect" id="node1" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="4891,5,5032,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="4926,355,4999,382"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5208,355,5355,382"/>
-<area shape="rect" id="node4" href="$mrac_8hpp.html" title=" " alt="" coords="5829,95,5912,121"/>
-<area shape="rect" id="node23" href="$logging__mrac_8hpp.html" title=" " alt="" coords="2519,266,2657,293"/>
+<area shape="rect" id="node4" href="$mrac_8hpp.html" title="Implementation of MRAC controller." alt="" coords="5829,95,5912,121"/>
+<area shape="rect" id="node23" href="$logging__mrac_8hpp.html" title="Logger for the MRAC controller." alt="" coords="2519,266,2657,293"/>
 <area shape="rect" id="node5" title=" " alt="" coords="6177,437,6239,464"/>
 <area shape="rect" id="node6" title=" " alt="" coords="6347,266,6432,293"/>
 <area shape="rect" id="node7" title=" " alt="" coords="5075,355,5133,382"/>
 <area shape="rect" id="node8" title=" " alt="" coords="5675,437,5778,464"/>
-<area shape="rect" id="node9" href="$control_8hpp.html" title=" " alt="" coords="5587,177,5682,203"/>
-<area shape="rect" id="node19" href="$mrac__gains_8hpp.html" title=" " alt="" coords="6204,177,6329,203"/>
+<area shape="rect" id="node9" href="$control_8hpp.html" title="General class that contains common members used by most of the control algorithms." alt="" coords="5587,177,5682,203"/>
+<area shape="rect" id="node19" href="$mrac__gains_8hpp.html" title="Tuning gains of the MRAC controller." alt="" coords="6204,177,6329,203"/>
 <area shape="rect" id="node20" href="$continuous__lyapunov__equation_8hpp.html" title=" " alt="" coords="5983,169,6143,211"/>
-<area shape="rect" id="node22" href="$projection__operator_8hpp.html" title=" " alt="" coords="5783,177,5959,203"/>
+<area shape="rect" id="node22" href="$projection__operator_8hpp.html" title="Implementation of the projection operator to be used in the MRAC controllers." alt="" coords="5783,177,5959,203"/>
 <area shape="rect" id="node10" title=" " alt="" coords="5851,355,5914,382"/>
 <area shape="rect" id="node11" title=" " alt="" coords="5177,266,5263,293"/>
 <area shape="rect" id="node12" title=" " alt="" coords="4835,355,4901,382"/>
 <area shape="rect" id="node13" title=" " alt="" coords="5287,266,5475,293"/>
-<area shape="rect" id="node14" href="$vehicle__info_8hpp.html" title=" " alt="" coords="6041,355,6170,382"/>
-<area shape="rect" id="node15" href="$piecewise__polynomial__trajectory_8hpp.html" title=" " alt="" coords="5551,259,5718,300"/>
+<area shape="rect" id="node14" href="$vehicle__info_8hpp.html" title="Vehicle properties such as mass, intertia matrix, motor thrust curves, etc." alt="" coords="6041,355,6170,382"/>
+<area shape="rect" id="node15" href="$piecewise__polynomial__trajectory_8hpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="5551,259,5718,300"/>
 <area shape="rect" id="node16" title=" " alt="" coords="5429,355,5509,382"/>
 <area shape="rect" id="node17" title=" " alt="" coords="5534,355,5602,382"/>
-<area shape="rect" id="node18" href="$user__defined__trajectory_8hpp.html" title=" " alt="" coords="5626,355,5827,382"/>
+<area shape="rect" id="node18" href="$user__defined__trajectory_8hpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="5626,355,5827,382"/>
 <area shape="rect" id="node21" title=" " alt="" coords="6139,266,6221,293"/>
 <area shape="rect" id="node24" title=" " alt="" coords="5,355,72,382"/>
 <area shape="rect" id="node25" title=" " alt="" coords="97,355,167,382"/>

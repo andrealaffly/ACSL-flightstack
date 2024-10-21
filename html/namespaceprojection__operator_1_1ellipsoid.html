@@ -76,12 +76,15 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:a37b27c2a1f3d69d7aa0be231ea4d5fc6"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:a37b27c2a1f3d69d7aa0be231ea4d5fc6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structprojection__operator_1_1ConvexFunctionOutput.html">ConvexFunctionOutput</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#a37b27c2a1f3d69d7aa0be231ea4d5fc6">convexFunction</a> (const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x, const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x_e, const Eigen::Matrix&lt; double, N, N &gt; &amp;S, const double epsilon)</td></tr>
+<tr class="memdesc:a37b27c2a1f3d69d7aa0be231ea4d5fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convex function to compute h and dh_dx. The outer convex set is an ellipsoid centered in x_e with semi-axis length described by the diagonal elements that populate the S matrix. If S = diag(1/a^2, 1/b^2, 1/c^2) then the semi-axis lengths are [a, b, c]. The inner convex set is the outer convex set ellipsoid scaled by the coefficient alpha = 1/sqrt(1 + epsilon).  <a href="namespaceprojection__operator_1_1ellipsoid.html#a37b27c2a1f3d69d7aa0be231ea4d5fc6">More...</a><br /></td></tr>
 <tr class="separator:a37b27c2a1f3d69d7aa0be231ea4d5fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac45ca812de980e8f831959ea1cc4f241"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:ac45ca812de980e8f831959ea1cc4f241"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, N, 1 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#ac45ca812de980e8f831959ea1cc4f241">projectionVector</a> (const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x, const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x_d, const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x_e, const Eigen::Matrix&lt; double, N, N &gt; &amp;S, const double epsilon)</td></tr>
+<tr class="memdesc:ac45ca812de980e8f831959ea1cc4f241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to project the vector x_d based on the <a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#a37b27c2a1f3d69d7aa0be231ea4d5fc6" title="Convex function to compute h and dh_dx. The outer convex set is an ellipsoid centered in x_e with sem...">projection_operator::ellipsoid::convexFunction()</a> x_d: derivative wrt time of x (RHS of its dynamics equation)  <a href="namespaceprojection__operator_1_1ellipsoid.html#ac45ca812de980e8f831959ea1cc4f241">More...</a><br /></td></tr>
 <tr class="separator:ac45ca812de980e8f831959ea1cc4f241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a129854ec60147e673b036ebd6b02cfce"><td class="memTemplParams" colspan="2">template&lt;typename Derived1 , typename Derived2 &gt; </td></tr>
 <tr class="memitem:a129854ec60147e673b036ebd6b02cfce"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#a129854ec60147e673b036ebd6b02cfce">projectionMatrix</a> (const Eigen::MatrixBase&lt; Derived1 &gt; &amp;matrix, const Eigen::MatrixBase&lt; Derived2 &gt; &amp;matrix_d, const Eigen::Matrix&lt; double, Derived1::RowsAtCompileTime *Derived1::ColsAtCompileTime, 1 &gt; &amp;x_e, const Eigen::Matrix&lt; double, Derived1::RowsAtCompileTime *Derived1::ColsAtCompileTime, Derived1::RowsAtCompileTime *Derived1::ColsAtCompileTime &gt; &amp;S, const double epsilon) -&gt; Eigen::Matrix&lt; typename Derived1::Scalar, Derived1::RowsAtCompileTime, Derived1::ColsAtCompileTime &gt;</td></tr>
+<tr class="memdesc:a129854ec60147e673b036ebd6b02cfce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to apply projectionVector to a matrix by reshaping it into a vector.  <a href="namespaceprojection__operator_1_1ellipsoid.html#a129854ec60147e673b036ebd6b02cfce">More...</a><br /></td></tr>
 <tr class="separator:a129854ec60147e673b036ebd6b02cfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -125,7 +128,19 @@ template&lt;int N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00209">209</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p>Convex function to compute h and dh_dx. The outer convex set is an ellipsoid centered in x_e with semi-axis length described by the diagonal elements that populate the S matrix. If S = diag(1/a^2, 1/b^2, 1/c^2) then the semi-axis lengths are [a, b, c]. The inner convex set is the outer convex set ellipsoid scaled by the coefficient alpha = 1/sqrt(1 + epsilon). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">x_e</td><td></td></tr>
+    <tr><td class="paramname">S</td><td></td></tr>
+    <tr><td class="paramname">epsilon</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ConvexFunctionOutput&lt;N&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00240">240</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>
@@ -176,7 +191,20 @@ template&lt;typename Derived1 , typename Derived2 &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00270">270</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p>Function to apply projectionVector to a matrix by reshaping it into a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td></td></tr>
+    <tr><td class="paramname">matrix_d</td><td></td></tr>
+    <tr><td class="paramname">x_e</td><td></td></tr>
+    <tr><td class="paramname">S</td><td></td></tr>
+    <tr><td class="paramname">epsilon</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Eigen::Matrix&lt;typename Derived1::Scalar, Derived1::RowsAtCompileTime, Derived1::ColsAtCompileTime&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00315">315</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>
@@ -226,7 +254,20 @@ template&lt;int N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00235">235</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p>Function to project the vector x_d based on the <a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#a37b27c2a1f3d69d7aa0be231ea4d5fc6" title="Convex function to compute h and dh_dx. The outer convex set is an ellipsoid centered in x_e with sem...">projection_operator::ellipsoid::convexFunction()</a> x_d: derivative wrt time of x (RHS of its dynamics equation) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">x_d</td><td></td></tr>
+    <tr><td class="paramname">x_e</td><td></td></tr>
+    <tr><td class="paramname">S</td><td></td></tr>
+    <tr><td class="paramname">epsilon</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Eigen::Matrix&lt;double, N, 1&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00273">273</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>

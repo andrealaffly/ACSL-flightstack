@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['statecontroller_626',['StateController',['../structMRAC_1_1StateController.html',1,'MRAC::StateController'],['../structPID_1_1StateController.html',1,'PID::StateController']]]
+  ['pid_627',['PID',['../classPID.html',1,'']]],
+  ['piecewisepolynomialtrajectory_628',['PiecewisePolynomialTrajectory',['../classPiecewisePolynomialTrajectory.html',1,'']]],
+  ['piecewisepolynomialtrajectoryinfo_629',['PiecewisePolynomialTrajectoryInfo',['../structPiecewisePolynomialTrajectoryInfo.html',1,'']]]
 ];

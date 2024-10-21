@@ -1,5 +1,10 @@
 \hypertarget{vehicle__info_8hpp}{}\doxysection{include/flightstack/control/vehicle\+\_\+info.hpp File Reference}
 \label{vehicle__info_8hpp}\index{include/flightstack/control/vehicle\_info.hpp@{include/flightstack/control/vehicle\_info.hpp}}
+
+
+Vehicle properties such as mass, intertia matrix, motor thrust curves, etc.  
+
+
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
 Include dependency graph for vehicle\+\_\+info.\+hpp\+:\nopagebreak
@@ -20,7 +25,7 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vehicle Info. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,12 +39,8 @@ constexpr double \mbox{\hyperlink{vehicle__info_8hpp_af64c76b779c90dfa13654ce870
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{vehicle__info_8hpp_a19dc3e1272d51eba4dc8f63fc5366528}\label{vehicle__info_8hpp_a19dc3e1272d51eba4dc8f63fc5366528}} 
-\index{vehicle\_info.hpp@{vehicle\_info.hpp}!GRAVITATIONAL\_ACCELERATION@{GRAVITATIONAL\_ACCELERATION}}
-\index{GRAVITATIONAL\_ACCELERATION@{GRAVITATIONAL\_ACCELERATION}!vehicle\_info.hpp@{vehicle\_info.hpp}}
-\doxysubsubsection{\texorpdfstring{GRAVITATIONAL\_ACCELERATION}{GRAVITATIONAL\_ACCELERATION}}
-{\footnotesize\ttfamily constexpr double GRAVITATIONAL\+\_\+\+ACCELERATION = 9.\+80665\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+\doxysubsection{Detailed Description}
+Vehicle properties such as mass, intertia matrix, motor thrust curves, etc. 
 
 Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
 
@@ -58,7 +59,16 @@ Description\+: Vehicle properties such as mass, inertia matrix, motor thrust cur
 
 Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
 
-Definition at line 44 of file vehicle\+\_\+info.\+hpp.
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{vehicle__info_8hpp_a19dc3e1272d51eba4dc8f63fc5366528}\label{vehicle__info_8hpp_a19dc3e1272d51eba4dc8f63fc5366528}} 
+\index{vehicle\_info.hpp@{vehicle\_info.hpp}!GRAVITATIONAL\_ACCELERATION@{GRAVITATIONAL\_ACCELERATION}}
+\index{GRAVITATIONAL\_ACCELERATION@{GRAVITATIONAL\_ACCELERATION}!vehicle\_info.hpp@{vehicle\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{GRAVITATIONAL\_ACCELERATION}{GRAVITATIONAL\_ACCELERATION}}
+{\footnotesize\ttfamily constexpr double GRAVITATIONAL\+\_\+\+ACCELERATION = 9.\+80665\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 49 of file vehicle\+\_\+info.\+hpp.
 
 \mbox{\Hypertarget{vehicle__info_8hpp_ae687c39aaf34b5d511752f39593a6e40}\label{vehicle__info_8hpp_ae687c39aaf34b5d511752f39593a6e40}} 
 \index{vehicle\_info.hpp@{vehicle\_info.hpp}!LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON@{LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}}
@@ -68,7 +78,7 @@ Definition at line 44 of file vehicle\+\_\+info.\+hpp.
 
 
 
-Definition at line 48 of file vehicle\+\_\+info.\+hpp.
+Definition at line 53 of file vehicle\+\_\+info.\+hpp.
 
 \mbox{\Hypertarget{vehicle__info_8hpp_af64c76b779c90dfa13654ce8706ecedd}\label{vehicle__info_8hpp_af64c76b779c90dfa13654ce8706ecedd}} 
 \index{vehicle\_info.hpp@{vehicle\_info.hpp}!MINIMUM\_VALUE\_PUBLISH\_MOTORS@{MINIMUM\_VALUE\_PUBLISH\_MOTORS}}
@@ -78,7 +88,7 @@ Definition at line 48 of file vehicle\+\_\+info.\+hpp.
 
 
 
-Definition at line 50 of file vehicle\+\_\+info.\+hpp.
+Definition at line 55 of file vehicle\+\_\+info.\+hpp.
 
 \mbox{\Hypertarget{vehicle__info_8hpp_abf3ae21cad34cdc9f22e30b864bafbec}\label{vehicle__info_8hpp_abf3ae21cad34cdc9f22e30b864bafbec}} 
 \index{vehicle\_info.hpp@{vehicle\_info.hpp}!UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON@{UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}}
@@ -88,5 +98,5 @@ Definition at line 50 of file vehicle\+\_\+info.\+hpp.
 
 
 
-Definition at line 46 of file vehicle\+\_\+info.\+hpp.
+Definition at line 51 of file vehicle\+\_\+info.\+hpp.
 

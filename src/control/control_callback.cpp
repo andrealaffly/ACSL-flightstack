@@ -36,14 +36,15 @@
  **********************************************************************************************************************/
 /**
  * @file control_callback.cpp
- * Callback that is executed at a fixed specified rate defined by the "timer_controller_".
+ * @brief Callback that is executed at a fixed specified rate defined by the "timer_controller_".
  */
 #include "control.hpp"
 #include "multi_threaded_node.hpp"
 
 
-
-
+/**
+ * @param None
+ */
 void MultiThreadedNode::controller_callback()
 {
   /* // Extract current thread

@@ -34,6 +34,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file vehicle_info.hpp
+ * @brief Vehicle properties such as mass, intertia matrix, motor thrust curves, etc.
+ */
+
 #ifndef VEHICLE_INFO_HPP
 #define VEHICLE_INFO_HPP
 
@@ -49,7 +54,10 @@ inline constexpr double LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON = 0.3;
 
 inline constexpr double MINIMUM_VALUE_PUBLISH_MOTORS = 0.05;
 
-
+/**
+ * @struct VehicleInfo
+ * @brief Vehicle Info
+ */
 struct VehicleInfo 
 {
 
@@ -184,6 +192,11 @@ struct VehicleInfo
 
 
   // Declare const matrix mixer_matrix_quadcopter using a lambda function
+  /**
+   * @brief Declare const matrix mixer_matrix_quadcopter using a lambda function
+   * @param None
+   * @return mat 
+   */
   const Eigen::Matrix4d mixer_matrix_quadcopter = [this]() {
     Eigen::Matrix4d mat; // 4 rows, 4 columns
 

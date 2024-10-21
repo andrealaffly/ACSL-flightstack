@@ -34,6 +34,12 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file main.hpp
+ * @brief Main file
+ * 
+ * Here select at compile time if you want to use GPS or MOCAP
+ */
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
@@ -43,6 +49,10 @@
   DATA FUSION using GPS or MOCAP
 ***********************************************************************************************************************/
 // Enum class for the possible modes to fuse Pixhawk IMU data
+/**
+ * @class EFK2FusionMode
+ * @brief Enum class for the possible mods to fuse Pixhawk IMU data
+ */
 enum class EKF2FusionMode {
   GPS,
   MOCAP // VICON

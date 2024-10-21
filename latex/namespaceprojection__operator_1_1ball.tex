@@ -4,11 +4,11 @@
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$int N$>$ }\\\mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}$<$ N $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}{convex\+Function}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const double x\+\_\+max, const double epsilon)
-\item 
+\begin{DoxyCompactList}\small\item\em Convex function to compute h and dh\+\_\+dx. The inner convex set is a ball of radius sqrt(x\+\_\+max) The outer convex set is a ball of radius sqrt(x\+\_\+max + epsilon) \end{DoxyCompactList}\item 
 {\footnotesize template$<$int N$>$ }\\Eigen\+::\+Matrix$<$ double, N, 1 $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ae6d6d86afbd57c120adc9ebf0c3a02f5}{projection\+Vector}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+d, const double x\+\_\+max, const double epsilon)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to project the vector x\+\_\+d based on the \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}{projection\+\_\+operator\+::ball\+::convex\+Function()}} x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Derived1 , typename Derived2 $>$ }\\auto \mbox{\hyperlink{namespaceprojection__operator_1_1ball_a23f6da124afe115b40aa29ced98bb185}{projection\+Matrix}} (const Eigen\+::\+Matrix\+Base$<$ Derived1 $>$ \&matrix, const Eigen\+::\+Matrix\+Base$<$ Derived2 $>$ \&matrix\+\_\+d, const double x\+\_\+max, const double epsilon) -\/$>$ Eigen\+::\+Matrix$<$ typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time $>$
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to apply projection\+Vector to a matrix by reshaping it into a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -21,7 +21,23 @@
 
 
 
-Definition at line 112 of file projection\+\_\+operator.\+hpp.
+Convex function to compute h and dh\+\_\+dx. The inner convex set is a ball of radius sqrt(x\+\_\+max) The outer convex set is a ball of radius sqrt(x\+\_\+max + epsilon) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em x\+\_\+max} & \\
+\hline
+{\em epsilon} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Convex\+Function\+Output$<$\+N$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file projection\+\_\+operator.\+hpp.
 
 \mbox{\Hypertarget{namespaceprojection__operator_1_1ball_a23f6da124afe115b40aa29ced98bb185}\label{namespaceprojection__operator_1_1ball_a23f6da124afe115b40aa29ced98bb185}} 
 \index{projection\_operator::ball@{projection\_operator::ball}!projectionMatrix@{projectionMatrix}}
@@ -32,7 +48,25 @@ auto projection\+\_\+operator\+::ball\+::projection\+Matrix (\begin{DoxyParamCap
 
 
 
-Definition at line 163 of file projection\+\_\+operator.\+hpp.
+Function to apply projection\+Vector to a matrix by reshaping it into a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & \\
+\hline
+{\em matrix\+\_\+d} & \\
+\hline
+{\em x\+\_\+max} & \\
+\hline
+{\em epsilon} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix$<$typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file projection\+\_\+operator.\+hpp.
 
 \mbox{\Hypertarget{namespaceprojection__operator_1_1ball_ae6d6d86afbd57c120adc9ebf0c3a02f5}\label{namespaceprojection__operator_1_1ball_ae6d6d86afbd57c120adc9ebf0c3a02f5}} 
 \index{projection\_operator::ball@{projection\_operator::ball}!projectionVector@{projectionVector}}
@@ -43,5 +77,23 @@ Eigen\+::\+Matrix$<$double, N, 1$>$ projection\+\_\+operator\+::ball\+::projecti
 
 
 
-Definition at line 130 of file projection\+\_\+operator.\+hpp.
+Function to project the vector x\+\_\+d based on the \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}{projection\+\_\+operator\+::ball\+::convex\+Function()}} x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em x\+\_\+d} & \\
+\hline
+{\em x\+\_\+max} & \\
+\hline
+{\em epsilon} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix$<$double, N, 1$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file projection\+\_\+operator.\+hpp.
 

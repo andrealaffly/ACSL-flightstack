@@ -94,8 +94,21 @@ Definition at line 86 of file udp\+\_\+socket.\+hpp.
 {\footnotesize\ttfamily \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Socket\+::\+Udp\+Socket (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}} \&}]{ctx,  }\item[{const std\+::string \&}]{remote\+\_\+ip,  }\item[{uint16\+\_\+t}]{remote\+\_\+port,  }\item[{const std\+::string \&}]{host\+\_\+ip,  }\item[{uint16\+\_\+t}]{host\+\_\+port }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+{\em remote\+\_\+ip} & \\
+\hline
+{\em remote\+\_\+port} & \\
+\hline
+{\em host\+\_\+ip} & \\
+\hline
+{\em host\+\_\+port} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 63 of file udp\+\_\+socket.\+cpp.
+
+Definition at line 73 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a1188d3043a5e5bc97e50f8aeeb6f573e}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a1188d3043a5e5bc97e50f8aeeb6f573e}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!UdpSocket@{UdpSocket}}
@@ -104,8 +117,17 @@ Definition at line 63 of file udp\+\_\+socket.\+cpp.
 {\footnotesize\ttfamily \+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Socket\+::\+Udp\+Socket (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}} \&}]{ctx,  }\item[{const std\+::string \&}]{ip,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em ctx} & \\
+\hline
+{\em ip} & \\
+\hline
+{\em port} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 83 of file udp\+\_\+socket.\+cpp.
+
+Definition at line 98 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_ae99c42f59b34c599478872a52cf8f1f0}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_ae99c42f59b34c599478872a52cf8f1f0}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!````~UdpSocket@{$\sim$UdpSocket}}
@@ -115,7 +137,7 @@ Definition at line 83 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 90 of file udp\+\_\+socket.\+cpp.
+Definition at line 105 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a0d7702a99e34aeeebbfe97ac526cfbb6}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a0d7702a99e34aeeebbfe97ac526cfbb6}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!UdpSocket@{UdpSocket}}
@@ -136,10 +158,12 @@ Non\+Blocking Receive Operation
 \begin{DoxyParams}{Parameters}
 {\em func} & \\
 \hline
+{\em func} & Functor \\
+\hline
 \end{DoxyParams}
 
 
-Definition at line 133 of file udp\+\_\+socket.\+cpp.
+Definition at line 154 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a70b462ee84da943d450ac6a350e61b5b}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a70b462ee84da943d450ac6a350e61b5b}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!asyncReceiveHandler@{asyncReceiveHandler}}
@@ -153,10 +177,14 @@ async\+Receive\+Handler
 \hline
 {\em bytes\+\_\+transferred} & \\
 \hline
+{\em error} & \\
+\hline
+{\em bytes\+\_\+transferred} & \\
+\hline
 \end{DoxyParams}
 
 
-Definition at line 155 of file udp\+\_\+socket.\+cpp.
+Definition at line 184 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a14dade1e4a28a68fa4519ca1fdba0073}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a14dade1e4a28a68fa4519ca1fdba0073}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!asyncSend@{asyncSend}}
@@ -168,10 +196,12 @@ Non\+Blocking Send Operation
 \begin{DoxyParams}{Parameters}
 {\em buff} & \\
 \hline
+{\em buff} & \\
+\hline
 \end{DoxyParams}
 
 
-Definition at line 123 of file udp\+\_\+socket.\+cpp.
+Definition at line 141 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_ae0989a4c589500f9076da158d2a64e8f}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_ae0989a4c589500f9076da158d2a64e8f}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!asyncSendHandler@{asyncSendHandler}}
@@ -185,10 +215,14 @@ async\+Send\+Handler
 \hline
 {\em bytes\+\_\+transferred} & \\
 \hline
+{\em error} & \\
+\hline
+{\em bytes\+\_\+transferred} & \\
+\hline
 \end{DoxyParams}
 
 
-Definition at line 145 of file udp\+\_\+socket.\+cpp.
+Definition at line 170 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_aeedd59b0d5db0d0f325ad7e1b95d25b9}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_aeedd59b0d5db0d0f325ad7e1b95d25b9}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!bind@{bind}}
@@ -198,7 +232,7 @@ Definition at line 145 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 229 of file udp\+\_\+socket.\+cpp.
+Definition at line 258 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_ab80005f8b5b085e77f33a21d966af56d}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_ab80005f8b5b085e77f33a21d966af56d}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!close@{close}}
@@ -208,7 +242,7 @@ Definition at line 229 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 215 of file udp\+\_\+socket.\+cpp.
+Definition at line 244 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a26aeac572db940a7c0b77ef022211ddb}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a26aeac572db940a7c0b77ef022211ddb}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!host\_ip@{host\_ip}}
@@ -218,7 +252,7 @@ Definition at line 215 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 191 of file udp\+\_\+socket.\+cpp.
+Definition at line 220 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a35de4f590bdf7569c8184bb800d1ddec}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a35de4f590bdf7569c8184bb800d1ddec}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!host\_port@{host\_port}}
@@ -228,7 +262,7 @@ Definition at line 191 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 196 of file udp\+\_\+socket.\+cpp.
+Definition at line 225 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_afe68c321091185c68baa5074932be9f5}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_afe68c321091185c68baa5074932be9f5}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!isOpen@{isOpen}}
@@ -238,7 +272,7 @@ Definition at line 196 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 224 of file udp\+\_\+socket.\+cpp.
+Definition at line 253 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a2de9c96393689c6be10c511519dc5f57}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a2de9c96393689c6be10c511519dc5f57}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!open@{open}}
@@ -248,7 +282,7 @@ Definition at line 224 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 201 of file udp\+\_\+socket.\+cpp.
+Definition at line 230 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_aebdc3ffb95e19e73a118e668505c6327}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_aebdc3ffb95e19e73a118e668505c6327}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!operator=@{operator=}}
@@ -264,7 +298,7 @@ Definition at line 201 of file udp\+\_\+socket.\+cpp.
 
 Blocking Receive Operation 
 
-Definition at line 105 of file udp\+\_\+socket.\+cpp.
+Definition at line 120 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_ab03b9505bb341880347492c4a0b93f63}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_ab03b9505bb341880347492c4a0b93f63}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!remote\_ip@{remote\_ip}}
@@ -274,7 +308,7 @@ Definition at line 105 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 181 of file udp\+\_\+socket.\+cpp.
+Definition at line 210 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a56c6b5925d97e805b877eaf3f7cc23b2}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a56c6b5925d97e805b877eaf3f7cc23b2}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!remote\_port@{remote\_port}}
@@ -284,7 +318,7 @@ Definition at line 181 of file udp\+\_\+socket.\+cpp.
 
 
 
-Definition at line 186 of file udp\+\_\+socket.\+cpp.
+Definition at line 215 of file udp\+\_\+socket.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpSocket_a4509ddc42b61453df2e0cb38f411208d}\label{class__drivers___1_1__udp__driver___1_1UdpSocket_a4509ddc42b61453df2e0cb38f411208d}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpSocket@{\_drivers\_::\_udp\_driver\_::UdpSocket}!send@{send}}
@@ -294,7 +328,7 @@ Definition at line 186 of file udp\+\_\+socket.\+cpp.
 
 Blocking Send Operation 
 
-Definition at line 95 of file udp\+\_\+socket.\+cpp.
+Definition at line 110 of file udp\+\_\+socket.\+cpp.
 
 
 

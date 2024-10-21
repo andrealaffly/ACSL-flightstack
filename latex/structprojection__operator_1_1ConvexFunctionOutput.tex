@@ -2,6 +2,11 @@
 \label{structprojection__operator_1_1ConvexFunctionOutput}\index{projection\_operator::ConvexFunctionOutput$<$ N $>$@{projection\_operator::ConvexFunctionOutput$<$ N $>$}}
 
 
+Struct to hold the output of the convex function.  
+
+
+
+
 {\ttfamily \#include $<$projection\+\_\+operator.\+hpp$>$}
 
 \doxysubsection*{Public Attributes}
@@ -17,9 +22,15 @@ Eigen\+::\+Matrix$<$ double, 1, N $>$ \mbox{\hyperlink{structprojection__operato
 \subsubsection*{template$<$int N$>$\newline
 struct projection\+\_\+operator\+::\+Convex\+Function\+Output$<$ N $>$}
 
+Struct to hold the output of the convex function. 
 
 
-Definition at line 97 of file projection\+\_\+operator.\+hpp.
+\begin{DoxyItemize}
+\item h\+\_\+function\+: convex set function
+\item dh\+\_\+dx\+\_\+jacobian\+: derivative of h\+\_\+function with respect to x as a row vector (Jacobian) 
+\end{DoxyItemize}
+
+Definition at line 107 of file projection\+\_\+operator.\+hpp.
 
 
 
@@ -33,7 +44,7 @@ Eigen\+::\+Matrix$<$double, 1, N$>$ \mbox{\hyperlink{structprojection__operator_
 
 
 
-Definition at line 100 of file projection\+\_\+operator.\+hpp.
+Definition at line 110 of file projection\+\_\+operator.\+hpp.
 
 \mbox{\Hypertarget{structprojection__operator_1_1ConvexFunctionOutput_a4de26684081038617b9080ed162a2656}\label{structprojection__operator_1_1ConvexFunctionOutput_a4de26684081038617b9080ed162a2656}} 
 \index{projection\_operator::ConvexFunctionOutput$<$ N $>$@{projection\_operator::ConvexFunctionOutput$<$ N $>$}!h\_function@{h\_function}}
@@ -44,7 +55,7 @@ double \mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{proj
 
 
 
-Definition at line 99 of file projection\+\_\+operator.\+hpp.
+Definition at line 109 of file projection\+\_\+operator.\+hpp.
 
 
 

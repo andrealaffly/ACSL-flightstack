@@ -11,7 +11,7 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Struct to hold the output of the convex function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,22 +24,7 @@ double \mbox{\hyperlink{namespaceprojection__operator_a014a12740c7b88201fd00953d
 
 
 \doxysubsection{Detailed Description}
-Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
-
-
-\begin{DoxyEnumerate}
-\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-\end{DoxyEnumerate}
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{projection__operator_8hpp}{projection\+\_\+operator.\+hpp}} Author\+: Mattia Gramuglia Date\+: September 4, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
-
-Description\+: Implementation of the projection operator to be used in the \mbox{\hyperlink{classMRAC}{MRAC}} controllers. For reference\+: A. L\textquotesingle{}Afflitto, \char`\"{}\+Notes on Adaptive Control and Estimation\char`\"{}, Springer, Sec. 3.\+5. or E. Lavretsky, K. Wise, \char`\"{}\+Robust and Adaptive Control\char`\"{}, Springer 2013, Sec. 11.\+4
-
-Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+For reference\+: A. L\textquotesingle{}Afflitto, \char`\"{}\+Notes on Adaptive Control and Estimation\char`\"{}, Springer, Sec. 3.\+5. or E. Lavretsky, K. Wise, \char`\"{}\+Robust and Adaptive Control\char`\"{}, Springer 2013, Sec. 11.\+4 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{namespaceprojection__operator_a014a12740c7b88201fd00953da026f75}\label{namespaceprojection__operator_a014a12740c7b88201fd00953da026f75}} 
@@ -48,9 +33,9 @@ Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{
 \doxysubsubsection{\texorpdfstring{computeEpsilonFromAlpha()}{computeEpsilonFromAlpha()}}
 {\footnotesize\ttfamily double projection\+\_\+operator\+::compute\+Epsilon\+From\+Alpha (\begin{DoxyParamCaption}\item[{const double}]{alpha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+Compute the epsilon parameter from the scaling coefficient alpha 
 
-
-Definition at line 85 of file projection\+\_\+operator.\+hpp.
+Definition at line 94 of file projection\+\_\+operator.\+hpp.
 
 \mbox{\Hypertarget{namespaceprojection__operator_aa8cc3ab30001b9a4348c9ed523622a37}\label{namespaceprojection__operator_aa8cc3ab30001b9a4348c9ed523622a37}} 
 \index{projection\_operator@{projection\_operator}!generateEllipsoidMatrixFromDiagonal@{generateEllipsoidMatrixFromDiagonal}}
@@ -59,9 +44,9 @@ Definition at line 85 of file projection\+\_\+operator.\+hpp.
 {\footnotesize\ttfamily template$<$typename Derived $>$ \\
 auto projection\+\_\+operator\+::generate\+Ellipsoid\+Matrix\+From\+Diagonal (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{S\+\_\+diagonal }\end{DoxyParamCaption}) -\/$>$ Eigen\+::\+Matrix$<$typename Derived\+::\+Scalar, Derived\+::\+Rows\+At\+Compile\+Time, Derived\+::\+Rows\+At\+Compile\+Time$>$ }
 
+Generate the matrix S from the ellipsoid semi-\/axis length terms contained in the column vector S\+\_\+diagonal. If S = diag(1/a$^\wedge$2, 1/b$^\wedge$2, 1/c$^\wedge$2) then the semi-\/axis lengths are \mbox{[}a, b, c\mbox{]}. 
 
-
-Definition at line 69 of file projection\+\_\+operator.\+hpp.
+Definition at line 78 of file projection\+\_\+operator.\+hpp.
 
 \mbox{\Hypertarget{namespaceprojection__operator_aaf600d9f48445e3e85c0a9ea0f0cde66}\label{namespaceprojection__operator_aaf600d9f48445e3e85c0a9ea0f0cde66}} 
 \index{projection\_operator@{projection\_operator}!generateMatrixFromDiagonal@{generateMatrixFromDiagonal}}
@@ -70,7 +55,7 @@ Definition at line 69 of file projection\+\_\+operator.\+hpp.
 {\footnotesize\ttfamily template$<$typename Derived $>$ \\
 auto projection\+\_\+operator\+::generate\+Matrix\+From\+Diagonal (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{S\+\_\+diagonal }\end{DoxyParamCaption}) -\/$>$ Eigen\+::\+Matrix$<$typename Derived\+::\+Scalar, Derived\+::\+Rows\+At\+Compile\+Time, Derived\+::\+Rows\+At\+Compile\+Time$>$ }
 
+Generate the matrix S from its diagonal terms contained in the column vector S\+\_\+diagonal 
 
-
-Definition at line 51 of file projection\+\_\+operator.\+hpp.
+Definition at line 60 of file projection\+\_\+operator.\+hpp.
 

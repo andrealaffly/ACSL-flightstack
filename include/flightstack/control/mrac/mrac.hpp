@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file mrac.hpp
+ * @brief Implementation of MRAC controller
+ */
 #ifndef MRAC_HPP
 #define MRAC_HPP
 
@@ -48,22 +52,28 @@
 #include "continuous_lyapunov_equation.hpp"
 #include "projection_operator.hpp"
 
-// Forward declaration of LogData_MRAC class
+/**
+ * @class LogData_MRAC
+ * Forward decleration of LogData_MRAC class
+ */
 class LogData_MRAC;
 
-
+/**
+ * @class MRAC
+ */
 class MRAC : public Control
 {
 public:
 
-  /*
-    This struct represents the state of the MRAC controller differential equations that will be integrated
-    at each RK4 iteration.
-    IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).
+  /**
+  * @brief This struct represents the state of the MRAC controller differential equations that will be integrated at each RK4 iteration.
+  * IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).
+  * @struct StateController
   */
   struct StateController 
   {
     // Constructor
+
     StateController();
 
     std::vector<double> full_state; 
@@ -91,12 +101,16 @@ public:
     Eigen::Map<Eigen::Matrix<double, 3, 1>> integral_angular_velocity_error_ref; // [omega] refmod - cmd
   };
 
-  /*
-    This struct contains the variables that are used in this particular controller
+ /**
+  * @struct ControllerSpecificInternalMembers
+  * @brief This struct contains the variables that are used in this particular controller
   */
   struct ControllerSpecificInternalMembers 
   {
     // Constructor
+    /**
+     * @class ControllerSpecificInternalMembers
+     */
     ControllerSpecificInternalMembers();
 
     Eigen::Matrix<double, 3, 1> translational_position_error_ref; // [position] refmod - user
@@ -138,9 +152,18 @@ public:
   };
 
   // Constructor
+  /**
+   * @class MRAC
+   * @param node 
+   */
   MRAC(MultiThreadedNode& node);
 
   // Getter functions
+  /**
+   * @brief Getter functions
+   * 
+   * @return StateController& 
+   */
   StateController& getStateController();
   const double& getTimeStepRK4() const; 
   const GainsMRAC& getGains() const;
@@ -148,30 +171,75 @@ public:
   std::shared_ptr<LogData_MRAC> getLogData() const;
   static const std::string& getControllerName();
 
+  /**
+   * @brief Function to read the tuning gains coming from the .json file and assign it to the gains_ struct instantiated in the MRAC class
+   * @param const std::string& fileName
+   */
   void readJSONfile(const std::string& fileName);
 
+  /**
+   * @brief Function that given the gains read from the JSON file, initializes the rest of the parameters accordingly
+   * @param vehicle_info 
+   * @param gains_ 
+   */
   void initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& gains_);
 
+  /**
+   * @brief Assigning the right-hand side of the differential equations to the first time derivative of the full_state.
+   */
   void assignSystemToDxdt(state_type /* &x */, state_type &dxdt, const double /* t */);
 
+  /**
+   * @brief   Function to compute the variables used for the differentiator of the desired roll and pitch angles.
+   * This function calculates the internal states and derivatives (first and second) of the roll and pitch desired angles using the provided filter coefficients and the current state variables.
+   * @param cim 
+   * @param vehicle_info 
+   */
   void computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
                                             VehicleInfo& vehicle_info, 
                                             StateController& state_);
 
+  /**
+   * @brief OUTER LOOP CONTROLLER
+   * @param cim 
+   * @param vehicle_info 
+   * @param state_ 
+   * @param cr 
+   * @param gains_ 
+   * @param csim_ 
+   */
   void computeOuterLoop(ControlInternalMembers& cim,
                         VehicleInfo& vehicle_info,
                         StateController& state_, 
                         ControlReferences& cr,
                         GainsMRAC& gains_,
                         ControllerSpecificInternalMembers& csim_);
-
+  \
+  /**
+   * @brief OUTER LOOP CONTROLLER USED FOR DEBUGGING, using 'user' instead of 'reference-model' in the baseline
+   * @param cim 
+   * @param vehicle_info 
+   * @param state_ 
+   * @param cr 
+   * @param gains_ 
+   * @param csim_ 
+   */
   void computeOuterLoopDEBUGGING(ControlInternalMembers& cim,
                                   VehicleInfo& vehicle_info,
                                   StateController& state_, 
                                   ControlReferences& cr,
                                   GainsMRAC& gains_,
                                   ControllerSpecificInternalMembers& csim_);
-
+  
+  /**
+   * @brief INNER LOOP CONTROLLER
+   * @param cim 
+   * @param vehicle_info 
+   * @param state_ 
+   * @param cr 
+   * @param gains_ 
+   * @param csim_ 
+   */
   void computeInnerLoop(ControlInternalMembers& cim,
                         VehicleInfo& vehicle_info,
                         StateController& state_, 
@@ -179,6 +247,15 @@ public:
                         GainsMRAC& gains_,
                         ControllerSpecificInternalMembers& csim_);
 
+  /**
+   * @brief INNER LOOP CONTROLLER USED FOR DEBUGGING, using 'desired' instead of 'reference-model' in the baseline
+   * @param cim 
+   * @param vehicle_info 
+   * @param state_ 
+   * @param cr 
+   * @param gains_ 
+   * @param csim_ 
+   */
   void computeInnerLoopDEBUGGING(ControlInternalMembers& cim,
                                   VehicleInfo& vehicle_info,
                                   StateController& state_, 
@@ -186,10 +263,18 @@ public:
                                   GainsMRAC& gains_,
                                   ControllerSpecificInternalMembers& csim_);
 
+  /**
+   * @brief MRAC Control algorithm
+   * Function to compute various rotational parameters.
+     This function sets the desired angle, angular rate and angular acceleration for yaw,
+     computes the inverse of the Jacobian matrix, the derivative of the Euler angles,
+     and the rotation matrix to go from global to local coordinates.
+   * @param None
+   */
   void computeControlAlgorithm();
 
 private:
-
+  
   StateController state_;
   const double time_step_rk4_ = 0.01; // [s] time step for integrating using RK4
 

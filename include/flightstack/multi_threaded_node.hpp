@@ -35,7 +35,7 @@
  **********************************************************************************************************************/
 /**
  * @file multi_threaded_node.hpp
- * Multithreaded ROS2 node that joins together all the flight stack components
+ * @brief Multithreaded ROS2 node that joins together all the flight stack components
  */
 #ifndef MULTI_THREADED_NODE_HPP
 #define MULTI_THREADED_NODE_HPP
@@ -71,14 +71,32 @@
 using namespace std::chrono_literals;
 
 /**
+ * @class MultiThreadedNode
  * Multithreaded Node Class
  */
 class MultiThreadedNode : public rclcpp::Node
 {
 public:
+/**
+ * @param options 
+ */
   MultiThreadedNode(rclcpp::NodeOptions options);
+  /**
+  * @brief Sends a commnand to arm the vehicle
+  * @param None
+  */
   void arm();
+
+  /**
+   * @brief Sends a command to disarm the vehicle
+   * @param None
+   */
 	void disarm();
+
+  /**
+   * @brief Publish the offboard control mode
+   * 
+   */
   void updateCurrentTimeInSeconds();
 
   const std::atomic<uint64_t>& getInitialTimestamp() const;
@@ -101,13 +119,18 @@ private:
   // Pixhawk vehicle odometry subscription callback/thread
   rclcpp::CallbackGroup::SharedPtr callback_group_sub_pixhawk_odometry_;
   rclcpp::Subscription<px4_msgs::msg::VehicleOdometry>::SharedPtr subscription_pixhawk_odometry_;
+
+  /**
+   * @brief Callback function that is executed everytime a VehicleOdometry message is made available by Pixhawk
+   * @param msg
+   */
   void subscriber_pixhawk_odometry_callback(const px4_msgs::msg::VehicleOdometry::UniquePtr msg);
 
   // Create a VehicleState instance
   std::shared_ptr<VehicleState>  vehicle_state_;
 
   /**
-   * @file multi_threaded_node.hpp 
+   * @brief Callback Group 2
    * @param None
    */
   void setupPixhawkOdometrySubscriber();
@@ -122,12 +145,37 @@ private:
   rclcpp::Publisher<px4_msgs::msg::VehicleCommand>::SharedPtr publisher_vehicle_command_;
   rclcpp::Publisher<px4_msgs::msg::OffboardControlMode>::SharedPtr publisher_offboard_control_mode_;
   rclcpp::TimerBase::SharedPtr timer_actuator_motors_;
+
+  /**
+  * @brief Callback function that is executed at a fixed specified rate defined by the "timer_actuator_motors_"
+  * @param None
+  * @see void MultiThreadedNode::publisher_actuator_motors_callback()
+  */
   void publisher_actuator_motors_callback();
 
+  /**
+   * @brief Publish the offboard control mode
+   * @param None
+   */
   void publish_offboard_control_mode();
+
+  /**
+   * @brief Publish a actuator_motors command
+   * @param NOne
+   */
 	void publish_actuator_motors();
+
+  /**
+   * @param command 
+   * @param param1 
+   * @param param2 
+   */
 	void publish_vehicle_command(uint16_t command, float param1 = 0.0, float param2 = 0.0);
 
+  /**
+   * @brief Change into OffboardMode
+   * @param NOne
+   */
   inline void goIntoOffboardMode();
 
   std::atomic<uint64_t> timestamp_initial_;   //common synced initial timestamp
@@ -145,6 +193,9 @@ private:
   // Create a pointer to the PiecewisePolynomialTrajectory instance
   std::shared_ptr<PiecewisePolynomialTrajectory> user_defined_trajectory_;
 
+  /**
+   * @param None
+   */
   void setupPixhawkActuatorMotorsPublisher();
 
   /**

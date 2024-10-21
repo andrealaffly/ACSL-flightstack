@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file pid.hpp
+ * @brief Implementation of the PID controller
+ */
 #ifndef PID_HPP
 #define PID_HPP
 
@@ -59,6 +63,12 @@ public:
   at each RK4 iteration.
   IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).
   */
+ /**
+  * @class StateController
+  * This struct represents the state of the PID controller differential equations that will be integrated
+    at each RK4 iteration.
+    IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).
+  */
   struct StateController 
   {
     // Constructor
@@ -80,8 +90,9 @@ public:
 
   };
 
-  /*
-    This struct contains the variables that are used in this particular controller
+ /**
+  * @struct ControllerSpecificInternalMembers
+  * @brief This struct contains the variables that are used in this particular controller
   */
   struct ControllerSpecificInternalMembers 
   {
@@ -101,6 +112,9 @@ public:
   };
 
   // Constructor
+  /**
+   * @class PID
+   */
   PID(MultiThreadedNode& node);
 
   // Getter functions

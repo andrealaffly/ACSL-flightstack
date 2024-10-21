@@ -1,3 +1,4 @@
+/// @cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,6 +22,7 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
+///@endcond 
 
 /***********************************************************************************************************************
  * File:        pixhawk_actuator_motors.cpp
@@ -34,12 +36,20 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+/**
+ * @file pixhawk_actuator_motors.cpp
+ * 
+ * @brief Callback that is executed at a fixed specified rate defined by the "timer_controller_"
+ * 
+ */
 
 #include "multi_threaded_node.hpp"
 
-/*
-  Callback function that is executed at a fixed specified rate defined by the "timer_actuator_motors_"
-*/
+// Callback function that is executed at a fixed specified rate defined by the "timer_actuator_motors_"
+/**
+ * @fn void MultiThreadedNode::publisher_actuator_motors_callback()
+ * 
+ */
 void MultiThreadedNode::publisher_actuator_motors_callback()
 {
   /* // Extract current thread
@@ -79,9 +89,7 @@ void MultiThreadedNode::publisher_actuator_motors_callback()
 
 }
 
-/*
-  Send a command to Arm the vehicle
-*/
+
 void MultiThreadedNode::arm()
 {
 	publish_vehicle_command(px4_msgs::msg::VehicleCommand::VEHICLE_CMD_COMPONENT_ARM_DISARM, 1.0);
@@ -89,9 +97,7 @@ void MultiThreadedNode::arm()
 	RCLCPP_INFO(this->get_logger(), "Arm command send");
 }
 
-/*
-  Send a command to Disarm the vehicle
-*/
+// Sends a command to disarm the vehicle
 void MultiThreadedNode::disarm()
 {
 	publish_vehicle_command(px4_msgs::msg::VehicleCommand::VEHICLE_CMD_COMPONENT_ARM_DISARM, 0.0);
@@ -99,9 +105,7 @@ void MultiThreadedNode::disarm()
 	RCLCPP_INFO(this->get_logger(), "Disarm command send");
 }
 
-/*
-  Publish the offboard control mode
-*/
+//Publish the offboard control mode
 void MultiThreadedNode::publish_offboard_control_mode()
 {
 	px4_msgs::msg::OffboardControlMode msg{};

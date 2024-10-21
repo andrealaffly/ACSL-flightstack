@@ -71,113 +71,113 @@ $(function() {
 <div class="contents">
 <a href="config_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#ifndef CONFIG_HPP</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#define CONFIG_HPP</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// Forward declaration of MultiThreadedNode class</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">class </span><a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifndef CONFIG_HPP</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#define CONFIG_HPP</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// Forward declaration of MultiThreadedNode class</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">class </span><a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">// Define named constants for controller types</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="config_8hpp.html#ae12c52ff77067ccbfafda6157b4590bd">   61</a></span>&#160;<span class="preprocessor">#define __PID__ 1</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="config_8hpp.html#a994eeabd9eb5820bb4d796b389ef852a">   62</a></span>&#160;<span class="preprocessor">#define __MRAC__ 2</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">// SELECT here the CONTROLLER you want to run -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="config_8hpp.html#ab62bf635925d1f7b6275b305e86d8c92">   65</a></span>&#160;<span class="preprocessor">#define SELECTED_CONTROLLER __MRAC__</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// Define ControlType based on SELECTED_CONTROLLER using type aliasing</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#if SELECTED_CONTROLLER == __PID__ </span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pid_8hpp.html">pid.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging__pid_8hpp.html">logging_pid.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">using</span> <a class="code" href="classMRAC.html">ControlType</a> = <a class="code" href="classPID.html">PID</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#elif SELECTED_CONTROLLER == __MRAC__</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mrac_8hpp.html">mrac.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging__mrac_8hpp.html">logging_mrac.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="config_8hpp.html#aa00283f0401d9c8b44adfba32b3d9b23">   79</a></span>&#160;<span class="keyword">using</span> <a class="code" href="classMRAC.html">ControlType</a> = <a class="code" href="classMRAC.html">MRAC</a>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#error &quot;ERROR: Unsupported controller type selected.&quot;</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">// Define named constants for controller types</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="config_8hpp.html#ae12c52ff77067ccbfafda6157b4590bd">   60</a></span>&#160;<span class="preprocessor">#define __PID__ 1</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="config_8hpp.html#a994eeabd9eb5820bb4d796b389ef852a">   61</a></span>&#160;<span class="preprocessor">#define __MRAC__ 2</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">// SELECT here the CONTROLLER you want to run -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="config_8hpp.html#ab62bf635925d1f7b6275b305e86d8c92">   64</a></span>&#160;<span class="preprocessor">#define SELECTED_CONTROLLER __MRAC__</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">// Define ControlType based on SELECTED_CONTROLLER using type aliasing</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#if SELECTED_CONTROLLER == __PID__ </span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pid_8hpp.html">pid.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging__pid_8hpp.html">logging_pid.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">using</span> <a class="code" href="classMRAC.html">ControlType</a> = <a class="code" href="classPID.html">PID</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#elif SELECTED_CONTROLLER == __MRAC__</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mrac_8hpp.html">mrac.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging__mrac_8hpp.html">logging_mrac.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="config_8hpp.html#aa00283f0401d9c8b44adfba32b3d9b23">   78</a></span>&#160;<span class="keyword">using</span> <a class="code" href="classMRAC.html">ControlType</a> = <a class="code" href="classMRAC.html">MRAC</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#error &quot;ERROR: Unsupported controller type selected.&quot;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="structConfigurationParameters.html">   96</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structConfigurationParameters.html">ConfigurationParameters</a></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="comment">// Name of the piecewise polynomial user-defined trajectory file</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="structConfigurationParameters.html#a1763379c49c6e05ef18b505c130fe873">   99</a></span>&#160;  std::string <a class="code" href="structConfigurationParameters.html#a1763379c49c6e05ef18b505c130fe873">user_defined_trajectory_file</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="comment">// Time in seconds for which the UAV will perform hovering after having completed the user-defined trajectory</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="structConfigurationParameters.html#a675e0a11d837ceca1f3ed48c8ad7de87">  102</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structConfigurationParameters.html#a675e0a11d837ceca1f3ed48c8ad7de87">hover_after_trajectory_time_seconds</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">static</span> <a class="code" href="structConfigurationParameters.html">ConfigurationParameters</a> <a class="code" href="structConfigurationParameters.html#a103f3c63b02b045be0dac33d95bab68e">readConfigurationParametersFile</a>(<span class="keyword">const</span> std::string&amp; configFileName);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structConfigurationParameters.html">   95</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structConfigurationParameters.html">ConfigurationParameters</a></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="comment">// Name of the piecewise polynomial user-defined trajectory file</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="structConfigurationParameters.html#a1763379c49c6e05ef18b505c130fe873">   98</a></span>&#160;  std::string <a class="code" href="structConfigurationParameters.html#a1763379c49c6e05ef18b505c130fe873">user_defined_trajectory_file</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">// Time in seconds for which the UAV will perform hovering after having completed the user-defined trajectory</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="structConfigurationParameters.html#a675e0a11d837ceca1f3ed48c8ad7de87">  101</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structConfigurationParameters.html#a675e0a11d837ceca1f3ed48c8ad7de87">hover_after_trajectory_time_seconds</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">static</span> <a class="code" href="structConfigurationParameters.html">ConfigurationParameters</a> <a class="code" href="structConfigurationParameters.html#a103f3c63b02b045be0dac33d95bab68e">readConfigurationParametersFile</a>(<span class="keyword">const</span> std::string&amp; configFileName);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="structGlobalParameters.html">  118</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structGlobalParameters.html">GlobalParameters</a></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">// Flag for publishing data to the motors</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#ad4ddf956b5914e33a4e278aeddfa6e8a">  121</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="structGlobalParameters.html#ad4ddf956b5914e33a4e278aeddfa6e8a">PUBLISH_ACTUATOR_MOTORS_FLAG</a>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">// Time in seconds at which we arm the motors</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#a0ca63b81cb3b27a5db6b60885b49e457">  124</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#a0ca63b81cb3b27a5db6b60885b49e457">ARM_START_TIME_SECONDS</a>; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="comment">// Time in seconds at which we start the mission/takeoff</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">  127</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">TAKEOFF_START_TIME_SECONDS</a>; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="comment">// Time in seconds at which we start the landing</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#afd581befd9e086da97daf744156e6408">  130</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#afd581befd9e086da97daf744156e6408">LANDING_START_TIME_SECONDS</a>; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="comment">// Time in seconds at which we end the landing</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#a5506b3199c84278839195eabef5a324d">  133</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#a5506b3199c84278839195eabef5a324d">LANDING_END_TIME_SECONDS</a>; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="comment">// Time in seconds at which we disarm the motors</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#a1d44745f3e2c42523509e0dfd6b585a5">  136</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#a1d44745f3e2c42523509e0dfd6b585a5">DISARM_START_TIME_SECONDS</a>; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="comment">// Time in seconds at which we perform the offset of the VehicleState class members</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="comment">// This must always be performed before takeoff</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#acff88ed327afce83047aaa9073f2e1b8">  140</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#acff88ed327afce83047aaa9073f2e1b8">OFFSET_ODOMETRY_TIME_SECONDS</a>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="comment">// Default constructor</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#ab94b9dbfc694c0a6c3b21f4842015f29">  143</a></span>&#160;  <a class="code" href="structGlobalParameters.html#ab94b9dbfc694c0a6c3b21f4842015f29">GlobalParameters</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="comment">// Constructor</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <a class="code" href="structGlobalParameters.html#ab94b9dbfc694c0a6c3b21f4842015f29">GlobalParameters</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;};</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="structGlobalParameters.html">  117</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structGlobalParameters.html">GlobalParameters</a></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// Flag for publishing data to the motors</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#ad4ddf956b5914e33a4e278aeddfa6e8a">  120</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="structGlobalParameters.html#ad4ddf956b5914e33a4e278aeddfa6e8a">PUBLISH_ACTUATOR_MOTORS_FLAG</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">// Time in seconds at which we arm the motors</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#a0ca63b81cb3b27a5db6b60885b49e457">  123</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#a0ca63b81cb3b27a5db6b60885b49e457">ARM_START_TIME_SECONDS</a>; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="comment">// Time in seconds at which we start the mission/takeoff</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">  126</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">TAKEOFF_START_TIME_SECONDS</a>; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="comment">// Time in seconds at which we start the landing</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#afd581befd9e086da97daf744156e6408">  129</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#afd581befd9e086da97daf744156e6408">LANDING_START_TIME_SECONDS</a>; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="comment">// Time in seconds at which we end the landing</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#a5506b3199c84278839195eabef5a324d">  132</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#a5506b3199c84278839195eabef5a324d">LANDING_END_TIME_SECONDS</a>; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="comment">// Time in seconds at which we disarm the motors</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#a1d44745f3e2c42523509e0dfd6b585a5">  135</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#a1d44745f3e2c42523509e0dfd6b585a5">DISARM_START_TIME_SECONDS</a>; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="comment">// Time in seconds at which we perform the offset of the VehicleState class members</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="comment">// This must always be performed before takeoff</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#acff88ed327afce83047aaa9073f2e1b8">  139</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structGlobalParameters.html#acff88ed327afce83047aaa9073f2e1b8">OFFSET_ODOMETRY_TIME_SECONDS</a>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="comment">// Default constructor</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="structGlobalParameters.html#ab94b9dbfc694c0a6c3b21f4842015f29">  142</a></span>&#160;  <a class="code" href="structGlobalParameters.html#ab94b9dbfc694c0a6c3b21f4842015f29">GlobalParameters</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="comment">// Constructor</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <a class="code" href="structGlobalParameters.html#ab94b9dbfc694c0a6c3b21f4842015f29">GlobalParameters</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;};</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONFIG_HPP</span></div>
-<div class="ttc" id="aclassMRAC_html"><div class="ttname"><a href="classMRAC.html">MRAC</a></div><div class="ttdef"><b>Definition:</b> <a href="mrac_8hpp_source.html#l00055">mrac.hpp:56</a></div></div>
-<div class="ttc" id="aclassMultiThreadedNode_html"><div class="ttname"><a href="classMultiThreadedNode.html">MultiThreadedNode</a></div><div class="ttdoc">Multithreaded Node Class.</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00076">multi_threaded_node.hpp:77</a></div></div>
-<div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdef"><b>Definition:</b> <a href="pid_8hpp_source.html#l00053">pid.hpp:54</a></div></div>
-<div class="ttc" id="alogging__mrac_8hpp_html"><div class="ttname"><a href="logging__mrac_8hpp.html">logging_mrac.hpp</a></div></div>
-<div class="ttc" id="alogging__pid_8hpp_html"><div class="ttname"><a href="logging__pid_8hpp.html">logging_pid.hpp</a></div></div>
-<div class="ttc" id="amrac_8hpp_html"><div class="ttname"><a href="mrac_8hpp.html">mrac.hpp</a></div></div>
-<div class="ttc" id="apid_8hpp_html"><div class="ttname"><a href="pid_8hpp.html">pid.hpp</a></div></div>
-<div class="ttc" id="astructConfigurationParameters_html"><div class="ttname"><a href="structConfigurationParameters.html">ConfigurationParameters</a></div><div class="ttdoc">Configurations Parameters set from config.json.</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00096">config.hpp:97</a></div></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONFIG_HPP</span></div>
+<div class="ttc" id="aclassMRAC_html"><div class="ttname"><a href="classMRAC.html">MRAC</a></div><div class="ttdef"><b>Definition:</b> <a href="mrac_8hpp_source.html#l00064">mrac.hpp:65</a></div></div>
+<div class="ttc" id="aclassMultiThreadedNode_html"><div class="ttname"><a href="classMultiThreadedNode.html">MultiThreadedNode</a></div><div class="ttdoc">Multithreaded Node Class.</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00077">multi_threaded_node.hpp:78</a></div></div>
+<div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdef"><b>Definition:</b> <a href="pid_8hpp_source.html#l00057">pid.hpp:58</a></div></div>
+<div class="ttc" id="alogging__mrac_8hpp_html"><div class="ttname"><a href="logging__mrac_8hpp.html">logging_mrac.hpp</a></div><div class="ttdoc">Logger for the MRAC controller.</div></div>
+<div class="ttc" id="alogging__pid_8hpp_html"><div class="ttname"><a href="logging__pid_8hpp.html">logging_pid.hpp</a></div><div class="ttdoc">Logger for the PID controller.</div></div>
+<div class="ttc" id="amrac_8hpp_html"><div class="ttname"><a href="mrac_8hpp.html">mrac.hpp</a></div><div class="ttdoc">Implementation of MRAC controller.</div></div>
+<div class="ttc" id="apid_8hpp_html"><div class="ttname"><a href="pid_8hpp.html">pid.hpp</a></div><div class="ttdoc">Implementation of the PID controller.</div></div>
+<div class="ttc" id="astructConfigurationParameters_html"><div class="ttname"><a href="structConfigurationParameters.html">ConfigurationParameters</a></div><div class="ttdoc">Configurations Parameters set from config.json.</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00095">config.hpp:96</a></div></div>
 <div class="ttc" id="astructConfigurationParameters_html_a103f3c63b02b045be0dac33d95bab68e"><div class="ttname"><a href="structConfigurationParameters.html#a103f3c63b02b045be0dac33d95bab68e">ConfigurationParameters::readConfigurationParametersFile</a></div><div class="ttdeci">static ConfigurationParameters readConfigurationParametersFile(const std::string &amp;configFileName)</div><div class="ttdoc">Function that reads the configuration parameters and assigns it to the members of the ConfigurationPa...</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00054">config.cpp:54</a></div></div>
-<div class="ttc" id="astructConfigurationParameters_html_a1763379c49c6e05ef18b505c130fe873"><div class="ttname"><a href="structConfigurationParameters.html#a1763379c49c6e05ef18b505c130fe873">ConfigurationParameters::user_defined_trajectory_file</a></div><div class="ttdeci">std::string user_defined_trajectory_file</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00099">config.hpp:99</a></div></div>
-<div class="ttc" id="astructConfigurationParameters_html_a675e0a11d837ceca1f3ed48c8ad7de87"><div class="ttname"><a href="structConfigurationParameters.html#a675e0a11d837ceca1f3ed48c8ad7de87">ConfigurationParameters::hover_after_trajectory_time_seconds</a></div><div class="ttdeci">double hover_after_trajectory_time_seconds</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00102">config.hpp:102</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html"><div class="ttname"><a href="structGlobalParameters.html">GlobalParameters</a></div><div class="ttdoc">Global parameteres shared among all the program.</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00118">config.hpp:119</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html_a0ca63b81cb3b27a5db6b60885b49e457"><div class="ttname"><a href="structGlobalParameters.html#a0ca63b81cb3b27a5db6b60885b49e457">GlobalParameters::ARM_START_TIME_SECONDS</a></div><div class="ttdeci">double ARM_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00124">config.hpp:124</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html_a1d44745f3e2c42523509e0dfd6b585a5"><div class="ttname"><a href="structGlobalParameters.html#a1d44745f3e2c42523509e0dfd6b585a5">GlobalParameters::DISARM_START_TIME_SECONDS</a></div><div class="ttdeci">double DISARM_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00136">config.hpp:136</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html_a5506b3199c84278839195eabef5a324d"><div class="ttname"><a href="structGlobalParameters.html#a5506b3199c84278839195eabef5a324d">GlobalParameters::LANDING_END_TIME_SECONDS</a></div><div class="ttdeci">double LANDING_END_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00133">config.hpp:133</a></div></div>
+<div class="ttc" id="astructConfigurationParameters_html_a1763379c49c6e05ef18b505c130fe873"><div class="ttname"><a href="structConfigurationParameters.html#a1763379c49c6e05ef18b505c130fe873">ConfigurationParameters::user_defined_trajectory_file</a></div><div class="ttdeci">std::string user_defined_trajectory_file</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00098">config.hpp:98</a></div></div>
+<div class="ttc" id="astructConfigurationParameters_html_a675e0a11d837ceca1f3ed48c8ad7de87"><div class="ttname"><a href="structConfigurationParameters.html#a675e0a11d837ceca1f3ed48c8ad7de87">ConfigurationParameters::hover_after_trajectory_time_seconds</a></div><div class="ttdeci">double hover_after_trajectory_time_seconds</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00101">config.hpp:101</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html"><div class="ttname"><a href="structGlobalParameters.html">GlobalParameters</a></div><div class="ttdoc">Global parameteres shared among all the program.</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00117">config.hpp:118</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_a0ca63b81cb3b27a5db6b60885b49e457"><div class="ttname"><a href="structGlobalParameters.html#a0ca63b81cb3b27a5db6b60885b49e457">GlobalParameters::ARM_START_TIME_SECONDS</a></div><div class="ttdeci">double ARM_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00123">config.hpp:123</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_a1d44745f3e2c42523509e0dfd6b585a5"><div class="ttname"><a href="structGlobalParameters.html#a1d44745f3e2c42523509e0dfd6b585a5">GlobalParameters::DISARM_START_TIME_SECONDS</a></div><div class="ttdeci">double DISARM_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00135">config.hpp:135</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_a5506b3199c84278839195eabef5a324d"><div class="ttname"><a href="structGlobalParameters.html#a5506b3199c84278839195eabef5a324d">GlobalParameters::LANDING_END_TIME_SECONDS</a></div><div class="ttdeci">double LANDING_END_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00132">config.hpp:132</a></div></div>
 <div class="ttc" id="astructGlobalParameters_html_ab94b9dbfc694c0a6c3b21f4842015f29"><div class="ttname"><a href="structGlobalParameters.html#ab94b9dbfc694c0a6c3b21f4842015f29">GlobalParameters::GlobalParameters</a></div><div class="ttdeci">GlobalParameters()=default</div></div>
-<div class="ttc" id="astructGlobalParameters_html_acff88ed327afce83047aaa9073f2e1b8"><div class="ttname"><a href="structGlobalParameters.html#acff88ed327afce83047aaa9073f2e1b8">GlobalParameters::OFFSET_ODOMETRY_TIME_SECONDS</a></div><div class="ttdeci">double OFFSET_ODOMETRY_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00140">config.hpp:140</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html_ad4ddf956b5914e33a4e278aeddfa6e8a"><div class="ttname"><a href="structGlobalParameters.html#ad4ddf956b5914e33a4e278aeddfa6e8a">GlobalParameters::PUBLISH_ACTUATOR_MOTORS_FLAG</a></div><div class="ttdeci">bool PUBLISH_ACTUATOR_MOTORS_FLAG</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00121">config.hpp:121</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html_afc7cec0ccd8be39b6d9f8c695300bf98"><div class="ttname"><a href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">GlobalParameters::TAKEOFF_START_TIME_SECONDS</a></div><div class="ttdeci">double TAKEOFF_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00127">config.hpp:127</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html_afd581befd9e086da97daf744156e6408"><div class="ttname"><a href="structGlobalParameters.html#afd581befd9e086da97daf744156e6408">GlobalParameters::LANDING_START_TIME_SECONDS</a></div><div class="ttdeci">double LANDING_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00130">config.hpp:130</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_acff88ed327afce83047aaa9073f2e1b8"><div class="ttname"><a href="structGlobalParameters.html#acff88ed327afce83047aaa9073f2e1b8">GlobalParameters::OFFSET_ODOMETRY_TIME_SECONDS</a></div><div class="ttdeci">double OFFSET_ODOMETRY_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00139">config.hpp:139</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_ad4ddf956b5914e33a4e278aeddfa6e8a"><div class="ttname"><a href="structGlobalParameters.html#ad4ddf956b5914e33a4e278aeddfa6e8a">GlobalParameters::PUBLISH_ACTUATOR_MOTORS_FLAG</a></div><div class="ttdeci">bool PUBLISH_ACTUATOR_MOTORS_FLAG</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00120">config.hpp:120</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_afc7cec0ccd8be39b6d9f8c695300bf98"><div class="ttname"><a href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">GlobalParameters::TAKEOFF_START_TIME_SECONDS</a></div><div class="ttdeci">double TAKEOFF_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00126">config.hpp:126</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_afd581befd9e086da97daf744156e6408"><div class="ttname"><a href="structGlobalParameters.html#afd581befd9e086da97daf744156e6408">GlobalParameters::LANDING_START_TIME_SECONDS</a></div><div class="ttdeci">double LANDING_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00129">config.hpp:129</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

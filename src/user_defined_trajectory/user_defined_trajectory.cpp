@@ -34,10 +34,20 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file user_defined_trajectory.cpp
+ * @brief Class that contains the common members that each type of user-defined trajectory class will inherit
+ */
+
 #include "user_defined_trajectory.hpp"
 #include "multi_threaded_node.hpp"
 
 // Constructor
+/**
+ * @see UserDefinedTrajectory
+ * 
+ * @param node 
+ */
 UserDefinedTrajectory::UserDefinedTrajectory(MultiThreadedNode& node) :
 	node_(node),
 	timestamp_initial_(node.getInitialTimestamp()), // Initialize timestamp_initial_ with the value from MultiThreadedNode

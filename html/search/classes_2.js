@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['iocontext_615',['IoContext',['../class__drivers___1_1__common___1_1IoContext.html',1,'_drivers_::_common_']]]
+  ['gainsmrac_615',['GainsMRAC',['../structGainsMRAC.html',1,'']]],
+  ['gainspid_616',['GainsPID',['../structGainsPID.html',1,'']]],
+  ['globalparameters_617',['GlobalParameters',['../structGlobalParameters.html',1,'']]]
 ];

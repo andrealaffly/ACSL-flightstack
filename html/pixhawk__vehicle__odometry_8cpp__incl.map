@@ -1,7 +1,7 @@
 <map id="src/pixhawk_interface/pixhawk_vehicle_odometry.cpp" name="src/pixhawk_interface/pixhawk_vehicle_odometry.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2002,5,2233,47"/>
-<area shape="rect" id="node2" href="$multi__threaded__node_8hpp.html" title=" " alt="" coords="1665,95,1853,121"/>
-<area shape="rect" id="node41" href="$vehicle__state_8hpp.html" title=" " alt="" coords="1617,430,1754,457"/>
+<area shape="rect" id="node1" title="Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk." alt="" coords="2002,5,2233,47"/>
+<area shape="rect" id="node2" href="$multi__threaded__node_8hpp.html" title="Multithreaded ROS2 node that joins together all the flight stack components." alt="" coords="1665,95,1853,121"/>
+<area shape="rect" id="node41" href="$vehicle__state_8hpp.html" title="Class storing the state of the vehicle coming from the flight controller (Pixhawk)" alt="" coords="1617,430,1754,457"/>
 <area shape="rect" id="node3" title=" " alt="" coords="3094,512,3160,539"/>
 <area shape="rect" id="node4" title=" " alt="" coords="30,430,117,457"/>
 <area shape="rect" id="node5" title=" " alt="" coords="3723,512,3800,539"/>
@@ -19,23 +19,23 @@
 <area shape="rect" id="node17" title=" " alt="" coords="1872,169,2043,211"/>
 <area shape="rect" id="node18" title=" " alt="" coords="2067,169,2238,211"/>
 <area shape="rect" id="node19" href="$config_8hpp.html" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="1152,177,1241,203"/>
-<area shape="rect" id="node25" href="$control_8hpp.html" title=" " alt="" coords="248,341,342,367"/>
-<area shape="rect" id="node28" href="$piecewise__polynomial__trajectory_8hpp.html" title=" " alt="" coords="1073,423,1240,464"/>
-<area shape="rect" id="node30" href="$user__defined__trajectory_8hpp.html" title=" " alt="" coords="398,512,600,539"/>
-<area shape="rect" id="node40" href="$json__parser_8hpp.html" title=" " alt="" coords="1417,430,1541,457"/>
+<area shape="rect" id="node25" href="$control_8hpp.html" title="General class that contains common members used by most of the control algorithms." alt="" coords="248,341,342,367"/>
+<area shape="rect" id="node28" href="$piecewise__polynomial__trajectory_8hpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="1073,423,1240,464"/>
+<area shape="rect" id="node30" href="$user__defined__trajectory_8hpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="398,512,600,539"/>
+<area shape="rect" id="node40" href="$json__parser_8hpp.html" title="Utility functions to parse JSON files." alt="" coords="1417,430,1541,457"/>
 <area shape="rect" id="node42" href="$mocap_8hpp.html" title="Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap_odometry topic for..." alt="" coords="2705,341,2800,367"/>
-<area shape="rect" id="node49" href="$print__helpers_8hpp.html" title=" " alt="" coords="3588,430,3722,457"/>
+<area shape="rect" id="node49" href="$print__helpers_8hpp.html" title="Inline functions for all the classes of the flightstack to use." alt="" coords="3588,430,3722,457"/>
 <area shape="rect" id="node20" title=" " alt="" coords="1202,512,1348,539"/>
-<area shape="rect" id="node21" href="$mrac_8hpp.html" title=" " alt="" coords="606,259,688,285"/>
-<area shape="rect" id="node34" href="$logging__mrac_8hpp.html" title=" " alt="" coords="2427,430,2566,457"/>
+<area shape="rect" id="node21" href="$mrac_8hpp.html" title="Implementation of MRAC controller." alt="" coords="606,259,688,285"/>
+<area shape="rect" id="node34" href="$logging__mrac_8hpp.html" title="Logger for the MRAC controller." alt="" coords="2427,430,2566,457"/>
 <area shape="rect" id="node22" title=" " alt="" coords="278,587,341,613"/>
 <area shape="rect" id="node23" title=" " alt="" coords="710,430,795,457"/>
 <area shape="rect" id="node24" title=" " alt="" coords="882,587,985,613"/>
-<area shape="rect" id="node31" href="$mrac__gains_8hpp.html" title=" " alt="" coords="367,341,492,367"/>
+<area shape="rect" id="node31" href="$mrac__gains_8hpp.html" title="Tuning gains of the MRAC controller." alt="" coords="367,341,492,367"/>
 <area shape="rect" id="node32" href="$continuous__lyapunov__equation_8hpp.html" title=" " alt="" coords="567,333,727,375"/>
-<area shape="rect" id="node33" href="$projection__operator_8hpp.html" title=" " alt="" coords="751,341,927,367"/>
+<area shape="rect" id="node33" href="$projection__operator_8hpp.html" title="Implementation of the projection operator to be used in the MRAC controllers." alt="" coords="751,341,927,367"/>
 <area shape="rect" id="node26" title=" " alt="" coords="345,430,533,457"/>
-<area shape="rect" id="node27" href="$vehicle__info_8hpp.html" title=" " alt="" coords="193,512,322,539"/>
+<area shape="rect" id="node27" href="$vehicle__info_8hpp.html" title="Vehicle properties such as mass, intertia matrix, motor thrust curves, etc." alt="" coords="193,512,322,539"/>
 <area shape="rect" id="node29" title=" " alt="" coords="1058,512,1126,539"/>
 <area shape="rect" id="node35" title=" " alt="" coords="2463,512,2530,539"/>
 <area shape="rect" id="node36" title=" " alt="" coords="2881,512,2952,539"/>

@@ -78,12 +78,25 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file ccontinuous_lyapunov_equation.hpp
+ * @brief Computes the solution of the continuos Lyapunov equation
+ */
 #ifndef CONTINUOUS_LYAPUNOV_EQUATION_HPP
 #define CONTINUOUS_LYAPUNOV_EQUATION_HPP
 
 #include <Eigen/Dense>
 #include <Eigen/QR>
 
+/**
+ * WARNING !!!
+ * The following code uses a different convention than MATLAB's.
+ * This code solves the equation: `AᵀX + XA + Q = 0`
+   MATLAB command "lyap(A, Q)" solves the equation: `AX + XAᵀ + Q = 0`
+   So this code provides the same result as obtained in MATLAB using 
+   the command: lyap(A', Q)
+   !!!!!!!!!!!
+ */
 // Alias for a 1-dimensional vector
 using Vector1d = Eigen::Matrix<double, 1, 1>;
 

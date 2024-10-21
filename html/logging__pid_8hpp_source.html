@@ -71,89 +71,91 @@ $(function() {
 <div class="contents">
 <a href="logging__pid_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifndef LOGGING_PID_HPP</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define LOGGING_PID_HPP</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;atomic&gt;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &lt;boost/date_time/posix_time/posix_time.hpp&gt;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &lt;boost/date_time/posix_time/posix_time_types.hpp&gt;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &lt;boost/log/attributes.hpp&gt;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &lt;boost/log/attributes/scoped_attribute.hpp&gt;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &lt;boost/log/core.hpp&gt;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &lt;boost/log/expressions.hpp&gt;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &lt;boost/log/sinks/sync_frontend.hpp&gt;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &lt;boost/log/sinks/text_ostream_backend.hpp&gt;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/basic_logger.hpp&gt;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/logger.hpp&gt;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/record_ostream.hpp&gt;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/severity_channel_logger.hpp&gt;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/severity_logger.hpp&gt;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &lt;boost/log/support/date_time.hpp&gt;</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &lt;boost/log/trivial.hpp&gt;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &lt;boost/log/utility/setup/common_attributes.hpp&gt;</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &lt;boost/log/utility/setup/file.hpp&gt;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &lt;boost/log/utility/value_ref.hpp&gt;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &lt;boost/phoenix/bind.hpp&gt;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &lt;boost/smart_ptr/make_shared_object.hpp&gt;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &lt;boost/smart_ptr/shared_ptr.hpp&gt;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">namespace </span>logging = boost::log;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">namespace </span>sinks = boost::log::sinks;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">namespace </span>src = boost::log::sources;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">namespace </span>expr = boost::log::expressions;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">namespace </span>attrs = boost::log::attributes;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">namespace </span>keywords = boost::log::keywords;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// Forward declaration of MultiThreadedNode class</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">class </span><a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">// Forward declaration of PID class</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">class </span><a class="code" href="classPID.html">PID</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classLogData__PID.html">   86</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLogData__PID.html">LogData_PID</a> </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifndef LOGGING_PID_HPP</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#define LOGGING_PID_HPP</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &lt;boost/date_time/posix_time/posix_time.hpp&gt;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &lt;boost/date_time/posix_time/posix_time_types.hpp&gt;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &lt;boost/log/attributes.hpp&gt;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &lt;boost/log/attributes/scoped_attribute.hpp&gt;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &lt;boost/log/core.hpp&gt;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &lt;boost/log/expressions.hpp&gt;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &lt;boost/log/sinks/sync_frontend.hpp&gt;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &lt;boost/log/sinks/text_ostream_backend.hpp&gt;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/basic_logger.hpp&gt;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/logger.hpp&gt;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/record_ostream.hpp&gt;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/severity_channel_logger.hpp&gt;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &lt;boost/log/sources/severity_logger.hpp&gt;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &lt;boost/log/support/date_time.hpp&gt;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &lt;boost/log/trivial.hpp&gt;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &lt;boost/log/utility/setup/common_attributes.hpp&gt;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &lt;boost/log/utility/setup/file.hpp&gt;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &lt;boost/log/utility/value_ref.hpp&gt;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &lt;boost/phoenix/bind.hpp&gt;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &lt;boost/smart_ptr/make_shared_object.hpp&gt;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &lt;boost/smart_ptr/shared_ptr.hpp&gt;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">namespace </span>logging = boost::log;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">namespace </span>sinks = boost::log::sinks;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">namespace </span>src = boost::log::sources;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">namespace </span>expr = boost::log::expressions;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">namespace </span>attrs = boost::log::attributes;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">namespace </span>keywords = boost::log::keywords;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">// Forward declaration of MultiThreadedNode class</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// Define logger for LogData</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classLogData__PID.html#ad803748ca1538a62252cdd352661bd27">   91</a></span>&#160;  <span class="keyword">static</span> src::logger <a class="code" href="classLogData__PID.html#ad803748ca1538a62252cdd352661bd27">logger_logdata</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// Constructor</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <a class="code" href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">LogData_PID</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node, <a class="code" href="classPID.html">PID</a>&amp; controller);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">// Forward declaration of PID class</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classPID.html">PID</a>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classLogData__PID.html#a20029eb35bdcc8c59f1324110f3fea37">logInitializeHeaders</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classLogData__PID.html#a5c155d8367fcf67a50efb89c543f076c">logInitializeLogging</a>();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classLogData__PID.html#aecbeb96758605c3428c8dff19f0888e4">logLogData</a>();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classLogData__PID.html#a779b5f2ff3f43bddc17f8a1355c76838">  102</a></span>&#160;    <a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; <a class="code" href="classLogData__PID.html#a779b5f2ff3f43bddc17f8a1355c76838">node_</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classLogData__PID.html#a46f6eaf76c42f473cce83929763e8aea">  104</a></span>&#160;  <a class="code" href="classPID.html">PID</a>&amp; <a class="code" href="classLogData__PID.html#a46f6eaf76c42f473cce83929763e8aea">controller_</a>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LOGGING_PID_HPP</span></div>
-<div class="ttc" id="aclassLogData__PID_html"><div class="ttname"><a href="classLogData__PID.html">LogData_PID</a></div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00086">logging_pid.hpp:87</a></div></div>
-<div class="ttc" id="aclassLogData__PID_html_a20029eb35bdcc8c59f1324110f3fea37"><div class="ttname"><a href="classLogData__PID.html#a20029eb35bdcc8c59f1324110f3fea37">LogData_PID::logInitializeHeaders</a></div><div class="ttdeci">void logInitializeHeaders()</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00051">logging_pid.cpp:51</a></div></div>
-<div class="ttc" id="aclassLogData__PID_html_a46f6eaf76c42f473cce83929763e8aea"><div class="ttname"><a href="classLogData__PID.html#a46f6eaf76c42f473cce83929763e8aea">LogData_PID::controller_</a></div><div class="ttdeci">PID &amp; controller_</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00104">logging_pid.hpp:104</a></div></div>
-<div class="ttc" id="aclassLogData__PID_html_a5c155d8367fcf67a50efb89c543f076c"><div class="ttname"><a href="classLogData__PID.html#a5c155d8367fcf67a50efb89c543f076c">LogData_PID::logInitializeLogging</a></div><div class="ttdeci">void logInitializeLogging()</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00164">logging_pid.cpp:164</a></div></div>
-<div class="ttc" id="aclassLogData__PID_html_a779b5f2ff3f43bddc17f8a1355c76838"><div class="ttname"><a href="classLogData__PID.html#a779b5f2ff3f43bddc17f8a1355c76838">LogData_PID::node_</a></div><div class="ttdeci">MultiThreadedNode &amp; node_</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00102">logging_pid.hpp:102</a></div></div>
-<div class="ttc" id="aclassLogData__PID_html_a8f6d889d0fc84df6d061338f6bcb243d"><div class="ttname"><a href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">LogData_PID::LogData_PID</a></div><div class="ttdeci">LogData_PID(MultiThreadedNode &amp;node, PID &amp;controller)</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00045">logging_pid.cpp:45</a></div></div>
-<div class="ttc" id="aclassLogData__PID_html_ad803748ca1538a62252cdd352661bd27"><div class="ttname"><a href="classLogData__PID.html#ad803748ca1538a62252cdd352661bd27">LogData_PID::logger_logdata</a></div><div class="ttdeci">static src::logger logger_logdata</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00091">logging_pid.hpp:91</a></div></div>
-<div class="ttc" id="aclassLogData__PID_html_aecbeb96758605c3428c8dff19f0888e4"><div class="ttname"><a href="classLogData__PID.html#aecbeb96758605c3428c8dff19f0888e4">LogData_PID::logLogData</a></div><div class="ttdeci">void logLogData()</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00246">logging_pid.cpp:246</a></div></div>
-<div class="ttc" id="aclassMultiThreadedNode_html"><div class="ttname"><a href="classMultiThreadedNode.html">MultiThreadedNode</a></div><div class="ttdoc">Multithreaded Node Class.</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00076">multi_threaded_node.hpp:77</a></div></div>
-<div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdef"><b>Definition:</b> <a href="pid_8hpp_source.html#l00053">pid.hpp:54</a></div></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classLogData__PID.html">   99</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLogData__PID.html">LogData_PID</a> </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">// Define logger for LogData</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classLogData__PID.html#ad803748ca1538a62252cdd352661bd27">  104</a></span>&#160;  <span class="keyword">static</span> src::logger <a class="code" href="classLogData__PID.html#ad803748ca1538a62252cdd352661bd27">logger_logdata</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">// Constructor</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"></span>  <a class="code" href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">LogData_PID</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node, <a class="code" href="classPID.html">PID</a>&amp; controller);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classLogData__PID.html#a20029eb35bdcc8c59f1324110f3fea37">logInitializeHeaders</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classLogData__PID.html#a5c155d8367fcf67a50efb89c543f076c">logInitializeLogging</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classLogData__PID.html#aecbeb96758605c3428c8dff19f0888e4">logLogData</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classLogData__PID.html#a779b5f2ff3f43bddc17f8a1355c76838">  133</a></span>&#160;    <a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; <a class="code" href="classLogData__PID.html#a779b5f2ff3f43bddc17f8a1355c76838">node_</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classLogData__PID.html#a46f6eaf76c42f473cce83929763e8aea">  135</a></span>&#160;  <a class="code" href="classPID.html">PID</a>&amp; <a class="code" href="classLogData__PID.html#a46f6eaf76c42f473cce83929763e8aea">controller_</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LOGGING_PID_HPP</span></div>
+<div class="ttc" id="aclassLogData__PID_html"><div class="ttname"><a href="classLogData__PID.html">LogData_PID</a></div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00099">logging_pid.hpp:100</a></div></div>
+<div class="ttc" id="aclassLogData__PID_html_a20029eb35bdcc8c59f1324110f3fea37"><div class="ttname"><a href="classLogData__PID.html#a20029eb35bdcc8c59f1324110f3fea37">LogData_PID::logInitializeHeaders</a></div><div class="ttdeci">void logInitializeHeaders()</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00061">logging_pid.cpp:61</a></div></div>
+<div class="ttc" id="aclassLogData__PID_html_a46f6eaf76c42f473cce83929763e8aea"><div class="ttname"><a href="classLogData__PID.html#a46f6eaf76c42f473cce83929763e8aea">LogData_PID::controller_</a></div><div class="ttdeci">PID &amp; controller_</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00135">logging_pid.hpp:135</a></div></div>
+<div class="ttc" id="aclassLogData__PID_html_a5c155d8367fcf67a50efb89c543f076c"><div class="ttname"><a href="classLogData__PID.html#a5c155d8367fcf67a50efb89c543f076c">LogData_PID::logInitializeLogging</a></div><div class="ttdeci">void logInitializeLogging()</div><div class="ttdoc">Initialize logging.</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00174">logging_pid.cpp:174</a></div></div>
+<div class="ttc" id="aclassLogData__PID_html_a779b5f2ff3f43bddc17f8a1355c76838"><div class="ttname"><a href="classLogData__PID.html#a779b5f2ff3f43bddc17f8a1355c76838">LogData_PID::node_</a></div><div class="ttdeci">MultiThreadedNode &amp; node_</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00133">logging_pid.hpp:133</a></div></div>
+<div class="ttc" id="aclassLogData__PID_html_a8f6d889d0fc84df6d061338f6bcb243d"><div class="ttname"><a href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">LogData_PID::LogData_PID</a></div><div class="ttdeci">LogData_PID(MultiThreadedNode &amp;node, PID &amp;controller)</div><div class="ttdoc">Construct a new LogData_PID object.</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00052">logging_pid.cpp:52</a></div></div>
+<div class="ttc" id="aclassLogData__PID_html_ad803748ca1538a62252cdd352661bd27"><div class="ttname"><a href="classLogData__PID.html#ad803748ca1538a62252cdd352661bd27">LogData_PID::logger_logdata</a></div><div class="ttdeci">static src::logger logger_logdata</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8hpp_source.html#l00104">logging_pid.hpp:104</a></div></div>
+<div class="ttc" id="aclassLogData__PID_html_aecbeb96758605c3428c8dff19f0888e4"><div class="ttname"><a href="classLogData__PID.html#aecbeb96758605c3428c8dff19f0888e4">LogData_PID::logLogData</a></div><div class="ttdeci">void logLogData()</div><div class="ttdef"><b>Definition:</b> <a href="logging__pid_8cpp_source.html#l00256">logging_pid.cpp:256</a></div></div>
+<div class="ttc" id="aclassMultiThreadedNode_html"><div class="ttname"><a href="classMultiThreadedNode.html">MultiThreadedNode</a></div><div class="ttdoc">Multithreaded Node Class.</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00077">multi_threaded_node.hpp:78</a></div></div>
+<div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdef"><b>Definition:</b> <a href="pid_8hpp_source.html#l00057">pid.hpp:58</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

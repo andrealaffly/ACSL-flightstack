@@ -26,9 +26,9 @@ Collaboration diagram for Piecewise\+Polynomial\+Trajectory\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classPiecewisePolynomialTrajectory_aa80e3d0f4c5072351ea59ca406ba31db}{Piecewise\+Polynomial\+Trajectory}} (\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&node)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Piecewise Polynomial Trajectory object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a02c8821c516bfdd5588cd7c1c03a4ccc}{initialize\+Piecewise\+Polynomial\+Trajectory}} (const std\+::string \&Trajectory\+File\+Name)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the peicewise polynomial trajectory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a2f59816b97e53ba13b146a1f92bb9007}{read\+JSONfile}} (const std\+::string \&file\+Name)
 \item 
 const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_aea01406b07425b17a3812d9c166b17ab}{get\+Waypoint\+Times}} () const
@@ -44,11 +44,11 @@ const double \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a3b2c15353f3
 const double \& \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a869a8702861ea3a0fa6e9431be89c46f}{get\+Norm\+Velocity\+XY}} () const
 \item 
 void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a5b45e1caa8f8575990acfbd04a98ef5d}{set\+Polynomial\+Coefficient\+Matrices}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Set the Polynomial Coefficient Matrices object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a46e9a5b0d9c0013b32559ac70272d67a}{update\+User\+Defined\+Trajectory}} (std\+::atomic$<$ double $>$ \&time\+\_\+current)
-\item 
+\begin{DoxyCompactList}\small\item\em Update the User Defined Trajectory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPiecewisePolynomialTrajectory_a63c972656132e722c5bfa0b53d8cd5ef}{update\+User\+Defined\+Yaw}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Update User Defined Yaw. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -99,7 +99,7 @@ const Eigen\+::\+Vector\+Xd \mbox{\hyperlink{classPiecewisePolynomialTrajectory_
 \doxysubsection{Detailed Description}
 
 
-Definition at line 61 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 76 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
@@ -110,24 +110,18 @@ Definition at line 61 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 \doxysubsubsection{\texorpdfstring{PiecewisePolynomialTrajectory()}{PiecewisePolynomialTrajectory()}}
 {\footnotesize\ttfamily Piecewise\+Polynomial\+Trajectory\+::\+Piecewise\+Polynomial\+Trajectory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
 
-Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
 
 
-\begin{DoxyEnumerate}
-\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-\end{DoxyEnumerate}
+Construct a new Piecewise Polynomial Trajectory object. 
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp}{piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp}} Author\+: Mattia Gramuglia Date\+: April 15, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
 
-Description\+: Piecewise polynomial minimu-\/jerk trajectory computed offline through a MATLAB script. The heading (yaw) angle is kept tangential to the trajectory in the X-\/Y plane and computed online along with its first and second derivative.
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
 
-Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
 
-Definition at line 46 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 53 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
@@ -140,7 +134,7 @@ Definition at line 46 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 128 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 135 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a8fa9bec41a099a3188332212d4c8a86f}\label{classPiecewisePolynomialTrajectory_a8fa9bec41a099a3188332212d4c8a86f}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getPiecewisePolynomialCoefficients@{getPiecewisePolynomialCoefficients}}
@@ -150,7 +144,7 @@ Definition at line 128 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 107 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 114 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a70e25a8621fa2eb32a05b755fc4e2d1d}\label{classPiecewisePolynomialTrajectory_a70e25a8621fa2eb32a05b755fc4e2d1d}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getSegment@{getSegment}}
@@ -160,7 +154,7 @@ Definition at line 107 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 118 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 125 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a1536287923c17cba2768cb4b3f82db95}\label{classPiecewisePolynomialTrajectory_a1536287923c17cba2768cb4b3f82db95}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getTimeCurrentAdjusted@{getTimeCurrentAdjusted}}
@@ -170,7 +164,7 @@ Definition at line 118 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 113 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 120 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a3b2c15353f387ddd35c2c8ea853dfa8c}\label{classPiecewisePolynomialTrajectory_a3b2c15353f387ddd35c2c8ea853dfa8c}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getUserDefinedYawPrevious@{getUserDefinedYawPrevious}}
@@ -180,7 +174,7 @@ Definition at line 113 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 123 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 130 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_aea01406b07425b17a3812d9c166b17ab}\label{classPiecewisePolynomialTrajectory_aea01406b07425b17a3812d9c166b17ab}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!getWaypointTimes@{getWaypointTimes}}
@@ -190,7 +184,7 @@ Definition at line 123 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 101 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 108 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a02c8821c516bfdd5588cd7c1c03a4ccc}\label{classPiecewisePolynomialTrajectory_a02c8821c516bfdd5588cd7c1c03a4ccc}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!initializePiecewisePolynomialTrajectory@{initializePiecewisePolynomialTrajectory}}
@@ -200,7 +194,16 @@ Definition at line 101 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 64 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Initialize the peicewise polynomial trajectory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Trajectory\+File\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a2f59816b97e53ba13b146a1f92bb9007}\label{classPiecewisePolynomialTrajectory_a2f59816b97e53ba13b146a1f92bb9007}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!readJSONfile@{readJSONfile}}
@@ -210,7 +213,7 @@ Definition at line 64 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 77 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Definition at line 84 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a5b45e1caa8f8575990acfbd04a98ef5d}\label{classPiecewisePolynomialTrajectory_a5b45e1caa8f8575990acfbd04a98ef5d}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!setPolynomialCoefficientMatrices@{setPolynomialCoefficientMatrices}}
@@ -220,7 +223,16 @@ Definition at line 77 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 136 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Set the Polynomial Coefficient Matrices object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 143 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a46e9a5b0d9c0013b32559ac70272d67a}\label{classPiecewisePolynomialTrajectory_a46e9a5b0d9c0013b32559ac70272d67a}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!updateUserDefinedTrajectory@{updateUserDefinedTrajectory}}
@@ -230,7 +242,16 @@ Definition at line 136 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 174 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Update the User Defined Trajectory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+\_\+current} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 181 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a63c972656132e722c5bfa0b53d8cd5ef}\label{classPiecewisePolynomialTrajectory_a63c972656132e722c5bfa0b53d8cd5ef}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!updateUserDefinedYaw@{updateUserDefinedYaw}}
@@ -240,7 +261,16 @@ Definition at line 174 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 277 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Update User Defined Yaw. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em NOne} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 284 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
@@ -253,7 +283,7 @@ Definition at line 277 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 99 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 139 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a66ee9484254469c2d63f5ffb17c582b7}\label{classPiecewisePolynomialTrajectory_a66ee9484254469c2d63f5ffb17c582b7}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!acceleration\_coef\_y\_@{acceleration\_coef\_y\_}}
@@ -263,7 +293,7 @@ Definition at line 99 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 100 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 140 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ac3e867ffe91f5e3229afc230508b8b71}\label{classPiecewisePolynomialTrajectory_ac3e867ffe91f5e3229afc230508b8b71}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!acceleration\_coef\_z\_@{acceleration\_coef\_z\_}}
@@ -273,7 +303,7 @@ Definition at line 100 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 101 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 141 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a594ff754686a3d68fc5a104dc5f5d43b}\label{classPiecewisePolynomialTrajectory_a594ff754686a3d68fc5a104dc5f5d43b}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!jerk\_coef\_x\_@{jerk\_coef\_x\_}}
@@ -283,7 +313,7 @@ Definition at line 101 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 102 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 142 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a0f9ccc2ba9e24406dec47d916f862fb1}\label{classPiecewisePolynomialTrajectory_a0f9ccc2ba9e24406dec47d916f862fb1}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!jerk\_coef\_y\_@{jerk\_coef\_y\_}}
@@ -293,7 +323,7 @@ Definition at line 102 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 103 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 143 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a91e7c216c36c6085bf7bf8248f95827f}\label{classPiecewisePolynomialTrajectory_a91e7c216c36c6085bf7bf8248f95827f}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!jerk\_coef\_z\_@{jerk\_coef\_z\_}}
@@ -303,7 +333,7 @@ Definition at line 103 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 104 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 144 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a6acf6e588c27d90cd57002fea9365c1f}\label{classPiecewisePolynomialTrajectory_a6acf6e588c27d90cd57002fea9365c1f}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!landing\_acceleration\_coef\_z\_@{landing\_acceleration\_coef\_z\_}}
@@ -325,7 +355,7 @@ Definition at line 104 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 \end{DoxyCode}
 
 
-Definition at line 132 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 172 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_afacc3f08668fce48df9968e6ea2371ff}\label{classPiecewisePolynomialTrajectory_afacc3f08668fce48df9968e6ea2371ff}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!landing\_position\_coef\_z\_@{landing\_position\_coef\_z\_}}
@@ -349,7 +379,7 @@ Definition at line 132 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 \end{DoxyCode}
 
 
-Definition at line 109 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 149 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a77e98dc703dff456c96d53c75c609d74}\label{classPiecewisePolynomialTrajectory_a77e98dc703dff456c96d53c75c609d74}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!landing\_velocity\_coef\_z\_@{landing\_velocity\_coef\_z\_}}
@@ -372,7 +402,7 @@ Definition at line 109 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 \end{DoxyCode}
 
 
-Definition at line 121 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 161 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a2372571c2fcbda724206ed51f34403bf}\label{classPiecewisePolynomialTrajectory_a2372571c2fcbda724206ed51f34403bf}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!norm\_velocity\_XY\_@{norm\_velocity\_XY\_}}
@@ -382,7 +412,7 @@ Definition at line 121 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 90 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 130 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a470b2a841ffb596dd7b80e1f36bde521}\label{classPiecewisePolynomialTrajectory_a470b2a841ffb596dd7b80e1f36bde521}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!piecewise\_polynomial\_trajectory\_info\_@{piecewise\_polynomial\_trajectory\_info\_}}
@@ -392,7 +422,7 @@ Definition at line 90 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 106 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 146 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ac95bc337aa4414283c74d0f27dbf8f6a}\label{classPiecewisePolynomialTrajectory_ac95bc337aa4414283c74d0f27dbf8f6a}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!position\_coef\_x\_@{position\_coef\_x\_}}
@@ -402,7 +432,7 @@ Definition at line 106 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 93 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 133 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ab439b4de3f81945ceaaf651e7b96f4fa}\label{classPiecewisePolynomialTrajectory_ab439b4de3f81945ceaaf651e7b96f4fa}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!position\_coef\_y\_@{position\_coef\_y\_}}
@@ -412,7 +442,7 @@ Definition at line 93 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 94 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 134 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_ab5d2a52e9a447674393cf3a93c836d8b}\label{classPiecewisePolynomialTrajectory_ab5d2a52e9a447674393cf3a93c836d8b}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!position\_coef\_z\_@{position\_coef\_z\_}}
@@ -422,7 +452,7 @@ Definition at line 94 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 95 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 135 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a8effcadc13ae6ec5ecb4a044976521c6}\label{classPiecewisePolynomialTrajectory_a8effcadc13ae6ec5ecb4a044976521c6}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!segment\_@{segment\_}}
@@ -432,7 +462,7 @@ Definition at line 95 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 87 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 127 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a8c15c1b7ab973cae0ebe08f80ef4d11a}\label{classPiecewisePolynomialTrajectory_a8c15c1b7ab973cae0ebe08f80ef4d11a}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!time\_current\_adjusted\_@{time\_current\_adjusted\_}}
@@ -442,7 +472,7 @@ Definition at line 87 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 86 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 126 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_afa9719c07eb6928b415a83efd390206e}\label{classPiecewisePolynomialTrajectory_afa9719c07eb6928b415a83efd390206e}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!user\_defined\_position\_previous\_@{user\_defined\_position\_previous\_}}
@@ -452,7 +482,7 @@ Definition at line 86 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 88 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 128 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a9e25190de4150449894f57e2e8a3f790}\label{classPiecewisePolynomialTrajectory_a9e25190de4150449894f57e2e8a3f790}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!user\_defined\_yaw\_previous\_@{user\_defined\_yaw\_previous\_}}
@@ -462,7 +492,7 @@ Definition at line 88 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 89 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 129 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_a28d5b3e0395a5005e83e89525b710ece}\label{classPiecewisePolynomialTrajectory_a28d5b3e0395a5005e83e89525b710ece}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!velocity\_coef\_x\_@{velocity\_coef\_x\_}}
@@ -472,7 +502,7 @@ Definition at line 89 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 96 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 136 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_afb40dcc5df7500f06408a57b7c3e74ac}\label{classPiecewisePolynomialTrajectory_afb40dcc5df7500f06408a57b7c3e74ac}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!velocity\_coef\_y\_@{velocity\_coef\_y\_}}
@@ -482,7 +512,7 @@ Definition at line 96 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 97 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 137 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 \mbox{\Hypertarget{classPiecewisePolynomialTrajectory_aa0226ea0fa125b1bb50c57ccb13d6131}\label{classPiecewisePolynomialTrajectory_aa0226ea0fa125b1bb50c57ccb13d6131}} 
 \index{PiecewisePolynomialTrajectory@{PiecewisePolynomialTrajectory}!velocity\_coef\_z\_@{velocity\_coef\_z\_}}
@@ -492,7 +522,7 @@ Definition at line 97 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 
-Definition at line 98 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
+Definition at line 138 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp.
 
 
 

@@ -36,6 +36,14 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file piecewise_polynomial_trajectory.hpp
+ * @brief Piecewise polynomial minimu-jerk trajectory computed offline through a MATLAB script.
+ * 
+ * The heading (yaw) angle is kept tangential to the trajectory in the X-Y plane and computed online
+ * along with its first and second derivative.
+ */
+
 #ifndef PIECEWISE_POLYNOMIAL_TRAJECTORY_HPP
 #define PIECEWISE_POLYNOMIAL_TRAJECTORY_HPP
 
@@ -51,20 +59,37 @@
 #include "user_defined_trajectory.hpp"
 
 
-// Struct containing the trajectory info coming from the .json file 
+/**
+ * @struct PiecewisePolynomialTrajectoryInfo
+ * @brief Struct containing the trajectory info coming from the .json file
+ */
 struct PiecewisePolynomialTrajectoryInfo {
 	std::vector<double> waypoint_times_; // times at which I want to reach the waypoints
 	std::vector<std::vector<double>> piecewise_polynomial_coefficients_; // matrix containing the piecewise polynomial
                                                                        // coefficients
 };
 
+/**
+ * @class PiecewisePolynomialTrajectory : public UserDefinedTrajectory
+ * 
+ */
 class PiecewisePolynomialTrajectory : public UserDefinedTrajectory
 {
 public:
 
   // Constructor
+  /**
+   * @brief Construct a new Piecewise Polynomial Trajectory object
+   * 
+   * @param node 
+   */
   PiecewisePolynomialTrajectory(MultiThreadedNode& node);
 
+  /**
+   * @brief Initialize the peicewise polynomial trajectory 
+   * 
+   * @param TrajectoryFileName 
+   */
   void initializePiecewisePolynomialTrajectory(const std::string& TrajectoryFileName);
 
   void readJSONfile(const std::string& fileName);
@@ -77,8 +102,23 @@ public:
   const double& getUserDefinedYawPrevious() const;
   const double& getNormVelocityXY() const;
 
+  /**
+   * @brief Set the Polynomial Coefficient Matrices object
+   * @param None
+   */
   void setPolynomialCoefficientMatrices();
+
+  /**
+   * @brief Update the User Defined Trajectory
+   * 
+   * @param time_current 
+   */
   void updateUserDefinedTrajectory(std::atomic<double>& time_current);
+
+  /**
+   * @brief Update User Defined Yaw
+   * @param NOne
+   */
   void updateUserDefinedYaw();
 
 private:

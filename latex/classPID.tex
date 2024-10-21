@@ -26,8 +26,8 @@ Collaboration diagram for PID\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structPID_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}}
-\item 
-struct \mbox{\hyperlink{structPID_1_1StateController}{State\+Controller}}
+\begin{DoxyCompactList}\small\item\em This struct contains the variables that are used in this particular controller. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{structPID_1_1StateController}{State\+Controller}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -85,7 +85,7 @@ static const std\+::string \mbox{\hyperlink{classPID_a3ca005d68d4e8198da8d0c9eb7
 \doxysubsection{Detailed Description}
 
 
-Definition at line 53 of file pid.\+hpp.
+Definition at line 57 of file pid.\+hpp.
 
 
 
@@ -96,24 +96,9 @@ Definition at line 53 of file pid.\+hpp.
 \doxysubsubsection{\texorpdfstring{PID()}{PID()}}
 {\footnotesize\ttfamily PID\+::\+PID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
 
-Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
 
 
-\begin{DoxyEnumerate}
-\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-\end{DoxyEnumerate}
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{pid_8cpp}{pid.\+cpp}} Author\+: Mattia Gramuglia Date\+: April 22, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
-
-Description\+: Implementation of the \mbox{\hyperlink{classPID}{PID}} controller.
-
-Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
-
-Definition at line 43 of file pid.\+cpp.
+Definition at line 47 of file pid.\+cpp.
 
 
 
@@ -126,7 +111,7 @@ Definition at line 43 of file pid.\+cpp.
 
 
 
-Definition at line 145 of file pid.\+cpp.
+Definition at line 149 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_a0da8564be01e4363179b1a12660fd7ae}\label{classPID_a0da8564be01e4363179b1a12660fd7ae}} 
 \index{PID@{PID}!computeControlAlgorithm@{computeControlAlgorithm}}
@@ -136,7 +121,7 @@ Definition at line 145 of file pid.\+cpp.
 
 
 
-Definition at line 250 of file pid.\+cpp.
+Definition at line 254 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_a35fce08f1c88b176e805367aa3653834}\label{classPID_a35fce08f1c88b176e805367aa3653834}} 
 \index{PID@{PID}!computeFilterDifferentiatorVariables@{computeFilterDifferentiatorVariables}}
@@ -146,7 +131,7 @@ Definition at line 250 of file pid.\+cpp.
 
 
 
-Definition at line 174 of file pid.\+cpp.
+Definition at line 178 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_ab2091e5a95516c39a8a830e09108fff3}\label{classPID_ab2091e5a95516c39a8a830e09108fff3}} 
 \index{PID@{PID}!computeInnerLoop@{computeInnerLoop}}
@@ -156,7 +141,7 @@ Definition at line 174 of file pid.\+cpp.
 
 
 
-Definition at line 225 of file pid.\+cpp.
+Definition at line 229 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_ad30da0fca8a677d7db361cb24a84d397}\label{classPID_ad30da0fca8a677d7db361cb24a84d397}} 
 \index{PID@{PID}!computeOuterLoop@{computeOuterLoop}}
@@ -166,7 +151,7 @@ Definition at line 225 of file pid.\+cpp.
 
 
 
-Definition at line 201 of file pid.\+cpp.
+Definition at line 205 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_ae50d112e1cbd789521aae21d36d4e88b}\label{classPID_ae50d112e1cbd789521aae21d36d4e88b}} 
 \index{PID@{PID}!getControllerName@{getControllerName}}
@@ -176,7 +161,7 @@ Definition at line 201 of file pid.\+cpp.
 
 
 
-Definition at line 107 of file pid.\+cpp.
+Definition at line 111 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_a61c0bdcb61280b1afef5c631b09d5eb5}\label{classPID_a61c0bdcb61280b1afef5c631b09d5eb5}} 
 \index{PID@{PID}!getControllerSpecificInternalMembers@{getControllerSpecificInternalMembers}}
@@ -186,7 +171,7 @@ Definition at line 107 of file pid.\+cpp.
 
 
 
-Definition at line 94 of file pid.\+cpp.
+Definition at line 98 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_acf903693f2de74af2e7a16b72b57d943}\label{classPID_acf903693f2de74af2e7a16b72b57d943}} 
 \index{PID@{PID}!getGains@{getGains}}
@@ -196,7 +181,7 @@ Definition at line 94 of file pid.\+cpp.
 
 
 
-Definition at line 88 of file pid.\+cpp.
+Definition at line 92 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_a48308b4d018bd81ee2550010d6872938}\label{classPID_a48308b4d018bd81ee2550010d6872938}} 
 \index{PID@{PID}!getLogData@{getLogData}}
@@ -206,7 +191,7 @@ Definition at line 88 of file pid.\+cpp.
 
 
 
-Definition at line 102 of file pid.\+cpp.
+Definition at line 106 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_a13f240b0192f94e8ec21ef2ba3952e69}\label{classPID_a13f240b0192f94e8ec21ef2ba3952e69}} 
 \index{PID@{PID}!getStateController@{getStateController}}
@@ -216,7 +201,7 @@ Definition at line 102 of file pid.\+cpp.
 
 
 
-Definition at line 78 of file pid.\+cpp.
+Definition at line 82 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_a9a8a0c6f704b78f28c0e29df42b32f3a}\label{classPID_a9a8a0c6f704b78f28c0e29df42b32f3a}} 
 \index{PID@{PID}!getTimeStepRK4@{getTimeStepRK4}}
@@ -226,7 +211,7 @@ Definition at line 78 of file pid.\+cpp.
 
 
 
-Definition at line 83 of file pid.\+cpp.
+Definition at line 87 of file pid.\+cpp.
 
 \mbox{\Hypertarget{classPID_a946f0877fbe7d061eeba1d5754910c18}\label{classPID_a946f0877fbe7d061eeba1d5754910c18}} 
 \index{PID@{PID}!readJSONfile@{readJSONfile}}
@@ -236,7 +221,7 @@ Definition at line 83 of file pid.\+cpp.
 
 
 
-Definition at line 116 of file pid.\+cpp.
+Definition at line 120 of file pid.\+cpp.
 
 
 
@@ -249,7 +234,7 @@ Definition at line 116 of file pid.\+cpp.
 
 
 
-Definition at line 151 of file pid.\+hpp.
+Definition at line 165 of file pid.\+hpp.
 
 \mbox{\Hypertarget{classPID_af0edf82c7d3bedd95ad760926f8e678d}\label{classPID_af0edf82c7d3bedd95ad760926f8e678d}} 
 \index{PID@{PID}!csim\_@{csim\_}}
@@ -259,7 +244,7 @@ Definition at line 151 of file pid.\+hpp.
 
 
 
-Definition at line 145 of file pid.\+hpp.
+Definition at line 159 of file pid.\+hpp.
 
 \mbox{\Hypertarget{classPID_a2c09378ee87d32470bbfe5d9c45c2d9c}\label{classPID_a2c09378ee87d32470bbfe5d9c45c2d9c}} 
 \index{PID@{PID}!gains\_@{gains\_}}
@@ -269,7 +254,7 @@ Definition at line 145 of file pid.\+hpp.
 
 
 
-Definition at line 143 of file pid.\+hpp.
+Definition at line 157 of file pid.\+hpp.
 
 \mbox{\Hypertarget{classPID_a6a37d115dba791134979bbb0dc3f28df}\label{classPID_a6a37d115dba791134979bbb0dc3f28df}} 
 \index{PID@{PID}!log\_data\_@{log\_data\_}}
@@ -279,7 +264,7 @@ Definition at line 143 of file pid.\+hpp.
 
 
 
-Definition at line 148 of file pid.\+hpp.
+Definition at line 162 of file pid.\+hpp.
 
 \mbox{\Hypertarget{classPID_afdca016db8c6b67c450bd01d741144b6}\label{classPID_afdca016db8c6b67c450bd01d741144b6}} 
 \index{PID@{PID}!state\_@{state\_}}
@@ -289,7 +274,7 @@ Definition at line 148 of file pid.\+hpp.
 
 
 
-Definition at line 140 of file pid.\+hpp.
+Definition at line 154 of file pid.\+hpp.
 
 \mbox{\Hypertarget{classPID_a0e119291dff8b3538a6ef245f1d90d74}\label{classPID_a0e119291dff8b3538a6ef245f1d90d74}} 
 \index{PID@{PID}!time\_step\_rk4\_@{time\_step\_rk4\_}}
@@ -299,7 +284,7 @@ Definition at line 140 of file pid.\+hpp.
 
 
 
-Definition at line 141 of file pid.\+hpp.
+Definition at line 155 of file pid.\+hpp.
 
 
 

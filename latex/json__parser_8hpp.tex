@@ -1,5 +1,10 @@
 \hypertarget{json__parser_8hpp}{}\doxysection{include/flightstack/utils/json\+\_\+parser.hpp File Reference}
 \label{json__parser_8hpp}\index{include/flightstack/utils/json\_parser.hpp@{include/flightstack/utils/json\_parser.hpp}}
+
+
+Utility functions to parse JSON files.  
+
+
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
@@ -21,14 +26,34 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structMotorsCommands}{Motors\+Commands}}
+class \mbox{\hyperlink{structMotorsCommands}{Motors\+Commands}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Scalar , int Rows, int Cols$>$ }\\Eigen\+::\+Matrix$<$ Scalar, Rows, Cols $>$ \mbox{\hyperlink{json__parser_8hpp_a6771b707218bbbae84a04609c8d52b22}{extract\+Matrix\+From\+JSON}} (const nlohmann\+::json \&json\+Matrix)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to extract a Matrix from JSON and populate a Eigen matrix Examples of usage\+: Eigen\+::\+Matrix$<$double, 3, 3$>$ matrix33d = extract\+Matrix\+From\+JSON$<$double, 3, 3$>$(json\+Matrix); Eigen\+::\+Matrix$<$float, 4, 4$>$ matrix44f = extract\+Matrix\+From\+JSON$<$float, 4, 4$>$(json\+Matrix);. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Utility functions to parse JSON files. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{json__parser_8hpp}{json\+\_\+parser.\+hpp}} Author\+: Mattia Gramuglia Date\+: April 2, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Utility functions to parse JSON files
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{json__parser_8hpp_a6771b707218bbbae84a04609c8d52b22}\label{json__parser_8hpp_a6771b707218bbbae84a04609c8d52b22}} 
@@ -40,5 +65,26 @@ Eigen\+::\+Matrix$<$Scalar, Rows, Cols$>$ extract\+Matrix\+From\+JSON (\begin{Do
 
 
 
-Definition at line 67 of file json\+\_\+parser.\+hpp.
+Function to extract a Matrix from JSON and populate a Eigen matrix Examples of usage\+: Eigen\+::\+Matrix$<$double, 3, 3$>$ matrix33d = extract\+Matrix\+From\+JSON$<$double, 3, 3$>$(json\+Matrix); Eigen\+::\+Matrix$<$float, 4, 4$>$ matrix44f = extract\+Matrix\+From\+JSON$<$float, 4, 4$>$(json\+Matrix);. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Scalar} & \\
+\hline
+{\em Rows} & \\
+\hline
+{\em Cols} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Matrix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix$<$\+Scalar, Rows, Cols$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file json\+\_\+parser.\+hpp.
 

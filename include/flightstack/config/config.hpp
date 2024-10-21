@@ -37,7 +37,6 @@
 /**
  * @file config.hpp
  * @brief Configuration file. Here you specify which cotroller you want to run at compile time.
- * 
  */
 #ifndef CONFIG_HPP
 #define CONFIG_HPP

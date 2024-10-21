@@ -2,6 +2,11 @@
 \label{structMRAC_1_1StateController}\index{MRAC::StateController@{MRAC::StateController}}
 
 
+This struct represents the state of the \mbox{\hyperlink{classMRAC}{MRAC}} controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.).  
+
+
+
+
 {\ttfamily \#include $<$mrac.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -49,9 +54,9 @@ Eigen\+::\+Map$<$ Eigen\+::\+Matrix$<$ double, 3, 1 $>$ $>$ \mbox{\hyperlink{str
 
 
 \doxysubsection{Detailed Description}
+This struct represents the state of the \mbox{\hyperlink{classMRAC}{MRAC}} controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.). 
 
-
-Definition at line 64 of file mrac.\+hpp.
+Definition at line 73 of file mrac.\+hpp.
 
 
 
@@ -64,7 +69,7 @@ Definition at line 64 of file mrac.\+hpp.
 
 
 
-Definition at line 57 of file mrac.\+cpp.
+Definition at line 64 of file mrac.\+cpp.
 
 
 
@@ -77,7 +82,7 @@ Definition at line 57 of file mrac.\+cpp.
 
 
 
-Definition at line 69 of file mrac.\+hpp.
+Definition at line 79 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a5dfe0809e771488489c65941d8597220}\label{structMRAC_1_1StateController_a5dfe0809e771488489c65941d8597220}} 
 \index{MRAC::StateController@{MRAC::StateController}!integral\_angular\_error@{integral\_angular\_error}}
@@ -87,7 +92,7 @@ Definition at line 69 of file mrac.\+hpp.
 
 
 
-Definition at line 81 of file mrac.\+hpp.
+Definition at line 91 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_af7ffcea0148ba9bb2cb65f6d91efa880}\label{structMRAC_1_1StateController_af7ffcea0148ba9bb2cb65f6d91efa880}} 
 \index{MRAC::StateController@{MRAC::StateController}!integral\_angular\_velocity\_error\_ref@{integral\_angular\_velocity\_error\_ref}}
@@ -97,7 +102,7 @@ Definition at line 81 of file mrac.\+hpp.
 
 
 
-Definition at line 91 of file mrac.\+hpp.
+Definition at line 101 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a64b83a13a250bbb442c9c8aee252fd38}\label{structMRAC_1_1StateController_a64b83a13a250bbb442c9c8aee252fd38}} 
 \index{MRAC::StateController@{MRAC::StateController}!integral\_translational\_position\_error@{integral\_translational\_position\_error}}
@@ -107,7 +112,7 @@ Definition at line 91 of file mrac.\+hpp.
 
 
 
-Definition at line 80 of file mrac.\+hpp.
+Definition at line 90 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_ad852ab13f51b35dfa4057bde795bbbee}\label{structMRAC_1_1StateController_ad852ab13f51b35dfa4057bde795bbbee}} 
 \index{MRAC::StateController@{MRAC::StateController}!integral\_translational\_position\_error\_ref@{integral\_translational\_position\_error\_ref}}
@@ -117,7 +122,7 @@ Definition at line 80 of file mrac.\+hpp.
 
 
 
-Definition at line 83 of file mrac.\+hpp.
+Definition at line 93 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a2771f856f67d07784502404fb9a3a7ed}\label{structMRAC_1_1StateController_a2771f856f67d07784502404fb9a3a7ed}} 
 \index{MRAC::StateController@{MRAC::StateController}!K\_hat\_r\_rotational@{K\_hat\_r\_rotational}}
@@ -127,7 +132,7 @@ Definition at line 83 of file mrac.\+hpp.
 
 
 
-Definition at line 89 of file mrac.\+hpp.
+Definition at line 99 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_aa276d83bdae12a1cf9c0d213a587ab9b}\label{structMRAC_1_1StateController_aa276d83bdae12a1cf9c0d213a587ab9b}} 
 \index{MRAC::StateController@{MRAC::StateController}!K\_hat\_r\_translational@{K\_hat\_r\_translational}}
@@ -137,7 +142,7 @@ Definition at line 89 of file mrac.\+hpp.
 
 
 
-Definition at line 85 of file mrac.\+hpp.
+Definition at line 95 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_abcb9af87b1f224fa6b2f47720c4f3800}\label{structMRAC_1_1StateController_abcb9af87b1f224fa6b2f47720c4f3800}} 
 \index{MRAC::StateController@{MRAC::StateController}!K\_hat\_x\_rotational@{K\_hat\_x\_rotational}}
@@ -147,7 +152,7 @@ Definition at line 85 of file mrac.\+hpp.
 
 
 
-Definition at line 88 of file mrac.\+hpp.
+Definition at line 98 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a8690b1751dc55f00be677e44a048fc7e}\label{structMRAC_1_1StateController_a8690b1751dc55f00be677e44a048fc7e}} 
 \index{MRAC::StateController@{MRAC::StateController}!K\_hat\_x\_translational@{K\_hat\_x\_translational}}
@@ -157,7 +162,7 @@ Definition at line 88 of file mrac.\+hpp.
 
 
 
-Definition at line 84 of file mrac.\+hpp.
+Definition at line 94 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a1d0da6f6d923b1582ea4050d60830e2f}\label{structMRAC_1_1StateController_a1d0da6f6d923b1582ea4050d60830e2f}} 
 \index{MRAC::StateController@{MRAC::StateController}!omega\_ref\_rotational@{omega\_ref\_rotational}}
@@ -167,7 +172,7 @@ Definition at line 84 of file mrac.\+hpp.
 
 
 
-Definition at line 87 of file mrac.\+hpp.
+Definition at line 97 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a7eca1d3a5cc1ff1a3acda78d9de0d69d}\label{structMRAC_1_1StateController_a7eca1d3a5cc1ff1a3acda78d9de0d69d}} 
 \index{MRAC::StateController@{MRAC::StateController}!state\_pitch\_des\_filter@{state\_pitch\_des\_filter}}
@@ -177,7 +182,7 @@ Definition at line 87 of file mrac.\+hpp.
 
 
 
-Definition at line 77 of file mrac.\+hpp.
+Definition at line 87 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_ace3f904ce919216fdd89e7f6624e68af}\label{structMRAC_1_1StateController_ace3f904ce919216fdd89e7f6624e68af}} 
 \index{MRAC::StateController@{MRAC::StateController}!state\_pitch\_dot\_des\_filter@{state\_pitch\_dot\_des\_filter}}
@@ -187,7 +192,7 @@ Definition at line 77 of file mrac.\+hpp.
 
 
 
-Definition at line 79 of file mrac.\+hpp.
+Definition at line 89 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_afb2694d4f01ef59b95c0489ed5ca1ef4}\label{structMRAC_1_1StateController_afb2694d4f01ef59b95c0489ed5ca1ef4}} 
 \index{MRAC::StateController@{MRAC::StateController}!state\_roll\_des\_filter@{state\_roll\_des\_filter}}
@@ -197,7 +202,7 @@ Definition at line 79 of file mrac.\+hpp.
 
 
 
-Definition at line 76 of file mrac.\+hpp.
+Definition at line 86 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_ac6b6c10896f927cd969ed901fbb63954}\label{structMRAC_1_1StateController_ac6b6c10896f927cd969ed901fbb63954}} 
 \index{MRAC::StateController@{MRAC::StateController}!state\_roll\_dot\_des\_filter@{state\_roll\_dot\_des\_filter}}
@@ -207,7 +212,7 @@ Definition at line 76 of file mrac.\+hpp.
 
 
 
-Definition at line 78 of file mrac.\+hpp.
+Definition at line 88 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a12c1d1b337be23a994b02259d4e1f1f4}\label{structMRAC_1_1StateController_a12c1d1b337be23a994b02259d4e1f1f4}} 
 \index{MRAC::StateController@{MRAC::StateController}!Theta\_hat\_rotational@{Theta\_hat\_rotational}}
@@ -217,7 +222,7 @@ Definition at line 78 of file mrac.\+hpp.
 
 
 
-Definition at line 90 of file mrac.\+hpp.
+Definition at line 100 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_ac1e0caaffc694d8ee079ded37aed18c1}\label{structMRAC_1_1StateController_ac1e0caaffc694d8ee079ded37aed18c1}} 
 \index{MRAC::StateController@{MRAC::StateController}!Theta\_hat\_translational@{Theta\_hat\_translational}}
@@ -227,7 +232,7 @@ Definition at line 90 of file mrac.\+hpp.
 
 
 
-Definition at line 86 of file mrac.\+hpp.
+Definition at line 96 of file mrac.\+hpp.
 
 \mbox{\Hypertarget{structMRAC_1_1StateController_a560ba95a934fbbf819b8b7de872a249b}\label{structMRAC_1_1StateController_a560ba95a934fbbf819b8b7de872a249b}} 
 \index{MRAC::StateController@{MRAC::StateController}!x\_ref\_translational@{x\_ref\_translational}}
@@ -237,7 +242,7 @@ Definition at line 86 of file mrac.\+hpp.
 
 
 
-Definition at line 82 of file mrac.\+hpp.
+Definition at line 92 of file mrac.\+hpp.
 
 
 

@@ -1,5 +1,5 @@
 <map id="include/flightstack/control/pid/logging_pid.hpp" name="include/flightstack/control/pid/logging_pid.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2076,5,2223,61"/>
+<area shape="rect" id="node1" title="Logger for the PID controller." alt="" coords="2076,5,2223,61"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,117,72,143"/>
 <area shape="rect" id="node3" title=" " alt="" coords="97,117,167,143"/>
 <area shape="rect" id="node4" title=" " alt="" coords="192,117,259,143"/>

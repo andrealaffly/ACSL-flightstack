@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file logging_pid.cpp
+ * @brief Logger for the PID controller
+ */
 #include "pid.hpp"
 #include "logging_pid.hpp"
 #include "multi_threaded_node.hpp"
@@ -42,12 +46,18 @@
 src::logger LogData_PID::logger_logdata;
 
 // Constructor
+/**
+ * @class LogData_PID
+ */
 LogData_PID::LogData_PID(MultiThreadedNode& node, PID& controller) :
   node_(node),
   controller_(controller)
 {}
 
 // Function to print headers
+/**
+ * @class LogData_PID
+ */
 void LogData_PID::logInitializeHeaders()
 {
 	std::ostringstream oss;

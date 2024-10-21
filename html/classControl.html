@@ -95,7 +95,7 @@ Collaboration diagram for Control:</div>
 <area shape="rect" title=" " alt="" coords="57,191,136,217"/>
 <area shape="rect" title=" " alt="" coords="57,265,137,292"/>
 <area shape="rect" href="structControl_1_1ControlReferences.html" title=" " alt="" coords="401,323,599,349"/>
-<area shape="rect" href="structVehicleInfo.html" title=" " alt="" coords="453,373,547,400"/>
+<area shape="rect" href="structVehicleInfo.html" title="Vehicle Info." alt="" coords="453,373,547,400"/>
 <area shape="rect" title=" " alt="" coords="57,372,137,399"/>
 <area shape="rect" href="classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,447,575,473"/>
 <area shape="rect" title=" " alt="" coords="45,423,148,449"/>
@@ -118,6 +118,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1eab73a95b10b5a63cbd8d800a758ead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControl.html#a1eab73a95b10b5a63cbd8d800a758ead">readJSONdifferentiatorFile</a> ()</td></tr>
 <tr class="separator:a1eab73a95b10b5a63cbd8d800a758ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cf6154e153dd758915a2bc161ed24c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMultiThreadedNode.html">MultiThreadedNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControl.html#a2cf6154e153dd758915a2bc161ed24c5">getNode</a> () const</td></tr>
+<tr class="memdesc:a2cf6154e153dd758915a2bc161ed24c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter functions.  <a href="classControl.html#a2cf6154e153dd758915a2bc161ed24c5">More...</a><br /></td></tr>
 <tr class="separator:a2cf6154e153dd758915a2bc161ed24c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af775d977d740a3592ad829951edee801"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structVehicleInfo.html">VehicleInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControl.html#af775d977d740a3592ad829951edee801">getVehicleInfo</a> () const</td></tr>
 <tr class="separator:af775d977d740a3592ad829951edee801"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a43af1baa60bf293e0e15ce1cf16ccc"><td class="memItemLeft" align="right" valign="top">const std::chrono::duration&lt; double, std::micro &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControl.html#a3a43af1baa60bf293e0e15ce1cf16ccc">getAlgorithmExecutionTimeMicroseconds</a> () const</td></tr>
 <tr class="separator:a3a43af1baa60bf293e0e15ce1cf16ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0d996fda796eaf7ab720ab1ee1d34c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControl.html#ae0d996fda796eaf7ab720ab1ee1d34c4">setAlgorithmExecutionTimeMicroseconds</a> (std::chrono::duration&lt; double, std::micro &gt; duration)</td></tr>
+<tr class="memdesc:ae0d996fda796eaf7ab720ab1ee1d34c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Algorithm Execution Time Microseconds object.  <a href="classControl.html#ae0d996fda796eaf7ab720ab1ee1d34c4">More...</a><br /></td></tr>
 <tr class="separator:ae0d996fda796eaf7ab720ab1ee1d34c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa589fd1c954f8d63a9ef995b8dd5ccb1"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControl.html#aa589fd1c954f8d63a9ef995b8dd5ccb1">jacobianMatrix</a> (const double &amp;roll, const double &amp;pitch)</td></tr>
 <tr class="separator:aa589fd1c954f8d63a9ef995b8dd5ccb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,7 +188,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00060">60</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00074">74</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4922b4ac95cc6c99d6495d199a2b0341"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4922b4ac95cc6c99d6495d199a2b0341">&#9670;&nbsp;</a></span>Control()</h2>
@@ -203,6 +205,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00093">93</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -250,8 +258,16 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td></td></tr>
+    <tr><td class="paramname">dxdt</td><td></td></tr>
+    <tr><td class="paramname">current_index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00173">173</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00244">244</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -270,6 +286,12 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cim</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00386">386</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -306,6 +328,14 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cim</td><td></td></tr>
+    <tr><td class="paramname">euler_angles_rpy</td><td></td></tr>
+    <tr><td class="paramname">angular_position_desired</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00423">423</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -336,6 +366,13 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cim</td><td></td></tr>
+    <tr><td class="paramname">vehicle_info</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00330">330</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -366,6 +403,13 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cim</td><td></td></tr>
+    <tr><td class="paramname">vehicle_info</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00291">291</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -396,6 +440,13 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cim</td><td></td></tr>
+    <tr><td class="paramname">cr</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00438">438</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -432,6 +483,14 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cim</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+    <tr><td class="paramname">desired_position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00409">409</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -478,8 +537,17 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e_vector</td><td></td></tr>
+    <tr><td class="paramname">delta</td><td></td></tr>
+    <tr><td class="paramname">e_0</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00197">197</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00274">274</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -535,6 +603,15 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Getter functions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMultiThreadedNode.html" title="Multithreaded Node Class.">MultiThreadedNode</a>&amp; </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00148">148</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -705,6 +782,12 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00113">113</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
@@ -762,6 +845,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Set the Algorithm Execution Time Microseconds object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00171">171</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
@@ -807,7 +898,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00219">219</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00296">296</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -831,7 +922,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00208">208</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00285">285</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -855,7 +946,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00210">210</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00287">287</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -879,7 +970,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00213">213</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00290">290</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -903,7 +994,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00217">217</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00294">294</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -918,8 +1009,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>define_const_stepper </p>
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00170">170</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00236">236</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -943,7 +1035,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00206">206</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00283">283</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>

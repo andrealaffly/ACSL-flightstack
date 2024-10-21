@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['thread_5fgroup_627',['thread_group',['../struct__drivers___1_1__common___1_1thread__group.html',1,'_drivers_::_common_']]]
+  ['statecontroller_630',['StateController',['../structMRAC_1_1StateController.html',1,'MRAC::StateController'],['../structPID_1_1StateController.html',1,'PID::StateController']]]
 ];

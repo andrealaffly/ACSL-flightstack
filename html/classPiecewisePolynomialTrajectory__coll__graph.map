@@ -7,5 +7,5 @@
 <area shape="rect" id="node6" href="$structConfigurationParameters.html" title="Configurations Parameters set from config.json." alt="" coords="185,5,368,32"/>
 <area shape="rect" id="node7" href="$structGlobalParameters.html" title="Global parameteres shared among all the program." alt="" coords="393,5,531,32"/>
 <area shape="rect" id="node8" title=" " alt="" coords="384,244,465,271"/>
-<area shape="rect" id="node9" href="$structPiecewisePolynomialTrajectoryInfo.html" title=" " alt="" coords="489,244,739,271"/>
+<area shape="rect" id="node9" href="$structPiecewisePolynomialTrajectoryInfo.html" title="Struct containing the trajectory info coming from the .json file." alt="" coords="489,244,739,271"/>
 </map>

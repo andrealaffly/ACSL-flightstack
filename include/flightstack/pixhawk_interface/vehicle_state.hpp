@@ -34,6 +34,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file vehicle_state.hpp
+ * @brief Class storing the state of the vehicle coming from the flight controller (Pixhawk)
+ */
+
 #ifndef VEHICLE_STATE_HPP
 #define VEHICLE_STATE_HPP
 
@@ -44,13 +49,24 @@
 #include <Eigen/Dense>
 
 // Forward declaration of MultiThreadedNode class
+/**
+ * @class MultiThreadedNode
+ */
 class MultiThreadedNode;
 
+/**
+ * @class VehicleState
+ */
 class VehicleState 
 {
 public:
 
   // Constructor
+  /**
+   * @brief Construct a new Vehicle State object
+   * 
+   * @param node 
+   */
   VehicleState(MultiThreadedNode& node);
 
   // Getter functions

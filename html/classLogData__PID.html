@@ -82,11 +82,11 @@ Collaboration diagram for LogData_PID:</div>
 <area shape="rect" href="classControl.html" title=" " alt="" coords="903,581,973,608"/>
 <area shape="rect" href="structControl_1_1ControlInternalMembers.html" title=" " alt="" coords="413,515,587,557"/>
 <area shape="rect" title=" " alt="" coords="57,425,136,452"/>
-<area shape="rect" href="structPID_1_1ControllerSpecificInternalMembers.html" title=" " alt="" coords="623,321,839,362"/>
+<area shape="rect" href="structPID_1_1ControllerSpecificInternalMembers.html" title="This struct contains the variables that are used in this particular controller." alt="" coords="623,321,839,362"/>
 <area shape="rect" title=" " alt="" coords="57,92,137,119"/>
 <area shape="rect" href="structGainsPID.html" title=" " alt="" coords="690,181,771,208"/>
 <area shape="rect" href="structControl_1_1ControlReferences.html" title=" " alt="" coords="401,632,599,659"/>
-<area shape="rect" href="structVehicleInfo.html" title=" " alt="" coords="453,581,547,608"/>
+<area shape="rect" href="structVehicleInfo.html" title="Vehicle Info." alt="" coords="453,581,547,608"/>
 <area shape="rect" title=" " alt="" coords="57,647,137,673"/>
 <area shape="rect" href="classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,719,575,745"/>
 <area shape="rect" title=" " alt="" coords="45,748,148,775"/>
@@ -99,10 +99,12 @@ Collaboration diagram for LogData_PID:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f6d889d0fc84df6d061338f6bcb243d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">LogData_PID</a> (<a class="el" href="classMultiThreadedNode.html">MultiThreadedNode</a> &amp;node, <a class="el" href="classPID.html">PID</a> &amp;controller)</td></tr>
+<tr class="memdesc:a8f6d889d0fc84df6d061338f6bcb243d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classLogData__PID.html">LogData_PID</a> object.  <a href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">More...</a><br /></td></tr>
 <tr class="separator:a8f6d889d0fc84df6d061338f6bcb243d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20029eb35bdcc8c59f1324110f3fea37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogData__PID.html#a20029eb35bdcc8c59f1324110f3fea37">logInitializeHeaders</a> ()</td></tr>
 <tr class="separator:a20029eb35bdcc8c59f1324110f3fea37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c155d8367fcf67a50efb89c543f076c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogData__PID.html#a5c155d8367fcf67a50efb89c543f076c">logInitializeLogging</a> ()</td></tr>
+<tr class="memdesc:a5c155d8367fcf67a50efb89c543f076c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize logging.  <a href="classLogData__PID.html#a5c155d8367fcf67a50efb89c543f076c">More...</a><br /></td></tr>
 <tr class="separator:a5c155d8367fcf67a50efb89c543f076c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecbeb96758605c3428c8dff19f0888e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogData__PID.html#aecbeb96758605c3428c8dff19f0888e4">logLogData</a> ()</td></tr>
 <tr class="separator:aecbeb96758605c3428c8dff19f0888e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,7 +123,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00086">86</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00099">99</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8f6d889d0fc84df6d061338f6bcb243d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f6d889d0fc84df6d061338f6bcb243d">&#9670;&nbsp;</a></span>LogData_PID()</h2>
@@ -149,7 +151,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00045">45</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
+<p>Construct a new <a class="el" href="classLogData__PID.html">LogData_PID</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">controller</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00052">52</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
 
 </div>
 </div>
@@ -168,8 +179,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00051">51</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00061">61</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
 
 </div>
 </div>
@@ -188,7 +205,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00164">164</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
+<p>Initialize logging. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00174">174</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
 
 </div>
 </div>
@@ -206,8 +231,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00246">246</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8cpp_source.html#l00256">256</a> of file <a class="el" href="logging__pid_8cpp_source.html">logging_pid.cpp</a>.</p>
 
 </div>
 </div>
@@ -232,7 +263,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00104">104</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00135">135</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -255,18 +286,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.</p>
-<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-<ol type="1">
-<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
-<li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
-</ol>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File: <a class="el" href="logging__pid_8cpp.html">logging_pid.cpp</a> Author: Mattia Gramuglia Date: April 18, 2024 For info: Andrea L'Afflitto <a href="#" onclick="location.href='mai'+'lto:'+'a.l'+'af'+'fli'+'tt'+'o@v'+'t.'+'edu'; return false;">a.laf<span style="display: none;">.nosp@m.</span>flit<span style="display: none;">.nosp@m.</span>to@vt<span style="display: none;">.nosp@m.</span>.edu</a></p>
-<p>Description: Logger for the <a class="el" href="classPID.html">PID</a> controller.</p>
-<p>GitHub: <a href="https://github.com/andrealaffly/ACSL-flightstack.git">https://github.com/andrealaffly/ACSL-flightstack.git</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00091">91</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00104">104</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -290,7 +311,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00102">102</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00133">133</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 
 </div>
 </div>

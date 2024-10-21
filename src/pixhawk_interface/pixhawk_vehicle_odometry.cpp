@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file pixhawk_vehicle_odometry.cpp
+ * @brief Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk
+ */
 #include "multi_threaded_node.hpp"
 #include "vehicle_state.hpp"
 

@@ -1,4 +1,5 @@
-/***********************************************************************************************************************
+///@cond
+/*********************************************************************************************************************** 
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
@@ -40,9 +41,9 @@
  *              See the License for the specific language governing permissions and
  *              limitations under the License.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        mocap.cpp
+ * @file mocap.cpp
  * Author:      Giri Mugundan Kumar
  * Date:        April 20, 2024
  * For info:    Andrea L'Afflitto 
@@ -51,16 +52,13 @@
  * Description: Node definition for UDP socket as a lifecycle node.
  *              Writes messages to pixhawk mocap_odometry topic for 
  *              EFK2 fusion.
+ * @brief Node definition for UDP socket as a lifecycle node.
+ * Writes messages to pixhawk mocap_odometry topic for EFK2 fusion.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #include "mocap.hpp"
-/**
- * @file mocap.cpp
- * @brief Node definition for UDP socket as a lifecycle node.
- * Writes messages to pixhawk mocap_odometry topic for EFK2 fusion.
- */
 
 namespace lc = rclcpp_lifecycle;
 using LNI = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface;
@@ -98,7 +96,6 @@ UdpReceiverNode::UdpReceiverNode(
  * @brief Get the parameters for the ip and port to ping
  * @param None
  */
-
 void UdpReceiverNode::get_params()
 {
   // m_ip = GROUND_STATION_IP; // For testing with internal port on groundstation

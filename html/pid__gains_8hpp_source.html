@@ -71,37 +71,37 @@ $(function() {
 <div class="contents">
 <a href="pid__gains_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifndef PID_GAINS_HPP</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define PID_GAINS_HPP</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#ifndef PID_GAINS_HPP</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#define PID_GAINS_HPP</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// Struct containing the PID tuning gains coming from the .json file </span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structGainsPID.html">   47</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structGainsPID.html">GainsPID</a> </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structGainsPID.html#a6a2de9d24ebd974cebfb40639d091c8f">   49</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a6a2de9d24ebd974cebfb40639d091c8f">KP_translational</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structGainsPID.html#a5a97fc799862bf18254a9449cd74299c">   50</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a5a97fc799862bf18254a9449cd74299c">KD_translational</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structGainsPID.html#a9b1d232b58fd2e8b8a472b5fe062bfe2">   51</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a9b1d232b58fd2e8b8a472b5fe062bfe2">KI_translational</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structGainsPID.html#adbe7de10c2adddabaa5ec0a9247ab67b">   53</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#adbe7de10c2adddabaa5ec0a9247ab67b">KP_rotational</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structGainsPID.html#a0405f0929d37dd7e4f6dfb8d63dab314">   54</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a0405f0929d37dd7e4f6dfb8d63dab314">KD_rotational</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structGainsPID.html#aa4fade2213575d4274901c8b9e220ee1">   55</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#aa4fade2213575d4274901c8b9e220ee1">KI_rotational</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// PID_GAINS_HPP</span></div>
-<div class="ttc" id="astructGainsPID_html"><div class="ttname"><a href="structGainsPID.html">GainsPID</a></div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00047">pid_gains.hpp:48</a></div></div>
-<div class="ttc" id="astructGainsPID_html_a0405f0929d37dd7e4f6dfb8d63dab314"><div class="ttname"><a href="structGainsPID.html#a0405f0929d37dd7e4f6dfb8d63dab314">GainsPID::KD_rotational</a></div><div class="ttdeci">Eigen::Matrix3d KD_rotational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00054">pid_gains.hpp:54</a></div></div>
-<div class="ttc" id="astructGainsPID_html_a5a97fc799862bf18254a9449cd74299c"><div class="ttname"><a href="structGainsPID.html#a5a97fc799862bf18254a9449cd74299c">GainsPID::KD_translational</a></div><div class="ttdeci">Eigen::Matrix3d KD_translational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00050">pid_gains.hpp:50</a></div></div>
-<div class="ttc" id="astructGainsPID_html_a6a2de9d24ebd974cebfb40639d091c8f"><div class="ttname"><a href="structGainsPID.html#a6a2de9d24ebd974cebfb40639d091c8f">GainsPID::KP_translational</a></div><div class="ttdeci">Eigen::Matrix3d KP_translational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00049">pid_gains.hpp:49</a></div></div>
-<div class="ttc" id="astructGainsPID_html_a9b1d232b58fd2e8b8a472b5fe062bfe2"><div class="ttname"><a href="structGainsPID.html#a9b1d232b58fd2e8b8a472b5fe062bfe2">GainsPID::KI_translational</a></div><div class="ttdeci">Eigen::Matrix3d KI_translational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00051">pid_gains.hpp:51</a></div></div>
-<div class="ttc" id="astructGainsPID_html_aa4fade2213575d4274901c8b9e220ee1"><div class="ttname"><a href="structGainsPID.html#aa4fade2213575d4274901c8b9e220ee1">GainsPID::KI_rotational</a></div><div class="ttdeci">Eigen::Matrix3d KI_rotational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00055">pid_gains.hpp:55</a></div></div>
-<div class="ttc" id="astructGainsPID_html_adbe7de10c2adddabaa5ec0a9247ab67b"><div class="ttname"><a href="structGainsPID.html#adbe7de10c2adddabaa5ec0a9247ab67b">GainsPID::KP_rotational</a></div><div class="ttdeci">Eigen::Matrix3d KP_rotational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00053">pid_gains.hpp:53</a></div></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// Struct containing the PID tuning gains coming from the .json file </span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structGainsPID.html">   55</a></span>&#160;<span class="comment"></span><span class="keyword">struct </span><a class="code" href="structGainsPID.html">GainsPID</a> </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structGainsPID.html#a6a2de9d24ebd974cebfb40639d091c8f">   57</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a6a2de9d24ebd974cebfb40639d091c8f">KP_translational</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structGainsPID.html#a5a97fc799862bf18254a9449cd74299c">   58</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a5a97fc799862bf18254a9449cd74299c">KD_translational</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structGainsPID.html#a9b1d232b58fd2e8b8a472b5fe062bfe2">   59</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a9b1d232b58fd2e8b8a472b5fe062bfe2">KI_translational</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structGainsPID.html#adbe7de10c2adddabaa5ec0a9247ab67b">   61</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#adbe7de10c2adddabaa5ec0a9247ab67b">KP_rotational</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structGainsPID.html#a0405f0929d37dd7e4f6dfb8d63dab314">   62</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#a0405f0929d37dd7e4f6dfb8d63dab314">KD_rotational</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structGainsPID.html#aa4fade2213575d4274901c8b9e220ee1">   63</a></span>&#160;  Eigen::Matrix3d <a class="code" href="structGainsPID.html#aa4fade2213575d4274901c8b9e220ee1">KI_rotational</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// PID_GAINS_HPP</span></div>
+<div class="ttc" id="astructGainsPID_html"><div class="ttname"><a href="structGainsPID.html">GainsPID</a></div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00055">pid_gains.hpp:56</a></div></div>
+<div class="ttc" id="astructGainsPID_html_a0405f0929d37dd7e4f6dfb8d63dab314"><div class="ttname"><a href="structGainsPID.html#a0405f0929d37dd7e4f6dfb8d63dab314">GainsPID::KD_rotational</a></div><div class="ttdeci">Eigen::Matrix3d KD_rotational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00062">pid_gains.hpp:62</a></div></div>
+<div class="ttc" id="astructGainsPID_html_a5a97fc799862bf18254a9449cd74299c"><div class="ttname"><a href="structGainsPID.html#a5a97fc799862bf18254a9449cd74299c">GainsPID::KD_translational</a></div><div class="ttdeci">Eigen::Matrix3d KD_translational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00058">pid_gains.hpp:58</a></div></div>
+<div class="ttc" id="astructGainsPID_html_a6a2de9d24ebd974cebfb40639d091c8f"><div class="ttname"><a href="structGainsPID.html#a6a2de9d24ebd974cebfb40639d091c8f">GainsPID::KP_translational</a></div><div class="ttdeci">Eigen::Matrix3d KP_translational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00057">pid_gains.hpp:57</a></div></div>
+<div class="ttc" id="astructGainsPID_html_a9b1d232b58fd2e8b8a472b5fe062bfe2"><div class="ttname"><a href="structGainsPID.html#a9b1d232b58fd2e8b8a472b5fe062bfe2">GainsPID::KI_translational</a></div><div class="ttdeci">Eigen::Matrix3d KI_translational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00059">pid_gains.hpp:59</a></div></div>
+<div class="ttc" id="astructGainsPID_html_aa4fade2213575d4274901c8b9e220ee1"><div class="ttname"><a href="structGainsPID.html#aa4fade2213575d4274901c8b9e220ee1">GainsPID::KI_rotational</a></div><div class="ttdeci">Eigen::Matrix3d KI_rotational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00063">pid_gains.hpp:63</a></div></div>
+<div class="ttc" id="astructGainsPID_html_adbe7de10c2adddabaa5ec0a9247ab67b"><div class="ttname"><a href="structGainsPID.html#adbe7de10c2adddabaa5ec0a9247ab67b">GainsPID::KP_rotational</a></div><div class="ttdeci">Eigen::Matrix3d KP_rotational</div><div class="ttdef"><b>Definition:</b> <a href="pid__gains_8hpp_source.html#l00061">pid_gains.hpp:61</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

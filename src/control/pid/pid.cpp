@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file pid.cpp
+ * @brief Immplementation of the PID controller
+ */
 #include "multi_threaded_node.hpp"
 #include "pid.hpp"
 #include "logging_pid.hpp"

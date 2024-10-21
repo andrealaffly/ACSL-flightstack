@@ -80,6 +80,7 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprojection__operator_1_1ConvexFunctionOutput.html">ConvexFunctionOutput</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct to hold the output of the convex function.  <a href="structprojection__operator_1_1ConvexFunctionOutput.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -94,16 +95,7 @@ Functions</h2></td></tr>
 <tr class="separator:a014a12740c7b88201fd00953da026f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.</p>
-<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-<ol type="1">
-<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
-<li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
-</ol>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File: <a class="el" href="projection__operator_8hpp.html">projection_operator.hpp</a> Author: Mattia Gramuglia Date: September 4, 2024 For info: Andrea L'Afflitto <a href="#" onclick="location.href='mai'+'lto:'+'a.l'+'af'+'fli'+'tt'+'o@v'+'t.'+'edu'; return false;">a.laf<span style="display: none;">.nosp@m.</span>flit<span style="display: none;">.nosp@m.</span>to@vt<span style="display: none;">.nosp@m.</span>.edu</a></p>
-<p>Description: Implementation of the projection operator to be used in the <a class="el" href="classMRAC.html">MRAC</a> controllers. For reference: A. L'Afflitto, "Notes on Adaptive Control and Estimation", Springer, Sec. 3.5. or E. Lavretsky, K. Wise, "Robust and Adaptive Control", Springer 2013, Sec. 11.4</p>
-<p>GitHub: <a href="https://github.com/andrealaffly/ACSL-flightstack.git">https://github.com/andrealaffly/ACSL-flightstack.git</a> </p>
+<div class="textblock"><p>For reference: A. L'Afflitto, "Notes on Adaptive Control and Estimation", Springer, Sec. 3.5. or E. Lavretsky, K. Wise, "Robust and Adaptive Control", Springer 2013, Sec. 11.4 </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a014a12740c7b88201fd00953da026f75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a014a12740c7b88201fd00953da026f75">&#9670;&nbsp;</a></span>computeEpsilonFromAlpha()</h2>
@@ -128,8 +120,9 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Compute the epsilon parameter from the scaling coefficient alpha </p>
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00085">85</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00094">94</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>
@@ -151,8 +144,9 @@ template&lt;typename Derived &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Generate the matrix S from the ellipsoid semi-axis length terms contained in the column vector S_diagonal. If S = diag(1/a^2, 1/b^2, 1/c^2) then the semi-axis lengths are [a, b, c]. </p>
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00069">69</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00078">78</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>
@@ -174,8 +168,9 @@ template&lt;typename Derived &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Generate the matrix S from its diagonal terms contained in the column vector S_diagonal </p>
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00051">51</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00060">60</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>

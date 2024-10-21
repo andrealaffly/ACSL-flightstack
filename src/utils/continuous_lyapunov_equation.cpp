@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,7 +22,7 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************  
  * Part of the code in this file leverages the following material.
  *
@@ -77,7 +78,17 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file continuous_lyapunov_equation.cpp
+ * @brief Computes the solution of the continuos Lyapunov equation
+ * 
+ * WARNING !!!
+ * The following code uses a different convention than MATLAB's.
+ * This code solves the equation: `AᵀX + XA + Q = 0`
+ * MATLAB command "lyap(A, Q)" solves the equation: `AX + XAᵀ + Q = 0`
+ * So this code provides the same result as obtained in MATLAB using 
+ * the command: lyap(A', Q)!!!!!!!!!!!
+ */
 #include <cmath>
 #include <complex>
 #include <limits>
@@ -101,7 +112,12 @@ bool is_approx_equal_abstol(const Eigen::MatrixXd& A, const Eigen::MatrixXd& B, 
 }
 }  // namespace
 
-
+/**
+ * @brief Equation of the Real Continuous Lyapunov Equation
+ * @param A 
+ * @param Q 
+ * @return MatrixXd 
+ */
 MatrixXd RealContinuousLyapunovEquation(const Eigen::Ref<const MatrixXd>& A,
                                         const Eigen::Ref<const MatrixXd>& Q) {
   if (A.rows() != A.cols() || Q.rows() != Q.cols() || A.rows() != Q.rows()) {

@@ -34,12 +34,19 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file mrac.cpp
+ * @brief Implementation of the MRAC controller
+ */
 #include "multi_threaded_node.hpp"
 #include "mrac.hpp"
 #include "logging_mrac.hpp"
 #include "json_parser.hpp"
 
 // Constructor
+/**
+ * @class MRAC
+ */
 MRAC::MRAC(MultiThreadedNode& node) : 
   Control(node)
 {

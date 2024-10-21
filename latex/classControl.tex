@@ -37,7 +37,7 @@ struct \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}
 void \mbox{\hyperlink{classControl_a1eab73a95b10b5a63cbd8d800a758ead}{read\+JSONdifferentiator\+File}} ()
 \item 
 \mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \& \mbox{\hyperlink{classControl_a2cf6154e153dd758915a2bc161ed24c5}{get\+Node}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Getter functions. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \& \mbox{\hyperlink{classControl_af775d977d740a3592ad829951edee801}{get\+Vehicle\+Info}} () const
 \item 
 const \mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \& \mbox{\hyperlink{classControl_ad0466904a92578730543a75df5cfa827}{get\+Control\+Internal\+Members}} () const
@@ -45,7 +45,7 @@ const \mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Interna
 const std\+::chrono\+::duration$<$ double, std\+::micro $>$ \& \mbox{\hyperlink{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}{get\+Algorithm\+Execution\+Time\+Microseconds}} () const
 \item 
 void \mbox{\hyperlink{classControl_ae0d996fda796eaf7ab720ab1ee1d34c4}{set\+Algorithm\+Execution\+Time\+Microseconds}} (std\+::chrono\+::duration$<$ double, std\+::micro $>$ duration)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the Algorithm Execution Time Microseconds object. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix3d \mbox{\hyperlink{classControl_aa589fd1c954f8d63a9ef995b8dd5ccb1}{jacobian\+Matrix}} (const double \&roll, const double \&pitch)
 \item 
 Eigen\+::\+Matrix3d \mbox{\hyperlink{classControl_a4c5af85d65d8e66614eb97f0232d9b2d}{jacobian\+Matrix\+Dot}} (const double \&roll, const double \&pitch, const double \&roll\+\_\+dot, const double \&pitch\+\_\+dot)
@@ -105,7 +105,7 @@ std\+::chrono\+::duration$<$ double, std\+::micro $>$ \mbox{\hyperlink{classCont
 \doxysubsection{Detailed Description}
 
 
-Definition at line 60 of file control.\+hpp.
+Definition at line 74 of file control.\+hpp.
 
 
 
@@ -116,6 +116,11 @@ Definition at line 60 of file control.\+hpp.
 \doxysubsubsection{\texorpdfstring{Control()}{Control()}}
 {\footnotesize\ttfamily Control\+::\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 93 of file control.\+cpp.
@@ -131,8 +136,17 @@ Definition at line 93 of file control.\+cpp.
 void Control\+::assign\+Elements\+To\+Dxdt (\begin{DoxyParamCaption}\item[{T \&}]{entity,  }\item[{\mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} \&}]{dxdt,  }\item[{int \&}]{current\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em dxdt} & \\
+\hline
+{\em current\+\_\+index} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 173 of file control.\+hpp.
+
+Definition at line 244 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a4859f39257b9384c051316c0cf02398b}\label{classControl_a4859f39257b9384c051316c0cf02398b}} 
 \index{Control@{Control}!compute\_U1\_RollDes\_PitchDes@{compute\_U1\_RollDes\_PitchDes}}
@@ -140,6 +154,11 @@ Definition at line 173 of file control.\+hpp.
 \doxysubsubsection{\texorpdfstring{compute\_U1\_RollDes\_PitchDes()}{compute\_U1\_RollDes\_PitchDes()}}
 {\footnotesize\ttfamily void Control\+::compute\+\_\+\+U1\+\_\+\+Roll\+Des\+\_\+\+Pitch\+Des (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim }\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 386 of file control.\+cpp.
@@ -151,6 +170,15 @@ Definition at line 386 of file control.\+cpp.
 {\footnotesize\ttfamily void Control\+::compute\+Angular\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{const Eigen\+::\+Vector3d \&}]{euler\+\_\+angles\+\_\+rpy,  }\item[{const Eigen\+::\+Vector3d \&}]{angular\+\_\+position\+\_\+desired }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em euler\+\_\+angles\+\_\+rpy} & \\
+\hline
+{\em angular\+\_\+position\+\_\+desired} & \\
+\hline
+\end{DoxyParams}
+
 
 Definition at line 423 of file control.\+cpp.
 
@@ -160,6 +188,13 @@ Definition at line 423 of file control.\+cpp.
 \doxysubsubsection{\texorpdfstring{computeNormalizedThrust()}{computeNormalizedThrust()}}
 {\footnotesize\ttfamily void Control\+::compute\+Normalized\+Thrust (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info }\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em vehicle\+\_\+info} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 330 of file control.\+cpp.
@@ -171,6 +206,13 @@ Definition at line 330 of file control.\+cpp.
 {\footnotesize\ttfamily void Control\+::compute\+Normalized\+Thrust\+Quadcopter\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em vehicle\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+
 
 Definition at line 291 of file control.\+cpp.
 
@@ -181,6 +223,13 @@ Definition at line 291 of file control.\+cpp.
 {\footnotesize\ttfamily void Control\+::compute\+Rotational\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&}]{cr }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em cr} & \\
+\hline
+\end{DoxyParams}
+
 
 Definition at line 438 of file control.\+cpp.
 
@@ -190,6 +239,15 @@ Definition at line 438 of file control.\+cpp.
 \doxysubsubsection{\texorpdfstring{computeTranslationalPositionError()}{computeTranslationalPositionError()}}
 {\footnotesize\ttfamily void Control\+::compute\+Translational\+Position\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{const Eigen\+::\+Vector3d \&}]{position,  }\item[{const Eigen\+::\+Vector3d \&}]{desired\+\_\+position }\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em position} & \\
+\hline
+{\em desired\+\_\+position} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 409 of file control.\+cpp.
@@ -202,8 +260,20 @@ Definition at line 409 of file control.\+cpp.
 double Control\+::dead\+Zone\+Modulation\+Function (\begin{DoxyParamCaption}\item[{const T \&}]{e\+\_\+vector,  }\item[{const double \&}]{delta,  }\item[{const double \&}]{e\+\_\+0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
+\begin{DoxyParams}{Parameters}
+{\em e\+\_\+vector} & \\
+\hline
+{\em delta} & \\
+\hline
+{\em e\+\_\+0} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
 
-Definition at line 197 of file control.\+hpp.
+
+Definition at line 274 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}\label{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}} 
 \index{Control@{Control}!getAlgorithmExecutionTimeMicroseconds@{getAlgorithmExecutionTimeMicroseconds}}
@@ -231,6 +301,18 @@ Definition at line 159 of file control.\+cpp.
 \doxysubsubsection{\texorpdfstring{getNode()}{getNode()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \& Control\+::get\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Getter functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}}\& 
+\end{DoxyReturn}
 
 
 Definition at line 148 of file control.\+cpp.
@@ -292,6 +374,11 @@ Definition at line 474 of file control.\+cpp.
 {\footnotesize\ttfamily void Control\+::read\+JSONdifferentiator\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
 
 Definition at line 113 of file control.\+cpp.
 
@@ -311,6 +398,15 @@ Definition at line 253 of file control.\+cpp.
 \doxysubsubsection{\texorpdfstring{setAlgorithmExecutionTimeMicroseconds()}{setAlgorithmExecutionTimeMicroseconds()}}
 {\footnotesize\ttfamily void Control\+::set\+Algorithm\+Execution\+Time\+Microseconds (\begin{DoxyParamCaption}\item[{std\+::chrono\+::duration$<$ double, std\+::micro $>$}]{duration }\end{DoxyParamCaption})}
 
+
+
+Set the Algorithm Execution Time Microseconds object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 171 of file control.\+cpp.
@@ -336,7 +432,7 @@ Definition at line 465 of file control.\+cpp.
 
 
 
-Definition at line 219 of file control.\+hpp.
+Definition at line 296 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_ae617f475a998d077429d22807fe9ff89}\label{classControl_ae617f475a998d077429d22807fe9ff89}} 
 \index{Control@{Control}!cim@{cim}}
@@ -346,7 +442,7 @@ Definition at line 219 of file control.\+hpp.
 
 
 
-Definition at line 208 of file control.\+hpp.
+Definition at line 285 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a72c21299fee71707c64758f1c3e72406}\label{classControl_a72c21299fee71707c64758f1c3e72406}} 
 \index{Control@{Control}!cr@{cr}}
@@ -356,7 +452,7 @@ Definition at line 208 of file control.\+hpp.
 
 
 
-Definition at line 210 of file control.\+hpp.
+Definition at line 287 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_aa8d388b470751180ac3c8a95aa19ab81}\label{classControl_aa8d388b470751180ac3c8a95aa19ab81}} 
 \index{Control@{Control}!e3\_basis@{e3\_basis}}
@@ -366,7 +462,7 @@ Definition at line 210 of file control.\+hpp.
 
 
 
-Definition at line 213 of file control.\+hpp.
+Definition at line 290 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_ab527a7573a89e2a435ead0578c40ba07}\label{classControl_ab527a7573a89e2a435ead0578c40ba07}} 
 \index{Control@{Control}!node\_@{node\_}}
@@ -376,7 +472,7 @@ Definition at line 213 of file control.\+hpp.
 
 
 
-Definition at line 217 of file control.\+hpp.
+Definition at line 294 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a6929ceaeb95d02424bac55b29178ef32}\label{classControl_a6929ceaeb95d02424bac55b29178ef32}} 
 \index{Control@{Control}!stepper@{stepper}}
@@ -384,9 +480,9 @@ Definition at line 217 of file control.\+hpp.
 \doxysubsubsection{\texorpdfstring{stepper}{stepper}}
 {\footnotesize\ttfamily runge\+\_\+kutta4$<$ \mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} $>$ Control\+::stepper}
 
+define\+\_\+const\+\_\+stepper 
 
-
-Definition at line 170 of file control.\+hpp.
+Definition at line 236 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_abf64312fbd5890115a4341e12358274a}\label{classControl_abf64312fbd5890115a4341e12358274a}} 
 \index{Control@{Control}!vehicle\_info@{vehicle\_info}}
@@ -396,7 +492,7 @@ Definition at line 170 of file control.\+hpp.
 
 
 
-Definition at line 206 of file control.\+hpp.
+Definition at line 283 of file control.\+hpp.
 
 
 

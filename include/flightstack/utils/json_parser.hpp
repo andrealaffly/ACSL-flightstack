@@ -34,6 +34,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file json_parser.hpp
+ * @brief Utility functions to parse JSON files
+ */
+
 #ifndef JSON_PARSER_HPP
 #define JSON_PARSER_HPP
 
@@ -43,8 +48,17 @@
 
 #include <Eigen/Dense>
 
+/**
+ * @struct MotorCommands
+ * @param std::strings& jsonFile
+ */
 struct MotorsCommands {
 
+	/**
+	 * @brief read the json config file
+	 * 
+	 * @param jsonFile 
+	 */
 	void readJSONConfig(const std::string& jsonFile);
 
 	float motor_1;
@@ -57,12 +71,17 @@ struct MotorsCommands {
 	float motor_8;
 };
 
-/*
- *	Function to extract a Matrix from JSON and populate a Eigen matrix
- *	Examples of usage:
- *		Eigen::Matrix<double, 3, 3> matrix33d = extractMatrixFromJSON<double, 3, 3>(jsonMatrix);
- *		Eigen::Matrix<float, 4, 4> matrix44f = extractMatrixFromJSON<float, 4, 4>(jsonMatrix);
-**/
+/**
+ * @brief Function to extract a Matrix from JSON and populate a Eigen matrix
+ *  Examples of usage:
+ *	Eigen::Matrix<double, 3, 3> matrix33d = extractMatrixFromJSON<double, 3, 3>(jsonMatrix);
+ *	Eigen::Matrix<float, 4, 4> matrix44f = extractMatrixFromJSON<float, 4, 4>(jsonMatrix);
+ * @tparam Scalar 
+ * @tparam Rows 
+ * @tparam Cols 
+ * @param jsonMatrix 
+ * @return Eigen::Matrix<Scalar, Rows, Cols> 
+ */
 template<typename Scalar, int Rows, int Cols>
 inline Eigen::Matrix<Scalar, Rows, Cols> extractMatrixFromJSON(const nlohmann::json& jsonMatrix)
 {

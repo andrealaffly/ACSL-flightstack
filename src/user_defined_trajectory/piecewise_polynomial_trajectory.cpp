@@ -36,6 +36,13 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file piecewise_polynomial_trajectory.cpp
+ * @brief Piecewise polynomial minimu-jerk trajectory computed offline through a MATLAB script
+ * 
+ * The heading (yaw) angle is kept tangential to the trajectory in the X-Y plane and computed online
+ * along with its first and second derivative.
+ */
 #include <fstream>
 #include <nlohmann/json.hpp>
 
@@ -347,6 +354,12 @@ void PiecewisePolynomialTrajectory::updateUserDefinedYaw()
 */
 
 // Function to assign polynomial coefficients to designated variables
+/**
+ * @brief Function to assign polynomisl coefficients to designated variables
+ * 
+ * @param poly_coeff_matrix_in 
+ * @return std::vector<Eigen::MatrixXd> 
+ */
 std::vector<Eigen::MatrixXd> polyCoefAssigning(const std::vector<std::vector<double>>& poly_coeff_matrix_in) 
 {
   // Get the size of the input matrix
@@ -375,6 +388,12 @@ std::vector<Eigen::MatrixXd> polyCoefAssigning(const std::vector<std::vector<dou
 }
 
 // Function to compute the derivative of the piecewise polynomial coefficient matrix
+/**
+ * @brief Function to compute the derivative of the piecewise polynomial coefficient matrix
+ * 
+ * @param poly_coeff_matrix_in 
+ * @return Eigen::MatrixXd 
+ */
 Eigen::MatrixXd polyDerMatrix(const Eigen::MatrixXd& poly_coeff_matrix_in)
 {
   // Get the size of the input matrix
@@ -395,6 +414,13 @@ Eigen::MatrixXd polyDerMatrix(const Eigen::MatrixXd& poly_coeff_matrix_in)
 }
 
 // Adjusts the time to be fed to the various polynomials and identifies the segment of the trajectory
+/**
+ * @brief Adjusts the time to be fed to the various polynomials and identifies the segment of the trajectory
+ * 
+ * @param time_waypoint_vector 
+ * @param time 
+ * @return std::pair<double, int> 
+ */
 std::pair<double, int> polynomialTimeAdjusted(const std::vector<double>& time_waypoint_vector, double time)
  {
   int num_waypoints = time_waypoint_vector.size();
@@ -413,6 +439,13 @@ std::pair<double, int> polynomialTimeAdjusted(const std::vector<double>& time_wa
 }
 
 // Function to evaluate a polynomial given its coefficients and a value at which to evaluate the polynomial
+/**
+ * @brief Functio to evaluate a polynomial given its coefficients and a value at which to evaluate the polynomial
+ * 
+ * @param coefficients 
+ * @param value 
+ * @return double 
+ */
 double evaluatePolynomial(const Eigen::VectorXd& coefficients, double value)
 {
   double result = 0;
@@ -424,6 +457,14 @@ double evaluatePolynomial(const Eigen::VectorXd& coefficients, double value)
 }
 
 // Compute the 2D norm using polynomial coefficients
+/**
+ * @brief Computed the 2D norm using polynomial coefficients
+ * 
+ * @param poly_coef_x 
+ * @param poly_coef_y 
+ * @param t 
+ * @return double 
+ */
 double norm2D(const Eigen::VectorXd& poly_coef_x, const Eigen::VectorXd& poly_coef_y, double t)
 {
   double norm_value = std::sqrt(std::pow(evaluatePolynomial(poly_coef_x, t), 2) +
@@ -432,6 +473,16 @@ double norm2D(const Eigen::VectorXd& poly_coef_x, const Eigen::VectorXd& poly_co
 }
 
 // Compute the derivative of the 2D norm using polynomial coefficients and their derivatives
+/**
+ * @brief Compute the derivative of the 2D norm using polynomial coefficients and their derivatives
+ * 
+ * @param poly_coef_x 
+ * @param poly_coef_y 
+ * @param poly_coef_x_prime 
+ * @param poly_coef_y_prime 
+ * @param t 
+ * @return double 
+ */
 double norm2Dderivative(const Eigen::VectorXd& poly_coef_x,
                         const Eigen::VectorXd& poly_coef_y,
                         const Eigen::VectorXd& poly_coef_x_prime,
@@ -446,6 +497,14 @@ double norm2Dderivative(const Eigen::VectorXd& poly_coef_x,
 }
 
 // Compute the user-defined yaw from the trajectory velocity in the XY plane
+/**
+ * @brief Compute the user-defined yaw from the trajectory velocity in the XY plane
+ * 
+ * @param Vx_coef 
+ * @param Vy_coef 
+ * @param t 
+ * @return double 
+ */
 double yawComputation(const Eigen::VectorXd& Vx_coef, const Eigen::VectorXd& Vy_coef, double t)
 {
   // Compute the velocity components Vx and Vy at time t using polynomial coefficients
@@ -459,6 +518,16 @@ double yawComputation(const Eigen::VectorXd& Vx_coef, const Eigen::VectorXd& Vy_
 }
 
 // Compute the user-defined yaw_dot from the trajectory velocity in the XY plane
+/**
+ * @brief Compute the user-defined yaw_dot from the trajecotry velocity in the XY plane
+ * 
+ * @param Vx_coef 
+ * @param Vy_coef 
+ * @param Ax_coef 
+ * @param Ay_coef 
+ * @param t 
+ * @return double 
+ */
 double yawDotComputation(const Eigen::VectorXd& Vx_coef, const Eigen::VectorXd& Vy_coef,
                          const Eigen::VectorXd& Ax_coef, const Eigen::VectorXd& Ay_coef, double t)
 {
@@ -483,6 +552,18 @@ double yawDotComputation(const Eigen::VectorXd& Vx_coef, const Eigen::VectorXd& 
 }
 
 // Compute the user-defined yaw_dot_dot from the trajectory velocity in the XY plane
+/**
+ * @brief Compute the user-defined yaw_dot_dot from the trajectory velocity in the XY plane
+ * 
+ * @param Vx_coef 
+ * @param Vy_coef 
+ * @param Ax_coef 
+ * @param Ay_coef 
+ * @param Jx_coef 
+ * @param Jy_coef 
+ * @param t 
+ * @return double 
+ */
 double yawDotDotComputation(const Eigen::VectorXd& Vx_coef, const Eigen::VectorXd& Vy_coef,
                             const Eigen::VectorXd& Ax_coef, const Eigen::VectorXd& Ay_coef,
                             const Eigen::VectorXd& Jx_coef, const Eigen::VectorXd& Jy_coef,
@@ -490,6 +571,8 @@ double yawDotDotComputation(const Eigen::VectorXd& Vx_coef, const Eigen::VectorX
 {
   // Compute the jerk components Jx and Jy at time t using polynomial coefficients
   double Jx = evaluatePolynomial(Jx_coef, t);
+
+  // Compute the jerk component Jx at time t using polynomial coefficients
   double Jy = evaluatePolynomial(Jy_coef, t);
   
   // Compute the jerk angle in the complex plane
@@ -497,6 +580,8 @@ double yawDotDotComputation(const Eigen::VectorXd& Vx_coef, const Eigen::VectorX
 
   // Compute the velocity and jerk norms
   double velocity_norm = norm2D(Vx_coef, Vy_coef, t);
+
+  // Compute the jerk norms
   double jerk_norm = norm2D(Jx_coef, Jy_coef, t);
 
   // Compute the derivative of the velocity norm

@@ -33,11 +33,11 @@ Collaboration diagram for Multi\+Threaded\+Node\+:\nopagebreak
 \mbox{\hyperlink{classMultiThreadedNode_acf3f13eb8c6ee1756fb67641c6cfc5df}{Multi\+Threaded\+Node}} (rclcpp\+::\+Node\+Options options)
 \item 
 void \mbox{\hyperlink{classMultiThreadedNode_a3e43ba5b6ff6847e1fa5d3faaec566f1}{arm}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Sends a commnand to arm the vehicle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_a64a130cbec9f2d2027a54c76c531c5cb}{disarm}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Sends a command to disarm the vehicle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_a1884413028ad5fe60a5dbe5243c04f35}{update\+Current\+Time\+In\+Seconds}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Publish the offboard control mode. \end{DoxyCompactList}\item 
 const std\+::atomic$<$ uint64\+\_\+t $>$ \& \mbox{\hyperlink{classMultiThreadedNode_afe6c0512fc7d522f1f18ac98848d0eac}{get\+Initial\+Timestamp}} () const
 \item 
 const std\+::atomic$<$ double $>$ \& \mbox{\hyperlink{classMultiThreadedNode_afdc4cb3977d0995d1224eaebdb547981}{get\+Current\+Time}} () const
@@ -56,19 +56,19 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{config_8hpp_aa00283f0401d9c8b44adfba3
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classMultiThreadedNode_ab8460ca77b2d16dd46a76fd413f1832c}{subscriber\+\_\+pixhawk\+\_\+odometry\+\_\+callback}} (const px4\+\_\+msgs\+::msg\+::\+Vehicle\+Odometry\+::\+Unique\+Ptr msg)
-\item 
+\begin{DoxyCompactList}\small\item\em Callback function that is executed everytime a Vehicle\+Odometry message is made available by Pixhawk. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_a7f3494d3839fd72c82cdc61f2e2aa595}{setup\+Pixhawk\+Odometry\+Subscriber}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Callback Group 2. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_ae607627f105e3a51c8194cb145f0c874}{publisher\+\_\+actuator\+\_\+motors\+\_\+callback}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Callback function that is executed at a fixed specified rate defined by the \char`\"{}timer\+\_\+actuator\+\_\+motors\+\_\+\char`\"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_a52cd54af68bbd8b66b98a49c5ce0176e}{publish\+\_\+offboard\+\_\+control\+\_\+mode}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Publish the offboard control mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_a731dcb5372c0bf6243c1d98f06273214}{publish\+\_\+actuator\+\_\+motors}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Publish a actuator\+\_\+motors command. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_a22e30812ba3dc80adb08ebb98f15fe50}{publish\+\_\+vehicle\+\_\+command}} (uint16\+\_\+t command, float param1=0.\+0, float param2=0.\+0)
 \item 
 void \mbox{\hyperlink{classMultiThreadedNode_a2b074e49df699d19256cd5ffbfed75df}{go\+Into\+Offboard\+Mode}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Change into Offboard\+Mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMultiThreadedNode_a5a8ee8fa0287f22cd5fbcdbb58f8507e}{setup\+Pixhawk\+Actuator\+Motors\+Publisher}} ()
 \item 
 void \mbox{\hyperlink{classMultiThreadedNode_a29e2a88bd089c045217696d20095c45f}{controller\+\_\+callback}} ()
@@ -113,9 +113,11 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{config_8hpp_aa00283f0401d9c8b44adfba3
 \doxysubsection{Detailed Description}
 Multithreaded Node Class. 
 
+Forward decleration of \mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} class
+
 Multithreaded Node Class 
 
-Definition at line 76 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 77 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
@@ -126,6 +128,11 @@ Definition at line 76 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 \doxysubsubsection{\texorpdfstring{MultiThreadedNode()}{MultiThreadedNode()}}
 {\footnotesize\ttfamily Multi\+Threaded\+Node\+::\+Multi\+Threaded\+Node (\begin{DoxyParamCaption}\item[{rclcpp\+::\+Node\+Options}]{options }\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em options} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 44 of file multi\+\_\+threaded\+\_\+node.\+cpp.
@@ -141,7 +148,16 @@ Definition at line 44 of file multi\+\_\+threaded\+\_\+node.\+cpp.
 
 
 
-Definition at line 85 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
+Sends a commnand to arm the vehicle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a024d16e0aa453af2b403a09d162ce778}\label{classMultiThreadedNode_a024d16e0aa453af2b403a09d162ce778}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!controller\_and\_publisher\_actuator\_motors\_callback@{controller\_and\_publisher\_actuator\_motors\_callback}}
@@ -170,7 +186,7 @@ Callback function that is executed at a fixed specified rate defined by the \cha
 \end{DoxyParams}
 
 
-Definition at line 47 of file control\+\_\+callback.\+cpp.
+Definition at line 48 of file control\+\_\+callback.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a64a130cbec9f2d2027a54c76c531c5cb}\label{classMultiThreadedNode_a64a130cbec9f2d2027a54c76c531c5cb}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!disarm@{disarm}}
@@ -180,7 +196,16 @@ Definition at line 47 of file control\+\_\+callback.\+cpp.
 
 
 
-Definition at line 95 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
+Sends a command to disarm the vehicle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 101 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a95e65a25648c9891f7b8bd1557309fa2}\label{classMultiThreadedNode_a95e65a25648c9891f7b8bd1557309fa2}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!getConfigurationParameters@{getConfigurationParameters}}
@@ -260,7 +285,16 @@ Definition at line 101 of file multi\+\_\+threaded\+\_\+node.\+cpp.
 
 
 
-Definition at line 208 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
+Change into Offboard\+Mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em NOne} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a731dcb5372c0bf6243c1d98f06273214}\label{classMultiThreadedNode_a731dcb5372c0bf6243c1d98f06273214}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!publish\_actuator\_motors@{publish\_actuator\_motors}}
@@ -270,7 +304,16 @@ Definition at line 208 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 
 
-Definition at line 123 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
+Publish a actuator\+\_\+motors command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em NOne} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a52cd54af68bbd8b66b98a49c5ce0176e}\label{classMultiThreadedNode_a52cd54af68bbd8b66b98a49c5ce0176e}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!publish\_offboard\_control\_mode@{publish\_offboard\_control\_mode}}
@@ -280,7 +323,16 @@ Definition at line 123 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 
 
-Definition at line 105 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
+Publish the offboard control mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 109 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a22e30812ba3dc80adb08ebb98f15fe50}\label{classMultiThreadedNode_a22e30812ba3dc80adb08ebb98f15fe50}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!publish\_vehicle\_command@{publish\_vehicle\_command}}
@@ -289,8 +341,17 @@ Definition at line 105 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 {\footnotesize\ttfamily void Multi\+Threaded\+Node\+::publish\+\_\+vehicle\+\_\+command (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{command,  }\item[{float}]{param1 = {\ttfamily 0.0},  }\item[{float}]{param2 = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+{\em param1} & \\
+\hline
+{\em param2} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 192 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
+
+Definition at line 196 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_ae607627f105e3a51c8194cb145f0c874}\label{classMultiThreadedNode_ae607627f105e3a51c8194cb145f0c874}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!publisher\_actuator\_motors\_callback@{publisher\_actuator\_motors\_callback}}
@@ -298,24 +359,21 @@ Definition at line 192 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 \doxysubsubsection{\texorpdfstring{publisher\_actuator\_motors\_callback()}{publisher\_actuator\_motors\_callback()}}
 {\footnotesize\ttfamily void Multi\+Threaded\+Node\+::publisher\+\_\+actuator\+\_\+motors\+\_\+callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
 
 
-\begin{DoxyEnumerate}
-\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-\end{DoxyEnumerate}
+Callback function that is executed at a fixed specified rate defined by the \char`\"{}timer\+\_\+actuator\+\_\+motors\+\_\+\char`\"{}. 
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{pixhawk__actuator__motors_8cpp}{pixhawk\+\_\+actuator\+\_\+motors.\+cpp}} Author\+: Mattia Gramuglia Date\+: April 9, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
 
-Description\+: Callback that is executed at a fixed specified rate defined by the \char`\"{}timer\+\_\+controller\+\_\+\char`\"{}. Here are the functions needed to publish to Pixhawk the actuators control inputs.
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+void \mbox{\hyperlink{classMultiThreadedNode_ae607627f105e3a51c8194cb145f0c874}{Multi\+Threaded\+Node\+::publisher\+\_\+actuator\+\_\+motors\+\_\+callback()}} 
+\end{DoxySeeAlso}
 
-Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
 
-Definition at line 43 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
+Definition at line 53 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a5a8ee8fa0287f22cd5fbcdbb58f8507e}\label{classMultiThreadedNode_a5a8ee8fa0287f22cd5fbcdbb58f8507e}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!setupPixhawkActuatorMotorsPublisher@{setupPixhawkActuatorMotorsPublisher}}
@@ -323,6 +381,11 @@ Definition at line 43 of file pixhawk\+\_\+actuator\+\_\+motors.\+cpp.
 \doxysubsubsection{\texorpdfstring{setupPixhawkActuatorMotorsPublisher()}{setupPixhawkActuatorMotorsPublisher()}}
 {\footnotesize\ttfamily void Multi\+Threaded\+Node\+::setup\+Pixhawk\+Actuator\+Motors\+Publisher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 153 of file multi\+\_\+threaded\+\_\+node.\+cpp.
@@ -335,6 +398,15 @@ Definition at line 153 of file multi\+\_\+threaded\+\_\+node.\+cpp.
 
 
 
+Callback Group 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
 Definition at line 120 of file multi\+\_\+threaded\+\_\+node.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_ab8460ca77b2d16dd46a76fd413f1832c}\label{classMultiThreadedNode_ab8460ca77b2d16dd46a76fd413f1832c}} 
@@ -345,13 +417,26 @@ Definition at line 120 of file multi\+\_\+threaded\+\_\+node.\+cpp.
 
 
 
-Definition at line 45 of file pixhawk\+\_\+vehicle\+\_\+odometry.\+cpp.
+Callback function that is executed everytime a Vehicle\+Odometry message is made available by Pixhawk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file pixhawk\+\_\+vehicle\+\_\+odometry.\+cpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a1884413028ad5fe60a5dbe5243c04f35}\label{classMultiThreadedNode_a1884413028ad5fe60a5dbe5243c04f35}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!updateCurrentTimeInSeconds@{updateCurrentTimeInSeconds}}
 \index{updateCurrentTimeInSeconds@{updateCurrentTimeInSeconds}!MultiThreadedNode@{MultiThreadedNode}}
 \doxysubsubsection{\texorpdfstring{updateCurrentTimeInSeconds()}{updateCurrentTimeInSeconds()}}
 {\footnotesize\ttfamily void Multi\+Threaded\+Node\+::update\+Current\+Time\+In\+Seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Publish the offboard control mode. 
 
 
 
@@ -368,7 +453,7 @@ Definition at line 80 of file multi\+\_\+threaded\+\_\+node.\+cpp.
 
 CALLBACK GROUP 2 
 
-Definition at line 120 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 143 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_aeaaf962afa503855e78602b2c5593828}\label{classMultiThreadedNode_aeaaf962afa503855e78602b2c5593828}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!callback\_group\_sub\_pixhawk\_odometry\_@{callback\_group\_sub\_pixhawk\_odometry\_}}
@@ -378,7 +463,7 @@ Definition at line 120 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 CALLBACK GROUP 1 
 
-Definition at line 102 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 120 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a44e5ed4f40240ffbc049f5ed16ac9610}\label{classMultiThreadedNode_a44e5ed4f40240ffbc049f5ed16ac9610}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!config\_@{config\_}}
@@ -388,7 +473,7 @@ Definition at line 102 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 95 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 113 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_ad69b2d00dd865ddf117c56ec92ea0e5f}\label{classMultiThreadedNode_ad69b2d00dd865ddf117c56ec92ea0e5f}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!control\_@{control\_}}
@@ -398,7 +483,7 @@ Definition at line 95 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 157 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 208 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a016fbf5cf322f5f60d6206e5af64f599}\label{classMultiThreadedNode_a016fbf5cf322f5f60d6206e5af64f599}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!global\_params\_@{global\_params\_}}
@@ -408,7 +493,7 @@ Definition at line 157 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 OTHER 
 
-Definition at line 166 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 217 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a810b07605922fde0e597235c005fb08c}\label{classMultiThreadedNode_a810b07605922fde0e597235c005fb08c}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!offboard\_flag\_@{offboard\_flag\_}}
@@ -418,7 +503,7 @@ Definition at line 166 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 143 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 191 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a4dad66b932d8bd35d149a55d557d0c7a}\label{classMultiThreadedNode_a4dad66b932d8bd35d149a55d557d0c7a}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!publisher\_actuator\_motors\_@{publisher\_actuator\_motors\_}}
@@ -428,7 +513,7 @@ Definition at line 143 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 121 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 144 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a5aab2ccd0d6d0c0c39ff8692f00dd579}\label{classMultiThreadedNode_a5aab2ccd0d6d0c0c39ff8692f00dd579}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!publisher\_offboard\_control\_mode\_@{publisher\_offboard\_control\_mode\_}}
@@ -438,7 +523,7 @@ Definition at line 121 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 123 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 146 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a22e5f7ff2029e09e6dfce4ac26fd1d06}\label{classMultiThreadedNode_a22e5f7ff2029e09e6dfce4ac26fd1d06}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!publisher\_vehicle\_command\_@{publisher\_vehicle\_command\_}}
@@ -448,7 +533,7 @@ Definition at line 123 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 122 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 145 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a79cf21990c306f9ba471b9932106ceca}\label{classMultiThreadedNode_a79cf21990c306f9ba471b9932106ceca}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!subscription\_pixhawk\_odometry\_@{subscription\_pixhawk\_odometry\_}}
@@ -458,7 +543,7 @@ Definition at line 122 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 103 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 121 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_ad191b9533188a3e6a642083378a15634}\label{classMultiThreadedNode_ad191b9533188a3e6a642083378a15634}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!time\_current\_@{time\_current\_}}
@@ -468,7 +553,7 @@ Definition at line 103 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 135 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 183 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_aecf013ef362a9b5c7efecf665085d271}\label{classMultiThreadedNode_aecf013ef362a9b5c7efecf665085d271}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!timer\_actuator\_motors\_@{timer\_actuator\_motors\_}}
@@ -478,7 +563,7 @@ Definition at line 135 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 124 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 147 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_ae024ed24c23cf10ed33ca9e472e67907}\label{classMultiThreadedNode_ae024ed24c23cf10ed33ca9e472e67907}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!timestamp\_initial\_@{timestamp\_initial\_}}
@@ -488,7 +573,7 @@ Definition at line 124 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 133 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 181 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_a5fbd6248bf539f889eaf1f79cdd3c066}\label{classMultiThreadedNode_a5fbd6248bf539f889eaf1f79cdd3c066}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!user\_defined\_trajectory\_@{user\_defined\_trajectory\_}}
@@ -498,7 +583,7 @@ Definition at line 133 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 146 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 194 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 \mbox{\Hypertarget{classMultiThreadedNode_abc4134b5998baa0f8f06735c7377acbb}\label{classMultiThreadedNode_abc4134b5998baa0f8f06735c7377acbb}} 
 \index{MultiThreadedNode@{MultiThreadedNode}!vehicle\_state\_@{vehicle\_state\_}}
@@ -508,7 +593,7 @@ Definition at line 146 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 
-Definition at line 107 of file multi\+\_\+threaded\+\_\+node.\+hpp.
+Definition at line 130 of file multi\+\_\+threaded\+\_\+node.\+hpp.
 
 
 

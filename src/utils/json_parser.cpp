@@ -34,11 +34,20 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file json_parser.cpp
+ * @brief Utility functions to parse JSON files
+ */
 #include <fstream>
 #include <nlohmann/json.hpp>
 
 #include "json_parser.hpp"
 
+/**
+ * @class MotorsCommands
+ * 
+ * @param jsonFile 
+ */
 void MotorsCommands::readJSONConfig(const std::string& jsonFile) {
 	std::ifstream file(jsonFile);
 	nlohmann::json j;

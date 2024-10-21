@@ -76,12 +76,15 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:ad7c36d67aa07bdcfaed0829bcfb64e66"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:ad7c36d67aa07bdcfaed0829bcfb64e66"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structprojection__operator_1_1ConvexFunctionOutput.html">ConvexFunctionOutput</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ball.html#ad7c36d67aa07bdcfaed0829bcfb64e66">convexFunction</a> (const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x, const double x_max, const double epsilon)</td></tr>
+<tr class="memdesc:ad7c36d67aa07bdcfaed0829bcfb64e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convex function to compute h and dh_dx. The inner convex set is a ball of radius sqrt(x_max) The outer convex set is a ball of radius sqrt(x_max + epsilon)  <a href="namespaceprojection__operator_1_1ball.html#ad7c36d67aa07bdcfaed0829bcfb64e66">More...</a><br /></td></tr>
 <tr class="separator:ad7c36d67aa07bdcfaed0829bcfb64e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, N, 1 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ball.html#ae6d6d86afbd57c120adc9ebf0c3a02f5">projectionVector</a> (const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x, const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x_d, const double x_max, const double epsilon)</td></tr>
+<tr class="memdesc:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to project the vector x_d based on the <a class="el" href="namespaceprojection__operator_1_1ball.html#ad7c36d67aa07bdcfaed0829bcfb64e66" title="Convex function to compute h and dh_dx. The inner convex set is a ball of radius sqrt(x_max) The oute...">projection_operator::ball::convexFunction()</a> x_d: derivative wrt time of x (RHS of its dynamics equation)  <a href="namespaceprojection__operator_1_1ball.html#ae6d6d86afbd57c120adc9ebf0c3a02f5">More...</a><br /></td></tr>
 <tr class="separator:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23f6da124afe115b40aa29ced98bb185"><td class="memTemplParams" colspan="2">template&lt;typename Derived1 , typename Derived2 &gt; </td></tr>
 <tr class="memitem:a23f6da124afe115b40aa29ced98bb185"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ball.html#a23f6da124afe115b40aa29ced98bb185">projectionMatrix</a> (const Eigen::MatrixBase&lt; Derived1 &gt; &amp;matrix, const Eigen::MatrixBase&lt; Derived2 &gt; &amp;matrix_d, const double x_max, const double epsilon) -&gt; Eigen::Matrix&lt; typename Derived1::Scalar, Derived1::RowsAtCompileTime, Derived1::ColsAtCompileTime &gt;</td></tr>
+<tr class="memdesc:a23f6da124afe115b40aa29ced98bb185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to apply projectionVector to a matrix by reshaping it into a vector.  <a href="namespaceprojection__operator_1_1ball.html#a23f6da124afe115b40aa29ced98bb185">More...</a><br /></td></tr>
 <tr class="separator:a23f6da124afe115b40aa29ced98bb185"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -119,7 +122,18 @@ template&lt;int N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00112">112</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p>Convex function to compute h and dh_dx. The inner convex set is a ball of radius sqrt(x_max) The outer convex set is a ball of radius sqrt(x_max + epsilon) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">x_max</td><td></td></tr>
+    <tr><td class="paramname">epsilon</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ConvexFunctionOutput&lt;N&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00126">126</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>
@@ -164,7 +178,19 @@ template&lt;typename Derived1 , typename Derived2 &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00163">163</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p>Function to apply projectionVector to a matrix by reshaping it into a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td></td></tr>
+    <tr><td class="paramname">matrix_d</td><td></td></tr>
+    <tr><td class="paramname">x_max</td><td></td></tr>
+    <tr><td class="paramname">epsilon</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Eigen::Matrix&lt;typename Derived1::Scalar, Derived1::RowsAtCompileTime, Derived1::ColsAtCompileTime&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00188">188</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>
@@ -208,7 +234,19 @@ template&lt;int N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00130">130</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
+<p>Function to project the vector x_d based on the <a class="el" href="namespaceprojection__operator_1_1ball.html#ad7c36d67aa07bdcfaed0829bcfb64e66" title="Convex function to compute h and dh_dx. The inner convex set is a ball of radius sqrt(x_max) The oute...">projection_operator::ball::convexFunction()</a> x_d: derivative wrt time of x (RHS of its dynamics equation) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">x_d</td><td></td></tr>
+    <tr><td class="paramname">x_max</td><td></td></tr>
+    <tr><td class="paramname">epsilon</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Eigen::Matrix&lt;double, N, 1&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="projection__operator_8hpp_source.html#l00149">149</a> of file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
 
 </div>
 </div>

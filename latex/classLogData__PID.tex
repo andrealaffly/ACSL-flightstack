@@ -17,11 +17,11 @@ Collaboration diagram for Log\+Data\+\_\+\+PID\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classLogData__PID_a8f6d889d0fc84df6d061338f6bcb243d}{Log\+Data\+\_\+\+PID}} (\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&node, \mbox{\hyperlink{classPID}{PID}} \&controller)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classLogData__PID}{Log\+Data\+\_\+\+PID}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classLogData__PID_a20029eb35bdcc8c59f1324110f3fea37}{log\+Initialize\+Headers}} ()
 \item 
 void \mbox{\hyperlink{classLogData__PID_a5c155d8367fcf67a50efb89c543f076c}{log\+Initialize\+Logging}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize logging. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classLogData__PID_aecbeb96758605c3428c8dff19f0888e4}{log\+Log\+Data}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
@@ -41,7 +41,7 @@ static src\+::logger \mbox{\hyperlink{classLogData__PID_ad803748ca1538a62252cdd3
 \doxysubsection{Detailed Description}
 
 
-Definition at line 86 of file logging\+\_\+pid.\+hpp.
+Definition at line 99 of file logging\+\_\+pid.\+hpp.
 
 
 
@@ -54,7 +54,18 @@ Definition at line 86 of file logging\+\_\+pid.\+hpp.
 
 
 
-Definition at line 45 of file logging\+\_\+pid.\+cpp.
+Construct a new \mbox{\hyperlink{classLogData__PID}{Log\+Data\+\_\+\+PID}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+{\em controller} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 52 of file logging\+\_\+pid.\+cpp.
 
 
 
@@ -66,8 +77,13 @@ Definition at line 45 of file logging\+\_\+pid.\+cpp.
 {\footnotesize\ttfamily void Log\+Data\+\_\+\+PID\+::log\+Initialize\+Headers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 51 of file logging\+\_\+pid.\+cpp.
+
+Definition at line 61 of file logging\+\_\+pid.\+cpp.
 
 \mbox{\Hypertarget{classLogData__PID_a5c155d8367fcf67a50efb89c543f076c}\label{classLogData__PID_a5c155d8367fcf67a50efb89c543f076c}} 
 \index{LogData\_PID@{LogData\_PID}!logInitializeLogging@{logInitializeLogging}}
@@ -77,7 +93,16 @@ Definition at line 51 of file logging\+\_\+pid.\+cpp.
 
 
 
-Definition at line 164 of file logging\+\_\+pid.\+cpp.
+Initialize logging. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 174 of file logging\+\_\+pid.\+cpp.
 
 \mbox{\Hypertarget{classLogData__PID_aecbeb96758605c3428c8dff19f0888e4}\label{classLogData__PID_aecbeb96758605c3428c8dff19f0888e4}} 
 \index{LogData\_PID@{LogData\_PID}!logLogData@{logLogData}}
@@ -86,8 +111,13 @@ Definition at line 164 of file logging\+\_\+pid.\+cpp.
 {\footnotesize\ttfamily void Log\+Data\+\_\+\+PID\+::log\+Log\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 246 of file logging\+\_\+pid.\+cpp.
+
+Definition at line 256 of file logging\+\_\+pid.\+cpp.
 
 
 
@@ -100,7 +130,7 @@ Definition at line 246 of file logging\+\_\+pid.\+cpp.
 
 
 
-Definition at line 104 of file logging\+\_\+pid.\+hpp.
+Definition at line 135 of file logging\+\_\+pid.\+hpp.
 
 \mbox{\Hypertarget{classLogData__PID_ad803748ca1538a62252cdd352661bd27}\label{classLogData__PID_ad803748ca1538a62252cdd352661bd27}} 
 \index{LogData\_PID@{LogData\_PID}!logger\_logdata@{logger\_logdata}}
@@ -108,24 +138,9 @@ Definition at line 104 of file logging\+\_\+pid.\+hpp.
 \doxysubsubsection{\texorpdfstring{logger\_logdata}{logger\_logdata}}
 {\footnotesize\ttfamily src\+::logger Log\+Data\+\_\+\+PID\+::logger\+\_\+logdata\hspace{0.3cm}{\ttfamily [static]}}
 
-Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
 
 
-\begin{DoxyEnumerate}
-\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-\end{DoxyEnumerate}
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{logging__pid_8cpp}{logging\+\_\+pid.\+cpp}} Author\+: Mattia Gramuglia Date\+: April 18, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
-
-Description\+: Logger for the \mbox{\hyperlink{classPID}{PID}} controller.
-
-Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
-
-Definition at line 91 of file logging\+\_\+pid.\+hpp.
+Definition at line 104 of file logging\+\_\+pid.\+hpp.
 
 \mbox{\Hypertarget{classLogData__PID_a779b5f2ff3f43bddc17f8a1355c76838}\label{classLogData__PID_a779b5f2ff3f43bddc17f8a1355c76838}} 
 \index{LogData\_PID@{LogData\_PID}!node\_@{node\_}}
@@ -135,7 +150,7 @@ Definition at line 91 of file logging\+\_\+pid.\+hpp.
 
 
 
-Definition at line 102 of file logging\+\_\+pid.\+hpp.
+Definition at line 133 of file logging\+\_\+pid.\+hpp.
 
 
 

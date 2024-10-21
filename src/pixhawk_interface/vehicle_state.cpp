@@ -34,10 +34,19 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file vehicle_state.cpp
+ * @brief Class storing the state of the vehicle coming from the flight controller (Pixhawk)
+ */
 #include "vehicle_state.hpp"
 #include "multi_threaded_node.hpp"
 
 // Constructor
+/**
+ * @brief Construct a new Vehicle State:: Vehicle State object
+ * 
+ * @param node 
+ */
 VehicleState::VehicleState(MultiThreadedNode& node) :
   node_(node),
   timestamp_initial_(node.getInitialTimestamp()), // Initialize timestamp_initial_ with the value from MultiThreadedNode

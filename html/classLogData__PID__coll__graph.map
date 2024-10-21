@@ -4,11 +4,11 @@
 <area shape="rect" id="node3" href="$classControl.html" title=" " alt="" coords="903,581,973,608"/>
 <area shape="rect" id="node4" href="$structControl_1_1ControlInternalMembers.html" title=" " alt="" coords="413,515,587,557"/>
 <area shape="rect" id="node5" title=" " alt="" coords="57,425,136,452"/>
-<area shape="rect" id="node16" href="$structPID_1_1ControllerSpecificInternalMembers.html" title=" " alt="" coords="623,321,839,362"/>
+<area shape="rect" id="node16" href="$structPID_1_1ControllerSpecificInternalMembers.html" title="This struct contains the variables that are used in this particular controller." alt="" coords="623,321,839,362"/>
 <area shape="rect" id="node6" title=" " alt="" coords="57,92,137,119"/>
 <area shape="rect" id="node15" href="$structGainsPID.html" title=" " alt="" coords="690,181,771,208"/>
 <area shape="rect" id="node7" href="$structControl_1_1ControlReferences.html" title=" " alt="" coords="401,632,599,659"/>
-<area shape="rect" id="node8" href="$structVehicleInfo.html" title=" " alt="" coords="453,581,547,608"/>
+<area shape="rect" id="node8" href="$structVehicleInfo.html" title="Vehicle Info." alt="" coords="453,581,547,608"/>
 <area shape="rect" id="node9" title=" " alt="" coords="57,647,137,673"/>
 <area shape="rect" id="node10" href="$classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,719,575,745"/>
 <area shape="rect" id="node11" title=" " alt="" coords="45,748,148,775"/>

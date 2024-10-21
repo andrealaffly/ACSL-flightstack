@@ -72,6 +72,9 @@ $(function() {
 <div class="title">json_parser.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utility functions to parse JSON files.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;nlohmann/json.hpp&gt;</code><br />
@@ -81,7 +84,7 @@ Include dependency graph for json_parser.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="json__parser_8hpp__incl.png" border="0" usemap="#ainclude_2flightstack_2utils_2json__parser_8hpp" alt=""/></div>
 <map name="ainclude_2flightstack_2utils_2json__parser_8hpp" id="ainclude_2flightstack_2utils_2json__parser_8hpp">
-<area shape="rect" title=" " alt="" coords="112,5,272,47"/>
+<area shape="rect" title="Utility functions to parse JSON files." alt="" coords="112,5,272,47"/>
 <area shape="rect" title=" " alt="" coords="5,95,64,121"/>
 <area shape="rect" title=" " alt="" coords="89,95,162,121"/>
 <area shape="rect" title=" " alt="" coords="187,95,333,121"/>
@@ -93,23 +96,23 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="json__parser_8hpp__dep__incl.png" border="0" usemap="#ainclude_2flightstack_2utils_2json__parser_8hppdep" alt=""/></div>
 <map name="ainclude_2flightstack_2utils_2json__parser_8hppdep" id="ainclude_2flightstack_2utils_2json__parser_8hppdep">
-<area shape="rect" title=" " alt="" coords="1282,5,1442,47"/>
-<area shape="rect" href="multi__threaded__node_8hpp.html" title=" " alt="" coords="1199,95,1391,136"/>
-<area shape="rect" href="mrac_8cpp.html" title=" " alt="" coords="5,191,196,218"/>
-<area shape="rect" href="pid_8cpp.html" title=" " alt="" coords="2694,191,2859,218"/>
-<area shape="rect" href="json__parser_8cpp.html" title=" " alt="" coords="1466,102,1645,129"/>
-<area shape="rect" href="main_8hpp.html" title=" " alt="" coords="221,184,362,225"/>
+<area shape="rect" title="Utility functions to parse JSON files." alt="" coords="1282,5,1442,47"/>
+<area shape="rect" href="multi__threaded__node_8hpp.html" title="Multithreaded ROS2 node that joins together all the flight stack components." alt="" coords="1199,95,1391,136"/>
+<area shape="rect" href="mrac_8cpp.html" title="Implementation of the MRAC controller." alt="" coords="5,191,196,218"/>
+<area shape="rect" href="pid_8cpp.html" title="Immplementation of the PID controller." alt="" coords="2694,191,2859,218"/>
+<area shape="rect" href="json__parser_8cpp.html" title="Utility functions to parse JSON files." alt="" coords="1466,102,1645,129"/>
+<area shape="rect" href="main_8hpp.html" title="Main file." alt="" coords="221,184,362,225"/>
 <area shape="rect" href="config_8cpp.html" title="Contains the functions that reads the configuration parameters and assigns it to the members of the C..." alt="" coords="386,191,541,218"/>
 <area shape="rect" href="control_8cpp.html" title="This file contains the general class containing the common memvers used by most of the control algori..." alt="" coords="565,191,732,218"/>
-<area shape="rect" href="control__callback_8cpp.html" title=" " alt="" coords="757,184,895,225"/>
-<area shape="rect" href="logging__mrac_8cpp.html" title=" " alt="" coords="919,184,1098,225"/>
-<area shape="rect" href="logging__pid_8cpp.html" title=" " alt="" coords="1123,184,1289,225"/>
+<area shape="rect" href="control__callback_8cpp.html" title="Callback that is executed at a fixed specified rate defined by the &quot;timer_controller_&quot;." alt="" coords="757,184,895,225"/>
+<area shape="rect" href="logging__mrac_8cpp.html" title="Logger for the MRAC controller." alt="" coords="919,184,1098,225"/>
+<area shape="rect" href="logging__pid_8cpp.html" title="Logger for the PID controller." alt="" coords="1123,184,1289,225"/>
 <area shape="rect" href="multi__threaded__node_8cpp.html" title="Multithreaded ROS2 ndoe that joins together all the flight stakc components." alt="" coords="1314,184,1458,225"/>
-<area shape="rect" href="pixhawk__actuator__motors_8cpp.html" title=" " alt="" coords="1483,184,1705,225"/>
-<area shape="rect" href="pixhawk__vehicle__odometry_8cpp.html" title=" " alt="" coords="1729,184,1960,225"/>
-<area shape="rect" href="vehicle__state_8cpp.html" title=" " alt="" coords="1985,184,2150,225"/>
-<area shape="rect" href="piecewise__polynomial__trajectory_8cpp.html" title=" " alt="" coords="2174,184,2441,225"/>
-<area shape="rect" href="user__defined__trajectory_8cpp.html" title=" " alt="" coords="2465,184,2669,225"/>
+<area shape="rect" href="pixhawk__actuator__motors_8cpp.html" title="Callback that is executed at a fixed specified rate defined by the &quot;timer_controller_&quot;." alt="" coords="1483,184,1705,225"/>
+<area shape="rect" href="pixhawk__vehicle__odometry_8cpp.html" title="Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk." alt="" coords="1729,184,1960,225"/>
+<area shape="rect" href="vehicle__state_8cpp.html" title="Class storing the state of the vehicle coming from the flight controller (Pixhawk)" alt="" coords="1985,184,2150,225"/>
+<area shape="rect" href="piecewise__polynomial__trajectory_8cpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="2174,184,2441,225"/>
+<area shape="rect" href="user__defined__trajectory_8cpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="2465,184,2669,225"/>
 <area shape="rect" href="main_8cpp.html" title="FlightStack (Multirotor) main.cpp file." alt="" coords="239,273,344,300"/>
 </map>
 </div>
@@ -118,16 +121,31 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMotorsCommands.html">MotorsCommands</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMotorsCommands.html">MotorsCommands</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6771b707218bbbae84a04609c8d52b22"><td class="memTemplParams" colspan="2">template&lt;typename Scalar , int Rows, int Cols&gt; </td></tr>
 <tr class="memitem:a6771b707218bbbae84a04609c8d52b22"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; Scalar, Rows, Cols &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="json__parser_8hpp.html#a6771b707218bbbae84a04609c8d52b22">extractMatrixFromJSON</a> (const nlohmann::json &amp;jsonMatrix)</td></tr>
+<tr class="memdesc:a6771b707218bbbae84a04609c8d52b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to extract a Matrix from JSON and populate a Eigen matrix Examples of usage: Eigen::Matrix&lt;double, 3, 3&gt; matrix33d = extractMatrixFromJSON&lt;double, 3, 3&gt;(jsonMatrix); Eigen::Matrix&lt;float, 4, 4&gt; matrix44f = extractMatrixFromJSON&lt;float, 4, 4&gt;(jsonMatrix);.  <a href="json__parser_8hpp.html#a6771b707218bbbae84a04609c8d52b22">More...</a><br /></td></tr>
 <tr class="separator:a6771b707218bbbae84a04609c8d52b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Utility functions to parse JSON files. </p>
+<p>Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol type="1">
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File: <a class="el" href="json__parser_8hpp.html" title="Utility functions to parse JSON files.">json_parser.hpp</a> Author: Mattia Gramuglia Date: April 2, 2024 For info: Andrea L'Afflitto <a href="#" onclick="location.href='mai'+'lto:'+'a.l'+'af'+'fli'+'tt'+'o@v'+'t.'+'edu'; return false;">a.laf<span style="display: none;">.nosp@m.</span>flit<span style="display: none;">.nosp@m.</span>to@vt<span style="display: none;">.nosp@m.</span>.edu</a></p>
+<p>Description: Utility functions to parse JSON files</p>
+<p>GitHub: <a href="https://github.com/andrealaffly/ACSL-flightstack.git">https://github.com/andrealaffly/ACSL-flightstack.git</a> </p>
+
+<p class="definition">Definition in file <a class="el" href="json__parser_8hpp_source.html">json_parser.hpp</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a6771b707218bbbae84a04609c8d52b22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6771b707218bbbae84a04609c8d52b22">&#9670;&nbsp;</a></span>extractMatrixFromJSON()</h2>
 
@@ -154,7 +172,24 @@ template&lt;typename Scalar , int Rows, int Cols&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json__parser_8hpp_source.html#l00067">67</a> of file <a class="el" href="json__parser_8hpp_source.html">json_parser.hpp</a>.</p>
+<p>Function to extract a Matrix from JSON and populate a Eigen matrix Examples of usage: Eigen::Matrix&lt;double, 3, 3&gt; matrix33d = extractMatrixFromJSON&lt;double, 3, 3&gt;(jsonMatrix); Eigen::Matrix&lt;float, 4, 4&gt; matrix44f = extractMatrixFromJSON&lt;float, 4, 4&gt;(jsonMatrix);. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Scalar</td><td></td></tr>
+    <tr><td class="paramname">Rows</td><td></td></tr>
+    <tr><td class="paramname">Cols</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jsonMatrix</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Eigen::Matrix&lt;Scalar, Rows, Cols&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8hpp_source.html#l00086">86</a> of file <a class="el" href="json__parser_8hpp_source.html">json_parser.hpp</a>.</p>
 
 </div>
 </div>

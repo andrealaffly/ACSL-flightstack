@@ -1,5 +1,10 @@
 \hypertarget{piecewise__polynomial__trajectory_8cpp}{}\doxysection{src/user\+\_\+defined\+\_\+trajectory/piecewise\+\_\+polynomial\+\_\+trajectory.cpp File Reference}
 \label{piecewise__polynomial__trajectory_8cpp}\index{src/user\_defined\_trajectory/piecewise\_polynomial\_trajectory.cpp@{src/user\_defined\_trajectory/piecewise\_polynomial\_trajectory.cpp}}
+
+
+Piecewise polynomial minimu-\/jerk trajectory computed offline through a MATLAB script.  
+
+
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
 {\ttfamily \#include \char`\"{}piecewise\+\_\+polynomial\+\_\+trajectory.\+hpp\char`\"{}}\newline
@@ -15,24 +20,46 @@ Include dependency graph for piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp\+:\
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ Eigen\+::\+Matrix\+Xd $>$ \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_a5b79ff28592c6c6f668397c1b6b2425d}{poly\+Coef\+Assigning}} (const std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&poly\+\_\+coeff\+\_\+matrix\+\_\+in)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to assign polynomisl coefficients to designated variables. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_ad78396103d660d70670cb0379d817304}{poly\+Der\+Matrix}} (const Eigen\+::\+Matrix\+Xd \&poly\+\_\+coeff\+\_\+matrix\+\_\+in)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to compute the derivative of the piecewise polynomial coefficient matrix. \end{DoxyCompactList}\item 
 std\+::pair$<$ double, int $>$ \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_a9e073222d460994fa50b85f98dd607f2}{polynomial\+Time\+Adjusted}} (const std\+::vector$<$ double $>$ \&time\+\_\+waypoint\+\_\+vector, double time)
-\item 
+\begin{DoxyCompactList}\small\item\em Adjusts the time to be fed to the various polynomials and identifies the segment of the trajectory. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_a8e5d7b4960a313c2e2e526db7e0b59fc}{evaluate\+Polynomial}} (const Eigen\+::\+Vector\+Xd \&coefficients, double value)
-\item 
+\begin{DoxyCompactList}\small\item\em Functio to evaluate a polynomial given its coefficients and a value at which to evaluate the polynomial. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_a9e21c51abfa867e99eec3fa92b582427}{norm2D}} (const Eigen\+::\+Vector\+Xd \&poly\+\_\+coef\+\_\+x, const Eigen\+::\+Vector\+Xd \&poly\+\_\+coef\+\_\+y, double t)
-\item 
+\begin{DoxyCompactList}\small\item\em Computed the 2D norm using polynomial coefficients. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_ac4279483f559b107d8983354b37f0ddd}{norm2\+Dderivative}} (const Eigen\+::\+Vector\+Xd \&poly\+\_\+coef\+\_\+x, const Eigen\+::\+Vector\+Xd \&poly\+\_\+coef\+\_\+y, const Eigen\+::\+Vector\+Xd \&poly\+\_\+coef\+\_\+x\+\_\+prime, const Eigen\+::\+Vector\+Xd \&poly\+\_\+coef\+\_\+y\+\_\+prime, double t)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the derivative of the 2D norm using polynomial coefficients and their derivatives. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_a945bcfe8dadfcf84ddb1a9117670eb22}{yaw\+Computation}} (const Eigen\+::\+Vector\+Xd \&Vx\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Vy\+\_\+coef, double t)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the user-\/defined yaw from the trajectory velocity in the XY plane. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_aef28200ec3c1fb1475dba9887492046f}{yaw\+Dot\+Computation}} (const Eigen\+::\+Vector\+Xd \&Vx\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Vy\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Ax\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Ay\+\_\+coef, double t)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the user-\/defined yaw\+\_\+dot from the trajecotry velocity in the XY plane. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_a21eadf420a96cc47cebc437625c325a6}{yaw\+Dot\+Dot\+Computation}} (const Eigen\+::\+Vector\+Xd \&Vx\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Vy\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Ax\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Ay\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Jx\+\_\+coef, const Eigen\+::\+Vector\+Xd \&Jy\+\_\+coef, double t)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Compute the user-\/defined yaw\+\_\+dot\+\_\+dot from the trajectory velocity in the XY plane. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Piecewise polynomial minimu-\/jerk trajectory computed offline through a MATLAB script. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp}{piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp}} Author\+: Mattia Gramuglia Date\+: April 15, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Piecewise polynomial minimu-\/jerk trajectory computed offline through a MATLAB script. The heading (yaw) angle is kept tangential to the trajectory in the X-\/Y plane and computed online along with its first and second derivative.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}}
+
+The heading (yaw) angle is kept tangential to the trajectory in the X-\/Y plane and computed online along with its first and second derivative. 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_a8e5d7b4960a313c2e2e526db7e0b59fc}\label{piecewise__polynomial__trajectory_8cpp_a8e5d7b4960a313c2e2e526db7e0b59fc}} 
@@ -43,7 +70,21 @@ double \mbox{\hyperlink{piecewise__polynomial__trajectory_8cpp_a21eadf420a96cc47
 
 
 
-Definition at line 416 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Functio to evaluate a polynomial given its coefficients and a value at which to evaluate the polynomial. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coefficients} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 449 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_a9e21c51abfa867e99eec3fa92b582427}\label{piecewise__polynomial__trajectory_8cpp_a9e21c51abfa867e99eec3fa92b582427}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!norm2D@{norm2D}}
@@ -53,7 +94,23 @@ Definition at line 416 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 427 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Computed the 2D norm using polynomial coefficients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poly\+\_\+coef\+\_\+x} & \\
+\hline
+{\em poly\+\_\+coef\+\_\+y} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 468 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_ac4279483f559b107d8983354b37f0ddd}\label{piecewise__polynomial__trajectory_8cpp_ac4279483f559b107d8983354b37f0ddd}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!norm2Dderivative@{norm2Dderivative}}
@@ -63,7 +120,27 @@ Definition at line 427 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 435 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Compute the derivative of the 2D norm using polynomial coefficients and their derivatives. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poly\+\_\+coef\+\_\+x} & \\
+\hline
+{\em poly\+\_\+coef\+\_\+y} & \\
+\hline
+{\em poly\+\_\+coef\+\_\+x\+\_\+prime} & \\
+\hline
+{\em poly\+\_\+coef\+\_\+y\+\_\+prime} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 486 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_a5b79ff28592c6c6f668397c1b6b2425d}\label{piecewise__polynomial__trajectory_8cpp_a5b79ff28592c6c6f668397c1b6b2425d}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!polyCoefAssigning@{polyCoefAssigning}}
@@ -71,9 +148,23 @@ Definition at line 435 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 \doxysubsubsection{\texorpdfstring{polyCoefAssigning()}{polyCoefAssigning()}}
 {\footnotesize\ttfamily std\+::vector$<$Eigen\+::\+Matrix\+Xd$>$ poly\+Coef\+Assigning (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&}]{poly\+\_\+coeff\+\_\+matrix\+\_\+in }\end{DoxyParamCaption})}
 
-Auxillary functions 
 
-Definition at line 350 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+
+Function to assign polynomisl coefficients to designated variables. 
+
+Auxillary functions
+
+
+\begin{DoxyParams}{Parameters}
+{\em poly\+\_\+coeff\+\_\+matrix\+\_\+in} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Eigen\+::\+Matrix\+Xd$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 363 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_ad78396103d660d70670cb0379d817304}\label{piecewise__polynomial__trajectory_8cpp_ad78396103d660d70670cb0379d817304}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!polyDerMatrix@{polyDerMatrix}}
@@ -83,7 +174,19 @@ Definition at line 350 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 378 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Function to compute the derivative of the piecewise polynomial coefficient matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poly\+\_\+coeff\+\_\+matrix\+\_\+in} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix\+Xd 
+\end{DoxyReturn}
+
+
+Definition at line 397 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_a9e073222d460994fa50b85f98dd607f2}\label{piecewise__polynomial__trajectory_8cpp_a9e073222d460994fa50b85f98dd607f2}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!polynomialTimeAdjusted@{polynomialTimeAdjusted}}
@@ -93,7 +196,21 @@ Definition at line 378 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 398 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Adjusts the time to be fed to the various polynomials and identifies the segment of the trajectory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+\_\+waypoint\+\_\+vector} & \\
+\hline
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$double, int$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 424 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_a945bcfe8dadfcf84ddb1a9117670eb22}\label{piecewise__polynomial__trajectory_8cpp_a945bcfe8dadfcf84ddb1a9117670eb22}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!yawComputation@{yawComputation}}
@@ -103,7 +220,23 @@ Definition at line 398 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 449 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Compute the user-\/defined yaw from the trajectory velocity in the XY plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vx\+\_\+coef} & \\
+\hline
+{\em Vy\+\_\+coef} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 508 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_aef28200ec3c1fb1475dba9887492046f}\label{piecewise__polynomial__trajectory_8cpp_aef28200ec3c1fb1475dba9887492046f}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!yawDotComputation@{yawDotComputation}}
@@ -113,7 +246,27 @@ Definition at line 449 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 462 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Compute the user-\/defined yaw\+\_\+dot from the trajecotry velocity in the XY plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vx\+\_\+coef} & \\
+\hline
+{\em Vy\+\_\+coef} & \\
+\hline
+{\em Ax\+\_\+coef} & \\
+\hline
+{\em Ay\+\_\+coef} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 531 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 \mbox{\Hypertarget{piecewise__polynomial__trajectory_8cpp_a21eadf420a96cc47cebc437625c325a6}\label{piecewise__polynomial__trajectory_8cpp_a21eadf420a96cc47cebc437625c325a6}} 
 \index{piecewise\_polynomial\_trajectory.cpp@{piecewise\_polynomial\_trajectory.cpp}!yawDotDotComputation@{yawDotDotComputation}}
@@ -123,5 +276,29 @@ Definition at line 462 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 
 
 
-Definition at line 486 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
+Compute the user-\/defined yaw\+\_\+dot\+\_\+dot from the trajectory velocity in the XY plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vx\+\_\+coef} & \\
+\hline
+{\em Vy\+\_\+coef} & \\
+\hline
+{\em Ax\+\_\+coef} & \\
+\hline
+{\em Ay\+\_\+coef} & \\
+\hline
+{\em Jx\+\_\+coef} & \\
+\hline
+{\em Jy\+\_\+coef} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Definition at line 567 of file piecewise\+\_\+polynomial\+\_\+trajectory.\+cpp.
 

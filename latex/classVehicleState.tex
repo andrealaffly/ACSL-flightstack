@@ -17,7 +17,7 @@ Collaboration diagram for Vehicle\+State\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classVehicleState_a4072b7b067fdab166b3edfb1d80b10d6}{Vehicle\+State}} (\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&node)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Vehicle State object. \end{DoxyCompactList}\item 
 uint64\+\_\+t \mbox{\hyperlink{classVehicleState_a7ac054537105a80760d183937fd8ef78}{get\+Timestamp}} () const
 \item 
 Eigen\+::\+Vector3d \& \mbox{\hyperlink{classVehicleState_a1cbd5577488cbdf0460137d909a6f40c}{get\+Position}} ()
@@ -112,7 +112,7 @@ Eigen\+::\+Quaterniond \mbox{\hyperlink{classVehicleState_ae0d760e30dfd39495c676
 \doxysubsection{Detailed Description}
 
 
-Definition at line 49 of file vehicle\+\_\+state.\+hpp.
+Definition at line 60 of file vehicle\+\_\+state.\+hpp.
 
 
 
@@ -123,24 +123,20 @@ Definition at line 49 of file vehicle\+\_\+state.\+hpp.
 \doxysubsubsection{\texorpdfstring{VehicleState()}{VehicleState()}}
 {\footnotesize\ttfamily Vehicle\+State\+::\+Vehicle\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
 
-Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
 
 
-\begin{DoxyEnumerate}
-\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-\end{DoxyEnumerate}
+Construct a new Vehicle State object. 
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: \mbox{\hyperlink{vehicle__state_8cpp}{vehicle\+\_\+state.\+cpp}} Author\+: Mattia Gramuglia Date\+: April 9, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+Construct a new Vehicle State\+:\+: Vehicle State object.
 
-Description\+: Class storing the state of the vehicle coming from the flight controller (Pixhawk)
 
-Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 41 of file vehicle\+\_\+state.\+cpp.
+
+Definition at line 50 of file vehicle\+\_\+state.\+cpp.
 
 
 
@@ -153,7 +149,7 @@ Definition at line 41 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 80 of file vehicle\+\_\+state.\+cpp.
+Definition at line 89 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a6a85e5ec68f0b7a0770f38e73ef68e91}\label{classVehicleState_a6a85e5ec68f0b7a0770f38e73ef68e91}} 
 \index{VehicleState@{VehicleState}!getEulerAnglesRPY@{getEulerAnglesRPY}}
@@ -163,7 +159,7 @@ Definition at line 80 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 85 of file vehicle\+\_\+state.\+cpp.
+Definition at line 94 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a4b563598e9e9f5caf96f5f5307f0e633}\label{classVehicleState_a4b563598e9e9f5caf96f5f5307f0e633}} 
 \index{VehicleState@{VehicleState}!getEulerAnglesRPYOffset@{getEulerAnglesRPYOffset}}
@@ -173,7 +169,7 @@ Definition at line 85 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 121 of file vehicle\+\_\+state.\+cpp.
+Definition at line 130 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_abb2dcb2d207f98b61046715c15bb8c47}\label{classVehicleState_abb2dcb2d207f98b61046715c15bb8c47}} 
 \index{VehicleState@{VehicleState}!getInitialTimestamp@{getInitialTimestamp}}
@@ -183,7 +179,7 @@ Definition at line 121 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 90 of file vehicle\+\_\+state.\+cpp.
+Definition at line 99 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_ab5a88ca96f90a14f1c138e41761f8350}\label{classVehicleState_ab5a88ca96f90a14f1c138e41761f8350}} 
 \index{VehicleState@{VehicleState}!getIsOffsetOdometryMsg@{getIsOffsetOdometryMsg}}
@@ -193,7 +189,7 @@ Definition at line 90 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 101 of file vehicle\+\_\+state.\+cpp.
+Definition at line 110 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a1cbd5577488cbdf0460137d909a6f40c}\label{classVehicleState_a1cbd5577488cbdf0460137d909a6f40c}} 
 \index{VehicleState@{VehicleState}!getPosition@{getPosition}}
@@ -203,7 +199,7 @@ Definition at line 101 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 65 of file vehicle\+\_\+state.\+cpp.
+Definition at line 74 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a1c237acc138b2e67b7a2fb63de519a13}\label{classVehicleState_a1c237acc138b2e67b7a2fb63de519a13}} 
 \index{VehicleState@{VehicleState}!getPositionOffset@{getPositionOffset}}
@@ -213,7 +209,7 @@ Definition at line 65 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 111 of file vehicle\+\_\+state.\+cpp.
+Definition at line 120 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a8624fb65c7e55e4f8abf95fb5de5f715}\label{classVehicleState_a8624fb65c7e55e4f8abf95fb5de5f715}} 
 \index{VehicleState@{VehicleState}!getQuaternion@{getQuaternion}}
@@ -223,7 +219,7 @@ Definition at line 111 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 70 of file vehicle\+\_\+state.\+cpp.
+Definition at line 79 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_ac988fe0fac61e9b50880acf804ffd57b}\label{classVehicleState_ac988fe0fac61e9b50880acf804ffd57b}} 
 \index{VehicleState@{VehicleState}!getQuaternionOffset@{getQuaternionOffset}}
@@ -233,7 +229,7 @@ Definition at line 70 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 116 of file vehicle\+\_\+state.\+cpp.
+Definition at line 125 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_aea3b4da96daa0948cc5a60067695ab8a}\label{classVehicleState_aea3b4da96daa0948cc5a60067695ab8a}} 
 \index{VehicleState@{VehicleState}!getTimeOdometryInSeconds@{getTimeOdometryInSeconds}}
@@ -243,7 +239,7 @@ Definition at line 116 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 95 of file vehicle\+\_\+state.\+cpp.
+Definition at line 104 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a7ac054537105a80760d183937fd8ef78}\label{classVehicleState_a7ac054537105a80760d183937fd8ef78}} 
 \index{VehicleState@{VehicleState}!getTimestamp@{getTimestamp}}
@@ -253,7 +249,7 @@ Definition at line 95 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 60 of file vehicle\+\_\+state.\+cpp.
+Definition at line 69 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_aee67120b235a2c2e3a78fa0c3a5706d8}\label{classVehicleState_aee67120b235a2c2e3a78fa0c3a5706d8}} 
 \index{VehicleState@{VehicleState}!getTimestampOffset@{getTimestampOffset}}
@@ -263,7 +259,7 @@ Definition at line 60 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 106 of file vehicle\+\_\+state.\+cpp.
+Definition at line 115 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a13924ee94c3fbd546f8913c63e9b3c32}\label{classVehicleState_a13924ee94c3fbd546f8913c63e9b3c32}} 
 \index{VehicleState@{VehicleState}!getVelocity@{getVelocity}}
@@ -273,7 +269,7 @@ Definition at line 106 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 75 of file vehicle\+\_\+state.\+cpp.
+Definition at line 84 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a977197ff651efc96b44db122120dbdda}\label{classVehicleState_a977197ff651efc96b44db122120dbdda}} 
 \index{VehicleState@{VehicleState}!getYawQuaternionInverseOffset@{getYawQuaternionInverseOffset}}
@@ -283,7 +279,7 @@ Definition at line 75 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 126 of file vehicle\+\_\+state.\+cpp.
+Definition at line 135 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a34cdad75150dbcfd9be5e2eefb2fb295}\label{classVehicleState_a34cdad75150dbcfd9be5e2eefb2fb295}} 
 \index{VehicleState@{VehicleState}!quaternionToEulerAnglesRPY@{quaternionToEulerAnglesRPY}}
@@ -293,7 +289,7 @@ Definition at line 126 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 215 of file vehicle\+\_\+state.\+cpp.
+Definition at line 224 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_ab148a1cb81057c0d192df788d8f895be}\label{classVehicleState_ab148a1cb81057c0d192df788d8f895be}} 
 \index{VehicleState@{VehicleState}!setAngularVelocity@{setAngularVelocity}}
@@ -303,7 +299,7 @@ Definition at line 215 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 152 of file vehicle\+\_\+state.\+cpp.
+Definition at line 161 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a0e810db7210dbd8020ad7b2b85cb1679}\label{classVehicleState_a0e810db7210dbd8020ad7b2b85cb1679}} 
 \index{VehicleState@{VehicleState}!setEulerAnglesRPY@{setEulerAnglesRPY}}
@@ -313,7 +309,7 @@ Definition at line 152 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 157 of file vehicle\+\_\+state.\+cpp.
+Definition at line 166 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_aaddf2e9040fdb4ed1792b2c78c435ac5}\label{classVehicleState_aaddf2e9040fdb4ed1792b2c78c435ac5}} 
 \index{VehicleState@{VehicleState}!setEulerAnglesRPYOffset@{setEulerAnglesRPYOffset}}
@@ -323,7 +319,7 @@ Definition at line 157 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 189 of file vehicle\+\_\+state.\+cpp.
+Definition at line 198 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_adab0b829145dbde0c9bc0920f8771bc1}\label{classVehicleState_adab0b829145dbde0c9bc0920f8771bc1}} 
 \index{VehicleState@{VehicleState}!setIsOffsetOdometryMsg@{setIsOffsetOdometryMsg}}
@@ -333,7 +329,7 @@ Definition at line 189 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 169 of file vehicle\+\_\+state.\+cpp.
+Definition at line 178 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a48a4321d9f7f146aabacd38fe1c7b7fc}\label{classVehicleState_a48a4321d9f7f146aabacd38fe1c7b7fc}} 
 \index{VehicleState@{VehicleState}!setPosition@{setPosition}}
@@ -343,7 +339,7 @@ Definition at line 169 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 137 of file vehicle\+\_\+state.\+cpp.
+Definition at line 146 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a58c2ed1c9698389dd51422ca7d632eb0}\label{classVehicleState_a58c2ed1c9698389dd51422ca7d632eb0}} 
 \index{VehicleState@{VehicleState}!setPositionOffset@{setPositionOffset}}
@@ -353,7 +349,7 @@ Definition at line 137 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 179 of file vehicle\+\_\+state.\+cpp.
+Definition at line 188 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a40ddb6b36e742fc63ff000c58a9a49c7}\label{classVehicleState_a40ddb6b36e742fc63ff000c58a9a49c7}} 
 \index{VehicleState@{VehicleState}!setQuaternion@{setQuaternion}}
@@ -363,7 +359,7 @@ Definition at line 179 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 142 of file vehicle\+\_\+state.\+cpp.
+Definition at line 151 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a5d7f0a0b408145d8e107ee5d65d2a1d8}\label{classVehicleState_a5d7f0a0b408145d8e107ee5d65d2a1d8}} 
 \index{VehicleState@{VehicleState}!setQuaternionOffset@{setQuaternionOffset}}
@@ -373,7 +369,7 @@ Definition at line 142 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 184 of file vehicle\+\_\+state.\+cpp.
+Definition at line 193 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_aa46174e2cf4e9accbf41baef87737663}\label{classVehicleState_aa46174e2cf4e9accbf41baef87737663}} 
 \index{VehicleState@{VehicleState}!setTimeOdometryInSeconds@{setTimeOdometryInSeconds}}
@@ -383,7 +379,7 @@ Definition at line 184 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 163 of file vehicle\+\_\+state.\+cpp.
+Definition at line 172 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a531d09ea0db0fbe9a0ad9edfdaeb4b93}\label{classVehicleState_a531d09ea0db0fbe9a0ad9edfdaeb4b93}} 
 \index{VehicleState@{VehicleState}!setTimestamp@{setTimestamp}}
@@ -393,7 +389,7 @@ Definition at line 163 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 132 of file vehicle\+\_\+state.\+cpp.
+Definition at line 141 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_a0c3a344b98c682c69742a9496cf51c0c}\label{classVehicleState_a0c3a344b98c682c69742a9496cf51c0c}} 
 \index{VehicleState@{VehicleState}!setTimestampOffset@{setTimestampOffset}}
@@ -403,7 +399,7 @@ Definition at line 132 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 174 of file vehicle\+\_\+state.\+cpp.
+Definition at line 183 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_ace0610ae6167e01be44ab9c04240f3d9}\label{classVehicleState_ace0610ae6167e01be44ab9c04240f3d9}} 
 \index{VehicleState@{VehicleState}!setVelocity@{setVelocity}}
@@ -413,7 +409,7 @@ Definition at line 174 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 147 of file vehicle\+\_\+state.\+cpp.
+Definition at line 156 of file vehicle\+\_\+state.\+cpp.
 
 \mbox{\Hypertarget{classVehicleState_adf083bd85d71ca9f19bd449697878620}\label{classVehicleState_adf083bd85d71ca9f19bd449697878620}} 
 \index{VehicleState@{VehicleState}!setYawQuaternionInverseOffset@{setYawQuaternionInverseOffset}}
@@ -423,7 +419,7 @@ Definition at line 147 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 197 of file vehicle\+\_\+state.\+cpp.
+Definition at line 206 of file vehicle\+\_\+state.\+cpp.
 
 
 
@@ -436,7 +432,7 @@ Definition at line 197 of file vehicle\+\_\+state.\+cpp.
 
 
 
-Definition at line 99 of file vehicle\+\_\+state.\+hpp.
+Definition at line 115 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_ad6ef2a6ee57bfdc18cadd4b5f002d8cb}\label{classVehicleState_ad6ef2a6ee57bfdc18cadd4b5f002d8cb}} 
 \index{VehicleState@{VehicleState}!euler\_angles\_rpy\_@{euler\_angles\_rpy\_}}
@@ -446,7 +442,7 @@ Definition at line 99 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 101 of file vehicle\+\_\+state.\+hpp.
+Definition at line 117 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a4001db78e4bed8be586e260d44afa372}\label{classVehicleState_a4001db78e4bed8be586e260d44afa372}} 
 \index{VehicleState@{VehicleState}!euler\_angles\_rpy\_offset\_@{euler\_angles\_rpy\_offset\_}}
@@ -456,7 +452,7 @@ Definition at line 101 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 111 of file vehicle\+\_\+state.\+hpp.
+Definition at line 127 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_ae2b93304ba7e531368e6f4ef980d771f}\label{classVehicleState_ae2b93304ba7e531368e6f4ef980d771f}} 
 \index{VehicleState@{VehicleState}!is\_offset\_odometry\_msg\_@{is\_offset\_odometry\_msg\_}}
@@ -466,7 +462,7 @@ Definition at line 111 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 107 of file vehicle\+\_\+state.\+hpp.
+Definition at line 123 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a23121fc40787cdec05ef67b608237d4c}\label{classVehicleState_a23121fc40787cdec05ef67b608237d4c}} 
 \index{VehicleState@{VehicleState}!node\_@{node\_}}
@@ -476,7 +472,7 @@ Definition at line 107 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 92 of file vehicle\+\_\+state.\+hpp.
+Definition at line 108 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a60fa613507af47d53925cfcf031a43c7}\label{classVehicleState_a60fa613507af47d53925cfcf031a43c7}} 
 \index{VehicleState@{VehicleState}!position\_@{position\_}}
@@ -486,7 +482,7 @@ Definition at line 92 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 96 of file vehicle\+\_\+state.\+hpp.
+Definition at line 112 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a2ea2a39d3fde1f8202fca5eabfa6e016}\label{classVehicleState_a2ea2a39d3fde1f8202fca5eabfa6e016}} 
 \index{VehicleState@{VehicleState}!position\_offset\_@{position\_offset\_}}
@@ -496,7 +492,7 @@ Definition at line 96 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 109 of file vehicle\+\_\+state.\+hpp.
+Definition at line 125 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a04c212d5ea296f6b76c2f176e2d55df7}\label{classVehicleState_a04c212d5ea296f6b76c2f176e2d55df7}} 
 \index{VehicleState@{VehicleState}!q\_@{q\_}}
@@ -506,7 +502,7 @@ Definition at line 109 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 97 of file vehicle\+\_\+state.\+hpp.
+Definition at line 113 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a47e3caf7b45a0c6350714bace743f429}\label{classVehicleState_a47e3caf7b45a0c6350714bace743f429}} 
 \index{VehicleState@{VehicleState}!q\_offset\_@{q\_offset\_}}
@@ -516,7 +512,7 @@ Definition at line 97 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 110 of file vehicle\+\_\+state.\+hpp.
+Definition at line 126 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a26ea3e0108c7f90cbae7382f03c9adcb}\label{classVehicleState_a26ea3e0108c7f90cbae7382f03c9adcb}} 
 \index{VehicleState@{VehicleState}!time\_odometry\_@{time\_odometry\_}}
@@ -526,7 +522,7 @@ Definition at line 110 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 103 of file vehicle\+\_\+state.\+hpp.
+Definition at line 119 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a5c71ce6e2765150ef9539c5dce73248b}\label{classVehicleState_a5c71ce6e2765150ef9539c5dce73248b}} 
 \index{VehicleState@{VehicleState}!timestamp\_@{timestamp\_}}
@@ -536,7 +532,7 @@ Definition at line 103 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 95 of file vehicle\+\_\+state.\+hpp.
+Definition at line 111 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a7eed79b42807403f467de1f57c100c45}\label{classVehicleState_a7eed79b42807403f467de1f57c100c45}} 
 \index{VehicleState@{VehicleState}!timestamp\_initial\_@{timestamp\_initial\_}}
@@ -546,7 +542,7 @@ Definition at line 95 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 93 of file vehicle\+\_\+state.\+hpp.
+Definition at line 109 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_aef193acd2d7151bb45bf066d4fa8bd5a}\label{classVehicleState_aef193acd2d7151bb45bf066d4fa8bd5a}} 
 \index{VehicleState@{VehicleState}!timestamp\_offset\_@{timestamp\_offset\_}}
@@ -556,7 +552,7 @@ Definition at line 93 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 108 of file vehicle\+\_\+state.\+hpp.
+Definition at line 124 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_a3a485ed3ed9521da734c71a4cc4f8f90}\label{classVehicleState_a3a485ed3ed9521da734c71a4cc4f8f90}} 
 \index{VehicleState@{VehicleState}!velocity\_@{velocity\_}}
@@ -566,7 +562,7 @@ Definition at line 108 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 98 of file vehicle\+\_\+state.\+hpp.
+Definition at line 114 of file vehicle\+\_\+state.\+hpp.
 
 \mbox{\Hypertarget{classVehicleState_ae0d760e30dfd39495c6762342194bf6b}\label{classVehicleState_ae0d760e30dfd39495c6762342194bf6b}} 
 \index{VehicleState@{VehicleState}!yaw\_quaternion\_inverse\_offset\_@{yaw\_quaternion\_inverse\_offset\_}}
@@ -576,7 +572,7 @@ Definition at line 98 of file vehicle\+\_\+state.\+hpp.
 
 
 
-Definition at line 112 of file vehicle\+\_\+state.\+hpp.
+Definition at line 128 of file vehicle\+\_\+state.\+hpp.
 
 
 

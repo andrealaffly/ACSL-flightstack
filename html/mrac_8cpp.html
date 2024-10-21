@@ -69,6 +69,9 @@ $(function() {
 <div class="title">mrac.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of the <a class="el" href="classMRAC.html">MRAC</a> controller.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="multi__threaded__node_8hpp_source.html">multi_threaded_node.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="logging__mrac_8hpp_source.html">logging_mrac.hpp</a>&quot;</code><br />
@@ -78,11 +81,11 @@ Include dependency graph for mrac.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="mrac_8cpp__incl.png" border="0" usemap="#asrc_2control_2mrac_2mrac_8cpp" alt=""/></div>
 <map name="asrc_2control_2mrac_2mrac_8cpp" id="asrc_2control_2mrac_2mrac_8cpp">
-<area shape="rect" title=" " alt="" coords="2767,5,2957,32"/>
-<area shape="rect" href="multi__threaded__node_8hpp.html" title=" " alt="" coords="3644,80,3832,107"/>
-<area shape="rect" href="mrac_8hpp.html" title=" " alt="" coords="2698,251,2781,278"/>
-<area shape="rect" href="logging__mrac_8hpp.html" title=" " alt="" coords="1823,430,1962,457"/>
-<area shape="rect" href="json__parser_8hpp.html" title=" " alt="" coords="3133,430,3257,457"/>
+<area shape="rect" title="Implementation of the MRAC controller." alt="" coords="2767,5,2957,32"/>
+<area shape="rect" href="multi__threaded__node_8hpp.html" title="Multithreaded ROS2 node that joins together all the flight stack components." alt="" coords="3644,80,3832,107"/>
+<area shape="rect" href="mrac_8hpp.html" title="Implementation of MRAC controller." alt="" coords="2698,251,2781,278"/>
+<area shape="rect" href="logging__mrac_8hpp.html" title="Logger for the MRAC controller." alt="" coords="1823,430,1962,457"/>
+<area shape="rect" href="json__parser_8hpp.html" title="Utility functions to parse JSON files." alt="" coords="3133,430,3257,457"/>
 <area shape="rect" title=" " alt="" coords="4189,519,4255,546"/>
 <area shape="rect" title=" " alt="" coords="4192,430,4279,457"/>
 <area shape="rect" title=" " alt="" coords="3639,251,3717,278"/>
@@ -100,18 +103,18 @@ Include dependency graph for mrac.cpp:</div>
 <area shape="rect" title=" " alt="" coords="4601,155,4771,196"/>
 <area shape="rect" title=" " alt="" coords="4795,155,4966,196"/>
 <area shape="rect" href="config_8hpp.html" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="2803,162,2892,189"/>
-<area shape="rect" href="control_8hpp.html" title=" " alt="" coords="3908,341,4003,367"/>
-<area shape="rect" href="piecewise__polynomial__trajectory_8hpp.html" title=" " alt="" coords="3645,423,3812,464"/>
-<area shape="rect" href="user__defined__trajectory_8hpp.html" title=" " alt="" coords="3460,519,3661,546"/>
-<area shape="rect" href="vehicle__state_8hpp.html" title=" " alt="" coords="2819,430,2956,457"/>
+<area shape="rect" href="control_8hpp.html" title="General class that contains common members used by most of the control algorithms." alt="" coords="3908,341,4003,367"/>
+<area shape="rect" href="piecewise__polynomial__trajectory_8hpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="3645,423,3812,464"/>
+<area shape="rect" href="user__defined__trajectory_8hpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="3460,519,3661,546"/>
+<area shape="rect" href="vehicle__state_8hpp.html" title="Class storing the state of the vehicle coming from the flight controller (Pixhawk)" alt="" coords="2819,430,2956,457"/>
 <area shape="rect" href="mocap_8hpp.html" title="Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap_odometry topic for..." alt="" coords="3691,162,3785,189"/>
-<area shape="rect" href="print__helpers_8hpp.html" title=" " alt="" coords="3384,430,3519,457"/>
+<area shape="rect" href="print__helpers_8hpp.html" title="Inline functions for all the classes of the flightstack to use." alt="" coords="3384,430,3519,457"/>
 <area shape="rect" title=" " alt="" coords="3037,601,3100,628"/>
 <area shape="rect" title=" " alt="" coords="2658,430,2743,457"/>
 <area shape="rect" title=" " alt="" coords="2911,601,3013,628"/>
-<area shape="rect" href="mrac__gains_8hpp.html" title=" " alt="" coords="2562,341,2687,367"/>
+<area shape="rect" href="mrac__gains_8hpp.html" title="Tuning gains of the MRAC controller." alt="" coords="2562,341,2687,367"/>
 <area shape="rect" href="continuous__lyapunov__equation_8hpp.html" title=" " alt="" coords="2206,333,2366,375"/>
-<area shape="rect" href="projection__operator_8hpp.html" title=" " alt="" coords="46,341,222,367"/>
+<area shape="rect" href="projection__operator_8hpp.html" title="Implementation of the projection operator to be used in the MRAC controllers." alt="" coords="46,341,222,367"/>
 <area shape="rect" title=" " alt="" coords="2734,519,2801,546"/>
 <area shape="rect" title=" " alt="" coords="505,519,576,546"/>
 <area shape="rect" title=" " alt="" coords="601,519,691,546"/>
@@ -132,7 +135,21 @@ Include dependency graph for mrac.cpp:</div>
 </div>
 </div>
 <p><a href="mrac_8cpp_source.html">Go to the source code of this file.</a></p>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of the <a class="el" href="classMRAC.html">MRAC</a> controller. </p>
+<p>Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol type="1">
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File: <a class="el" href="mrac_8cpp.html" title="Implementation of the MRAC controller.">mrac.cpp</a> Author: Mattia Gramuglia Date: June 13, 2024 For info: Andrea L'Afflitto <a href="#" onclick="location.href='mai'+'lto:'+'a.l'+'af'+'fli'+'tt'+'o@v'+'t.'+'edu'; return false;">a.laf<span style="display: none;">.nosp@m.</span>flit<span style="display: none;">.nosp@m.</span>to@vt<span style="display: none;">.nosp@m.</span>.edu</a></p>
+<p>Description: Implementation of the <a class="el" href="classMRAC.html">MRAC</a> controller.</p>
+<p>GitHub: <a href="https://github.com/andrealaffly/ACSL-flightstack.git">https://github.com/andrealaffly/ACSL-flightstack.git</a> </p>
+
+<p class="definition">Definition in file <a class="el" href="mrac_8cpp_source.html">mrac.cpp</a>.</p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
