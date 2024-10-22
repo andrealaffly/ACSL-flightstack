@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_b3718a5b9243a5beb0b1ed52b7acfae0.html">flightstack</a></li><li class="navelem"><a class="el" href="dir_cef24d03f213de90457a619409a342bf.html">control</a></li><li class="navelem"><a class="el" href="dir_152ef618f3f13ccd1fe2763f07b4d21a.html">pid</a></li>  </ul>
@@ -82,13 +72,13 @@ Directory dependency graph for pid:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
 <tr class="memitem:logging__pid_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging__pid_8hpp.html">logging_pid.hpp</a> <a href="logging__pid_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:logging__pid_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger for the <a class="el" href="classPID.html">PID</a> controller. <br /></td></tr>
+<tr class="memdesc:logging__pid_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger for the <a class="el" href="classPID.html" title="PID.">PID</a> controller. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:pid_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pid_8hpp.html">pid.hpp</a> <a href="pid_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:pid_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the <a class="el" href="classPID.html">PID</a> controller. <br /></td></tr>
+<tr class="memdesc:pid_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the <a class="el" href="classPID.html" title="PID.">PID</a> controller. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:pid__gains_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pid__gains_8hpp.html">pid_gains.hpp</a> <a href="pid__gains_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:pid__gains_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tuning gains of the <a class="el" href="classPID.html">PID</a> controller. <br /></td></tr>
+<tr class="memdesc:pid__gains_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tuning gains of the <a class="el" href="classPID.html" title="PID.">PID</a> controller. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

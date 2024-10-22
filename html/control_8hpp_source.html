@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_b3718a5b9243a5beb0b1ed52b7acfae0.html">flightstack</a></li><li class="navelem"><a class="el" href="dir_cef24d03f213de90457a619409a342bf.html">control</a></li>  </ul>
@@ -91,14 +81,14 @@ $(function() {
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">class </span><a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classControl.html">   74</a></span>&#160;<span class="keyword">class </span><a class="code" href="classControl.html">Control</a> </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">    This struct contains the variables that are common among all controllers as they are the foundations of the base</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    control architecture framework.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classControl.html">   75</a></span>&#160;<span class="keyword">class </span><a class="code" href="classControl.html">Control</a> </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="comment">/*</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    This struct contains the variables that are common among all controllers as they are the foundations of the base</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">    control architecture framework.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">  */</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="structControl_1_1ControlInternalMembers.html">   87</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// Constructor</span></div>
@@ -137,137 +127,137 @@ $(function() {
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">    Struct that encapsulates references to external variables to be used inside the computeControlAlgorithm function</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">    to increase readability</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html">  130</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="comment">//Constructor</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#a13a9ef2b3182e82fde890c683ae9cc6c">  135</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#a13a9ef2b3182e82fde890c683ae9cc6c">user_defined_position</a>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ad0a608a25f51f007d30d342eb9e07416">  136</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#ad0a608a25f51f007d30d342eb9e07416">user_defined_velocity</a>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ac900177eb9a62add1396534e8e8070c7">  137</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#ac900177eb9a62add1396534e8e8070c7">user_defined_acceleration</a>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#a11f599a18c6834ca2312503634fe3f29">  138</a></span>&#160;    <span class="keywordtype">double</span>&amp; <a class="code" href="structControl_1_1ControlReferences.html#a11f599a18c6834ca2312503634fe3f29">user_defined_yaw</a>;</div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ad6bfd4b91d8666de1fdc2b8098f8538c">  139</a></span>&#160;    <span class="keywordtype">double</span>&amp; <a class="code" href="structControl_1_1ControlReferences.html#ad6bfd4b91d8666de1fdc2b8098f8538c">user_defined_yaw_dot</a>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ae673f7b67a19c2b066e4a962d8f4b913">  140</a></span>&#160;    <span class="keywordtype">double</span>&amp; <a class="code" href="structControl_1_1ControlReferences.html#ae673f7b67a19c2b066e4a962d8f4b913">user_defined_yaw_dot_dot</a>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#abc9c8a7e0dd0d94b3f21f65c883d9d5f">  142</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#abc9c8a7e0dd0d94b3f21f65c883d9d5f">position</a>;</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#acc53ca23d80546f8cb2dddcaca9e89d4">  143</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#acc53ca23d80546f8cb2dddcaca9e89d4">velocity</a>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#af4e398397b43111f56c2bd8326d6b336">  144</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#af4e398397b43111f56c2bd8326d6b336">euler_angles_rpy</a>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#aff64684d4f1ba9e45e11a56bcaade44c">  145</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#aff64684d4f1ba9e45e11a56bcaade44c">angular_velocity</a>;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  };</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="comment">// Constructor</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment"></span>  <a class="code" href="classControl.html">Control</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordtype">void</span> readJSONdifferentiatorFile();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="comment">// Getter functions</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment"></span>  <a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; getNode() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keyword">const</span> <a class="code" href="structVehicleInfo.html">VehicleInfo</a>&amp; getVehicleInfo() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keyword">const</span> <a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; getControlInternalMembers() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="keyword">const</span> std::chrono::duration&lt;double, std::micro&gt;&amp; getAlgorithmExecutionTimeMicroseconds() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="comment">// Setter function</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> setAlgorithmExecutionTimeMicroseconds(std::chrono::duration&lt;double, std::micro&gt; duration);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  Eigen::Matrix3d jacobianMatrix(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  Eigen::Matrix3d jacobianMatrixDot(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll,</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch,</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll_dot, </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch_dot);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  Eigen::Matrix3d jacobianMatrixInverse(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  Eigen::Matrix3d rotationMatrix321GlobalToLocal(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; yaw);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keywordtype">void</span> computeNormalizedThrustQuadcopterMode(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim, <a class="code" href="structVehicleInfo.html">VehicleInfo</a>&amp; vehicle_info);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keywordtype">void</span> computeNormalizedThrust(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim, <a class="code" href="structVehicleInfo.html">VehicleInfo</a>&amp; vehicle_info);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="keywordtype">void</span> compute_U1_RollDes_PitchDes(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="keywordtype">void</span> computeTranslationalPositionError(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim,</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                                         <span class="keyword">const</span> Eigen::Vector3d&amp; position,</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                                         <span class="keyword">const</span> Eigen::Vector3d&amp; desired_position);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordtype">void</span> computeAngularError(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim,</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                           <span class="keyword">const</span> Eigen::Vector3d&amp; euler_angles_rpy,</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                           <span class="keyword">const</span> Eigen::Vector3d&amp; angular_position_desired);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keywordtype">void</span> computeRotationalParameters(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim, <a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a>&amp; cr);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordtype">double</span> wrapAngleToMinusPiAndPi(<span class="keywordtype">double</span> alpha);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  <span class="keywordtype">double</span> makeYawAngularErrorContinuous(<span class="keywordtype">double</span> yaw, <span class="keywordtype">double</span> user_defined_yaw);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="classControl.html#a6929ceaeb95d02424bac55b29178ef32">  236</a></span>&#160;  runge_kutta4&lt; state_type &gt; <a class="code" href="classControl.html#a6929ceaeb95d02424bac55b29178ef32">stepper</a>;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="classControl.html#ac52abfb18cc1482d6172add98732f270">  244</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classControl.html#ac52abfb18cc1482d6172add98732f270">assignElementsToDxdt</a>(T&amp; entity, <a class="code" href="control_8hpp.html#ac2cbd93a71d714f5088358ef9ce8ed48">state_type</a> &amp;dxdt, <span class="keywordtype">int</span>&amp; current_index)</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">// constexpr int Rows = T::RowsAtCompileTime; // Get number of rows at compile time</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">// constexpr int Cols = T::ColsAtCompileTime; // Get number of columns at compile time</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment">// Eigen::Reshaped&lt;T, Rows * Cols, 1, 1&gt; reshaped_entity = entity.reshaped();</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keyword">auto</span> reshaped_entity = entity.reshaped();</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    std::copy(reshaped_entity.begin(),</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;              reshaped_entity.end(),</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;              dxdt.begin() + current_index);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    current_index += entity.size();</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">    Implementation of the smooth version of the dead-zone modification of MRAC through a </span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">    modulation function</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">    For reference: E. Lavretsky, K. Wise, &quot;Robust and Adaptive Control&quot;, Springer 2013, Sec. 11.2.1</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">    PARAMETERS:</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">      - delta: constant that must be 0 &lt; delta &lt; 1. delta characterizes the slope of the modulation function.</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">      - e_0: constant that must be e_0 &gt; 0. The dead-zone modification stops the adaptation process when </span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">             the norm of the tracking error becomes smaller than the prescribed value e_0.</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="classControl.html#aed596228f5ea4862a2a0498b2948ff51">  274</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classControl.html#aed596228f5ea4862a2a0498b2948ff51">deadZoneModulationFunction</a>(<span class="keyword">const</span> T&amp; e_vector,</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                                           <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; delta,</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                                           <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; e_0)</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">return</span> std::max(0.0, std::min(1.0, (e_vector.norm() - delta * e_0)/((1.0 - delta) * e_0)));</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; }</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="classControl.html#abf64312fbd5890115a4341e12358274a">  283</a></span>&#160;  <a class="code" href="structVehicleInfo.html">VehicleInfo</a> <a class="code" href="classControl.html#abf64312fbd5890115a4341e12358274a">vehicle_info</a>;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="classControl.html#ae617f475a998d077429d22807fe9ff89">  285</a></span>&#160;  <a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a> <a class="code" href="classControl.html#ae617f475a998d077429d22807fe9ff89">cim</a>;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="classControl.html#a72c21299fee71707c64758f1c3e72406">  287</a></span>&#160;  <a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a> <a class="code" href="classControl.html#a72c21299fee71707c64758f1c3e72406">cr</a>;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="comment">// Third standard basis vector e_3</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="classControl.html#aa8d388b470751180ac3c8a95aa19ab81">  290</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> Eigen::Vector3d e3_basis = Eigen::Vector3d(0.0, 0.0, 1.0);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
-<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="classControl.html#ab527a7573a89e2a435ead0578c40ba07">  294</a></span>&#160;  <a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; <a class="code" href="classControl.html#ab527a7573a89e2a435ead0578c40ba07">node_</a>;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="classControl.html#a918636042dff2a19372b7be55539801b">  296</a></span>&#160;  std::chrono::duration&lt;double, std::micro&gt; <a class="code" href="classControl.html#a918636042dff2a19372b7be55539801b">algorithm_execution_time_microseconds_</a>;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;};</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html">  129</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">//Constructor</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#a13a9ef2b3182e82fde890c683ae9cc6c">  134</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#a13a9ef2b3182e82fde890c683ae9cc6c">user_defined_position</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ad0a608a25f51f007d30d342eb9e07416">  135</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#ad0a608a25f51f007d30d342eb9e07416">user_defined_velocity</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ac900177eb9a62add1396534e8e8070c7">  136</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#ac900177eb9a62add1396534e8e8070c7">user_defined_acceleration</a>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#a11f599a18c6834ca2312503634fe3f29">  137</a></span>&#160;    <span class="keywordtype">double</span>&amp; <a class="code" href="structControl_1_1ControlReferences.html#a11f599a18c6834ca2312503634fe3f29">user_defined_yaw</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ad6bfd4b91d8666de1fdc2b8098f8538c">  138</a></span>&#160;    <span class="keywordtype">double</span>&amp; <a class="code" href="structControl_1_1ControlReferences.html#ad6bfd4b91d8666de1fdc2b8098f8538c">user_defined_yaw_dot</a>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#ae673f7b67a19c2b066e4a962d8f4b913">  139</a></span>&#160;    <span class="keywordtype">double</span>&amp; <a class="code" href="structControl_1_1ControlReferences.html#ae673f7b67a19c2b066e4a962d8f4b913">user_defined_yaw_dot_dot</a>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#abc9c8a7e0dd0d94b3f21f65c883d9d5f">  141</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#abc9c8a7e0dd0d94b3f21f65c883d9d5f">position</a>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#acc53ca23d80546f8cb2dddcaca9e89d4">  142</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#acc53ca23d80546f8cb2dddcaca9e89d4">velocity</a>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#af4e398397b43111f56c2bd8326d6b336">  143</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#af4e398397b43111f56c2bd8326d6b336">euler_angles_rpy</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="structControl_1_1ControlReferences.html#aff64684d4f1ba9e45e11a56bcaade44c">  144</a></span>&#160;    Eigen::Vector3d&amp; <a class="code" href="structControl_1_1ControlReferences.html#aff64684d4f1ba9e45e11a56bcaade44c">angular_velocity</a>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  };</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="comment">// Constructor</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment"></span>  <a class="code" href="classControl.html">Control</a>(<a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; node);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordtype">void</span> readJSONdifferentiatorFile();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="comment">// Getter functions</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment"></span>  <a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; getNode() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keyword">const</span> <a class="code" href="structVehicleInfo.html">VehicleInfo</a>&amp; getVehicleInfo() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keyword">const</span> <a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; getControlInternalMembers() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keyword">const</span> std::chrono::duration&lt;double, std::micro&gt;&amp; getAlgorithmExecutionTimeMicroseconds() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="comment">// Setter function</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> setAlgorithmExecutionTimeMicroseconds(std::chrono::duration&lt;double, std::micro&gt; duration);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  Eigen::Matrix3d jacobianMatrix(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  Eigen::Matrix3d jacobianMatrixDot(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll,</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch,</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll_dot, </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                                    <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch_dot);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  Eigen::Matrix3d jacobianMatrixInverse(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  Eigen::Matrix3d rotationMatrix321GlobalToLocal(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; roll, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; pitch, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; yaw);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keywordtype">void</span> computeNormalizedThrustQuadcopterMode(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim, <a class="code" href="structVehicleInfo.html">VehicleInfo</a>&amp; vehicle_info);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keywordtype">void</span> computeNormalizedThrust(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim, <a class="code" href="structVehicleInfo.html">VehicleInfo</a>&amp; vehicle_info);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="keywordtype">void</span> compute_U1_RollDes_PitchDes(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordtype">void</span> computeTranslationalPositionError(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim,</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                                         <span class="keyword">const</span> Eigen::Vector3d&amp; position,</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                                         <span class="keyword">const</span> Eigen::Vector3d&amp; desired_position);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keywordtype">void</span> computeAngularError(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim,</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                           <span class="keyword">const</span> Eigen::Vector3d&amp; euler_angles_rpy,</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                           <span class="keyword">const</span> Eigen::Vector3d&amp; angular_position_desired);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="keywordtype">void</span> computeRotationalParameters(<a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a>&amp; cim, <a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a>&amp; cr);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keywordtype">double</span> wrapAngleToMinusPiAndPi(<span class="keywordtype">double</span> alpha);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordtype">double</span> makeYawAngularErrorContinuous(<span class="keywordtype">double</span> yaw, <span class="keywordtype">double</span> user_defined_yaw);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="classControl.html#a6929ceaeb95d02424bac55b29178ef32">  235</a></span>&#160;  runge_kutta4&lt; state_type &gt; <a class="code" href="classControl.html#a6929ceaeb95d02424bac55b29178ef32">stepper</a>;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="classControl.html#ac52abfb18cc1482d6172add98732f270">  243</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classControl.html#ac52abfb18cc1482d6172add98732f270">assignElementsToDxdt</a>(T&amp; entity, <a class="code" href="control_8hpp.html#ac2cbd93a71d714f5088358ef9ce8ed48">state_type</a> &amp;dxdt, <span class="keywordtype">int</span>&amp; current_index)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// constexpr int Rows = T::RowsAtCompileTime; // Get number of rows at compile time</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">// constexpr int Cols = T::ColsAtCompileTime; // Get number of columns at compile time</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">// Eigen::Reshaped&lt;T, Rows * Cols, 1, 1&gt; reshaped_entity = entity.reshaped();</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keyword">auto</span> reshaped_entity = entity.reshaped();</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    std::copy(reshaped_entity.begin(),</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;              reshaped_entity.end(),</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;              dxdt.begin() + current_index);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    current_index += entity.size();</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="comment">/*</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">    Implementation of the smooth version of the dead-zone modification of MRAC through a </span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">    modulation function</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">    For reference: E. Lavretsky, K. Wise, &quot;Robust and Adaptive Control&quot;, Springer 2013, Sec. 11.2.1</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">    PARAMETERS:</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">      - delta: constant that must be 0 &lt; delta &lt; 1. delta characterizes the slope of the modulation function.</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">      - e_0: constant that must be e_0 &gt; 0. The dead-zone modification stops the adaptation process when </span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">             the norm of the tracking error becomes smaller than the prescribed value e_0.</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="classControl.html#aed596228f5ea4862a2a0498b2948ff51">  273</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classControl.html#aed596228f5ea4862a2a0498b2948ff51">deadZoneModulationFunction</a>(<span class="keyword">const</span> T&amp; e_vector,</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                                           <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; delta,</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                                           <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; e_0)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span> std::max(0.0, std::min(1.0, (e_vector.norm() - delta * e_0)/((1.0 - delta) * e_0)));</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="classControl.html#abf64312fbd5890115a4341e12358274a">  282</a></span>&#160;  <a class="code" href="structVehicleInfo.html">VehicleInfo</a> <a class="code" href="classControl.html#abf64312fbd5890115a4341e12358274a">vehicle_info</a>;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="classControl.html#ae617f475a998d077429d22807fe9ff89">  284</a></span>&#160;  <a class="code" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a> <a class="code" href="classControl.html#ae617f475a998d077429d22807fe9ff89">cim</a>;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="classControl.html#a72c21299fee71707c64758f1c3e72406">  286</a></span>&#160;  <a class="code" href="structControl_1_1ControlReferences.html">ControlReferences</a> <a class="code" href="classControl.html#a72c21299fee71707c64758f1c3e72406">cr</a>;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="comment">// Third standard basis vector e_3</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="classControl.html#aa8d388b470751180ac3c8a95aa19ab81">  289</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> Eigen::Vector3d e3_basis = Eigen::Vector3d(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="classControl.html#ab527a7573a89e2a435ead0578c40ba07">  293</a></span>&#160;  <a class="code" href="classMultiThreadedNode.html">MultiThreadedNode</a>&amp; <a class="code" href="classControl.html#ab527a7573a89e2a435ead0578c40ba07">node_</a>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno"><a class="line" href="classControl.html#a918636042dff2a19372b7be55539801b">  295</a></span>&#160;  std::chrono::duration&lt;double, std::micro&gt; <a class="code" href="classControl.html#a918636042dff2a19372b7be55539801b">algorithm_execution_time_microseconds_</a>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;};</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONTROL_HPP</span></div>
-<div class="ttc" id="aclassControl_html"><div class="ttname"><a href="classControl.html">Control</a></div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00074">control.hpp:75</a></div></div>
-<div class="ttc" id="aclassControl_html_a6929ceaeb95d02424bac55b29178ef32"><div class="ttname"><a href="classControl.html#a6929ceaeb95d02424bac55b29178ef32">Control::stepper</a></div><div class="ttdeci">runge_kutta4&lt; state_type &gt; stepper</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00236">control.hpp:236</a></div></div>
-<div class="ttc" id="aclassControl_html_a72c21299fee71707c64758f1c3e72406"><div class="ttname"><a href="classControl.html#a72c21299fee71707c64758f1c3e72406">Control::cr</a></div><div class="ttdeci">ControlReferences cr</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00287">control.hpp:287</a></div></div>
-<div class="ttc" id="aclassControl_html_a918636042dff2a19372b7be55539801b"><div class="ttname"><a href="classControl.html#a918636042dff2a19372b7be55539801b">Control::algorithm_execution_time_microseconds_</a></div><div class="ttdeci">std::chrono::duration&lt; double, std::micro &gt; algorithm_execution_time_microseconds_</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00296">control.hpp:296</a></div></div>
-<div class="ttc" id="aclassControl_html_ab527a7573a89e2a435ead0578c40ba07"><div class="ttname"><a href="classControl.html#ab527a7573a89e2a435ead0578c40ba07">Control::node_</a></div><div class="ttdeci">MultiThreadedNode &amp; node_</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00294">control.hpp:294</a></div></div>
-<div class="ttc" id="aclassControl_html_abf64312fbd5890115a4341e12358274a"><div class="ttname"><a href="classControl.html#abf64312fbd5890115a4341e12358274a">Control::vehicle_info</a></div><div class="ttdeci">VehicleInfo vehicle_info</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00283">control.hpp:283</a></div></div>
-<div class="ttc" id="aclassControl_html_ac52abfb18cc1482d6172add98732f270"><div class="ttname"><a href="classControl.html#ac52abfb18cc1482d6172add98732f270">Control::assignElementsToDxdt</a></div><div class="ttdeci">void assignElementsToDxdt(T &amp;entity, state_type &amp;dxdt, int &amp;current_index)</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00244">control.hpp:244</a></div></div>
-<div class="ttc" id="aclassControl_html_ae617f475a998d077429d22807fe9ff89"><div class="ttname"><a href="classControl.html#ae617f475a998d077429d22807fe9ff89">Control::cim</a></div><div class="ttdeci">ControlInternalMembers cim</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00285">control.hpp:285</a></div></div>
-<div class="ttc" id="aclassControl_html_aed596228f5ea4862a2a0498b2948ff51"><div class="ttname"><a href="classControl.html#aed596228f5ea4862a2a0498b2948ff51">Control::deadZoneModulationFunction</a></div><div class="ttdeci">double deadZoneModulationFunction(const T &amp;e_vector, const double &amp;delta, const double &amp;e_0)</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00274">control.hpp:274</a></div></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CONTROL_HPP</span></div>
+<div class="ttc" id="aclassControl_html"><div class="ttname"><a href="classControl.html">Control</a></div><div class="ttdoc">Control class.</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00075">control.hpp:76</a></div></div>
+<div class="ttc" id="aclassControl_html_a6929ceaeb95d02424bac55b29178ef32"><div class="ttname"><a href="classControl.html#a6929ceaeb95d02424bac55b29178ef32">Control::stepper</a></div><div class="ttdeci">runge_kutta4&lt; state_type &gt; stepper</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00235">control.hpp:235</a></div></div>
+<div class="ttc" id="aclassControl_html_a72c21299fee71707c64758f1c3e72406"><div class="ttname"><a href="classControl.html#a72c21299fee71707c64758f1c3e72406">Control::cr</a></div><div class="ttdeci">ControlReferences cr</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00286">control.hpp:286</a></div></div>
+<div class="ttc" id="aclassControl_html_a918636042dff2a19372b7be55539801b"><div class="ttname"><a href="classControl.html#a918636042dff2a19372b7be55539801b">Control::algorithm_execution_time_microseconds_</a></div><div class="ttdeci">std::chrono::duration&lt; double, std::micro &gt; algorithm_execution_time_microseconds_</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00295">control.hpp:295</a></div></div>
+<div class="ttc" id="aclassControl_html_ab527a7573a89e2a435ead0578c40ba07"><div class="ttname"><a href="classControl.html#ab527a7573a89e2a435ead0578c40ba07">Control::node_</a></div><div class="ttdeci">MultiThreadedNode &amp; node_</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00293">control.hpp:293</a></div></div>
+<div class="ttc" id="aclassControl_html_abf64312fbd5890115a4341e12358274a"><div class="ttname"><a href="classControl.html#abf64312fbd5890115a4341e12358274a">Control::vehicle_info</a></div><div class="ttdeci">VehicleInfo vehicle_info</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00282">control.hpp:282</a></div></div>
+<div class="ttc" id="aclassControl_html_ac52abfb18cc1482d6172add98732f270"><div class="ttname"><a href="classControl.html#ac52abfb18cc1482d6172add98732f270">Control::assignElementsToDxdt</a></div><div class="ttdeci">void assignElementsToDxdt(T &amp;entity, state_type &amp;dxdt, int &amp;current_index)</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00243">control.hpp:243</a></div></div>
+<div class="ttc" id="aclassControl_html_ae617f475a998d077429d22807fe9ff89"><div class="ttname"><a href="classControl.html#ae617f475a998d077429d22807fe9ff89">Control::cim</a></div><div class="ttdeci">ControlInternalMembers cim</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00284">control.hpp:284</a></div></div>
+<div class="ttc" id="aclassControl_html_aed596228f5ea4862a2a0498b2948ff51"><div class="ttname"><a href="classControl.html#aed596228f5ea4862a2a0498b2948ff51">Control::deadZoneModulationFunction</a></div><div class="ttdeci">double deadZoneModulationFunction(const T &amp;e_vector, const double &amp;delta, const double &amp;e_0)</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00273">control.hpp:273</a></div></div>
 <div class="ttc" id="aclassMultiThreadedNode_html"><div class="ttname"><a href="classMultiThreadedNode.html">MultiThreadedNode</a></div><div class="ttdoc">Multithreaded Node Class.</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00077">multi_threaded_node.hpp:78</a></div></div>
-<div class="ttc" id="acontrol_8hpp_html_ac2cbd93a71d714f5088358ef9ce8ed48"><div class="ttname"><a href="control_8hpp.html#ac2cbd93a71d714f5088358ef9ce8ed48">state_type</a></div><div class="ttdeci">std::vector&lt; double &gt; state_type</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00064">control.hpp:64</a></div></div>
+<div class="ttc" id="acontrol_8hpp_html_ac2cbd93a71d714f5088358ef9ce8ed48"><div class="ttname"><a href="control_8hpp.html#ac2cbd93a71d714f5088358ef9ce8ed48">state_type</a></div><div class="ttdeci">std::vector&lt; double &gt; state_type</div><div class="ttdoc">The type of container used to hold the state vector.</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00064">control.hpp:64</a></div></div>
 <div class="ttc" id="apiecewise__polynomial__trajectory_8hpp_html"><div class="ttname"><a href="piecewise__polynomial__trajectory_8hpp.html">piecewise_polynomial_trajectory.hpp</a></div><div class="ttdoc">Piecewise polynomial minimu-jerk trajectory computed offline through a MATLAB script.</div></div>
-<div class="ttc" id="astructControl_1_1ControlInternalMembers_html"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html">Control::ControlInternalMembers</a></div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00087">control.hpp:88</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlInternalMembers_html"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html">Control::ControlInternalMembers</a></div><div class="ttdoc">This struct contains the variables that are commmon among all controllers as they are the foundations...</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00087">control.hpp:88</a></div></div>
 <div class="ttc" id="astructControl_1_1ControlInternalMembers_html_a0f5379d72f6f5dac60f5a45f4d26b5b4"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html#a0f5379d72f6f5dac60f5a45f4d26b5b4">Control::ControlInternalMembers::internal_state_roll_dot_des_filter</a></div><div class="ttdeci">Eigen::Vector2d internal_state_roll_dot_des_filter</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00107">control.hpp:107</a></div></div>
 <div class="ttc" id="astructControl_1_1ControlInternalMembers_html_a2416b56eca331ffedd258bf414d1d48a"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html#a2416b56eca331ffedd258bf414d1d48a">Control::ControlInternalMembers::pitch_desired</a></div><div class="ttdeci">double &amp; pitch_desired</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00100">control.hpp:100</a></div></div>
 <div class="ttc" id="astructControl_1_1ControlInternalMembers_html_a2d2efa0579acffb583926bc4c1283e81"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html#a2d2efa0579acffb583926bc4c1283e81">Control::ControlInternalMembers::rotation_matrix_321_global_to_local</a></div><div class="ttdeci">Eigen::Matrix3d rotation_matrix_321_global_to_local</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00110">control.hpp:110</a></div></div>
@@ -294,17 +284,17 @@ $(function() {
 <div class="ttc" id="astructControl_1_1ControlInternalMembers_html_af696b1766cd8f6807fdc5f05ec20beda"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html#af696b1766cd8f6807fdc5f05ec20beda">Control::ControlInternalMembers::angular_error</a></div><div class="ttdeci">Eigen::Vector3d angular_error</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00112">control.hpp:112</a></div></div>
 <div class="ttc" id="astructControl_1_1ControlInternalMembers_html_afa35f935b1720913e11cb4ddf68f5413"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html#afa35f935b1720913e11cb4ddf68f5413">Control::ControlInternalMembers::U_control_inputs</a></div><div class="ttdeci">Eigen::Vector4d U_control_inputs</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00094">control.hpp:94</a></div></div>
 <div class="ttc" id="astructControl_1_1ControlInternalMembers_html_afbd247d5b3eb3b998f01535614001e96"><div class="ttname"><a href="structControl_1_1ControlInternalMembers.html#afbd247d5b3eb3b998f01535614001e96">Control::ControlInternalMembers::angular_position_desired_dot</a></div><div class="ttdeci">Eigen::Vector3d angular_position_desired_dot</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00097">control.hpp:97</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html"><div class="ttname"><a href="structControl_1_1ControlReferences.html">Control::ControlReferences</a></div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00130">control.hpp:131</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_a11f599a18c6834ca2312503634fe3f29"><div class="ttname"><a href="structControl_1_1ControlReferences.html#a11f599a18c6834ca2312503634fe3f29">Control::ControlReferences::user_defined_yaw</a></div><div class="ttdeci">double &amp; user_defined_yaw</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00138">control.hpp:138</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_a13a9ef2b3182e82fde890c683ae9cc6c"><div class="ttname"><a href="structControl_1_1ControlReferences.html#a13a9ef2b3182e82fde890c683ae9cc6c">Control::ControlReferences::user_defined_position</a></div><div class="ttdeci">Eigen::Vector3d &amp; user_defined_position</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00135">control.hpp:135</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_abc9c8a7e0dd0d94b3f21f65c883d9d5f"><div class="ttname"><a href="structControl_1_1ControlReferences.html#abc9c8a7e0dd0d94b3f21f65c883d9d5f">Control::ControlReferences::position</a></div><div class="ttdeci">Eigen::Vector3d &amp; position</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00142">control.hpp:142</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_ac900177eb9a62add1396534e8e8070c7"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ac900177eb9a62add1396534e8e8070c7">Control::ControlReferences::user_defined_acceleration</a></div><div class="ttdeci">Eigen::Vector3d &amp; user_defined_acceleration</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00137">control.hpp:137</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_acc53ca23d80546f8cb2dddcaca9e89d4"><div class="ttname"><a href="structControl_1_1ControlReferences.html#acc53ca23d80546f8cb2dddcaca9e89d4">Control::ControlReferences::velocity</a></div><div class="ttdeci">Eigen::Vector3d &amp; velocity</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00143">control.hpp:143</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_ad0a608a25f51f007d30d342eb9e07416"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ad0a608a25f51f007d30d342eb9e07416">Control::ControlReferences::user_defined_velocity</a></div><div class="ttdeci">Eigen::Vector3d &amp; user_defined_velocity</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00136">control.hpp:136</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_ad6bfd4b91d8666de1fdc2b8098f8538c"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ad6bfd4b91d8666de1fdc2b8098f8538c">Control::ControlReferences::user_defined_yaw_dot</a></div><div class="ttdeci">double &amp; user_defined_yaw_dot</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00139">control.hpp:139</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_ae673f7b67a19c2b066e4a962d8f4b913"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ae673f7b67a19c2b066e4a962d8f4b913">Control::ControlReferences::user_defined_yaw_dot_dot</a></div><div class="ttdeci">double &amp; user_defined_yaw_dot_dot</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00140">control.hpp:140</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_af4e398397b43111f56c2bd8326d6b336"><div class="ttname"><a href="structControl_1_1ControlReferences.html#af4e398397b43111f56c2bd8326d6b336">Control::ControlReferences::euler_angles_rpy</a></div><div class="ttdeci">Eigen::Vector3d &amp; euler_angles_rpy</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00144">control.hpp:144</a></div></div>
-<div class="ttc" id="astructControl_1_1ControlReferences_html_aff64684d4f1ba9e45e11a56bcaade44c"><div class="ttname"><a href="structControl_1_1ControlReferences.html#aff64684d4f1ba9e45e11a56bcaade44c">Control::ControlReferences::angular_velocity</a></div><div class="ttdeci">Eigen::Vector3d &amp; angular_velocity</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00145">control.hpp:145</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html"><div class="ttname"><a href="structControl_1_1ControlReferences.html">Control::ControlReferences</a></div><div class="ttdoc">Struct that encapsulates references to external variables to be used inside the computeControlAlgorit...</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00129">control.hpp:130</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_a11f599a18c6834ca2312503634fe3f29"><div class="ttname"><a href="structControl_1_1ControlReferences.html#a11f599a18c6834ca2312503634fe3f29">Control::ControlReferences::user_defined_yaw</a></div><div class="ttdeci">double &amp; user_defined_yaw</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00137">control.hpp:137</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_a13a9ef2b3182e82fde890c683ae9cc6c"><div class="ttname"><a href="structControl_1_1ControlReferences.html#a13a9ef2b3182e82fde890c683ae9cc6c">Control::ControlReferences::user_defined_position</a></div><div class="ttdeci">Eigen::Vector3d &amp; user_defined_position</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00134">control.hpp:134</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_abc9c8a7e0dd0d94b3f21f65c883d9d5f"><div class="ttname"><a href="structControl_1_1ControlReferences.html#abc9c8a7e0dd0d94b3f21f65c883d9d5f">Control::ControlReferences::position</a></div><div class="ttdeci">Eigen::Vector3d &amp; position</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00141">control.hpp:141</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_ac900177eb9a62add1396534e8e8070c7"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ac900177eb9a62add1396534e8e8070c7">Control::ControlReferences::user_defined_acceleration</a></div><div class="ttdeci">Eigen::Vector3d &amp; user_defined_acceleration</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00136">control.hpp:136</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_acc53ca23d80546f8cb2dddcaca9e89d4"><div class="ttname"><a href="structControl_1_1ControlReferences.html#acc53ca23d80546f8cb2dddcaca9e89d4">Control::ControlReferences::velocity</a></div><div class="ttdeci">Eigen::Vector3d &amp; velocity</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00142">control.hpp:142</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_ad0a608a25f51f007d30d342eb9e07416"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ad0a608a25f51f007d30d342eb9e07416">Control::ControlReferences::user_defined_velocity</a></div><div class="ttdeci">Eigen::Vector3d &amp; user_defined_velocity</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00135">control.hpp:135</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_ad6bfd4b91d8666de1fdc2b8098f8538c"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ad6bfd4b91d8666de1fdc2b8098f8538c">Control::ControlReferences::user_defined_yaw_dot</a></div><div class="ttdeci">double &amp; user_defined_yaw_dot</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00138">control.hpp:138</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_ae673f7b67a19c2b066e4a962d8f4b913"><div class="ttname"><a href="structControl_1_1ControlReferences.html#ae673f7b67a19c2b066e4a962d8f4b913">Control::ControlReferences::user_defined_yaw_dot_dot</a></div><div class="ttdeci">double &amp; user_defined_yaw_dot_dot</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00139">control.hpp:139</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_af4e398397b43111f56c2bd8326d6b336"><div class="ttname"><a href="structControl_1_1ControlReferences.html#af4e398397b43111f56c2bd8326d6b336">Control::ControlReferences::euler_angles_rpy</a></div><div class="ttdeci">Eigen::Vector3d &amp; euler_angles_rpy</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00143">control.hpp:143</a></div></div>
+<div class="ttc" id="astructControl_1_1ControlReferences_html_aff64684d4f1ba9e45e11a56bcaade44c"><div class="ttname"><a href="structControl_1_1ControlReferences.html#aff64684d4f1ba9e45e11a56bcaade44c">Control::ControlReferences::angular_velocity</a></div><div class="ttdeci">Eigen::Vector3d &amp; angular_velocity</div><div class="ttdef"><b>Definition:</b> <a href="control_8hpp_source.html#l00144">control.hpp:144</a></div></div>
 <div class="ttc" id="astructVehicleInfo_html"><div class="ttname"><a href="structVehicleInfo.html">VehicleInfo</a></div><div class="ttdoc">Vehicle Info.</div><div class="ttdef"><b>Definition:</b> <a href="vehicle__info_8hpp_source.html#l00061">vehicle_info.hpp:62</a></div></div>
 <div class="ttc" id="avehicle__info_8hpp_html"><div class="ttname"><a href="vehicle__info_8hpp.html">vehicle_info.hpp</a></div><div class="ttdoc">Vehicle properties such as mass, intertia matrix, motor thrust curves, etc.</div></div>
 </div><!-- fragment --></div><!-- contents -->

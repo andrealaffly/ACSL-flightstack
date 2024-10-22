@@ -49,8 +49,8 @@
 #include <Eigen/Dense>
 
 /**
- * @struct MotorCommands
- * @param std::strings& jsonFile
+ * @struct MotorsCommands
+ * @brief create floating points for the Motor Commands
  */
 struct MotorsCommands {
 

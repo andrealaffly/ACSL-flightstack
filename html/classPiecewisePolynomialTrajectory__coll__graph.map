@@ -1,6 +1,6 @@
 <map id="PiecewisePolynomialTrajectory" name="PiecewisePolynomialTrajectory">
-<area shape="rect" id="node1" title=" " alt="" coords="275,584,499,611"/>
-<area shape="rect" id="node2" href="$classUserDefinedTrajectory.html" title=" " alt="" coords="193,244,360,271"/>
+<area shape="rect" id="node1" title="Finding the trajectory using piecewsie polynomial functions." alt="" coords="275,584,499,611"/>
+<area shape="rect" id="node2" href="$classUserDefinedTrajectory.html" title="The trajectory for the drone which can be set by the user." alt="" coords="193,244,360,271"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,95,84,121"/>
 <area shape="rect" id="node4" href="$classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="201,95,352,121"/>
 <area shape="rect" id="node5" title=" " alt="" coords="59,5,161,32"/>

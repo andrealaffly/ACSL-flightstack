@@ -65,9 +65,8 @@ public:
   */
  /**
   * @class StateController
-  * This struct represents the state of the PID controller differential equations that will be integrated
-    at each RK4 iteration.
-    IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).
+  * @brief This struct represents the state of the PID controller differential equations that will be at each RK4 iteration.
+           IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).
   */
   struct StateController 
   {
@@ -114,6 +113,7 @@ public:
   // Constructor
   /**
    * @class PID
+   * @brief PID
    */
   PID(MultiThreadedNode& node);
 

@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_b3718a5b9243a5beb0b1ed52b7acfae0.html">flightstack</a></li><li class="navelem"><a class="el" href="dir_cef24d03f213de90457a619409a342bf.html">control</a></li><li class="navelem"><a class="el" href="dir_f430e4946b282afb772cab3c822a97c5.html">mrac</a></li>  </ul>
@@ -143,10 +133,10 @@ $(function() {
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LOGGING_MRAC_HPP</span></div>
-<div class="ttc" id="aclassLogData__MRAC_html"><div class="ttname"><a href="classLogData__MRAC.html">LogData_MRAC</a></div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8hpp_source.html#l00099">logging_mrac.hpp:100</a></div></div>
+<div class="ttc" id="aclassLogData__MRAC_html"><div class="ttname"><a href="classLogData__MRAC.html">LogData_MRAC</a></div><div class="ttdoc">Forward decleration of LogData_MRAC class.</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8hpp_source.html#l00099">logging_mrac.hpp:100</a></div></div>
 <div class="ttc" id="aclassLogData__MRAC_html_a47cbb70fabf478502a30bbc076df4ad5"><div class="ttname"><a href="classLogData__MRAC.html#a47cbb70fabf478502a30bbc076df4ad5">LogData_MRAC::logInitializeHeaders</a></div><div class="ttdeci">void logInitializeHeaders()</div><div class="ttdoc">Function to print headers.</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8cpp_source.html#l00058">logging_mrac.cpp:58</a></div></div>
 <div class="ttc" id="aclassLogData__MRAC_html_a60559439000a8356924cb03127adefc7"><div class="ttname"><a href="classLogData__MRAC.html#a60559439000a8356924cb03127adefc7">LogData_MRAC::LogData_MRAC</a></div><div class="ttdeci">LogData_MRAC(MultiThreadedNode &amp;node, MRAC &amp;controller)</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8cpp_source.html#l00052">logging_mrac.cpp:52</a></div></div>
-<div class="ttc" id="aclassLogData__MRAC_html_a640cf245a6368c3e7c06868ab8df3b9b"><div class="ttname"><a href="classLogData__MRAC.html#a640cf245a6368c3e7c06868ab8df3b9b">LogData_MRAC::logger_logdata</a></div><div class="ttdeci">static src::logger logger_logdata</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8hpp_source.html#l00106">logging_mrac.hpp:106</a></div></div>
+<div class="ttc" id="aclassLogData__MRAC_html_a640cf245a6368c3e7c06868ab8df3b9b"><div class="ttname"><a href="classLogData__MRAC.html#a640cf245a6368c3e7c06868ab8df3b9b">LogData_MRAC::logger_logdata</a></div><div class="ttdeci">static src::logger logger_logdata</div><div class="ttdoc">Define logger for LogData.</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8hpp_source.html#l00106">logging_mrac.hpp:106</a></div></div>
 <div class="ttc" id="aclassLogData__MRAC_html_a8dc940158ce75382f177249434e52663"><div class="ttname"><a href="classLogData__MRAC.html#a8dc940158ce75382f177249434e52663">LogData_MRAC::node_</a></div><div class="ttdeci">MultiThreadedNode &amp; node_</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8hpp_source.html#l00135">logging_mrac.hpp:135</a></div></div>
 <div class="ttc" id="aclassLogData__MRAC_html_ac99001608011994b8627efcd24b95359"><div class="ttname"><a href="classLogData__MRAC.html#ac99001608011994b8627efcd24b95359">LogData_MRAC::controller_</a></div><div class="ttdeci">MRAC &amp; controller_</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8hpp_source.html#l00137">logging_mrac.hpp:137</a></div></div>
 <div class="ttc" id="aclassLogData__MRAC_html_af655779cc55a594b078ddba426f7f2a6"><div class="ttname"><a href="classLogData__MRAC.html#af655779cc55a594b078ddba426f7f2a6">LogData_MRAC::logLogData</a></div><div class="ttdeci">void logLogData()</div><div class="ttdoc">Function to log the data.</div><div class="ttdef"><b>Definition:</b> <a href="logging__mrac_8cpp_source.html#l00366">logging_mrac.cpp:366</a></div></div>

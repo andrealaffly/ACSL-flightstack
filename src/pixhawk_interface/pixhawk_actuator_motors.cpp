@@ -47,8 +47,7 @@
 
 // Callback function that is executed at a fixed specified rate defined by the "timer_actuator_motors_"
 /**
- * @fn void MultiThreadedNode::publisher_actuator_motors_callback()
- * 
+ * @class MultiThreadedNode
  */
 void MultiThreadedNode::publisher_actuator_motors_callback()
 {

@@ -109,7 +109,8 @@ public:
   {
     // Constructor
     /**
-     * @class ControllerSpecificInternalMembers
+     * @brief Construct a new Controller Specific Internal Members object
+     * @param None
      */
     ControllerSpecificInternalMembers();
 

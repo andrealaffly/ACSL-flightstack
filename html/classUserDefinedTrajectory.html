@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -70,14 +60,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>The trajectory for the drone which can be set by the user.  
+ <a href="classUserDefinedTrajectory.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for UserDefinedTrajectory:</div>
 <div class="dyncontent">
 <div class="center"><img src="classUserDefinedTrajectory__inherit__graph.png" border="0" usemap="#aUserDefinedTrajectory_inherit__map" alt="Inheritance graph"/></div>
 <map name="aUserDefinedTrajectory_inherit__map" id="aUserDefinedTrajectory_inherit__map">
-<area shape="rect" title=" " alt="" coords="34,5,201,32"/>
-<area shape="rect" href="classPiecewisePolynomialTrajectory.html" title=" " alt="" coords="5,80,229,107"/>
+<area shape="rect" title="The trajectory for the drone which can be set by the user." alt="" coords="34,5,201,32"/>
+<area shape="rect" href="classPiecewisePolynomialTrajectory.html" title="Finding the trajectory using piecewsie polynomial functions." alt="" coords="5,80,229,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -85,7 +78,7 @@ Collaboration diagram for UserDefinedTrajectory:</div>
 <div class="dyncontent">
 <div class="center"><img src="classUserDefinedTrajectory__coll__graph.png" border="0" usemap="#aUserDefinedTrajectory_coll__map" alt="Collaboration graph"/></div>
 <map name="aUserDefinedTrajectory_coll__map" id="aUserDefinedTrajectory_coll__map">
-<area shape="rect" title=" " alt="" coords="64,243,231,269"/>
+<area shape="rect" title="The trajectory for the drone which can be set by the user." alt="" coords="64,243,231,269"/>
 <area shape="rect" title=" " alt="" coords="5,95,84,121"/>
 <area shape="rect" href="classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="175,95,325,121"/>
 <area shape="rect" title=" " alt="" coords="32,5,135,32"/>
@@ -155,8 +148,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af87095362eea5cb60ec0b0254c7c2980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00059">59</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<div class="textblock"><p>The trajectory for the drone which can be set by the user. </p>
+
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00060">60</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af5f06459f1ffeed68373cb2c464fe8ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5f06459f1ffeed68373cb2c464fe8ea">&#9670;&nbsp;</a></span>UserDefinedTrajectory()</h2>
@@ -175,15 +169,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Construct a new User Defined Trajectory object. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classUserDefinedTrajectory.html">UserDefinedTrajectory</a></dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">node</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00051">51</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00049">49</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -203,7 +190,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00068">68</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00066">66</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -223,9 +210,15 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the Node object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMultiThreadedNode.html" title="Multithreaded Node Class.">MultiThreadedNode</a>&amp; </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00063">63</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00061">61</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -244,7 +237,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00083">83</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00081">81</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -263,7 +256,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00073">73</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00071">71</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -282,7 +275,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00078">78</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00076">76</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +294,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00088">88</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00086">86</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +313,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00093">93</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00091">91</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -339,7 +332,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00098">98</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00096">96</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -367,7 +360,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00113">113</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00111">111</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +388,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00103">103</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00101">101</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +416,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00108">108</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00106">106</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -451,7 +444,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00118">118</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00116">116</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +472,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00123">123</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00121">121</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -507,7 +500,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00128">128</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8cpp_source.html#l00126">126</a> of file <a class="el" href="user__defined__trajectory_8cpp_source.html">user_defined_trajectory.cpp</a>.</p>
 
 </div>
 </div>
@@ -532,7 +525,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00129">129</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00130">130</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>
@@ -557,7 +550,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Reference to the initial timestamp const std::atomic&lt;double&gt;&amp; time_current_; Reference to the current time </p>
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00135">135</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00136">136</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>
@@ -581,7 +574,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00140">140</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00141">141</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>
@@ -605,7 +598,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00138">138</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00139">139</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>
@@ -629,7 +622,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00139">139</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00140">140</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +646,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00141">141</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00142">142</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>
@@ -677,7 +670,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00142">142</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00143">143</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>
@@ -701,7 +694,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00143">143</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__defined__trajectory_8hpp_source.html#l00144">144</a> of file <a class="el" href="user__defined__trajectory_8hpp_source.html">user_defined_trajectory.hpp</a>.</p>
 
 </div>
 </div>

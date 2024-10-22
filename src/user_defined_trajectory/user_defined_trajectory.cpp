@@ -44,9 +44,7 @@
 
 // Constructor
 /**
- * @see UserDefinedTrajectory
- * 
- * @param node 
+ * @class UserDefinedTrajectory
  */
 UserDefinedTrajectory::UserDefinedTrajectory(MultiThreadedNode& node) :
 	node_(node),

@@ -2,6 +2,11 @@
 \label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode}\index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}}
 
 
+\mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode}{Udp\+Receiver\+Node}} class which can recieve UDP datagrams.  
+
+
+
+
 {\ttfamily \#include $<$mocap.\+hpp$>$}
 
 
@@ -44,18 +49,18 @@ LNI\+::\+Callback\+Return \mbox{\hyperlink{class__drivers___1_1__udp__driver___1
 void \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aeb95da05fbb2d8de9ad3c5a6a79f9313}{receiver\+\_\+callback}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&buffer)
 \begin{DoxyCompactList}\small\item\em Callback for receiving a UDP datagram. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct__drivers___1_1__udp__driver___1_1mocap__states}{mocap\+\_\+states}} \& \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_af7186b98380b2932f8864e8c0c216ca8}{get\+Mocap\+States}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Mocap States object. \end{DoxyCompactList}\item 
 uint64\+\_\+t \& \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aa7683c757873cb51acfa305b0ce02110}{get\+Timestamp\+Mocap}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Timestamp Mocap object. \end{DoxyCompactList}\item 
 double \& \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ada595a30c9612873ae86ecfcaa4cdb7b}{get\+Time\+Mocap}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the Time Mocap object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aee8977fd55a2a9621e85a64829cf2fdf}{get\+\_\+params}} ()
 \begin{DoxyCompactList}\small\item\em Get the parameters for the ip and port to ping. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a723be77cad6835335b5c2565c1987d16}{debug\+Mocap\+Data2screen}} ()
-\begin{DoxyCompactList}\small\item\em Debugger function to output the mocap data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Debugger function to output mocap data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,19 +75,19 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1
 lc\+::\+Lifecycle\+Publisher$<$ px4\+\_\+msgs\+::msg\+::\+Vehicle\+Odometry $>$\+::Shared\+Ptr \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ab6ae4cb30c74ca52b88f8436d06759e5}{mocap\+\_\+publisher\+\_\+}}
 \begin{DoxyCompactList}\small\item\em Publisher for publishing the mocap message. \end{DoxyCompactList}\item 
 const std\+::atomic$<$ uint64\+\_\+t $>$ \& \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aa48917fa8497005e1d62e6f55ebfed0e}{timestamp\+\_\+initial\+\_\+}}
-\item 
+\begin{DoxyCompactList}\small\item\em Reference to the initial timestamp determined in multi\+\_\+threaded\+\_\+node. \end{DoxyCompactList}\item 
 uint64\+\_\+t \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a62c0d7c247eb33323b44b880327c784f}{timestamp\+\_\+mocap\+\_\+}}
-\item 
+\begin{DoxyCompactList}\small\item\em Timestamp at which the mocap data is received. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aad2e0a28939a807da48e8272855e511c}{time\+\_\+mocap\+\_\+}}
-\item 
+\begin{DoxyCompactList}\small\item\em Time in seconds at which the mocap data is recieved wrt the timestamdp\+\_\+initial. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct__drivers___1_1__udp__driver___1_1mocap__states}{mocap\+\_\+states}} \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a6bdb72c5b9b972350c008f7e44e76616}{mc}}
-\begin{DoxyCompactList}\small\item\em Instantiate \mbox{\hyperlink{struct__drivers___1_1__udp__driver___1_1mocap__states}{mocap\+\_\+states}} struct. \end{DoxyCompactList}\item 
+\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1MocapData}{Mocap\+Data}} $>$ \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aed33c8e096f44234aba49456c6b58e3a}{mocap\+\_\+data\+\_\+}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Create a pointer to the \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1MocapData}{Mocap\+Data}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-
+\mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode}{Udp\+Receiver\+Node}} class which can recieve UDP datagrams. 
 
 Definition at line 138 of file mocap.\+hpp.
 
@@ -99,22 +104,16 @@ Definition at line 138 of file mocap.\+hpp.
 
 Constructor which accpets IOContext. 
 
-Construct a new Udp Receiver Node\+:\+: Udp Receiver Node object.
-
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em ctx} & \\
 \hline
 \mbox{\texttt{ out}}  & {\em pointer} & \\
 \hline
-\mbox{\texttt{ in}}  & {\em ctx} & \\
-\hline
- & {\em timestamp\+\_\+initial} & \\
-\hline
 \end{DoxyParams}
 
 
-Definition at line 79 of file mocap.\+cpp.
+Definition at line 76 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a9391a942303c16fd5509e822b2d675ae}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a9391a942303c16fd5509e822b2d675ae}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!````~UdpReceiverNode@{$\sim$UdpReceiverNode}}
@@ -127,8 +126,13 @@ Definition at line 79 of file mocap.\+cpp.
 Destructor -\/ required to manage owned Io\+Context. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 111 of file mocap.\+cpp.
+
+Definition at line 104 of file mocap.\+cpp.
 
 
 
@@ -150,7 +154,7 @@ Check that Lifecycle Node Starts.
 \end{DoxyParams}
 
 
-Definition at line 124 of file mocap.\+cpp.
+Definition at line 116 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a723be77cad6835335b5c2565c1987d16}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a723be77cad6835335b5c2565c1987d16}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!debugMocapData2screen@{debugMocapData2screen}}
@@ -160,16 +164,18 @@ Definition at line 124 of file mocap.\+cpp.
 
 
 
-Debugger function to output the mocap data. 
+Debugger function to output mocap data. 
+
+Debugger function to output the mocap data.
 
 
 \begin{DoxyParams}{Parameters}
-{\em None} & Debugger function to output mocap data \\
+{\em None} & \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 258 of file mocap.\+cpp.
+Definition at line 227 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aee8977fd55a2a9621e85a64829cf2fdf}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aee8977fd55a2a9621e85a64829cf2fdf}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!get\_params@{get\_params}}
@@ -181,16 +187,14 @@ Definition at line 258 of file mocap.\+cpp.
 
 Get the parameters for the ip and port to ping. 
 
-Get the parameters for the ip and port to ping 
+
 \begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
 {\em None} & \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 99 of file mocap.\+cpp.
+Definition at line 92 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_af7186b98380b2932f8864e8c0c216ca8}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_af7186b98380b2932f8864e8c0c216ca8}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!getMocapStates@{getMocapStates}}
@@ -200,7 +204,19 @@ Definition at line 99 of file mocap.\+cpp.
 
 
 
-Definition at line 234 of file mocap.\+cpp.
+Get the Mocap States object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct__drivers___1_1__udp__driver___1_1mocap__states}{mocap\+\_\+states}}\& 
+\end{DoxyReturn}
+
+
+Definition at line 203 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ada595a30c9612873ae86ecfcaa4cdb7b}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ada595a30c9612873ae86ecfcaa4cdb7b}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!getTimeMocap@{getTimeMocap}}
@@ -210,7 +226,14 @@ Definition at line 234 of file mocap.\+cpp.
 
 
 
-Definition at line 244 of file mocap.\+cpp.
+Get the Time Mocap object. 
+
+\begin{DoxyReturn}{Returns}
+double\& 
+\end{DoxyReturn}
+
+
+Definition at line 213 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aa7683c757873cb51acfa305b0ce02110}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aa7683c757873cb51acfa305b0ce02110}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!getTimestampMocap@{getTimestampMocap}}
@@ -220,7 +243,14 @@ Definition at line 244 of file mocap.\+cpp.
 
 
 
-Definition at line 239 of file mocap.\+cpp.
+Get the Timestamp Mocap object. 
+
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t\& 
+\end{DoxyReturn}
+
+
+Definition at line 208 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a1bd4b02d5615ca2f76c3673303ebdf0c}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a1bd4b02d5615ca2f76c3673303ebdf0c}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!on\_activate@{on\_activate}}
@@ -234,24 +264,12 @@ Callback from transition to \char`\"{}activating\char`\"{} state.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in.\\
-\hline
-\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in.\\
+\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in. \\
 \hline
 \end{DoxyParams}
-Callback from transition to \char`\"{}acitvating\char`\"{} state.
 
 
-\begin{DoxyParams}{Parameters}
-{\em state} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-LNI\+::\+Callback\+Return 
-\end{DoxyReturn}
-
-
-Definition at line 185 of file mocap.\+cpp.
+Definition at line 163 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_adbd93f4f23f225fab48a80c140a94edc}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_adbd93f4f23f225fab48a80c140a94edc}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!on\_cleanup@{on\_cleanup}}
@@ -265,24 +283,12 @@ Callback from transition to \char`\"{}unconfigured\char`\"{} state.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in.\\
-\hline
-\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in.\\
+\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in. \\
 \hline
 \end{DoxyParams}
-Callback from transition to \char`\"{}unconfigured\char`\"{} state.
 
 
-\begin{DoxyParams}{Parameters}
-{\em state} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-LNI\+::\+Callback\+Return 
-\end{DoxyReturn}
-
-
-Definition at line 215 of file mocap.\+cpp.
+Definition at line 183 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a5c17b31f9d32f218a27bbf83cfeab421}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a5c17b31f9d32f218a27bbf83cfeab421}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!on\_configure@{on\_configure}}
@@ -294,21 +300,14 @@ Definition at line 215 of file mocap.\+cpp.
 
 Callback from transition to \char`\"{}configuring\char`\"{} state. 
 
-Callbackj from transition to \char`\"{}configuration state\char`\"{}.
-
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in.\\
-\hline
- & {\em state} & The current state that the node is in \\
+\mbox{\texttt{ in}}  & {\em state} & The current state that the node is in. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-LNI\+::\+Callback\+Return 
-\end{DoxyReturn}
 
 
-Definition at line 144 of file mocap.\+cpp.
+Definition at line 130 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a1a181608bb278c78e07ee1cb9d9cdfba}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a1a181608bb278c78e07ee1cb9d9cdfba}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!on\_deactivate@{on\_deactivate}}
@@ -327,7 +326,7 @@ Callback from transition to \char`\"{}deactivating\char`\"{} state.
 \end{DoxyParams}
 
 
-Definition at line 196 of file mocap.\+cpp.
+Definition at line 172 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a2a4a6a636556b1850c5eb14c55b2529c}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a2a4a6a636556b1850c5eb14c55b2529c}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!on\_shutdown@{on\_shutdown}}
@@ -346,7 +345,7 @@ Callback from transition to \char`\"{}shutdown\char`\"{} state.
 \end{DoxyParams}
 
 
-Definition at line 226 of file mocap.\+cpp.
+Definition at line 195 of file mocap.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aeb95da05fbb2d8de9ad3c5a6a79f9313}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aeb95da05fbb2d8de9ad3c5a6a79f9313}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!receiver\_callback@{receiver\_callback}}
@@ -360,7 +359,7 @@ Callback for receiving a UDP datagram.
 
 
 
-Definition at line 296 of file mocap.\+cpp.
+Definition at line 266 of file mocap.\+cpp.
 
 
 
@@ -375,9 +374,9 @@ Definition at line 296 of file mocap.\+cpp.
 
 String for the ip of the odrioid. 
 
+String for the ip of the odroid 
 
-
-Definition at line 199 of file mocap.\+hpp.
+Definition at line 218 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ac37e7f4167a6c90ba7a12a16338435a8}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ac37e7f4167a6c90ba7a12a16338435a8}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!m\_owned\_ctx@{m\_owned\_ctx}}
@@ -391,7 +390,7 @@ Pointer to the asio context owned by this node for async communication.
 
 
 
-Definition at line 196 of file mocap.\+hpp.
+Definition at line 212 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_af647db5797b76ab0d2cc225909f4f529}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_af647db5797b76ab0d2cc225909f4f529}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!m\_port@{m\_port}}
@@ -403,9 +402,9 @@ Definition at line 196 of file mocap.\+hpp.
 
 String for the port of the odroid. 
 
+String for the port of the odroid 
 
-
-Definition at line 202 of file mocap.\+hpp.
+Definition at line 224 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a9a697b231b2c310004f99887bc8e5bf7}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a9a697b231b2c310004f99887bc8e5bf7}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!m\_udp\_driver@{m\_udp\_driver}}
@@ -417,9 +416,9 @@ Definition at line 202 of file mocap.\+hpp.
 
 Pointer for the udp driver which wraps the udp socket. 
 
+POinter for the udp driver which wraps the udp socket 
 
-
-Definition at line 205 of file mocap.\+hpp.
+Definition at line 230 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a6bdb72c5b9b972350c008f7e44e76616}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a6bdb72c5b9b972350c008f7e44e76616}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!mc@{mc}}
@@ -429,11 +428,7 @@ Definition at line 205 of file mocap.\+hpp.
 
 
 
-Instantiate \mbox{\hyperlink{struct__drivers___1_1__udp__driver___1_1mocap__states}{mocap\+\_\+states}} struct. 
-
-
-
-Definition at line 217 of file mocap.\+hpp.
+Definition at line 254 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aed33c8e096f44234aba49456c6b58e3a}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aed33c8e096f44234aba49456c6b58e3a}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!mocap\_data\_@{mocap\_data\_}}
@@ -443,7 +438,11 @@ Definition at line 217 of file mocap.\+hpp.
 
 
 
-Definition at line 230 of file mocap.\+hpp.
+Create a pointer to the \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1MocapData}{Mocap\+Data}} instance. 
+
+
+
+Definition at line 273 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ab6ae4cb30c74ca52b88f8436d06759e5}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_ab6ae4cb30c74ca52b88f8436d06759e5}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!mocap\_publisher\_@{mocap\_publisher\_}}
@@ -455,9 +454,9 @@ Definition at line 230 of file mocap.\+hpp.
 
 Publisher for publishing the mocap message. 
 
+Publisher for publishing the mocap message 
 
-
-Definition at line 208 of file mocap.\+hpp.
+Definition at line 236 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aad2e0a28939a807da48e8272855e511c}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aad2e0a28939a807da48e8272855e511c}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!time\_mocap\_@{time\_mocap\_}}
@@ -467,7 +466,11 @@ Definition at line 208 of file mocap.\+hpp.
 
 
 
-Definition at line 217 of file mocap.\+hpp.
+Time in seconds at which the mocap data is recieved wrt the timestamdp\+\_\+initial. 
+
+
+
+Definition at line 254 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aa48917fa8497005e1d62e6f55ebfed0e}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_aa48917fa8497005e1d62e6f55ebfed0e}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!timestamp\_initial\_@{timestamp\_initial\_}}
@@ -477,7 +480,11 @@ Definition at line 217 of file mocap.\+hpp.
 
 
 
-Definition at line 211 of file mocap.\+hpp.
+Reference to the initial timestamp determined in multi\+\_\+threaded\+\_\+node. 
+
+
+
+Definition at line 242 of file mocap.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a62c0d7c247eb33323b44b880327c784f}\label{class__drivers___1_1__udp__driver___1_1UdpReceiverNode_a62c0d7c247eb33323b44b880327c784f}} 
 \index{\_drivers\_::\_udp\_driver\_::UdpReceiverNode@{\_drivers\_::\_udp\_driver\_::UdpReceiverNode}!timestamp\_mocap\_@{timestamp\_mocap\_}}
@@ -487,7 +494,11 @@ Definition at line 211 of file mocap.\+hpp.
 
 
 
-Definition at line 214 of file mocap.\+hpp.
+Timestamp at which the mocap data is received. 
+
+
+
+Definition at line 248 of file mocap.\+hpp.
 
 
 

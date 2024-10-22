@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -71,21 +61,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Forward decleration of <a class="el" href="classLogData__MRAC.html" title="Forward decleration of LogData_MRAC class.">LogData_MRAC</a> class.  
+ <a href="classLogData__MRAC.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="logging__mrac_8hpp_source.html">logging_mrac.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for LogData_MRAC:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogData__MRAC__coll__graph.png" border="0" usemap="#aLogData__MRAC_coll__map" alt="Collaboration graph"/></div>
 <map name="aLogData__MRAC_coll__map" id="aLogData__MRAC_coll__map">
-<area shape="rect" title=" " alt="" coords="1201,875,1324,901"/>
+<area shape="rect" title="Forward decleration of LogData_MRAC class." alt="" coords="1201,875,1324,901"/>
 <area shape="rect" href="classMRAC.html" title=" " alt="" coords="1019,591,1080,617"/>
-<area shape="rect" href="classControl.html" title=" " alt="" coords="807,761,877,788"/>
-<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title=" " alt="" coords="426,695,601,737"/>
+<area shape="rect" href="classControl.html" title="Control class." alt="" coords="807,761,877,788"/>
+<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title="This struct contains the variables that are commmon among all controllers as they are the foundations..." alt="" coords="426,695,601,737"/>
 <area shape="rect" title=" " alt="" coords="57,608,136,635"/>
 <area shape="rect" href="structMRAC_1_1ControllerSpecificInternalMembers.html" title="This struct contains the variables that are used in this particular controller." alt="" coords="422,482,605,523"/>
 <area shape="rect" title=" " alt="" coords="57,193,137,220"/>
-<area shape="rect" href="structGainsMRAC.html" title=" " alt="" coords="636,331,735,357"/>
-<area shape="rect" href="structControl_1_1ControlReferences.html" title=" " alt="" coords="415,761,612,788"/>
+<area shape="rect" href="structGainsMRAC.html" title="struct containing the MRAC tuning gains coming from the .json file" alt="" coords="636,331,735,357"/>
+<area shape="rect" href="structControl_1_1ControlReferences.html" title="Struct that encapsulates references to external variables to be used inside the computeControlAlgorit..." alt="" coords="415,761,612,788"/>
 <area shape="rect" href="structVehicleInfo.html" title="Vehicle Info." alt="" coords="466,821,561,848"/>
 <area shape="rect" title=" " alt="" coords="57,829,137,856"/>
 <area shape="rect" href="classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="438,896,589,923"/>
@@ -113,6 +106,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a640cf245a6368c3e7c06868ab8df3b9b"><td class="memItemLeft" align="right" valign="top">static src::logger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogData__MRAC.html#a640cf245a6368c3e7c06868ab8df3b9b">logger_logdata</a></td></tr>
+<tr class="memdesc:a640cf245a6368c3e7c06868ab8df3b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define logger for LogData.  <a href="classLogData__MRAC.html#a640cf245a6368c3e7c06868ab8df3b9b">More...</a><br /></td></tr>
 <tr class="separator:a640cf245a6368c3e7c06868ab8df3b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -123,7 +117,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac99001608011994b8627efcd24b95359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Forward decleration of <a class="el" href="classLogData__MRAC.html">LogData_MRAC</a> class </p>
+<div class="textblock"><p>Forward decleration of <a class="el" href="classLogData__MRAC.html" title="Forward decleration of LogData_MRAC class.">LogData_MRAC</a> class. </p>
+<p>Forward decleration of <a class="el" href="classLogData__MRAC.html" title="Forward decleration of LogData_MRAC class.">LogData_MRAC</a> class </p>
 
 <p class="definition">Definition at line <a class="el" href="logging__mrac_8hpp_source.html#l00099">99</a> of file <a class="el" href="logging__mrac_8hpp_source.html">logging_mrac.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -290,7 +285,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Define logger for LogData </p>
+
+<p>Define logger for LogData. </p>
 
 <p class="definition">Definition at line <a class="el" href="logging__mrac_8hpp_source.html#l00106">106</a> of file <a class="el" href="logging__mrac_8hpp_source.html">logging_mrac.hpp</a>.</p>
 

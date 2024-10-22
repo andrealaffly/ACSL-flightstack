@@ -2,6 +2,11 @@
 \label{structPID_1_1StateController}\index{PID::StateController@{PID::StateController}}
 
 
+This struct represents the state of the \mbox{\hyperlink{classPID}{PID}} controller differential equations that will be at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.).  
+
+
+
+
 {\ttfamily \#include $<$pid.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -29,9 +34,9 @@ Eigen\+::\+Map$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{structPID_1_1StateCon
 
 
 \doxysubsection{Detailed Description}
-This struct represents the state of the \mbox{\hyperlink{classPID}{PID}} controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.). 
+This struct represents the state of the \mbox{\hyperlink{classPID}{PID}} controller differential equations that will be at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.). 
 
-Definition at line 72 of file pid.\+hpp.
+Definition at line 71 of file pid.\+hpp.
 
 
 
@@ -57,7 +62,7 @@ Definition at line 60 of file pid.\+cpp.
 
 
 
-Definition at line 77 of file pid.\+hpp.
+Definition at line 76 of file pid.\+hpp.
 
 \mbox{\Hypertarget{structPID_1_1StateController_ab718af625dcf52fa9d140c203de2ea90}\label{structPID_1_1StateController_ab718af625dcf52fa9d140c203de2ea90}} 
 \index{PID::StateController@{PID::StateController}!integral\_angular\_error@{integral\_angular\_error}}
@@ -67,7 +72,7 @@ Definition at line 77 of file pid.\+hpp.
 
 
 
-Definition at line 89 of file pid.\+hpp.
+Definition at line 88 of file pid.\+hpp.
 
 \mbox{\Hypertarget{structPID_1_1StateController_aa52fe86f901366d19d9011c48be34965}\label{structPID_1_1StateController_aa52fe86f901366d19d9011c48be34965}} 
 \index{PID::StateController@{PID::StateController}!integral\_translational\_position\_error@{integral\_translational\_position\_error}}
@@ -77,7 +82,7 @@ Definition at line 89 of file pid.\+hpp.
 
 
 
-Definition at line 88 of file pid.\+hpp.
+Definition at line 87 of file pid.\+hpp.
 
 \mbox{\Hypertarget{structPID_1_1StateController_aa72579f6292d8e9747d239e946f2e0b4}\label{structPID_1_1StateController_aa72579f6292d8e9747d239e946f2e0b4}} 
 \index{PID::StateController@{PID::StateController}!state\_pitch\_des\_filter@{state\_pitch\_des\_filter}}
@@ -87,7 +92,7 @@ Definition at line 88 of file pid.\+hpp.
 
 
 
-Definition at line 85 of file pid.\+hpp.
+Definition at line 84 of file pid.\+hpp.
 
 \mbox{\Hypertarget{structPID_1_1StateController_a364859d05d33564d1366f88ba0593461}\label{structPID_1_1StateController_a364859d05d33564d1366f88ba0593461}} 
 \index{PID::StateController@{PID::StateController}!state\_pitch\_dot\_des\_filter@{state\_pitch\_dot\_des\_filter}}
@@ -97,7 +102,7 @@ Definition at line 85 of file pid.\+hpp.
 
 
 
-Definition at line 87 of file pid.\+hpp.
+Definition at line 86 of file pid.\+hpp.
 
 \mbox{\Hypertarget{structPID_1_1StateController_a6bae80c61caa2673ae583edce90202ed}\label{structPID_1_1StateController_a6bae80c61caa2673ae583edce90202ed}} 
 \index{PID::StateController@{PID::StateController}!state\_roll\_des\_filter@{state\_roll\_des\_filter}}
@@ -107,7 +112,7 @@ Definition at line 87 of file pid.\+hpp.
 
 
 
-Definition at line 84 of file pid.\+hpp.
+Definition at line 83 of file pid.\+hpp.
 
 \mbox{\Hypertarget{structPID_1_1StateController_a8f61cb2f364242b76177c07a179dc162}\label{structPID_1_1StateController_a8f61cb2f364242b76177c07a179dc162}} 
 \index{PID::StateController@{PID::StateController}!state\_roll\_dot\_des\_filter@{state\_roll\_dot\_des\_filter}}
@@ -117,7 +122,7 @@ Definition at line 84 of file pid.\+hpp.
 
 
 
-Definition at line 86 of file pid.\+hpp.
+Definition at line 85 of file pid.\+hpp.
 
 
 

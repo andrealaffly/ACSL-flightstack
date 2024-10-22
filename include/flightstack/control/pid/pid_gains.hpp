@@ -51,6 +51,7 @@
 // Struct containing the PID tuning gains coming from the .json file 
 /**
  * @struct GainsPID
+ * @brief Struct containing the PID tuning gains coming from the .json file
  */
 struct GainsPID 
 {

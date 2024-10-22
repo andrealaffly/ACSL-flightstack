@@ -70,8 +70,8 @@ struct PiecewisePolynomialTrajectoryInfo {
 };
 
 /**
- * @class PiecewisePolynomialTrajectory : public UserDefinedTrajectory
- * 
+ * @class PiecewisePolynomialTrajectory
+ * @brief Finding the trajectory using piecewsie polynomial functions
  */
 class PiecewisePolynomialTrajectory : public UserDefinedTrajectory
 {

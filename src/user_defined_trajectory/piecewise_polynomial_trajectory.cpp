@@ -50,6 +50,9 @@
 #include "multi_threaded_node.hpp"
 
 // Constructor
+/**
+ * @class PiecewisePolynomialTrajectory
+ */
 PiecewisePolynomialTrajectory::PiecewisePolynomialTrajectory(MultiThreadedNode& node) : 
   UserDefinedTrajectory(node),
   time_current_adjusted_(0),

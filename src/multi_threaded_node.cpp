@@ -41,6 +41,9 @@
   * @brief Multithreaded ROS2 ndoe that joins together all the flight stakc components
   */
 
+/**
+ * @class MultiThreadedNode
+ */
 MultiThreadedNode::MultiThreadedNode(rclcpp::NodeOptions options)
 : Node("MultiThreadedNode", options),
   config_(ConfigurationParameters::readConfigurationParametersFile("config.json")),

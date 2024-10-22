@@ -82,6 +82,7 @@ using Functor = std::function<void (const std::vector<uint8_t> &)>;
 
 /**
  * @class UdpSocket
+ * @brief Creates a UDP socket
  */
 class UdpSocket
 {
@@ -105,36 +106,56 @@ public:
 	std::string host_ip() const;
 	uint16_t host_port() const;
 
+	/**
+	 * @brief Open a UdpSocket
+	 */
 	void open();
+
+	/**
+	 * @brief Close a UdpSocket
+	 */
 	void close();
+
+	/**
+	 * @brief Check if UdpSocket is open
+	 * 
+	 * @return true 
+	 * @return false 
+	 */
 	bool isOpen() const;
+
+	/**
+	 * @brief No fucking idea
+	 */
 	void bind();
 
 	/**
-	 * Blocking Send Operation
+	 * @brief Blocking Send Operation
+	 * @param vector<uint8_t>
 	 */
 	std::size_t send(std::vector<uint8_t> & buff);
 
 	/**
-	 * Blocking Receive Operation
+	 * @brief Blocking Receive Operation
+	 * @param @param vector<uint8_t>
 	 */
 	size_t receive(std::vector<uint8_t> & buff);
 
 	/**
-	 * NonBlocking Send Operation
+	 * @brief NonBlocking Send Operation
 	 * @param buff 
 	 */
 	void asyncSend(std::vector<uint8_t> & buff);
 
 	/**
-	 * NonBlocking Receive Operation
+	 * @brief NonBlocking Receive Operation
 	 * @param func 
 	 */
 	void asyncReceive(Functor func);
 
 private:
 	/**
-	 * asyncSendHandler
+	 * @brief asyncSendHandler
 	 * @param error 
 	 * @param bytes_transferred 
 	 */
@@ -143,7 +164,7 @@ private:
 		std::size_t bytes_transferred);
 
 	/**
-	 * asyncReceiveHandler
+	 * @brief asyncReceiveHandler
 	 * @param error 
 	 * @param bytes_transferred 
 	 */

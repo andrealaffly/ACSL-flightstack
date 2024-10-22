@@ -72,7 +72,7 @@ using namespace std::chrono_literals;
 
 /**
  * @class MultiThreadedNode
- * Multithreaded Node Class
+ * @brief Multithreaded Node Class
  */
 class MultiThreadedNode : public rclcpp::Node
 {

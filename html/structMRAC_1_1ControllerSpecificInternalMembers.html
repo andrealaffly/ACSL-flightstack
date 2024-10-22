@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="classMRAC.html">MRAC</a></li><li class="navelem"><a class="el" href="structMRAC_1_1ControllerSpecificInternalMembers.html">ControllerSpecificInternalMembers</a></li>  </ul>
@@ -92,6 +82,7 @@ Collaboration diagram for MRAC::ControllerSpecificInternalMembers:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d64ac423819fe5e047cd84ac148a7f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMRAC_1_1ControllerSpecificInternalMembers.html#a2d64ac423819fe5e047cd84ac148a7f1">ControllerSpecificInternalMembers</a> ()</td></tr>
+<tr class="memdesc:a2d64ac423819fe5e047cd84ac148a7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Controller Specific Internal Members object.  <a href="structMRAC_1_1ControllerSpecificInternalMembers.html#a2d64ac423819fe5e047cd84ac148a7f1">More...</a><br /></td></tr>
 <tr class="separator:a2d64ac423819fe5e047cd84ac148a7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -181,6 +172,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construct a new Controller Specific Internal Members object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="mrac_8cpp_source.html#l00085">85</a> of file <a class="el" href="mrac_8cpp_source.html">mrac.cpp</a>.</p>
 
 </div>
@@ -198,7 +197,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00136">136</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00137">137</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -214,7 +213,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00140">140</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00141">141</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -230,7 +229,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00120">120</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00121">121</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -246,7 +245,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00145">145</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00146">146</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +261,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00125">125</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00126">126</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -278,7 +277,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00149">149</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00150">150</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -294,7 +293,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00150">150</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00151">151</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -310,7 +309,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00148">148</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00149">149</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -326,7 +325,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00147">147</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00148">148</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -342,7 +341,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00132">132</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00133">133</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -358,7 +357,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00133">133</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00134">134</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +373,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00142">142</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00143">143</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -390,7 +389,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00122">122</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00123">123</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +405,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00141">141</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00142">142</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -422,7 +421,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00121">121</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00122">122</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -438,7 +437,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00124">124</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00125">125</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -454,7 +453,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00119">119</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00120">120</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -470,7 +469,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00135">135</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00136">136</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -486,7 +485,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00134">134</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00135">135</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -502,7 +501,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00137">137</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00138">138</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -518,7 +517,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00129">129</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00130">130</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -534,7 +533,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00130">130</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00131">131</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -550,7 +549,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00128">128</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00129">129</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -566,7 +565,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00127">127</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00128">128</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -582,7 +581,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00138">138</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00139">139</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -598,7 +597,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00117">117</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00118">118</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -614,7 +613,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00144">144</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00145">145</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -630,7 +629,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00139">139</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00140">140</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -646,7 +645,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00143">143</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00144">144</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -662,7 +661,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00123">123</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00124">124</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -678,7 +677,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00116">116</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00117">117</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>
@@ -694,7 +693,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00118">118</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mrac_8hpp_source.html#l00119">119</a> of file <a class="el" href="mrac_8hpp_source.html">mrac.hpp</a>.</p>
 
 </div>
 </div>

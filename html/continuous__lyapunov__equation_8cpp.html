@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_313caf1132e152dd9b58bea13a4052ca.html">utils</a></li>  </ul>
@@ -106,7 +96,7 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7a6d9497b1fb20f16e191d1965f7787c"><td class="memItemLeft" align="right" valign="top">MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="continuous__lyapunov__equation_8cpp.html#a7a6d9497b1fb20f16e191d1965f7787c">RealContinuousLyapunovEquation</a> (const Eigen::Ref&lt; const MatrixXd &gt; &amp;A, const Eigen::Ref&lt; const MatrixXd &gt; &amp;Q)</td></tr>
-<tr class="memdesc:a7a6d9497b1fb20f16e191d1965f7787c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equation of the Real Continuous Lyapunov Equation.  <a href="continuous__lyapunov__equation_8cpp.html#a7a6d9497b1fb20f16e191d1965f7787c">More...</a><br /></td></tr>
+<tr class="memdesc:a7a6d9497b1fb20f16e191d1965f7787c"><td class="mdescLeft">&#160;</td><td class="mdescRight">RealContinuousLyapunovEquation.  <a href="continuous__lyapunov__equation_8cpp.html#a7a6d9497b1fb20f16e191d1965f7787c">More...</a><br /></td></tr>
 <tr class="separator:a7a6d9497b1fb20f16e191d1965f7787c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad562fa598b41250cae8630c0e71bd2d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="continuous__lyapunov__equation_8hpp.html#a6d923e79e6e92c2556edd86520145077">Vector1d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinternal.html#ad562fa598b41250cae8630c0e71bd2d3">internal::Solve1By1RealContinuousLyapunovEquation</a> (const Eigen::Ref&lt; const <a class="el" href="continuous__lyapunov__equation_8hpp.html#a6d923e79e6e92c2556edd86520145077">Vector1d</a> &gt; &amp;A, const Eigen::Ref&lt; const <a class="el" href="continuous__lyapunov__equation_8hpp.html#a6d923e79e6e92c2556edd86520145077">Vector1d</a> &gt; &amp;Q)</td></tr>
 <tr class="separator:ad562fa598b41250cae8630c0e71bd2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,7 +145,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Equation of the Real Continuous Lyapunov Equation. </p>
+<p>RealContinuousLyapunovEquation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">A</td><td></td></tr>
@@ -165,7 +155,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>MatrixXd </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="continuous__lyapunov__equation_8cpp_source.html#l00121">121</a> of file <a class="el" href="continuous__lyapunov__equation_8cpp_source.html">continuous_lyapunov_equation.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="continuous__lyapunov__equation_8cpp_source.html#l00122">122</a> of file <a class="el" href="continuous__lyapunov__equation_8cpp_source.html">continuous_lyapunov_equation.cpp</a>.</p>
 
 </div>
 </div>

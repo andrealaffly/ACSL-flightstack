@@ -45,11 +45,8 @@
   Function that reads the configuration parameters and assigns it to the members of the 
   ConfigurationParameters struct
 */
-
 /**
- * @brief Function that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct
- * @param configFileName Name of the JSON file containing the config parameters
- * @return config struct containing the configuration parameters .
+ * @class ConfigurationParameters
  */
 ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile(const std::string& configFileName)
 {
@@ -81,7 +78,7 @@ ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile
 }
 
 /**
- * @brief GlobalParameters Constructor.
+ * @struct Global Parameters
  */
 // Constructor
 GlobalParameters::GlobalParameters(MultiThreadedNode& node) :

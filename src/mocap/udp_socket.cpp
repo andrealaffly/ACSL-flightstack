@@ -64,11 +64,7 @@ namespace _udp_driver_
 {
 
 /**
- * @param ctx 
- * @param remote_ip 
- * @param remote_port 
- * @param host_ip 
- * @param host_port 
+ * @class UdpSocket 
  */
 UdpSocket::UdpSocket(
   const IoContext & ctx,
@@ -90,11 +86,6 @@ UdpSocket::UdpSocket(
   m_recv_buffer.resize(m_recv_buffer_size);
 }
 
-/**
- * @param ctx 
- * @param ip 
- * @param port 
- */
 UdpSocket::UdpSocket(
   const IoContext & ctx,
   const std::string & ip,
@@ -135,9 +126,7 @@ size_t UdpSocket::receive(std::vector<uint8_t> & buff)
   return len;
 }
 
-/**
- * @param buff 
- */
+
 void UdpSocket::asyncSend(std::vector<uint8_t> & buff)
 {
   m_udp_socket.async_send_to(
@@ -148,9 +137,7 @@ void UdpSocket::asyncSend(std::vector<uint8_t> & buff)
     });
 }
 
-/**
- * @param func Functor
- */
+
 void UdpSocket::asyncReceive(Functor func)
 {
   m_func = std::move(func);
@@ -163,10 +150,6 @@ void UdpSocket::asyncReceive(Functor func)
     });
 }
 
-/**
- * @param error 
- * @param bytes_transferred 
- */
 void UdpSocket::asyncSendHandler(
   const asio::error_code & error,
   std::size_t bytes_transferred)

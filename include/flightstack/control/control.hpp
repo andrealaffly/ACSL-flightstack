@@ -59,7 +59,7 @@
 using namespace boost::numeric::odeint;
 
 /**
- * The type of container used to hold the state vector
+ * @brief The type of container used to hold the state vector
  */
 typedef std::vector<double> state_type;
 
@@ -70,6 +70,7 @@ class MultiThreadedNode;
 
 /**
  * @class Control
+ * @brief Control class 
  */
 class Control 
 {
@@ -80,8 +81,7 @@ public:
     control architecture framework.
   */
  /**
-  * This struct contains the variables that are commmon among all controllers as they are the foundations of the base
-  *  control architecture framework
+  * @brief This struct contains the variables that are commmon among all controllers as they are the foundations of the base control architecture framework
   * @struct ControlInternalMembers
   */
   struct ControlInternalMembers
@@ -123,8 +123,7 @@ public:
     to increase readability
   */
  /**
-  * Struct that encapsulates references to external variables to be used inside the computeControlAlgorithm function 
-    to increase readability
+  * @brief Struct that encapsulates references to external variables to be used inside the computeControlAlgorithm function to increase readability
   * @struct ControlReferences
   */
   struct ControlReferences

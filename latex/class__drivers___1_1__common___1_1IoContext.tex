@@ -2,6 +2,11 @@
 \label{class__drivers___1_1__common___1_1IoContext}\index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}}
 
 
+Create a Io Context object.  
+
+
+
+
 {\ttfamily \#include $<$io\+\_\+context.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -18,15 +23,15 @@
 \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}} \& \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_a5f0326c793f59cef1fb04025edc79125}{operator=}} (const \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext}{Io\+Context}} \&)=delete
 \item 
 asio\+::io\+\_\+service \& \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_aafc4e4f2ee54b4a3e9ff754340f45ace}{ios}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em ios (Not sure what to put here) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_ad1b52b5063bbb78b57560fbb2b7daf3d}{is\+Service\+Stopped}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Check if io\+\_\+context is stopped. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_af0525d0f5451b9e1e9c4c0e7aded9b7f}{service\+Thread\+Count}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Service thread count. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_a55d212f03896c3219230c6095dd00231}{wait\+For\+Exit}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_a55d212f03896c3219230c6095dd00231}{Io\+Context\+::wait\+For\+Exit()}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em wait\+For\+Exit \end{DoxyCompactList}\item 
 {\footnotesize template$<$class F $>$ }\\void \mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_a334b45ba4f2468d6fd369399780accf0}{post}} (F f)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em post iocontext \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,9 +44,11 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct__drivers___1_1__common___1_1th
 
 
 \doxysubsection{Detailed Description}
+Create a Io Context object. 
 
+Delegating to the modified constructor with -\/1 for default CPU 
 
-Definition at line 126 of file io\+\_\+context.\+hpp.
+Definition at line 132 of file io\+\_\+context.\+hpp.
 
 
 
@@ -52,9 +59,9 @@ Definition at line 126 of file io\+\_\+context.\+hpp.
 \doxysubsubsection{\texorpdfstring{IoContext()}{IoContext()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::\+Io\+Context\+::\+Io\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Delegating to the modified constructor with -\/1 for default CPU 
 
-Definition at line 71 of file io\+\_\+context.\+cpp.
+
+Definition at line 73 of file io\+\_\+context.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_a7c555ae6b62c8444639660fcf46af58a}\label{class__drivers___1_1__common___1_1IoContext_a7c555ae6b62c8444639660fcf46af58a}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!IoContext@{IoContext}}
@@ -73,7 +80,7 @@ Construct a new Io Context object.
 \end{DoxyParams}
 
 
-Definition at line 74 of file io\+\_\+context.\+cpp.
+Definition at line 76 of file io\+\_\+context.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_a983e3834d40c9ffa45a49a4d284fde47}\label{class__drivers___1_1__common___1_1IoContext_a983e3834d40c9ffa45a49a4d284fde47}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!````~IoContext@{$\sim$IoContext}}
@@ -83,7 +90,7 @@ Definition at line 74 of file io\+\_\+context.\+cpp.
 
 
 
-Definition at line 91 of file io\+\_\+context.\+cpp.
+Definition at line 93 of file io\+\_\+context.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_a46907170460dcf6cd3893284c3e1c17c}\label{class__drivers___1_1__common___1_1IoContext_a46907170460dcf6cd3893284c3e1c17c}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!IoContext@{IoContext}}
@@ -102,7 +109,19 @@ Definition at line 91 of file io\+\_\+context.\+cpp.
 
 
 
-Definition at line 96 of file io\+\_\+context.\+cpp.
+ios (Not sure what to put here) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+asio\+::io\+\_\+service\& 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file io\+\_\+context.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_ad1b52b5063bbb78b57560fbb2b7daf3d}\label{class__drivers___1_1__common___1_1IoContext_ad1b52b5063bbb78b57560fbb2b7daf3d}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!isServiceStopped@{isServiceStopped}}
@@ -112,7 +131,21 @@ Definition at line 96 of file io\+\_\+context.\+cpp.
 
 
 
-Definition at line 101 of file io\+\_\+context.\+cpp.
+Check if io\+\_\+context is stopped. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file io\+\_\+context.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_a5f0326c793f59cef1fb04025edc79125}\label{class__drivers___1_1__common___1_1IoContext_a5f0326c793f59cef1fb04025edc79125}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!operator=@{operator=}}
@@ -127,7 +160,9 @@ Definition at line 101 of file io\+\_\+context.\+cpp.
 {\footnotesize\ttfamily template$<$class F $>$ \\
 void \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::\+Io\+Context\+::post (\begin{DoxyParamCaption}\item[{F}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-post
+
+
+post iocontext 
 
 
 \begin{DoxyParams}{Parameters}
@@ -136,7 +171,7 @@ post
 \end{DoxyParams}
 
 
-Definition at line 159 of file io\+\_\+context.\+hpp.
+Definition at line 181 of file io\+\_\+context.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_af0525d0f5451b9e1e9c4c0e7aded9b7f}\label{class__drivers___1_1__common___1_1IoContext_af0525d0f5451b9e1e9c4c0e7aded9b7f}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!serviceThreadCount@{serviceThreadCount}}
@@ -146,7 +181,19 @@ Definition at line 159 of file io\+\_\+context.\+hpp.
 
 
 
-Definition at line 106 of file io\+\_\+context.\+cpp.
+Service thread count. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file io\+\_\+context.\+cpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_a55d212f03896c3219230c6095dd00231}\label{class__drivers___1_1__common___1_1IoContext_a55d212f03896c3219230c6095dd00231}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!waitForExit@{waitForExit}}
@@ -156,18 +203,16 @@ Definition at line 106 of file io\+\_\+context.\+cpp.
 
 
 
-\mbox{\hyperlink{class__drivers___1_1__common___1_1IoContext_a55d212f03896c3219230c6095dd00231}{Io\+Context\+::wait\+For\+Exit()}} 
-
 wait\+For\+Exit 
+
+
 \begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
 {\em None} & \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 115 of file io\+\_\+context.\+cpp.
+Definition at line 113 of file io\+\_\+context.\+cpp.
 
 
 
@@ -180,7 +225,7 @@ Definition at line 115 of file io\+\_\+context.\+cpp.
 
 
 
-Definition at line 165 of file io\+\_\+context.\+hpp.
+Definition at line 187 of file io\+\_\+context.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_a94a5c6abc6aa0aec1cc1bed593693a7d}\label{class__drivers___1_1__common___1_1IoContext_a94a5c6abc6aa0aec1cc1bed593693a7d}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!m\_ios\_thread\_workers@{m\_ios\_thread\_workers}}
@@ -190,7 +235,7 @@ Definition at line 165 of file io\+\_\+context.\+hpp.
 
 
 
-Definition at line 167 of file io\+\_\+context.\+hpp.
+Definition at line 189 of file io\+\_\+context.\+hpp.
 
 \mbox{\Hypertarget{class__drivers___1_1__common___1_1IoContext_ad7678c102277e8af8a928fb685703f06}\label{class__drivers___1_1__common___1_1IoContext_ad7678c102277e8af8a928fb685703f06}} 
 \index{\_drivers\_::\_common\_::IoContext@{\_drivers\_::\_common\_::IoContext}!m\_work@{m\_work}}
@@ -200,7 +245,7 @@ Definition at line 167 of file io\+\_\+context.\+hpp.
 
 
 
-Definition at line 166 of file io\+\_\+context.\+hpp.
+Definition at line 188 of file io\+\_\+context.\+hpp.
 
 
 

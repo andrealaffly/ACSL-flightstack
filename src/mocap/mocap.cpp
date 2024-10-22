@@ -71,10 +71,7 @@ namespace _udp_driver_
   
 
 /**
- * @brief Construct a new Udp Receiver Node:: Udp Receiver Node object
- * 
- * @param[in] ctx 
- * @param timestamp_initial 
+ * @class UdpReceiverNode
  */
 UdpReceiverNode::UdpReceiverNode(
   const IoContext & ctx,
@@ -91,11 +88,7 @@ UdpReceiverNode::UdpReceiverNode(
 	mocap_data_->logInitializeLogging();
 }
 
-
-/**
- * @brief Get the parameters for the ip and port to ping
- * @param None
- */
+// Get the parameters for the ip and port to ping
 void UdpReceiverNode::get_params()
 {
   // m_ip = GROUND_STATION_IP; // For testing with internal port on groundstation
@@ -107,7 +100,7 @@ void UdpReceiverNode::get_params()
   RCLCPP_INFO(get_logger(), "port: %i", m_port);
 }
 
-/// \brief Destructor - required to manage owned IoContext
+// Destructor - required to manage owned IoContext
 UdpReceiverNode::~UdpReceiverNode()
 {
   if (m_owned_ctx) {
@@ -117,7 +110,6 @@ UdpReceiverNode::~UdpReceiverNode()
 
 // Check that Lifecycle Node Starts
 /**
- * @fn UdpReceiverNode::checkLifecycleNodeStarted()
  * @brief Check that Lifecycle Node Starts
  * @param None
  */
@@ -134,13 +126,7 @@ void UdpReceiverNode::checkLifecycleNodeStarted()
 }
 .
 
-/**
- * @brief Callbackj from transition to "configuration state"
- * 
- * @param state The current state that the node is in
- * @return LNI::CallbackReturn 
- */
-
+// Callback from transition to "configuration state"
 LNI::CallbackReturn UdpReceiverNode::on_configure(const lc::State & state)
 {
   (void)state;
@@ -172,16 +158,8 @@ LNI::CallbackReturn UdpReceiverNode::on_configure(const lc::State & state)
   return LNI::CallbackReturn::SUCCESS;
 }
 
-/// \brief Callback from transition to "activating" state.
-/// \param[in] state The current state that the node is in.
-
-/**
- * @brief Callback from transition to "acitvating" state.
- * 
- * @param state 
- * @return LNI::CallbackReturn 
- */
-
+// Callback from transition to "acitvating" state.
+// param[in] state
 LNI::CallbackReturn UdpReceiverNode::on_activate(const lc::State & state)
 {
   (void)state;
@@ -190,9 +168,7 @@ LNI::CallbackReturn UdpReceiverNode::on_activate(const lc::State & state)
   return LNI::CallbackReturn::SUCCESS;
 }
 
-
-/// \brief Callback from transition to "deactivating" state.
-/// \param[in] state The current state that the node is in.
+// Callback from transition to "deactivating" state.
 LNI::CallbackReturn UdpReceiverNode::on_deactivate(const lc::State & state)
 {
   (void)state;
@@ -201,17 +177,9 @@ LNI::CallbackReturn UdpReceiverNode::on_deactivate(const lc::State & state)
   return LNI::CallbackReturn::SUCCESS;
 }
 
-
-/// \brief Callback from transition to "unconfigured" state.
-/// \param[in] state The current state that the node is in.
-
-/**
- * @brief Callback from transition to "unconfigured" state.
- * 
- * @param state 
- * @return LNI::CallbackReturn 
- */
-
+// Callback from transition to "unconfigured" state.
+// state The current state that the node is in
+// LNI::CallbackReturn
 LNI::CallbackReturn UdpReceiverNode::on_cleanup(const lc::State & state)
 {
   (void)state;
@@ -221,6 +189,7 @@ LNI::CallbackReturn UdpReceiverNode::on_cleanup(const lc::State & state)
   return LNI::CallbackReturn::SUCCESS;
 }
 
+// Callback from transition to "shutdown" state.
 /// \brief Callback from transition to "shutdown" state.
 /// \param[in] state The current state that the node is in.
 LNI::CallbackReturn UdpReceiverNode::on_shutdown(const lc::State & state)
@@ -292,6 +261,7 @@ void UdpReceiverNode::debugMocapData2screen()
 
 }
 
+// Callback for receiving a UDP datagram
 /// \brief Callback for receiving a UDP datagram
 void UdpReceiverNode::receiver_callback(const std::vector<uint8_t> & buffer)
 {

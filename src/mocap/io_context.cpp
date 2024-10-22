@@ -65,7 +65,9 @@ namespace _common_
 {
 
 // Delegating to the modified constructor with -1 for default CPU
+
 /**
+ * @class IoContext
  * Delegating to the modified constructor with -1 for default CPU
  */
 IoContext::IoContext()
@@ -108,10 +110,6 @@ uint32_t IoContext::serviceThreadCount()
   return m_ios_thread_workers->size();
 }
 
-/**
- * @brief IoContext::waitForExit()
- * @param None
- */
 void IoContext::waitForExit()
 {
   if (!ios().stopped()) {

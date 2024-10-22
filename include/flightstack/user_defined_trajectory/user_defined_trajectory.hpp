@@ -55,6 +55,7 @@ class MultiThreadedNode;
 
 /**
  * @class UserDefinedTrajectory
+ * @brief The trajectory for the drone which can be set by the user
  */
 class UserDefinedTrajectory
 {
@@ -69,7 +70,7 @@ public:
   // Getter functions
   /**
    * @brief Get the Node object
-   * 
+   * @param None
    * @return MultiThreadedNode& 
    */
   MultiThreadedNode& getNode() const;

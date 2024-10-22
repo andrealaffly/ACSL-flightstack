@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b3320b59a4aa4a7431bc8488b87009bf.html">logging</a></li>  </ul>
@@ -210,10 +200,10 @@ $(function() {
 <div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1MocapData_html_aa1175b425d2b00a184a69c2a0678a7e8"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1MocapData.html#aa1175b425d2b00a184a69c2a0678a7e8">_drivers_::_udp_driver_::MocapData::logger_mocapdata</a></div><div class="ttdeci">static src::logger logger_mocapdata</div><div class="ttdef"><b>Definition:</b> <a href="logging__mocap_8hpp_source.html#l00103">logging_mocap.hpp:103</a></div></div>
 <div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1MocapData_html_abbbf063fd025a1731c86052cf1f276ea"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1MocapData.html#abbbf063fd025a1731c86052cf1f276ea">_drivers_::_udp_driver_::MocapData::MocapData</a></div><div class="ttdeci">MocapData(UdpReceiverNode &amp;node)</div><div class="ttdoc">Construct a new Mocap Data:: Mocap Data object.</div><div class="ttdef"><b>Definition:</b> <a href="logging__mocap_8cpp_source.html#l00061">logging_mocap.cpp:61</a></div></div>
 <div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1MocapData_html_ad68bf3d981f2099ab02f118f4936e31b"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1MocapData.html#ad68bf3d981f2099ab02f118f4936e31b">_drivers_::_udp_driver_::MocapData::node_</a></div><div class="ttdeci">UdpReceiverNode &amp; node_</div><div class="ttdef"><b>Definition:</b> <a href="logging__mocap_8hpp_source.html#l00125">logging_mocap.hpp:125</a></div></div>
-<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html">_drivers_::_udp_driver_::UdpReceiverNode</a></div><div class="ttdef"><b>Definition:</b> <a href="mocap_8hpp_source.html#l00138">mocap.hpp:140</a></div></div>
-<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html_aa7683c757873cb51acfa305b0ce02110"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aa7683c757873cb51acfa305b0ce02110">_drivers_::_udp_driver_::UdpReceiverNode::getTimestampMocap</a></div><div class="ttdeci">uint64_t &amp; getTimestampMocap()</div><div class="ttdef"><b>Definition:</b> <a href="mocap_8cpp_source.html#l00239">mocap.cpp:239</a></div></div>
-<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html_ada595a30c9612873ae86ecfcaa4cdb7b"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#ada595a30c9612873ae86ecfcaa4cdb7b">_drivers_::_udp_driver_::UdpReceiverNode::getTimeMocap</a></div><div class="ttdeci">double &amp; getTimeMocap()</div><div class="ttdef"><b>Definition:</b> <a href="mocap_8cpp_source.html#l00244">mocap.cpp:244</a></div></div>
-<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html_af7186b98380b2932f8864e8c0c216ca8"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#af7186b98380b2932f8864e8c0c216ca8">_drivers_::_udp_driver_::UdpReceiverNode::getMocapStates</a></div><div class="ttdeci">mocap_states &amp; getMocapStates()</div><div class="ttdef"><b>Definition:</b> <a href="mocap_8cpp_source.html#l00234">mocap.cpp:234</a></div></div>
+<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html">_drivers_::_udp_driver_::UdpReceiverNode</a></div><div class="ttdoc">UdpReceiverNode class which can recieve UDP datagrams.</div><div class="ttdef"><b>Definition:</b> <a href="mocap_8hpp_source.html#l00138">mocap.hpp:140</a></div></div>
+<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html_aa7683c757873cb51acfa305b0ce02110"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aa7683c757873cb51acfa305b0ce02110">_drivers_::_udp_driver_::UdpReceiverNode::getTimestampMocap</a></div><div class="ttdeci">uint64_t &amp; getTimestampMocap()</div><div class="ttdoc">Get the Timestamp Mocap object.</div><div class="ttdef"><b>Definition:</b> <a href="mocap_8cpp_source.html#l00208">mocap.cpp:208</a></div></div>
+<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html_ada595a30c9612873ae86ecfcaa4cdb7b"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#ada595a30c9612873ae86ecfcaa4cdb7b">_drivers_::_udp_driver_::UdpReceiverNode::getTimeMocap</a></div><div class="ttdeci">double &amp; getTimeMocap()</div><div class="ttdoc">Get the Time Mocap object.</div><div class="ttdef"><b>Definition:</b> <a href="mocap_8cpp_source.html#l00213">mocap.cpp:213</a></div></div>
+<div class="ttc" id="aclass__drivers___1_1__udp__driver___1_1UdpReceiverNode_html_af7186b98380b2932f8864e8c0c216ca8"><div class="ttname"><a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#af7186b98380b2932f8864e8c0c216ca8">_drivers_::_udp_driver_::UdpReceiverNode::getMocapStates</a></div><div class="ttdeci">mocap_states &amp; getMocapStates()</div><div class="ttdoc">Get the Mocap States object.</div><div class="ttdef"><b>Definition:</b> <a href="mocap_8cpp_source.html#l00203">mocap.cpp:203</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div><div class="ttdoc">Configuration file. Here you specify which cotroller you want to run at compile time.</div></div>
 <div class="ttc" id="alogging__mocap_8hpp_html"><div class="ttname"><a href="logging__mocap_8hpp.html">logging_mocap.hpp</a></div><div class="ttdoc">Logger for the motion capture (MOCAP) system.</div></div>
 <div class="ttc" id="amocap_8hpp_html"><div class="ttname"><a href="mocap_8hpp.html">mocap.hpp</a></div><div class="ttdoc">Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap_odometry topic for...</div></div>

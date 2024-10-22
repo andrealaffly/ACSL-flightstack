@@ -73,7 +73,7 @@ namespace _udp_driver_
 
 /**
  * @class UdpDriver
- * 
+ * @brief UdpDriver class
  */
 class UdpDriver
 {
@@ -87,12 +87,14 @@ public:
 	explicit UdpDriver(const IoContext & ctx);
 
 	/**
+	 * @brief init_sender ip and port
 	 * @param ip 
 	 * @param port 
 	 */
 	void init_sender(const std::string & ip, uint16_t port);
 
 	/**
+	 * @brief init_sender remote and host
 	 * @param remote_ip 
 	 * @param remote_port 
 	 * @param host_ip 
@@ -103,7 +105,7 @@ public:
 		const std::string & host_ip, uint16_t host_port);
 	
 	/**
-	 * init_receiver
+	 * @brief init_receiver
 	 * @param ip 
 	 * @param port 
 	 */

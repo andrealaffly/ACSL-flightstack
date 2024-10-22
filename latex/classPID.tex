@@ -2,6 +2,11 @@
 \label{classPID}\index{PID@{PID}}
 
 
+\mbox{\hyperlink{classPID}{PID}}.  
+
+
+
+
 {\ttfamily \#include $<$pid.\+hpp$>$}
 
 
@@ -28,7 +33,7 @@ Collaboration diagram for PID\+:\nopagebreak
 struct \mbox{\hyperlink{structPID_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}}
 \begin{DoxyCompactList}\small\item\em This struct contains the variables that are used in this particular controller. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{structPID_1_1StateController}{State\+Controller}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This struct represents the state of the \mbox{\hyperlink{classPID}{PID}} controller differential equations that will be at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -83,7 +88,7 @@ static const std\+::string \mbox{\hyperlink{classPID_a3ca005d68d4e8198da8d0c9eb7
 
 
 \doxysubsection{Detailed Description}
-
+\mbox{\hyperlink{classPID}{PID}}. 
 
 Definition at line 57 of file pid.\+hpp.
 

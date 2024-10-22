@@ -1,6 +1,6 @@
 <map id="_drivers_::_udp_driver_::MocapData" name="_drivers_::_udp_driver_::MocapData">
 <area shape="rect" id="node1" title="Logs mocap data." alt="" coords="76,213,241,255"/>
-<area shape="rect" id="node2" href="$class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html" title=" " alt="" coords="76,109,241,151"/>
+<area shape="rect" id="node2" href="$class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html" title="UdpReceiverNode class which can recieve UDP datagrams." alt="" coords="76,109,241,151"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,13,139,39"/>
 <area shape="rect" id="node4" href="$struct__drivers___1_1__udp__driver___1_1mocap__states.html" title="Define struct variables to store parsed data." alt="" coords="163,5,328,47"/>
 </map>

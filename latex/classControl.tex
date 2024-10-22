@@ -2,6 +2,11 @@
 \label{classControl}\index{Control@{Control}}
 
 
+\mbox{\hyperlink{classControl}{Control}} class.  
+
+
+
+
 {\ttfamily \#include $<$control.\+hpp$>$}
 
 
@@ -26,9 +31,9 @@ Collaboration diagram for Control\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}}
-\item 
+\begin{DoxyCompactList}\small\item\em This struct contains the variables that are commmon among all controllers as they are the foundations of the base control architecture framework. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Struct that encapsulates references to external variables to be used inside the compute\+Control\+Algorithm function to increase readability. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -103,9 +108,9 @@ std\+::chrono\+::duration$<$ double, std\+::micro $>$ \mbox{\hyperlink{classCont
 
 
 \doxysubsection{Detailed Description}
+\mbox{\hyperlink{classControl}{Control}} class. 
 
-
-Definition at line 74 of file control.\+hpp.
+Definition at line 75 of file control.\+hpp.
 
 
 
@@ -123,7 +128,7 @@ Definition at line 74 of file control.\+hpp.
 \end{DoxyParams}
 
 
-Definition at line 93 of file control.\+cpp.
+Definition at line 96 of file control.\+cpp.
 
 
 
@@ -146,7 +151,7 @@ void Control\+::assign\+Elements\+To\+Dxdt (\begin{DoxyParamCaption}\item[{T \&}
 \end{DoxyParams}
 
 
-Definition at line 244 of file control.\+hpp.
+Definition at line 243 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a4859f39257b9384c051316c0cf02398b}\label{classControl_a4859f39257b9384c051316c0cf02398b}} 
 \index{Control@{Control}!compute\_U1\_RollDes\_PitchDes@{compute\_U1\_RollDes\_PitchDes}}
@@ -161,7 +166,7 @@ Definition at line 244 of file control.\+hpp.
 \end{DoxyParams}
 
 
-Definition at line 386 of file control.\+cpp.
+Definition at line 383 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a8e37a20bfb4992e505262ad1bf5b563f}\label{classControl_a8e37a20bfb4992e505262ad1bf5b563f}} 
 \index{Control@{Control}!computeAngularError@{computeAngularError}}
@@ -180,7 +185,7 @@ Definition at line 386 of file control.\+cpp.
 \end{DoxyParams}
 
 
-Definition at line 423 of file control.\+cpp.
+Definition at line 420 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_ab7ec1e80f76087f51ef7b8d6f8c45c63}\label{classControl_ab7ec1e80f76087f51ef7b8d6f8c45c63}} 
 \index{Control@{Control}!computeNormalizedThrust@{computeNormalizedThrust}}
@@ -197,7 +202,7 @@ Definition at line 423 of file control.\+cpp.
 \end{DoxyParams}
 
 
-Definition at line 330 of file control.\+cpp.
+Definition at line 327 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_afca7288639f8c9289fd414ebcd508aa4}\label{classControl_afca7288639f8c9289fd414ebcd508aa4}} 
 \index{Control@{Control}!computeNormalizedThrustQuadcopterMode@{computeNormalizedThrustQuadcopterMode}}
@@ -214,7 +219,7 @@ Definition at line 330 of file control.\+cpp.
 \end{DoxyParams}
 
 
-Definition at line 291 of file control.\+cpp.
+Definition at line 288 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a7c874356ff204682dcf8f09e339c3ad0}\label{classControl_a7c874356ff204682dcf8f09e339c3ad0}} 
 \index{Control@{Control}!computeRotationalParameters@{computeRotationalParameters}}
@@ -231,7 +236,7 @@ Definition at line 291 of file control.\+cpp.
 \end{DoxyParams}
 
 
-Definition at line 438 of file control.\+cpp.
+Definition at line 435 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a731703653e915ffd50d9b0d5ed1f8f14}\label{classControl_a731703653e915ffd50d9b0d5ed1f8f14}} 
 \index{Control@{Control}!computeTranslationalPositionError@{computeTranslationalPositionError}}
@@ -250,7 +255,7 @@ Definition at line 438 of file control.\+cpp.
 \end{DoxyParams}
 
 
-Definition at line 409 of file control.\+cpp.
+Definition at line 406 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_aed596228f5ea4862a2a0498b2948ff51}\label{classControl_aed596228f5ea4862a2a0498b2948ff51}} 
 \index{Control@{Control}!deadZoneModulationFunction@{deadZoneModulationFunction}}
@@ -273,7 +278,7 @@ double
 \end{DoxyReturn}
 
 
-Definition at line 274 of file control.\+hpp.
+Definition at line 273 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}\label{classControl_a3a43af1baa60bf293e0e15ce1cf16ccc}} 
 \index{Control@{Control}!getAlgorithmExecutionTimeMicroseconds@{getAlgorithmExecutionTimeMicroseconds}}
@@ -283,7 +288,7 @@ Definition at line 274 of file control.\+hpp.
 
 
 
-Definition at line 165 of file control.\+cpp.
+Definition at line 162 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_ad0466904a92578730543a75df5cfa827}\label{classControl_ad0466904a92578730543a75df5cfa827}} 
 \index{Control@{Control}!getControlInternalMembers@{getControlInternalMembers}}
@@ -293,7 +298,7 @@ Definition at line 165 of file control.\+cpp.
 
 
 
-Definition at line 159 of file control.\+cpp.
+Definition at line 156 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a2cf6154e153dd758915a2bc161ed24c5}\label{classControl_a2cf6154e153dd758915a2bc161ed24c5}} 
 \index{Control@{Control}!getNode@{getNode}}
@@ -315,7 +320,7 @@ Getter functions.
 \end{DoxyReturn}
 
 
-Definition at line 148 of file control.\+cpp.
+Definition at line 145 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_af775d977d740a3592ad829951edee801}\label{classControl_af775d977d740a3592ad829951edee801}} 
 \index{Control@{Control}!getVehicleInfo@{getVehicleInfo}}
@@ -325,7 +330,7 @@ Definition at line 148 of file control.\+cpp.
 
 
 
-Definition at line 153 of file control.\+cpp.
+Definition at line 150 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_aa589fd1c954f8d63a9ef995b8dd5ccb1}\label{classControl_aa589fd1c954f8d63a9ef995b8dd5ccb1}} 
 \index{Control@{Control}!jacobianMatrix@{jacobianMatrix}}
@@ -335,7 +340,7 @@ Definition at line 153 of file control.\+cpp.
 
 
 
-Definition at line 177 of file control.\+cpp.
+Definition at line 174 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a4c5af85d65d8e66614eb97f0232d9b2d}\label{classControl_a4c5af85d65d8e66614eb97f0232d9b2d}} 
 \index{Control@{Control}!jacobianMatrixDot@{jacobianMatrixDot}}
@@ -345,7 +350,7 @@ Definition at line 177 of file control.\+cpp.
 
 
 
-Definition at line 198 of file control.\+cpp.
+Definition at line 195 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_ad7b21fb6bffb4c4071b00242947f2aac}\label{classControl_ad7b21fb6bffb4c4071b00242947f2aac}} 
 \index{Control@{Control}!jacobianMatrixInverse@{jacobianMatrixInverse}}
@@ -355,7 +360,7 @@ Definition at line 198 of file control.\+cpp.
 
 
 
-Definition at line 223 of file control.\+cpp.
+Definition at line 220 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a7813a075a84dda26a1891bcf94248500}\label{classControl_a7813a075a84dda26a1891bcf94248500}} 
 \index{Control@{Control}!makeYawAngularErrorContinuous@{makeYawAngularErrorContinuous}}
@@ -365,7 +370,7 @@ Definition at line 223 of file control.\+cpp.
 
 
 
-Definition at line 474 of file control.\+cpp.
+Definition at line 471 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a1eab73a95b10b5a63cbd8d800a758ead}\label{classControl_a1eab73a95b10b5a63cbd8d800a758ead}} 
 \index{Control@{Control}!readJSONdifferentiatorFile@{readJSONdifferentiatorFile}}
@@ -380,7 +385,7 @@ Definition at line 474 of file control.\+cpp.
 \end{DoxyParams}
 
 
-Definition at line 113 of file control.\+cpp.
+Definition at line 110 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a98a2f5751bf4fae0665cbe183628c550}\label{classControl_a98a2f5751bf4fae0665cbe183628c550}} 
 \index{Control@{Control}!rotationMatrix321GlobalToLocal@{rotationMatrix321GlobalToLocal}}
@@ -390,7 +395,7 @@ Definition at line 113 of file control.\+cpp.
 
 
 
-Definition at line 253 of file control.\+cpp.
+Definition at line 250 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_ae0d996fda796eaf7ab720ab1ee1d34c4}\label{classControl_ae0d996fda796eaf7ab720ab1ee1d34c4}} 
 \index{Control@{Control}!setAlgorithmExecutionTimeMicroseconds@{setAlgorithmExecutionTimeMicroseconds}}
@@ -409,7 +414,7 @@ Set the Algorithm Execution Time Microseconds object.
 \end{DoxyParams}
 
 
-Definition at line 171 of file control.\+cpp.
+Definition at line 168 of file control.\+cpp.
 
 \mbox{\Hypertarget{classControl_a3cc4923aa36244bff55cc2dfb75b7b6c}\label{classControl_a3cc4923aa36244bff55cc2dfb75b7b6c}} 
 \index{Control@{Control}!wrapAngleToMinusPiAndPi@{wrapAngleToMinusPiAndPi}}
@@ -419,7 +424,7 @@ Definition at line 171 of file control.\+cpp.
 
 
 
-Definition at line 465 of file control.\+cpp.
+Definition at line 462 of file control.\+cpp.
 
 
 
@@ -432,7 +437,7 @@ Definition at line 465 of file control.\+cpp.
 
 
 
-Definition at line 296 of file control.\+hpp.
+Definition at line 295 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_ae617f475a998d077429d22807fe9ff89}\label{classControl_ae617f475a998d077429d22807fe9ff89}} 
 \index{Control@{Control}!cim@{cim}}
@@ -442,7 +447,7 @@ Definition at line 296 of file control.\+hpp.
 
 
 
-Definition at line 285 of file control.\+hpp.
+Definition at line 284 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a72c21299fee71707c64758f1c3e72406}\label{classControl_a72c21299fee71707c64758f1c3e72406}} 
 \index{Control@{Control}!cr@{cr}}
@@ -452,7 +457,7 @@ Definition at line 285 of file control.\+hpp.
 
 
 
-Definition at line 287 of file control.\+hpp.
+Definition at line 286 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_aa8d388b470751180ac3c8a95aa19ab81}\label{classControl_aa8d388b470751180ac3c8a95aa19ab81}} 
 \index{Control@{Control}!e3\_basis@{e3\_basis}}
@@ -462,7 +467,7 @@ Definition at line 287 of file control.\+hpp.
 
 
 
-Definition at line 290 of file control.\+hpp.
+Definition at line 289 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_ab527a7573a89e2a435ead0578c40ba07}\label{classControl_ab527a7573a89e2a435ead0578c40ba07}} 
 \index{Control@{Control}!node\_@{node\_}}
@@ -472,7 +477,7 @@ Definition at line 290 of file control.\+hpp.
 
 
 
-Definition at line 294 of file control.\+hpp.
+Definition at line 293 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_a6929ceaeb95d02424bac55b29178ef32}\label{classControl_a6929ceaeb95d02424bac55b29178ef32}} 
 \index{Control@{Control}!stepper@{stepper}}
@@ -482,7 +487,7 @@ Definition at line 294 of file control.\+hpp.
 
 define\+\_\+const\+\_\+stepper 
 
-Definition at line 236 of file control.\+hpp.
+Definition at line 235 of file control.\+hpp.
 
 \mbox{\Hypertarget{classControl_abf64312fbd5890115a4341e12358274a}\label{classControl_abf64312fbd5890115a4341e12358274a}} 
 \index{Control@{Control}!vehicle\_info@{vehicle\_info}}
@@ -492,7 +497,7 @@ Definition at line 236 of file control.\+hpp.
 
 
 
-Definition at line 283 of file control.\+hpp.
+Definition at line 282 of file control.\+hpp.
 
 
 

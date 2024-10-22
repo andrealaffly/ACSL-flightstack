@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -74,15 +64,18 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classControl.html" title="Control class.">Control</a> class.  
+ <a href="classControl.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="control_8hpp_source.html">control.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Control:</div>
 <div class="dyncontent">
 <div class="center"><img src="classControl__inherit__graph.png" border="0" usemap="#aControl_inherit__map" alt="Inheritance graph"/></div>
 <map name="aControl_inherit__map" id="aControl_inherit__map">
-<area shape="rect" title=" " alt="" coords="40,5,109,32"/>
+<area shape="rect" title="Control class." alt="" coords="40,5,109,32"/>
 <area shape="rect" href="classMRAC.html" title=" " alt="" coords="5,80,67,107"/>
-<area shape="rect" href="classPID.html" title=" " alt="" coords="91,80,135,107"/>
+<area shape="rect" href="classPID.html" title="PID." alt="" coords="91,80,135,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -90,11 +83,11 @@ Collaboration diagram for Control:</div>
 <div class="dyncontent">
 <div class="center"><img src="classControl__coll__graph.png" border="0" usemap="#aControl_coll__map" alt="Collaboration graph"/></div>
 <map name="aControl_coll__map" id="aControl_coll__map">
-<area shape="rect" title=" " alt="" coords="731,345,800,372"/>
-<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title=" " alt="" coords="413,257,587,298"/>
+<area shape="rect" title="Control class." alt="" coords="731,345,800,372"/>
+<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title="This struct contains the variables that are commmon among all controllers as they are the foundations..." alt="" coords="413,257,587,298"/>
 <area shape="rect" title=" " alt="" coords="57,191,136,217"/>
 <area shape="rect" title=" " alt="" coords="57,265,137,292"/>
-<area shape="rect" href="structControl_1_1ControlReferences.html" title=" " alt="" coords="401,323,599,349"/>
+<area shape="rect" href="structControl_1_1ControlReferences.html" title="Struct that encapsulates references to external variables to be used inside the computeControlAlgorit..." alt="" coords="401,323,599,349"/>
 <area shape="rect" href="structVehicleInfo.html" title="Vehicle Info." alt="" coords="453,373,547,400"/>
 <area shape="rect" title=" " alt="" coords="57,372,137,399"/>
 <area shape="rect" href="classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,447,575,473"/>
@@ -107,8 +100,10 @@ Collaboration diagram for Control:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControl_1_1ControlInternalMembers.html">ControlInternalMembers</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct contains the variables that are commmon among all controllers as they are the foundations of the base control architecture framework.  <a href="structControl_1_1ControlInternalMembers.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControl_1_1ControlReferences.html">ControlReferences</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct that encapsulates references to external variables to be used inside the computeControlAlgorithm function to increase readability.  <a href="structControl_1_1ControlReferences.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -187,8 +182,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a918636042dff2a19372b7be55539801b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00074">74</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<div class="textblock"><p><a class="el" href="classControl.html" title="Control class.">Control</a> class. </p>
+
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00075">75</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4922b4ac95cc6c99d6495d199a2b0341"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4922b4ac95cc6c99d6495d199a2b0341">&#9670;&nbsp;</a></span>Control()</h2>
@@ -212,7 +208,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00093">93</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00096">96</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,7 +263,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00244">244</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00243">243</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -293,7 +289,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00386">386</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00383">383</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +333,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00423">423</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00420">420</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +370,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00330">330</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00327">327</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +407,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00291">291</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00288">288</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,7 +444,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00438">438</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00435">435</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -492,7 +488,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00409">409</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00406">406</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -547,7 +543,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00274">274</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00273">273</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -566,7 +562,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00165">165</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00162">162</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +581,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00159">159</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00156">156</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -613,7 +609,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classMultiThreadedNode.html" title="Multithreaded Node Class.">MultiThreadedNode</a>&amp; </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00148">148</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00145">145</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -632,7 +628,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00153">153</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00150">150</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -662,7 +658,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00177">177</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00174">174</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -704,7 +700,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00198">198</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00195">195</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -734,7 +730,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00223">223</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00220">220</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -764,7 +760,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00474">474</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00471">471</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -789,7 +785,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00113">113</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00110">110</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -825,7 +821,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00253">253</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00250">250</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -853,7 +849,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00171">171</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00168">168</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -873,7 +869,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00465">465</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8cpp_source.html#l00462">462</a> of file <a class="el" href="control_8cpp_source.html">control.cpp</a>.</p>
 
 </div>
 </div>
@@ -898,7 +894,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00296">296</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00295">295</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -922,7 +918,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00285">285</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00284">284</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -946,7 +942,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00287">287</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00286">286</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -970,7 +966,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00290">290</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00289">289</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -994,7 +990,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00294">294</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00293">293</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -1011,7 +1007,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>define_const_stepper </p>
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00236">236</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00235">235</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>
@@ -1035,7 +1031,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00283">283</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="control_8hpp_source.html#l00282">282</a> of file <a class="el" href="control_8hpp_source.html">control.hpp</a>.</p>
 
 </div>
 </div>

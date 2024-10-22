@@ -95,6 +95,7 @@ class PID;
 
 /**
  * @class LogData_PID
+ * @brief Delclaration of the LogData_PID class
  */
 class LogData_PID 
 {

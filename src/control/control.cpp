@@ -46,6 +46,9 @@
 
 
 // Constructor
+/**
+ * @class Control
+ */
 Control::ControlInternalMembers::ControlInternalMembers() : 
   mu_translational_raw(Eigen::Vector3d::Zero()),
   mu_translational(Eigen::Vector3d::Zero()),
@@ -102,14 +105,8 @@ Control::Control(MultiThreadedNode& node) :
   in vehicle_info.hpp
 */
 
-/**
- * @file multi_threaded_node.hpp
- * @fn This function reads the differentiator gains from a specified JSON file
- * and updates the vehicle_info structure accordingly.
- *  
- * @param None
- */
 
+// This function reads the differentiator gains from a specified JSON file and updates the vehicle_info structure accordingly.
 void Control::readJSONdifferentiatorFile()
 {
   // Define the JSON file where the differentiator gains are located

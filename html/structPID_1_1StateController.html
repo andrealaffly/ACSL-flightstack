@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="classPID.html">PID</a></li><li class="navelem"><a class="el" href="structPID_1_1StateController.html">StateController</a></li>  </ul>
@@ -73,6 +63,9 @@ $(function() {
 <div class="title">PID::StateController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This struct represents the state of the <a class="el" href="classPID.html" title="PID.">PID</a> controller differential equations that will be at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).  
+ <a href="structPID_1_1StateController.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pid_8hpp_source.html">pid.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -99,9 +92,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab718af625dcf52fa9d140c203de2ea90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This struct represents the state of the <a class="el" href="classPID.html">PID</a> controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.). </p>
+<div class="textblock"><p>This struct represents the state of the <a class="el" href="classPID.html" title="PID.">PID</a> controller differential equations that will be at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.). </p>
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00072">72</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00071">71</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2cc898148a7b246e8a26afb4396dc188"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2cc898148a7b246e8a26afb4396dc188">&#9670;&nbsp;</a></span>StateController()</h2>
@@ -135,7 +128,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00077">77</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00076">76</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -151,7 +144,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00089">89</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00088">88</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -167,7 +160,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00088">88</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00087">87</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -183,7 +176,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00085">85</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00084">84</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +192,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00087">87</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00086">86</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -215,7 +208,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00084">84</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00083">83</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -231,7 +224,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00086">86</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pid_8hpp_source.html#l00085">85</a> of file <a class="el" href="pid_8hpp_source.html">pid.hpp</a>.</p>
 
 </div>
 </div>

@@ -94,14 +94,14 @@ class MRAC;
 
 /**
  * @class LogData_MRAC
- * Forward decleration of LogData_MRAC class
+ * @brief Forward decleration of LogData_MRAC class
  */
 class LogData_MRAC
 {
 public:
 
   /**
-   * Define logger for LogData
+   * @brief Define logger for LogData
    */
   static src::logger logger_logdata;
 

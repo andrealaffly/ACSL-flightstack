@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -71,35 +61,38 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Delclaration of the <a class="el" href="classLogData__PID.html" title="Delclaration of the LogData_PID class.">LogData_PID</a> class.  
+ <a href="classLogData__PID.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for LogData_PID:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogData__PID__coll__graph.png" border="0" usemap="#aLogData__PID_coll__map" alt="Collaboration graph"/></div>
 <map name="aLogData__PID_coll__map" id="aLogData__PID_coll__map">
-<area shape="rect" title=" " alt="" coords="1272,697,1377,724"/>
-<area shape="rect" href="classPID.html" title=" " alt="" coords="1107,451,1151,477"/>
-<area shape="rect" href="classControl.html" title=" " alt="" coords="903,581,973,608"/>
-<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title=" " alt="" coords="413,515,587,557"/>
+<area shape="rect" title="Delclaration of the LogData_PID class." alt="" coords="1272,697,1377,724"/>
+<area shape="rect" href="classPID.html" title="PID." alt="" coords="1107,451,1151,477"/>
+<area shape="rect" href="classControl.html" title="Control class." alt="" coords="903,581,973,608"/>
+<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title="This struct contains the variables that are commmon among all controllers as they are the foundations..." alt="" coords="413,515,587,557"/>
 <area shape="rect" title=" " alt="" coords="57,425,136,452"/>
 <area shape="rect" href="structPID_1_1ControllerSpecificInternalMembers.html" title="This struct contains the variables that are used in this particular controller." alt="" coords="623,321,839,362"/>
 <area shape="rect" title=" " alt="" coords="57,92,137,119"/>
-<area shape="rect" href="structGainsPID.html" title=" " alt="" coords="690,181,771,208"/>
-<area shape="rect" href="structControl_1_1ControlReferences.html" title=" " alt="" coords="401,632,599,659"/>
+<area shape="rect" href="structGainsPID.html" title="Struct containing the PID tuning gains coming from the .json file." alt="" coords="690,181,771,208"/>
+<area shape="rect" href="structControl_1_1ControlReferences.html" title="Struct that encapsulates references to external variables to be used inside the computeControlAlgorit..." alt="" coords="401,632,599,659"/>
 <area shape="rect" href="structVehicleInfo.html" title="Vehicle Info." alt="" coords="453,581,547,608"/>
 <area shape="rect" title=" " alt="" coords="57,647,137,673"/>
 <area shape="rect" href="classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,719,575,745"/>
 <area shape="rect" title=" " alt="" coords="45,748,148,775"/>
 <area shape="rect" href="structConfigurationParameters.html" title="Configurations Parameters set from config.json." alt="" coords="5,799,188,825"/>
 <area shape="rect" href="structGlobalParameters.html" title="Global parameteres shared among all the program." alt="" coords="27,697,166,724"/>
-<area shape="rect" href="structPID_1_1StateController.html" title=" " alt="" coords="863,451,1013,477"/>
+<area shape="rect" href="structPID_1_1StateController.html" title="This struct represents the state of the PID controller differential equations that will be at each RK..." alt="" coords="863,451,1013,477"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f6d889d0fc84df6d061338f6bcb243d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">LogData_PID</a> (<a class="el" href="classMultiThreadedNode.html">MultiThreadedNode</a> &amp;node, <a class="el" href="classPID.html">PID</a> &amp;controller)</td></tr>
-<tr class="memdesc:a8f6d889d0fc84df6d061338f6bcb243d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classLogData__PID.html">LogData_PID</a> object.  <a href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">More...</a><br /></td></tr>
+<tr class="memdesc:a8f6d889d0fc84df6d061338f6bcb243d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classLogData__PID.html" title="Delclaration of the LogData_PID class.">LogData_PID</a> object.  <a href="classLogData__PID.html#a8f6d889d0fc84df6d061338f6bcb243d">More...</a><br /></td></tr>
 <tr class="separator:a8f6d889d0fc84df6d061338f6bcb243d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20029eb35bdcc8c59f1324110f3fea37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogData__PID.html#a20029eb35bdcc8c59f1324110f3fea37">logInitializeHeaders</a> ()</td></tr>
 <tr class="separator:a20029eb35bdcc8c59f1324110f3fea37"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,8 +115,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a46f6eaf76c42f473cce83929763e8aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00099">99</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<div class="textblock"><p>Delclaration of the <a class="el" href="classLogData__PID.html" title="Delclaration of the LogData_PID class.">LogData_PID</a> class. </p>
+
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00100">100</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8f6d889d0fc84df6d061338f6bcb243d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f6d889d0fc84df6d061338f6bcb243d">&#9670;&nbsp;</a></span>LogData_PID()</h2>
@@ -151,7 +145,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classLogData__PID.html">LogData_PID</a> object. </p>
+<p>Construct a new <a class="el" href="classLogData__PID.html" title="Delclaration of the LogData_PID class.">LogData_PID</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">node</td><td></td></tr>
@@ -263,7 +257,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00135">135</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00136">136</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -287,7 +281,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00104">104</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00105">105</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 
 </div>
 </div>
@@ -311,7 +305,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00133">133</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="logging__pid_8hpp_source.html#l00134">134</a> of file <a class="el" href="logging__pid_8hpp_source.html">logging_pid.hpp</a>.</p>
 
 </div>
 </div>

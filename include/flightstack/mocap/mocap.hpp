@@ -132,8 +132,8 @@ namespace _udp_driver_
 
 
 /**
- * @class UDPReciverNode
- * @brief UdpRecieverNode class which can recieve UDP datagrams
+ * @class UdpReceiverNode
+ * @brief UdpReceiverNode class which can recieve UDP datagrams
  */
 class UdpReceiverNode final
   : public lc::LifecycleNode
@@ -147,6 +147,7 @@ public:
   UdpReceiverNode(const IoContext & ctx, const std::atomic<uint64_t>& timestamp_initial);
 
   /// \brief Destructor - required to manage owned IoContext
+  /// \param None
   ~UdpReceiverNode();
 
   void checkLifecycleNodeStarted();
@@ -175,51 +176,90 @@ public:
   void receiver_callback(const std::vector<uint8_t> & buffer);
 
   // Getter function for the mocap_states
+  /**
+   * @brief Get the Mocap States object
+   * @param None
+   * @return mocap_states& 
+   */
   mocap_states& getMocapStates();
 
   // Getter function for the timestamp_mocap_
+  /**
+   * @brief Get the Timestamp Mocap object
+   * 
+   * @return uint64_t& 
+   */
   uint64_t& getTimestampMocap();
 
   // Getter function for the time_mocap_
+  /**
+   * @brief Get the Time Mocap object
+   * 
+   * @return double& 
+   */
   double& getTimeMocap();
 
 private:
-
-  /// \brief Get the parameters for the ip and port to ping
   /**
    * @brief Get the parameters for the ip and port to ping
    * @param None
    */
   void get_params();
 
-  /// Pointer to the asio context owned by this node for async communication
+  /**
+   * @brief Pointer to the asio context owned by this node for async communication
+   */
   std::unique_ptr<IoContext> m_owned_ctx{};
   
   /// String for the ip of the odrioid
+  /**
+   * @brief String for the ip of the odroid
+   */
   std::string m_ip{};
       
   /// String for the port of the odroid
+  /**
+   * @brief String for the port of the odroid
+   */
   uint16_t m_port{};
   
   /// Pointer for the udp driver which wraps the udp socket
+  /**
+   * @brief POinter for the udp driver which wraps the udp socket
+   */
   std::unique_ptr<UdpDriver> m_udp_driver;
   
   /// Publisher for publishing the mocap message
+  /**
+   * @brief Publisher for publishing the mocap message
+   */
   lc::LifecyclePublisher<px4_msgs::msg::VehicleOdometry>::SharedPtr mocap_publisher_;
 
   // Reference to the initial timestamp determined in multi_threaded_node
+  /**
+   * @brief Reference to the initial timestamp determined in multi_threaded_node
+   */
   const std::atomic<uint64_t>& timestamp_initial_;
 
   // Timestamp at which the mocap data is received
+  /**
+   * @brief Timestamp at which the mocap data is received
+   */
   uint64_t timestamp_mocap_;
 
   // Time in seconds at which the mocap data is received wrt the timestamp_initial_
+  /**
+   * @brief Time in seconds at which the mocap data is recieved wrt the timestamdp_initial
+   */
   double time_mocap_;
 
   /// Instantiate mocap_states struct
+  /**
+   * @struct mocap_states
+   * @brief Instantiate mocap_states struct
+   */
   struct mocap_states mc;
 
-  /// \brief Debugger function to output the mocap data.
   /**
    * @param None
    * @brief Debugger function to output mocap data
@@ -227,6 +267,9 @@ private:
   void debugMocapData2screen();
 
   // Create a pointer to the MocapData instance
+  /**
+   * @brief Create a pointer to the MocapData instance
+   */
   std::shared_ptr<MocapData> mocap_data_;
 
 };  

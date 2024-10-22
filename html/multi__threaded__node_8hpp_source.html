@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_b3718a5b9243a5beb0b1ed52b7acfae0.html">flightstack</a></li>  </ul>
@@ -209,11 +199,11 @@ $(function() {
 <div class="ttc" id="acontrol_8hpp_html"><div class="ttname"><a href="control_8hpp.html">control.hpp</a></div><div class="ttdoc">General class that contains common members used by most of the control algorithms.</div></div>
 <div class="ttc" id="ajson__parser_8hpp_html"><div class="ttname"><a href="json__parser_8hpp.html">json_parser.hpp</a></div><div class="ttdoc">Utility functions to parse JSON files.</div></div>
 <div class="ttc" id="amocap_8hpp_html"><div class="ttname"><a href="mocap_8hpp.html">mocap.hpp</a></div><div class="ttdoc">Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap_odometry topic for...</div></div>
-<div class="ttc" id="amulti__threaded__node_8hpp_html_a28b1c2d1bc3d38622e99291d52a6fab7"><div class="ttname"><a href="multi__threaded__node_8hpp.html#a28b1c2d1bc3d38622e99291d52a6fab7">string_thread_id</a></div><div class="ttdeci">std::string string_thread_id()</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8cpp_source.html#l00068">multi_threaded_node.cpp:68</a></div></div>
+<div class="ttc" id="amulti__threaded__node_8hpp_html_a28b1c2d1bc3d38622e99291d52a6fab7"><div class="ttname"><a href="multi__threaded__node_8hpp.html#a28b1c2d1bc3d38622e99291d52a6fab7">string_thread_id</a></div><div class="ttdeci">std::string string_thread_id()</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8cpp_source.html#l00071">multi_threaded_node.cpp:71</a></div></div>
 <div class="ttc" id="apiecewise__polynomial__trajectory_8hpp_html"><div class="ttname"><a href="piecewise__polynomial__trajectory_8hpp.html">piecewise_polynomial_trajectory.hpp</a></div><div class="ttdoc">Piecewise polynomial minimu-jerk trajectory computed offline through a MATLAB script.</div></div>
 <div class="ttc" id="aprint__helpers_8hpp_html"><div class="ttname"><a href="print__helpers_8hpp.html">print_helpers.hpp</a></div><div class="ttdoc">Inline functions for all the classes of the flightstack to use.</div></div>
 <div class="ttc" id="astructConfigurationParameters_html"><div class="ttname"><a href="structConfigurationParameters.html">ConfigurationParameters</a></div><div class="ttdoc">Configurations Parameters set from config.json.</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00095">config.hpp:96</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html"><div class="ttname"><a href="structGlobalParameters.html">GlobalParameters</a></div><div class="ttdoc">Global parameteres shared among all the program.</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00117">config.hpp:118</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html"><div class="ttname"><a href="structGlobalParameters.html">GlobalParameters</a></div><div class="ttdoc">Global parameteres shared among all the program.</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00121">config.hpp:122</a></div></div>
 <div class="ttc" id="auser__defined__trajectory_8hpp_html"><div class="ttname"><a href="user__defined__trajectory_8hpp.html">user_defined_trajectory.hpp</a></div><div class="ttdoc">Class that contains the common members that each type of user-defined trajectory class will inherit.</div></div>
 <div class="ttc" id="avehicle__state_8hpp_html"><div class="ttname"><a href="vehicle__state_8hpp.html">vehicle_state.hpp</a></div><div class="ttdoc">Class storing the state of the vehicle coming from the flight controller (Pixhawk)</div></div>
 </div><!-- fragment --></div><!-- contents -->

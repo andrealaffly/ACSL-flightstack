@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b81b067251166617f9d0a8c0cfc3a4a9.html">control</a></li>  </ul>
@@ -172,7 +162,7 @@ $(function() {
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
 <div class="ttc" id="aclassMRAC_html_a3e73bc317fb0b7488ca58913cea5f634"><div class="ttname"><a href="classMRAC.html#a3e73bc317fb0b7488ca58913cea5f634">MRAC::assignSystemToDxdt</a></div><div class="ttdeci">void assignSystemToDxdt(state_type, state_type &amp;dxdt, const double)</div><div class="ttdoc">Assigning the right-hand side of the differential equations to the first time derivative of the full_...</div><div class="ttdef"><b>Definition:</b> <a href="mrac_8cpp_source.html#l00293">mrac.cpp:293</a></div></div>
 <div class="ttc" id="aclassMultiThreadedNode_html_a016fbf5cf322f5f60d6206e5af64f599"><div class="ttname"><a href="classMultiThreadedNode.html#a016fbf5cf322f5f60d6206e5af64f599">MultiThreadedNode::global_params_</a></div><div class="ttdeci">GlobalParameters global_params_</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00217">multi_threaded_node.hpp:217</a></div></div>
-<div class="ttc" id="aclassMultiThreadedNode_html_a1884413028ad5fe60a5dbe5243c04f35"><div class="ttname"><a href="classMultiThreadedNode.html#a1884413028ad5fe60a5dbe5243c04f35">MultiThreadedNode::updateCurrentTimeInSeconds</a></div><div class="ttdeci">void updateCurrentTimeInSeconds()</div><div class="ttdoc">Publish the offboard control mode.</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8cpp_source.html#l00080">multi_threaded_node.cpp:80</a></div></div>
+<div class="ttc" id="aclassMultiThreadedNode_html_a1884413028ad5fe60a5dbe5243c04f35"><div class="ttname"><a href="classMultiThreadedNode.html#a1884413028ad5fe60a5dbe5243c04f35">MultiThreadedNode::updateCurrentTimeInSeconds</a></div><div class="ttdeci">void updateCurrentTimeInSeconds()</div><div class="ttdoc">Publish the offboard control mode.</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8cpp_source.html#l00083">multi_threaded_node.cpp:83</a></div></div>
 <div class="ttc" id="aclassMultiThreadedNode_html_a29e2a88bd089c045217696d20095c45f"><div class="ttname"><a href="classMultiThreadedNode.html#a29e2a88bd089c045217696d20095c45f">MultiThreadedNode::controller_callback</a></div><div class="ttdeci">void controller_callback()</div><div class="ttdoc">Callback function that is executed at a fixed specified rate defined by the &quot;timer_controller_&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="control__callback_8cpp_source.html#l00048">control_callback.cpp:48</a></div></div>
 <div class="ttc" id="aclassMultiThreadedNode_html_a5fbd6248bf539f889eaf1f79cdd3c066"><div class="ttname"><a href="classMultiThreadedNode.html#a5fbd6248bf539f889eaf1f79cdd3c066">MultiThreadedNode::user_defined_trajectory_</a></div><div class="ttdeci">std::shared_ptr&lt; PiecewisePolynomialTrajectory &gt; user_defined_trajectory_</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00194">multi_threaded_node.hpp:194</a></div></div>
 <div class="ttc" id="aclassMultiThreadedNode_html_ad191b9533188a3e6a642083378a15634"><div class="ttname"><a href="classMultiThreadedNode.html#ad191b9533188a3e6a642083378a15634">MultiThreadedNode::time_current_</a></div><div class="ttdeci">std::atomic&lt; double &gt; time_current_</div><div class="ttdef"><b>Definition:</b> <a href="multi__threaded__node_8hpp_source.html#l00183">multi_threaded_node.hpp:183</a></div></div>
@@ -180,7 +170,7 @@ $(function() {
 <div class="ttc" id="acontrol_8hpp_html"><div class="ttname"><a href="control_8hpp.html">control.hpp</a></div><div class="ttdoc">General class that contains common members used by most of the control algorithms.</div></div>
 <div class="ttc" id="amulti__threaded__node_8hpp_html"><div class="ttname"><a href="multi__threaded__node_8hpp.html">multi_threaded_node.hpp</a></div><div class="ttdoc">Multithreaded ROS2 node that joins together all the flight stack components.</div></div>
 <div class="ttc" id="anamespacehelper_html_a64f4884af03789d48d374cb008904dd0"><div class="ttname"><a href="namespacehelper.html#a64f4884af03789d48d374cb008904dd0">helper::FLIGHTSTACK_INFO_STREAM_NO_TAG</a></div><div class="ttdeci">void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T &amp;msg)</div><div class="ttdoc">Function to print a single message of any type with carriage return - NO TAG.</div><div class="ttdef"><b>Definition:</b> <a href="print__helpers_8hpp_source.html#l00171">print_helpers.hpp:171</a></div></div>
-<div class="ttc" id="astructGlobalParameters_html_afc7cec0ccd8be39b6d9f8c695300bf98"><div class="ttname"><a href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">GlobalParameters::TAKEOFF_START_TIME_SECONDS</a></div><div class="ttdeci">double TAKEOFF_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00126">config.hpp:126</a></div></div>
+<div class="ttc" id="astructGlobalParameters_html_afc7cec0ccd8be39b6d9f8c695300bf98"><div class="ttname"><a href="structGlobalParameters.html#afc7cec0ccd8be39b6d9f8c695300bf98">GlobalParameters::TAKEOFF_START_TIME_SECONDS</a></div><div class="ttdeci">double TAKEOFF_START_TIME_SECONDS</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00130">config.hpp:130</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

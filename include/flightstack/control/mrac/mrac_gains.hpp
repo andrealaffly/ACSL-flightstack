@@ -49,7 +49,7 @@
 // Struct containing the MRAC tuning gains coming from the .json file 
 /**
  * @struct GainsMRAC
- * struct containing the MRAC tuning gains coming from the .json file
+ * @brief struct containing the MRAC tuning gains coming from the .json file
  */
 struct GainsMRAC
 {

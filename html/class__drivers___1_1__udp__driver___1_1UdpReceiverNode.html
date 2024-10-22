@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="namespace__drivers__.html">_drivers_</a></li><li class="navelem"><a class="el" href="namespace__drivers___1_1__udp__driver__.html">_udp_driver_</a></li><li class="navelem"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html">UdpReceiverNode</a></li>  </ul>
@@ -75,13 +65,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html" title="UdpReceiverNode class which can recieve UDP datagrams.">UdpReceiverNode</a> class which can recieve UDP datagrams.  
+ <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for _drivers_::_udp_driver_::UdpReceiverNode:</div>
 <div class="dyncontent">
 <div class="center"><img src="class__drivers___1_1__udp__driver___1_1UdpReceiverNode__inherit__graph.png" border="0" usemap="#a__drivers___1_1__udp__driver___1_1UdpReceiverNode_inherit__map" alt="Inheritance graph"/></div>
 <map name="a__drivers___1_1__udp__driver___1_1UdpReceiverNode_inherit__map" id="a__drivers___1_1__udp__driver___1_1UdpReceiverNode_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,171,121"/>
+<area shape="rect" title="UdpReceiverNode class which can recieve UDP datagrams." alt="" coords="5,80,171,121"/>
 <area shape="rect" title=" " alt="" coords="21,5,155,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -90,7 +83,7 @@ Collaboration diagram for _drivers_::_udp_driver_::UdpReceiverNode:</div>
 <div class="dyncontent">
 <div class="center"><img src="class__drivers___1_1__udp__driver___1_1UdpReceiverNode__coll__graph.png" border="0" usemap="#a__drivers___1_1__udp__driver___1_1UdpReceiverNode_coll__map" alt="Collaboration graph"/></div>
 <map name="a__drivers___1_1__udp__driver___1_1UdpReceiverNode_coll__map" id="a__drivers___1_1__udp__driver___1_1UdpReceiverNode_coll__map">
-<area shape="rect" title=" " alt="" coords="76,109,241,151"/>
+<area shape="rect" title="UdpReceiverNode class which can recieve UDP datagrams." alt="" coords="76,109,241,151"/>
 <area shape="rect" title=" " alt="" coords="5,13,139,39"/>
 <area shape="rect" href="struct__drivers___1_1__udp__driver___1_1mocap__states.html" title="Define struct variables to store parsed data." alt="" coords="163,5,328,47"/>
 </map>
@@ -126,10 +119,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aeb95da05fbb2d8de9ad3c5a6a79f9313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for receiving a UDP datagram.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aeb95da05fbb2d8de9ad3c5a6a79f9313">More...</a><br /></td></tr>
 <tr class="separator:aeb95da05fbb2d8de9ad3c5a6a79f9313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7186b98380b2932f8864e8c0c216ca8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__drivers___1_1__udp__driver___1_1mocap__states.html">mocap_states</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#af7186b98380b2932f8864e8c0c216ca8">getMocapStates</a> ()</td></tr>
+<tr class="memdesc:af7186b98380b2932f8864e8c0c216ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Mocap States object.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#af7186b98380b2932f8864e8c0c216ca8">More...</a><br /></td></tr>
 <tr class="separator:af7186b98380b2932f8864e8c0c216ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7683c757873cb51acfa305b0ce02110"><td class="memItemLeft" align="right" valign="top">uint64_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aa7683c757873cb51acfa305b0ce02110">getTimestampMocap</a> ()</td></tr>
+<tr class="memdesc:aa7683c757873cb51acfa305b0ce02110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Timestamp Mocap object.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aa7683c757873cb51acfa305b0ce02110">More...</a><br /></td></tr>
 <tr class="separator:aa7683c757873cb51acfa305b0ce02110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada595a30c9612873ae86ecfcaa4cdb7b"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#ada595a30c9612873ae86ecfcaa4cdb7b">getTimeMocap</a> ()</td></tr>
+<tr class="memdesc:ada595a30c9612873ae86ecfcaa4cdb7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Time Mocap object.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#ada595a30c9612873ae86ecfcaa4cdb7b">More...</a><br /></td></tr>
 <tr class="separator:ada595a30c9612873ae86ecfcaa4cdb7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -138,7 +134,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:aee8977fd55a2a9621e85a64829cf2fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the parameters for the ip and port to ping.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aee8977fd55a2a9621e85a64829cf2fdf">More...</a><br /></td></tr>
 <tr class="separator:aee8977fd55a2a9621e85a64829cf2fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a723be77cad6835335b5c2565c1987d16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a723be77cad6835335b5c2565c1987d16">debugMocapData2screen</a> ()</td></tr>
-<tr class="memdesc:a723be77cad6835335b5c2565c1987d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugger function to output the mocap data.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a723be77cad6835335b5c2565c1987d16">More...</a><br /></td></tr>
+<tr class="memdesc:a723be77cad6835335b5c2565c1987d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugger function to output mocap data.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a723be77cad6835335b5c2565c1987d16">More...</a><br /></td></tr>
 <tr class="separator:a723be77cad6835335b5c2565c1987d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -159,19 +155,23 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:ab6ae4cb30c74ca52b88f8436d06759e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publisher for publishing the mocap message.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#ab6ae4cb30c74ca52b88f8436d06759e5">More...</a><br /></td></tr>
 <tr class="separator:ab6ae4cb30c74ca52b88f8436d06759e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa48917fa8497005e1d62e6f55ebfed0e"><td class="memItemLeft" align="right" valign="top">const std::atomic&lt; uint64_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aa48917fa8497005e1d62e6f55ebfed0e">timestamp_initial_</a></td></tr>
+<tr class="memdesc:aa48917fa8497005e1d62e6f55ebfed0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the initial timestamp determined in multi_threaded_node.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aa48917fa8497005e1d62e6f55ebfed0e">More...</a><br /></td></tr>
 <tr class="separator:aa48917fa8497005e1d62e6f55ebfed0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62c0d7c247eb33323b44b880327c784f"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a62c0d7c247eb33323b44b880327c784f">timestamp_mocap_</a></td></tr>
+<tr class="memdesc:a62c0d7c247eb33323b44b880327c784f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp at which the mocap data is received.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a62c0d7c247eb33323b44b880327c784f">More...</a><br /></td></tr>
 <tr class="separator:a62c0d7c247eb33323b44b880327c784f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad2e0a28939a807da48e8272855e511c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aad2e0a28939a807da48e8272855e511c">time_mocap_</a></td></tr>
+<tr class="memdesc:aad2e0a28939a807da48e8272855e511c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time in seconds at which the mocap data is recieved wrt the timestamdp_initial.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aad2e0a28939a807da48e8272855e511c">More...</a><br /></td></tr>
 <tr class="separator:aad2e0a28939a807da48e8272855e511c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bdb72c5b9b972350c008f7e44e76616"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct__drivers___1_1__udp__driver___1_1mocap__states.html">mocap_states</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a6bdb72c5b9b972350c008f7e44e76616">mc</a></td></tr>
-<tr class="memdesc:a6bdb72c5b9b972350c008f7e44e76616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate <a class="el" href="struct__drivers___1_1__udp__driver___1_1mocap__states.html" title="Define struct variables to store parsed data.">mocap_states</a> struct.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#a6bdb72c5b9b972350c008f7e44e76616">More...</a><br /></td></tr>
 <tr class="separator:a6bdb72c5b9b972350c008f7e44e76616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed33c8e096f44234aba49456c6b58e3a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class__drivers___1_1__udp__driver___1_1MocapData.html">MocapData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aed33c8e096f44234aba49456c6b58e3a">mocap_data_</a></td></tr>
+<tr class="memdesc:aed33c8e096f44234aba49456c6b58e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a pointer to the <a class="el" href="class__drivers___1_1__udp__driver___1_1MocapData.html" title="Logs mocap data.">MocapData</a> instance.  <a href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html#aed33c8e096f44234aba49456c6b58e3a">More...</a><br /></td></tr>
 <tr class="separator:aed33c8e096f44234aba49456c6b58e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html" title="UdpReceiverNode class which can recieve UDP datagrams.">UdpReceiverNode</a> class which can recieve UDP datagrams. </p>
+
 <p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00138">138</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7bc685f951c307d02ee4150bce8ef3b5"></a>
@@ -201,18 +201,15 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor which accpets IOContext. </p>
-<p>Construct a new Udp Receiver Node:: Udp Receiver Node object.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td></td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pointer</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td></td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">timestamp_initial</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00079">79</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00076">76</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -232,8 +229,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destructor - required to manage owned IoContext. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00111">111</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00104">104</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -261,7 +264,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00124">124</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00116">116</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -288,15 +291,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Debugger function to output the mocap data. </p>
+<p>Debugger function to output mocap data. </p>
+<p>Debugger function to output the mocap data.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td>Debugger function to output mocap data </td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00258">258</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00227">227</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -324,15 +328,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the parameters for the ip and port to ping. </p>
-<p>Get the parameters for the ip and port to ping </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
     <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00099">99</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00092">92</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +354,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00234">234</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p>Get the Mocap States object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct__drivers___1_1__udp__driver___1_1mocap__states.html" title="Define struct variables to store parsed data.">mocap_states</a>&amp; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00203">203</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -370,7 +382,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00244">244</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p>Get the Time Mocap object. </p>
+<dl class="section return"><dt>Returns</dt><dd>double&amp; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00213">213</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -389,7 +404,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00239">239</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p>Get the Timestamp Mocap object. </p>
+<dl class="section return"><dt>Returns</dt><dd>uint64_t&amp; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00208">208</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -420,21 +438,12 @@ Private Attributes</h2></td></tr>
 <p>Callback from transition to "activating" state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Callback from transition to "acitvating" state.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>LNI::CallbackReturn </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00185">185</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00163">163</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -465,21 +474,12 @@ Private Attributes</h2></td></tr>
 <p>Callback from transition to "unconfigured" state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Callback from transition to "unconfigured" state.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>LNI::CallbackReturn </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00215">215</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00183">183</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -508,17 +508,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Callback from transition to "configuring" state. </p>
-<p>Callbackj from transition to "configuration state".</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in.</td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">state</td><td>The current state that the node is in </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>The current state that the node is in. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>LNI::CallbackReturn </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00144">144</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00130">130</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +551,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00196">196</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00172">172</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -590,7 +587,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00226">226</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00195">195</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -612,7 +609,7 @@ Private Attributes</h2></td></tr>
 
 <p>Callback for receiving a UDP datagram. </p>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00296">296</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8cpp_source.html#l00266">266</a> of file <a class="el" href="mocap_8cpp_source.html">mocap.cpp</a>.</p>
 
 </div>
 </div>
@@ -638,8 +635,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>String for the ip of the odrioid. </p>
+<p>String for the ip of the odroid </p>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00199">199</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00218">218</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -665,7 +663,7 @@ Private Attributes</h2></td></tr>
 
 <p>Pointer to the asio context owned by this node for async communication. </p>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00196">196</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00212">212</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -690,8 +688,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>String for the port of the odroid. </p>
+<p>String for the port of the odroid </p>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00202">202</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00224">224</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -716,8 +715,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pointer for the udp driver which wraps the udp socket. </p>
+<p>POinter for the udp driver which wraps the udp socket </p>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00205">205</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00230">230</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -741,9 +741,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Instantiate <a class="el" href="struct__drivers___1_1__udp__driver___1_1mocap__states.html" title="Define struct variables to store parsed data.">mocap_states</a> struct. </p>
-
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00217">217</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00254">254</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -767,7 +765,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00230">230</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p>Create a pointer to the <a class="el" href="class__drivers___1_1__udp__driver___1_1MocapData.html" title="Logs mocap data.">MocapData</a> instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00273">273</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -792,8 +792,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Publisher for publishing the mocap message. </p>
+<p>Publisher for publishing the mocap message </p>
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00208">208</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00236">236</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -817,7 +818,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00217">217</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p>Time in seconds at which the mocap data is recieved wrt the timestamdp_initial. </p>
+
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00254">254</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -841,7 +844,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00211">211</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p>Reference to the initial timestamp determined in multi_threaded_node. </p>
+
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00242">242</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>
@@ -865,7 +870,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00214">214</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
+<p>Timestamp at which the mocap data is received. </p>
+
+<p class="definition">Definition at line <a class="el" href="mocap_8hpp_source.html#l00248">248</a> of file <a class="el" href="mocap_8hpp_source.html">mocap.hpp</a>.</p>
 
 </div>
 </div>

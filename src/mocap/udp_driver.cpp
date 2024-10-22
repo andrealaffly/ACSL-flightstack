@@ -63,25 +63,20 @@ namespace _drivers_
 namespace _udp_driver_
 {
 
-/**
- * @brief Construct a new Udp Driver:: Udp Driver object
- * 
- * @param ctx 
- */
+// Construct a new Udp Driver object
+// param ctx
 UdpDriver::UdpDriver(const IoContext & ctx)
 : m_ctx(ctx)
 {
 }
 
-/**
- * @param ip 
- * @param port 
- */
+// init_sender for ip and port
 void UdpDriver::init_sender(const std::string & ip, uint16_t port)
 {
   m_sender = std::make_shared<UdpSocket>(m_ctx, ip, port);
 }
 
+// init_sender for remote and host
 void UdpDriver::init_sender(
   const std::string & remote_ip, uint16_t remote_port,
   const std::string & host_ip, uint16_t host_port)
@@ -89,11 +84,7 @@ void UdpDriver::init_sender(
   m_sender = std::make_shared<UdpSocket>(m_ctx, remote_ip, remote_port, host_ip, host_port);
 }
 
-/**
- * @brief Testing
- * @param ip 
- * @param port 
- */
+// init_reciever
 void UdpDriver::init_receiver(const std::string & ip, uint16_t port)
 {
   try {

@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,26 +41,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div class="header">
   <div class="headertitle">
 <div class="title">Class Hierarchy</div>  </div>
@@ -70,12 +60,12 @@ $(function() {
 </div><table border="0" cellspacing="10" cellpadding="0">
 <tr><td><img src="inherit_graph_0.png" border="0" usemap="#a__drivers___1_1__common___1_1IoContext" alt=""/>
 <map name="a__drivers___1_1__common___1_1IoContext" id="a__drivers___1_1__common___1_1IoContext">
-<area shape="rect" href="class__drivers___1_1__common___1_1IoContext.html" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" href="class__drivers___1_1__common___1_1IoContext.html" title="Create a Io Context object." alt="" coords="5,5,159,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_1.png" border="0" usemap="#a__drivers___1_1__common___1_1thread__group" alt=""/>
 <map name="a__drivers___1_1__common___1_1thread__group" id="a__drivers___1_1__common___1_1thread__group">
-<area shape="rect" href="struct__drivers___1_1__common___1_1thread__group.html" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" href="struct__drivers___1_1__common___1_1thread__group.html" title="A workarouond of boost::thread_group Copied from https://gist.github.com/coin&#45;au&#45;carre/ceb8a790cec3b3..." alt="" coords="5,5,159,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_2.png" border="0" usemap="#a__drivers___1_1__udp__driver___1_1mocap__states" alt=""/>
@@ -90,18 +80,18 @@ $(function() {
 </td></tr>
 <tr><td><img src="inherit_graph_4.png" border="0" usemap="#a__drivers___1_1__udp__driver___1_1UdpDriver" alt=""/>
 <map name="a__drivers___1_1__udp__driver___1_1UdpDriver" id="a__drivers___1_1__udp__driver___1_1UdpDriver">
-<area shape="rect" href="class__drivers___1_1__udp__driver___1_1UdpDriver.html" title=" " alt="" coords="5,5,171,47"/>
+<area shape="rect" href="class__drivers___1_1__udp__driver___1_1UdpDriver.html" title="UdpDriver class." alt="" coords="5,5,171,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_5.png" border="0" usemap="#a__drivers___1_1__udp__driver___1_1UdpReceiverNode" alt=""/>
 <map name="a__drivers___1_1__udp__driver___1_1UdpReceiverNode" id="a__drivers___1_1__udp__driver___1_1UdpReceiverNode">
 <area shape="rect" title=" " alt="" coords="5,13,228,39"/>
-<area shape="rect" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html" title=" " alt="" coords="276,5,441,47"/>
+<area shape="rect" href="class__drivers___1_1__udp__driver___1_1UdpReceiverNode.html" title="UdpReceiverNode class which can recieve UDP datagrams." alt="" coords="276,5,441,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_6.png" border="0" usemap="#a__drivers___1_1__udp__driver___1_1UdpSocket" alt=""/>
 <map name="a__drivers___1_1__udp__driver___1_1UdpSocket" id="a__drivers___1_1__udp__driver___1_1UdpSocket">
-<area shape="rect" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title=" " alt="" coords="5,5,171,47"/>
+<area shape="rect" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title="Creates a UDP socket." alt="" coords="5,5,171,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_7.png" border="0" usemap="#aConfigurationParameters" alt=""/>
@@ -111,39 +101,39 @@ $(function() {
 </td></tr>
 <tr><td><img src="inherit_graph_8.png" border="0" usemap="#aControl" alt=""/>
 <map name="aControl" id="aControl">
-<area shape="rect" href="classControl.html" title=" " alt="" coords="5,31,75,57"/>
+<area shape="rect" href="classControl.html" title="Control class." alt="" coords="5,31,75,57"/>
 <area shape="rect" href="classMRAC.html" title=" " alt="" coords="123,5,184,32"/>
-<area shape="rect" href="classPID.html" title=" " alt="" coords="131,56,175,83"/>
+<area shape="rect" href="classPID.html" title="PID." alt="" coords="131,56,175,83"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_9.png" border="0" usemap="#aControl_1_1ControlInternalMembers" alt=""/>
 <map name="aControl_1_1ControlInternalMembers" id="aControl_1_1ControlInternalMembers">
-<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title=" " alt="" coords="5,5,180,47"/>
+<area shape="rect" href="structControl_1_1ControlInternalMembers.html" title="This struct contains the variables that are commmon among all controllers as they are the foundations..." alt="" coords="5,5,180,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_10.png" border="0" usemap="#aControl_1_1ControlReferences" alt=""/>
 <map name="aControl_1_1ControlReferences" id="aControl_1_1ControlReferences">
-<area shape="rect" href="structControl_1_1ControlReferences.html" title=" " alt="" coords="5,5,203,32"/>
+<area shape="rect" href="structControl_1_1ControlReferences.html" title="Struct that encapsulates references to external variables to be used inside the computeControlAlgorit..." alt="" coords="5,5,203,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" usemap="#aControllerSpecificInternalMembers" alt=""/>
-<map name="aControllerSpecificInternalMembers" id="aControllerSpecificInternalMembers">
-<area shape="rect" href="classControllerSpecificInternalMembers.html" title=" " alt="" coords="5,5,192,47"/>
-</map>
-</td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" usemap="#aEFK2FusionMode" alt=""/>
+<tr><td><img src="inherit_graph_11.png" border="0" usemap="#aEFK2FusionMode" alt=""/>
 <map name="aEFK2FusionMode" id="aEFK2FusionMode">
 <area shape="rect" href="classEFK2FusionMode.html" title="Enum class for the possible mods to fuse Pixhawk IMU data." alt="" coords="5,5,139,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" usemap="#aGainsMRAC" alt=""/>
+<tr><td><img src="inherit_graph_12.png" border="0" usemap="#aGainsMRAC" alt=""/>
 <map name="aGainsMRAC" id="aGainsMRAC">
-<area shape="rect" href="structGainsMRAC.html" title=" " alt="" coords="5,5,104,32"/>
+<area shape="rect" href="structGainsMRAC.html" title="struct containing the MRAC tuning gains coming from the .json file" alt="" coords="5,5,104,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" usemap="#aGainsPID" alt=""/>
+<tr><td><img src="inherit_graph_13.png" border="0" usemap="#aGainsPID" alt=""/>
 <map name="aGainsPID" id="aGainsPID">
-<area shape="rect" href="structGainsPID.html" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="structGainsPID.html" title="Struct containing the PID tuning gains coming from the .json file." alt="" coords="5,5,87,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_14.png" border="0" usemap="#aGlobal" alt=""/>
+<map name="aGlobal" id="aGlobal">
+<area shape="rect" href="structGlobal.html" title=" " alt="" coords="5,5,69,32"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_15.png" border="0" usemap="#aGlobalParameters" alt=""/>
@@ -153,22 +143,22 @@ $(function() {
 </td></tr>
 <tr><td><img src="inherit_graph_16.png" border="0" usemap="#aLogData__MRAC" alt=""/>
 <map name="aLogData__MRAC" id="aLogData__MRAC">
-<area shape="rect" href="classLogData__MRAC.html" title=" " alt="" coords="5,5,128,32"/>
+<area shape="rect" href="classLogData__MRAC.html" title="Forward decleration of LogData_MRAC class." alt="" coords="5,5,128,32"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_17.png" border="0" usemap="#aLogData__PID" alt=""/>
 <map name="aLogData__PID" id="aLogData__PID">
-<area shape="rect" href="classLogData__PID.html" title=" " alt="" coords="5,5,111,32"/>
+<area shape="rect" href="classLogData__PID.html" title="Delclaration of the LogData_PID class." alt="" coords="5,5,111,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" usemap="#aMotorCommands" alt=""/>
-<map name="aMotorCommands" id="aMotorCommands">
-<area shape="rect" href="structMotorCommands.html" title=" " alt="" coords="5,5,140,32"/>
+<tr><td><img src="inherit_graph_18.png" border="0" usemap="#amocap__states" alt=""/>
+<map name="amocap__states" id="amocap__states">
+<area shape="rect" href="structmocap__states.html" title="Instantiate mocap_states struct." alt="" coords="5,5,119,32"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_19.png" border="0" usemap="#aMotorsCommands" alt=""/>
 <map name="aMotorsCommands" id="aMotorsCommands">
-<area shape="rect" href="structMotorsCommands.html" title=" " alt="" coords="5,5,147,32"/>
+<area shape="rect" href="structMotorsCommands.html" title="create floating points for the Motor Commands" alt="" coords="5,5,147,32"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_20.png" border="0" usemap="#aMRAC_1_1ControllerSpecificInternalMembers" alt=""/>
@@ -194,7 +184,7 @@ $(function() {
 </td></tr>
 <tr><td><img src="inherit_graph_24.png" border="0" usemap="#aPID_1_1StateController" alt=""/>
 <map name="aPID_1_1StateController" id="aPID_1_1StateController">
-<area shape="rect" href="structPID_1_1StateController.html" title=" " alt="" coords="5,5,156,32"/>
+<area shape="rect" href="structPID_1_1StateController.html" title="This struct represents the state of the PID controller differential equations that will be at each RK..." alt="" coords="5,5,156,32"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_25.png" border="0" usemap="#aPiecewisePolynomialTrajectoryInfo" alt=""/>
@@ -207,25 +197,20 @@ $(function() {
 <area shape="rect" href="structprojection__operator_1_1ConvexFunctionOutput.html" title="Struct to hold the output of the convex function." alt="" coords="5,5,224,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_27.png" border="0" usemap="#aUDPReciverNode" alt=""/>
-<map name="aUDPReciverNode" id="aUDPReciverNode">
-<area shape="rect" href="classUDPReciverNode.html" title="UdpRecieverNode class which can recieve UDP datagrams." alt="" coords="5,5,139,32"/>
-</map>
-</td></tr>
-<tr><td><img src="inherit_graph_28.png" border="0" usemap="#aUserDefinedTrajectory" alt=""/>
+<tr><td><img src="inherit_graph_27.png" border="0" usemap="#aUserDefinedTrajectory" alt=""/>
 <map name="aUserDefinedTrajectory" id="aUserDefinedTrajectory">
-<area shape="rect" href="classUserDefinedTrajectory.html" title=" " alt="" coords="5,5,172,32"/>
-<area shape="rect" href="classPiecewisePolynomialTrajectory.html" title=" " alt="" coords="220,5,444,32"/>
+<area shape="rect" href="classUserDefinedTrajectory.html" title="The trajectory for the drone which can be set by the user." alt="" coords="5,5,172,32"/>
+<area shape="rect" href="classPiecewisePolynomialTrajectory.html" title="Finding the trajectory using piecewsie polynomial functions." alt="" coords="220,5,444,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_29.png" border="0" usemap="#aVehicleInfo" alt=""/>
+<tr><td><img src="inherit_graph_28.png" border="0" usemap="#aVehicleInfo" alt=""/>
 <map name="aVehicleInfo" id="aVehicleInfo">
 <area shape="rect" href="structVehicleInfo.html" title="Vehicle Info." alt="" coords="5,5,100,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_30.png" border="0" usemap="#aVehicleState" alt=""/>
+<tr><td><img src="inherit_graph_29.png" border="0" usemap="#aVehicleState" alt=""/>
 <map name="aVehicleState" id="aVehicleState">
-<area shape="rect" href="classVehicleState.html" title=" " alt="" coords="5,5,108,32"/>
+<area shape="rect" href="classVehicleState.html" title="Orientation of the vehicle at a given instant of time." alt="" coords="5,5,108,32"/>
 </map>
 </td></tr>
 </table>

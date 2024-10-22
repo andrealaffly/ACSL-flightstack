@@ -56,6 +56,7 @@ class MultiThreadedNode;
 
 /**
  * @class VehicleState
+ * @brief Orientation of the vehicle at a given instant of time
  */
 class VehicleState 
 {

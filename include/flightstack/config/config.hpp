@@ -100,6 +100,11 @@ struct ConfigurationParameters
   // Time in seconds for which the UAV will perform hovering after having completed the user-defined trajectory
   double hover_after_trajectory_time_seconds;
 
+  /**
+  * @brief Function that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct
+  * @param configFileName Name of the JSON file containing the config parameters
+  * @return config struct containing the configuration parameters .
+  */
   static ConfigurationParameters readConfigurationParametersFile(const std::string& configFileName);
 
 };
@@ -112,7 +117,6 @@ struct ConfigurationParameters
 /**
  * @struct GlobalParameters
  * @brief Global parameteres shared among all the program
- * 
  */
 struct GlobalParameters
 {

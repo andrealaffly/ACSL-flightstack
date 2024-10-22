@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="namespace__drivers__.html">_drivers_</a></li><li class="navelem"><a class="el" href="namespace__drivers___1_1__udp__driver__.html">_udp_driver_</a></li><li class="navelem"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html">UdpSocket</a></li>  </ul>
@@ -76,14 +66,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Creates a UDP socket.  
+ <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for _drivers_::_udp_driver_::UdpSocket:</div>
 <div class="dyncontent">
 <div class="center"><img src="class__drivers___1_1__udp__driver___1_1UdpSocket__coll__graph.png" border="0" usemap="#a__drivers___1_1__udp__driver___1_1UdpSocket_coll__map" alt="Collaboration graph"/></div>
 <map name="a__drivers___1_1__udp__driver___1_1UdpSocket_coll__map" id="a__drivers___1_1__udp__driver___1_1UdpSocket_coll__map">
-<area shape="rect" title=" " alt="" coords="5,109,171,151"/>
-<area shape="rect" href="class__drivers___1_1__common___1_1IoContext.html" title=" " alt="" coords="11,5,165,47"/>
+<area shape="rect" title="Creates a UDP socket." alt="" coords="5,109,171,151"/>
+<area shape="rect" href="class__drivers___1_1__common___1_1IoContext.html" title="Create a Io Context object." alt="" coords="11,5,165,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -108,27 +101,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a35de4f590bdf7569c8184bb800d1ddec"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a35de4f590bdf7569c8184bb800d1ddec">host_port</a> () const</td></tr>
 <tr class="separator:a35de4f590bdf7569c8184bb800d1ddec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2de9c96393689c6be10c511519dc5f57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a2de9c96393689c6be10c511519dc5f57">open</a> ()</td></tr>
+<tr class="memdesc:a2de9c96393689c6be10c511519dc5f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a <a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title="Creates a UDP socket.">UdpSocket</a>.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a2de9c96393689c6be10c511519dc5f57">More...</a><br /></td></tr>
 <tr class="separator:a2de9c96393689c6be10c511519dc5f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab80005f8b5b085e77f33a21d966af56d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#ab80005f8b5b085e77f33a21d966af56d">close</a> ()</td></tr>
+<tr class="memdesc:ab80005f8b5b085e77f33a21d966af56d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a <a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title="Creates a UDP socket.">UdpSocket</a>.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#ab80005f8b5b085e77f33a21d966af56d">More...</a><br /></td></tr>
 <tr class="separator:ab80005f8b5b085e77f33a21d966af56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe68c321091185c68baa5074932be9f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#afe68c321091185c68baa5074932be9f5">isOpen</a> () const</td></tr>
+<tr class="memdesc:afe68c321091185c68baa5074932be9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if <a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title="Creates a UDP socket.">UdpSocket</a> is open.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#afe68c321091185c68baa5074932be9f5">More...</a><br /></td></tr>
 <tr class="separator:afe68c321091185c68baa5074932be9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeedd59b0d5db0d0f325ad7e1b95d25b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#aeedd59b0d5db0d0f325ad7e1b95d25b9">bind</a> ()</td></tr>
+<tr class="memdesc:aeedd59b0d5db0d0f325ad7e1b95d25b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">No fucking idea.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#aeedd59b0d5db0d0f325ad7e1b95d25b9">More...</a><br /></td></tr>
 <tr class="separator:aeedd59b0d5db0d0f325ad7e1b95d25b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4509ddc42b61453df2e0cb38f411208d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a4509ddc42b61453df2e0cb38f411208d">send</a> (std::vector&lt; uint8_t &gt; &amp;buff)</td></tr>
+<tr class="memdesc:a4509ddc42b61453df2e0cb38f411208d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocking Send Operation.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a4509ddc42b61453df2e0cb38f411208d">More...</a><br /></td></tr>
 <tr class="separator:a4509ddc42b61453df2e0cb38f411208d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a088cb2e425f31270d3f3c0dd1fb343a9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a088cb2e425f31270d3f3c0dd1fb343a9">receive</a> (std::vector&lt; uint8_t &gt; &amp;buff)</td></tr>
+<tr class="memdesc:a088cb2e425f31270d3f3c0dd1fb343a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocking Receive Operation.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a088cb2e425f31270d3f3c0dd1fb343a9">More...</a><br /></td></tr>
 <tr class="separator:a088cb2e425f31270d3f3c0dd1fb343a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14dade1e4a28a68fa4519ca1fdba0073"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a14dade1e4a28a68fa4519ca1fdba0073">asyncSend</a> (std::vector&lt; uint8_t &gt; &amp;buff)</td></tr>
+<tr class="memdesc:a14dade1e4a28a68fa4519ca1fdba0073"><td class="mdescLeft">&#160;</td><td class="mdescRight">NonBlocking Send Operation.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a14dade1e4a28a68fa4519ca1fdba0073">More...</a><br /></td></tr>
 <tr class="separator:a14dade1e4a28a68fa4519ca1fdba0073"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97a1178a4c53a502e0c0de8c6dc363c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a97a1178a4c53a502e0c0de8c6dc363c8">asyncReceive</a> (<a class="el" href="namespace__drivers___1_1__udp__driver__.html#a4f3fb1e3533ee05789a35d341431adbe">Functor</a> func)</td></tr>
+<tr class="memdesc:a97a1178a4c53a502e0c0de8c6dc363c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">NonBlocking Receive Operation.  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a97a1178a4c53a502e0c0de8c6dc363c8">More...</a><br /></td></tr>
 <tr class="separator:a97a1178a4c53a502e0c0de8c6dc363c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ae0989a4c589500f9076da158d2a64e8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#ae0989a4c589500f9076da158d2a64e8f">asyncSendHandler</a> (const asio::error_code &amp;error, std::size_t bytes_transferred)</td></tr>
+<tr class="memdesc:ae0989a4c589500f9076da158d2a64e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">asyncSendHandler  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#ae0989a4c589500f9076da158d2a64e8f">More...</a><br /></td></tr>
 <tr class="separator:ae0989a4c589500f9076da158d2a64e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70b462ee84da943d450ac6a350e61b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a70b462ee84da943d450ac6a350e61b5b">asyncReceiveHandler</a> (const asio::error_code &amp;error, std::size_t bytes_transferred)</td></tr>
+<tr class="memdesc:a70b462ee84da943d450ac6a350e61b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">asyncReceiveHandler  <a href="class__drivers___1_1__udp__driver___1_1UdpSocket.html#a70b462ee84da943d450ac6a350e61b5b">More...</a><br /></td></tr>
 <tr class="separator:a70b462ee84da943d450ac6a350e61b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -152,8 +155,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="separator:a0b2e05dab8decc10f54dcb40752e93d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00086">86</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<div class="textblock"><p>Creates a UDP socket. </p>
+
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00087">87</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af1a88a9743bb18a4346430318464c1a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1a88a9743bb18a4346430318464c1a3">&#9670;&nbsp;</a></span>UdpSocket() <span class="overload">[1/3]</span></h2>
@@ -198,18 +202,8 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td></td></tr>
-    <tr><td class="paramname">remote_ip</td><td></td></tr>
-    <tr><td class="paramname">remote_port</td><td></td></tr>
-    <tr><td class="paramname">host_ip</td><td></td></tr>
-    <tr><td class="paramname">host_port</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00073">73</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00069">69</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -244,16 +238,8 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td></td></tr>
-    <tr><td class="paramname">ip</td><td></td></tr>
-    <tr><td class="paramname">port</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00098">98</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00089">89</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -272,7 +258,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00105">105</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00096">96</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -318,15 +304,16 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>NonBlocking Receive Operation </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>NonBlocking Receive Operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">func</td><td></td></tr>
-    <tr><td class="paramname">func</td><td>Functor </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00154">154</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00141">141</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -363,17 +350,17 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>asyncReceiveHandler </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>asyncReceiveHandler </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">error</td><td></td></tr>
-    <tr><td class="paramname">bytes_transferred</td><td></td></tr>
     <tr><td class="paramname">error</td><td></td></tr>
     <tr><td class="paramname">bytes_transferred</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00184">184</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00167">167</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -392,15 +379,16 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>NonBlocking Send Operation </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>NonBlocking Send Operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buff</td><td></td></tr>
     <tr><td class="paramname">buff</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00141">141</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00130">130</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -437,17 +425,17 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>asyncSendHandler </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>asyncSendHandler </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">error</td><td></td></tr>
-    <tr><td class="paramname">bytes_transferred</td><td></td></tr>
     <tr><td class="paramname">error</td><td></td></tr>
     <tr><td class="paramname">bytes_transferred</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00170">170</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00153">153</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -466,7 +454,9 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00258">258</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p>No fucking idea. </p>
+
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00241">241</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -485,7 +475,9 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00244">244</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p>Close a <a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title="Creates a UDP socket.">UdpSocket</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00227">227</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -504,7 +496,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00220">220</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00203">203</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -523,7 +515,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00225">225</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00208">208</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -542,7 +534,12 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00253">253</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p>Check if <a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title="Creates a UDP socket.">UdpSocket</a> is open. </p>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00236">236</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -561,7 +558,9 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00230">230</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p>Open a <a class="el" href="class__drivers___1_1__udp__driver___1_1UdpSocket.html" title="Creates a UDP socket.">UdpSocket</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00213">213</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -606,9 +605,16 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Blocking Receive Operation </p>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00120">120</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p>Blocking Receive Operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00111">111</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -627,7 +633,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00210">210</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00193">193</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -646,7 +652,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00215">215</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00198">198</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -665,9 +671,16 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Blocking Send Operation </p>
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00110">110</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
+<p>Blocking Send Operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector&lt;uint8_t&gt;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="udp__socket_8cpp_source.html#l00101">101</a> of file <a class="el" href="udp__socket_8cpp_source.html">udp_socket.cpp</a>.</p>
 
 </div>
 </div>
@@ -692,7 +705,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00155">155</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00176">176</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -716,7 +729,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00159">159</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00180">180</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -740,7 +753,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00158">158</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00179">179</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -764,7 +777,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00161">161</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00182">182</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -788,7 +801,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00160">160</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00181">181</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -812,7 +825,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00157">157</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00178">178</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -836,7 +849,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00156">156</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="udp__socket_8hpp_source.html#l00177">177</a> of file <a class="el" href="udp__socket_8hpp_source.html">udp_socket.hpp</a>.</p>
 
 </div>
 </div>

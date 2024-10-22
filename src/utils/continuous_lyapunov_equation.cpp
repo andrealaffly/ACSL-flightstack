@@ -113,7 +113,8 @@ bool is_approx_equal_abstol(const Eigen::MatrixXd& A, const Eigen::MatrixXd& B, 
 }  // namespace
 
 /**
- * @brief Equation of the Real Continuous Lyapunov Equation
+ * @brief RealContinuousLyapunovEquation
+ * 
  * @param A 
  * @param Q 
  * @return MatrixXd 

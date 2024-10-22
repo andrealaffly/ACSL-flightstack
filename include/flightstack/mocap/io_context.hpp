@@ -77,6 +77,11 @@ namespace _common_
  * A workaround of boost::thead_group
  * Copied from https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2
  */
+/**
+ * @struct thread_group
+ * @brief A workarouond of boost::thread_group
+ * Copied from https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2
+ */
 struct thread_group
 {
   std::vector<std::thread> tg;
@@ -122,6 +127,7 @@ struct thread_group
 
 /**
  * @class IoContext
+ * @brief Create a Io Context object
  */
 class IoContext
 {
@@ -138,13 +144,29 @@ public:
   IoContext(const IoContext &) = delete;
   IoContext & operator=(const IoContext &) = delete;
 
+  /**
+   * @brief ios (Not sure what to put here)
+   * @param None
+   * @return asio::io_service& 
+   */
   asio::io_service & ios() const;
 
+  /**
+   * @brief Check if io_context is stopped
+   * @param None
+   * @return true 
+   * @return false 
+   */
   bool isServiceStopped();
+  /**
+   * @brief Service thread count
+   * @param None
+   * @return uint32_t 
+   */
   uint32_t serviceThreadCount();
 
   /**
-   * waitForExit
+   * @brief waitForExit
    * @param None
    */
   void waitForExit();
@@ -152,7 +174,7 @@ public:
   template<class F>
   
   /**
-   * post
+   * @brief post iocontext
    * 
    * @param f 
    */

@@ -10,9 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="ACSL Flightstack Documentation"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -40,25 +41,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,true,'search.php','Search');
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() {
+    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
+  });
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -69,13 +59,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>struct containing the <a class="el" href="classMRAC.html">MRAC</a> tuning gains coming from the .json file  
+ <a href="structGainsMRAC.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mrac__gains_8hpp_source.html">mrac_gains.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for GainsMRAC:</div>
 <div class="dyncontent">
 <div class="center"><img src="structGainsMRAC__coll__graph.png" border="0" usemap="#aGainsMRAC_coll__map" alt="Collaboration graph"/></div>
 <map name="aGainsMRAC_coll__map" id="aGainsMRAC_coll__map">
-<area shape="rect" title=" " alt="" coords="5,241,104,268"/>
+<area shape="rect" title="struct containing the MRAC tuning gains coming from the .json file" alt="" coords="5,241,104,268"/>
 <area shape="rect" title=" " alt="" coords="15,5,95,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>

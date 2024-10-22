@@ -43,7 +43,7 @@
 
 
 /**
- * @param None
+ * @class MultiThreadedNode
  */
 void MultiThreadedNode::controller_callback()
 {

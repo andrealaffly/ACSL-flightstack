@@ -45,8 +45,6 @@
 
 /**
  * @class MotorsCommands
- * 
- * @param jsonFile 
  */
 void MotorsCommands::readJSONConfig(const std::string& jsonFile) {
 	std::ifstream file(jsonFile);
