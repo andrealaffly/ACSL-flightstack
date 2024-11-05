@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_mocap.hpp
- * Author:      Mattia Gramuglia
- * Date:        May 10, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        logging_mocap.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        May 10, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Logger for the motion capture (MOCAP) system.

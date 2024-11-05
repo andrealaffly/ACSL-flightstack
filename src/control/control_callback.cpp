@@ -24,10 +24,10 @@
  **********************************************************************************************************************/
 ///@endcond
 /***********************************************************************************************************************
- * File:        control_callback.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 19, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        control_callback.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 19, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Callback that is executed at a fixed specified rate defined by the "timer_controller_".

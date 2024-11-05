@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        pid.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 22, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        pid.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 22, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Implementation of the PID controller.

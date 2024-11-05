@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        user_defined_trajectory.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 12, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        user_defined_trajectory.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 12, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class that contains the common members that each type of user-defined trajectory class will inherit

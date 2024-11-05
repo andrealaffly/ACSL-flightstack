@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        config.hpp
- * Author:      Mattia Gramuglia
- * Date:        June 7, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        config.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 7, 2024 \n 
+ * For info:    Andrea L'Afflitto  \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Configuration file. Here you specify which controller you want to run at compile time.

@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        multi_threaded_node.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 8, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        multi_threaded_node.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 8, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Multithreaded ROS2 node that joins together all the flight stack components

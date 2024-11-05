@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        mrac_gains.hpp
- * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        mrac_gains.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 13, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Tuning gains of the MRAC controller.

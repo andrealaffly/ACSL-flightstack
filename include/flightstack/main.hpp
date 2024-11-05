@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        main.hpp
- * Author:      Mattia Gramuglia
- * Date:        May 3, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        main.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        May 3, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Main file. Here select at compile time if you want to use GPS or MOCAP.

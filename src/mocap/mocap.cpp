@@ -43,10 +43,10 @@
  **********************************************************************************************************************/
 ///@endcond
 /***********************************************************************************************************************
- * @file mocap.cpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 20, 2024
- * For info:    Andrea L'Afflitto 
+ * @file mocap.cpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 20, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Node definition for UDP socket as a lifecycle node.

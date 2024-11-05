@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,11 +22,12 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        main.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 9, 2024
+ * File:        main.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 9, 2024 \n
+ * 
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 

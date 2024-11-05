@@ -43,10 +43,10 @@
  **********************************************************************************************************************/
 ///@endcond
 /***********************************************************************************************************************
- * File:        udp_driver.cpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        udp_driver.cpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 21, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class for UDP driver.

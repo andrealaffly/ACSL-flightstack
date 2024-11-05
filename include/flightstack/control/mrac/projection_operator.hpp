@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        projection_operator.hpp
- * Author:      Mattia Gramuglia
- * Date:        September 4, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        projection_operator.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        September 4, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Implementation of the projection operator to be used in the MRAC controllers.

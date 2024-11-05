@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        vehicle_info.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 22, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        vehicle_info.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 22, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Vehicle properties such as mass, inertia matrix, motor thrust curves, etc.

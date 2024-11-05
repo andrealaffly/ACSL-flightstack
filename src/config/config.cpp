@@ -25,10 +25,10 @@
 ///@endcond
 
 /***********************************************************************************************************************
- * File:        config.cpp
- * Author:      Mattia Gramuglia
- * Date:        June 7, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        config.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 7, 2024 \n 
+ * For info:    Andrea L'Afflitto  \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Configuration file

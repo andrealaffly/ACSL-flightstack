@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        piecewise_polynomial_trajectory.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 15, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        piecewise_polynomial_trajectory.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 15, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Piecewise polynomial minimu-jerk trajectory computed offline through a MATLAB script.

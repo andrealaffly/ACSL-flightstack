@@ -24,9 +24,9 @@
  **********************************************************************************************************************/
 ///@endcond
 /***********************************************************************************************************************
- * File:        json_parser.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 2, 2024
+ * File:        json_parser.cpp \n
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 2, 2024 \n
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 

@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        pid_gains.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 23, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        pid_gains.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 23, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Tuning gains of the PID controller.

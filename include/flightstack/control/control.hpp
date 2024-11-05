@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        control.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 19, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        control.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 19, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: General class that contains common members used by most of the control algorithms.

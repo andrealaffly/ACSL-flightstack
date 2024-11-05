@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_mrac.hpp
- * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        logging_mrac.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 13, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Logger for the MRAC controller.

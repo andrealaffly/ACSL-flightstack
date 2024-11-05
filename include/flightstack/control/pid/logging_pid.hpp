@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_pid.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 18, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        logging_pid.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 18, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Logger for the PID controller.

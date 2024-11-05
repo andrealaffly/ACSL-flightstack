@@ -24,10 +24,10 @@
  **********************************************************************************************************************/
 ///@endcond
 /***********************************************************************************************************************
- * File:        pixhawk_vehicle_odometry.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 9, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        pixhawk_vehicle_odometry.cpp \n 
+ * Author:      Mattia Gramuglia \n  
+ * Date:        April 9, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk.

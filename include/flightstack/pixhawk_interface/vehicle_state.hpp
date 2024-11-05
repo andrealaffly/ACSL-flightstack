@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        vehicle_state.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 9, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        vehicle_state.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 9, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Class storing the state of the vehicle coming from the flight controller (Pixhawk)

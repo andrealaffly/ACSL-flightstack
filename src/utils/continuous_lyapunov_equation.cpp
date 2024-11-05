@@ -58,13 +58,15 @@
  *              THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  *              (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  *              OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        continuous_lyapunov_equation.cpp
- * Author:      Mattia Gramuglia
- * Date:        June 14, 2024
- * For info:    Andrea L'Afflitto 
+ * 
+ * File:        continuous_lyapunov_equation.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 14, 2024 \n 
+ * For info:    Andrea L'Afflitto  \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Computes the solution of the continuos Lyapunov equation
