@@ -23,16 +23,21 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        user_defined_trajectory.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 12, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        user_defined_trajectory.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 12, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class that contains the common members that each type of user-defined trajectory class will inherit
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+
+/**
+ * @file user_defined_trajectory.hpp
+ * @brief Class that contains the common members that each type of user-defined trajectory class will inherit
+ */
 
 #ifndef USER_DEFINED_TRAJECTORY_HPP
 #define USER_DEFINED_TRAJECTORY_HPP
@@ -42,16 +47,32 @@
 #include <Eigen/Dense>
 
 // Forward declaration of MultiThreadedNode class
+/**
+ * @class MultiThreadedNode
+ * 
+ */
 class MultiThreadedNode;
 
+/**
+ * @class UserDefinedTrajectory
+ * @brief The trajectory for the drone which can be set by the user
+ */
 class UserDefinedTrajectory
 {
 public:
 
   // Constructor
+  /**
+   * @brief Construct a new User Defined Trajectory object
+   */
   UserDefinedTrajectory(MultiThreadedNode& node);
 
   // Getter functions
+  /**
+   * @brief Get the Node object
+   * @param None
+   * @return MultiThreadedNode& 
+   */
   MultiThreadedNode& getNode() const;
   const std::atomic<uint64_t>& getInitialTimestamp() const;
   Eigen::Vector3d& getUserDefinedPosition();
@@ -62,17 +83,56 @@ public:
   double& getUserDefinedYawDotDot();
 
   // Setter functions
+  /**
+   * @brief Set the User Defined Position object
+   * 
+   * @param position 
+   */
   void setUserDefinedPosition(const Eigen::Vector3d& position);
+
+  /**
+   * @brief Set the User Defined Velocity object
+   * 
+   * @param user_defined_velocity 
+   */
   void setUserDefinedVelocity(const Eigen::Vector3d& user_defined_velocity);
+
+  /**
+   * @brief Set the User Defined Acceleration object
+   * 
+   * @param user_defined_acceleration 
+   */
   void setUserDefinedAcceleration(const Eigen::Vector3d& user_defined_acceleration);
+
+  /**
+   * @brief Set the User Defined Yaw object
+   * 
+   * @param user_defined_yaw 
+   */
   void setUserDefinedYaw(const double& user_defined_yaw);
+
+  /**
+   * @brief Set the User Defined Yaw Dot object
+   * 
+   * @param user_defined_yaw_dot 
+   */
   void setUserDefinedYawDot(const double& user_defined_yaw_dot);
+  
+  /**
+   * @brief Set the User Defined Yaw Dot Dot object
+   * 
+   * @param user_defined_yaw_dot_dot 
+   */
   void setUserDefinedYawDotDot(const double& user_defined_yaw_dot_dot);
 
 private:
 
   MultiThreadedNode& node_;
 
+  /**
+   * Reference to the initial timestamp
+   * const std::atomic<double>& time_current_; Reference to the current time
+   */
   const std::atomic<uint64_t>& timestamp_initial_;  // Reference to the initial timestamp
   // const std::atomic<double>& time_current_;  // Reference to the current time
 

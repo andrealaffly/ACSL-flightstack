@@ -23,17 +23,20 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        mrac_gains.hpp
- * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        mrac_gains.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 13, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Tuning gains of the MRAC controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file mrac_gains.hpp
+ * @brief Tuning gains of the MRAC controller
+ */
 #ifndef MRAC_GAINS_HPP
 #define MRAC_GAINS_HPP
 
@@ -44,6 +47,10 @@
 
 
 // Struct containing the MRAC tuning gains coming from the .json file 
+/**
+ * @struct GainsMRAC
+ * @brief struct containing the MRAC tuning gains coming from the .json file
+ */
 struct GainsMRAC
 {
   /*****************************************************************************************

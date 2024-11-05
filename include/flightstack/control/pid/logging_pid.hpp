@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_pid.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 18, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        logging_pid.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 18, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Logger for the PID controller.
@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file logging_pid.hpp
+ * @brief Logger for the PID controller
+ */
 #ifndef LOGGING_PID_HPP
 #define LOGGING_PID_HPP
 
@@ -78,11 +82,21 @@ namespace attrs = boost::log::attributes;
 namespace keywords = boost::log::keywords;
 
 // Forward declaration of MultiThreadedNode class
+/**
+ * @class MultiThreadedNode
+ */
 class MultiThreadedNode;
 
 // Forward declaration of PID class
+/**
+ * @class PID
+ */
 class PID;
 
+/**
+ * @class LogData_PID
+ * @brief Delclaration of the LogData_PID class
+ */
 class LogData_PID 
 {
 public:
@@ -91,10 +105,28 @@ public:
   static src::logger logger_logdata;
 
 	// Constructor
+  /**
+   * @brief Construct a new LogData_PID object
+   * 
+   * @param node 
+   * @param controller 
+   */
   LogData_PID(MultiThreadedNode& node, PID& controller);
 
+  /**
+   * @param None
+   */
   void logInitializeHeaders();
+
+  /**
+   * @brief Initialize logging
+   * @param None
+   */
   void logInitializeLogging();
+  
+  /**
+   * @param None
+   */
   void logLogData();
 
 private:

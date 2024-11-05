@@ -42,10 +42,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        udp_driver.hpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        udp_driver.hpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 21, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class for UDP driver.
@@ -53,6 +53,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file udp_driver.hpp
+ * @brief Class for udp driver
+ */
 #ifndef UDP_DRIVER_HPP_
 #define UDP_DRIVER_HPP_
 
@@ -67,15 +71,44 @@ namespace _drivers_
 namespace _udp_driver_
 {
 
+/**
+ * @class UdpDriver
+ * @brief UdpDriver class
+ */
 class UdpDriver
 {
 public:
+
+	/**
+	 * @brief Construct a new Udp Driver object
+	 * 
+	 * @param ctx 
+	 */
 	explicit UdpDriver(const IoContext & ctx);
 
+	/**
+	 * @brief init_sender ip and port
+	 * @param ip 
+	 * @param port 
+	 */
 	void init_sender(const std::string & ip, uint16_t port);
+
+	/**
+	 * @brief init_sender remote and host
+	 * @param remote_ip 
+	 * @param remote_port 
+	 * @param host_ip 
+	 * @param host_port 
+	 */
 	void init_sender(
 		const std::string & remote_ip, uint16_t remote_port,
 		const std::string & host_ip, uint16_t host_port);
+	
+	/**
+	 * @brief init_receiver
+	 * @param ip 
+	 * @param port 
+	 */
 	void init_receiver(const std::string & ip, uint16_t port);
 
 	std::shared_ptr<UdpSocket> sender() const;

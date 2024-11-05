@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,12 +22,13 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
+///@endcond
 
 /***********************************************************************************************************************
- * File:        config.cpp
- * Author:      Mattia Gramuglia
- * Date:        June 7, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        config.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 7, 2024 \n 
+ * For info:    Andrea L'Afflitto  \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Configuration file
@@ -34,6 +36,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file config.cpp
+ * @brief Contains the functions that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct .
+ */
 #include "config.hpp"
 #include "multi_threaded_node.hpp"
 
@@ -41,6 +47,9 @@
   Function that reads the configuration parameters and assigns it to the members of the 
   ConfigurationParameters struct
 */
+/**
+ * @class ConfigurationParameters
+ */
 ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile(const std::string& configFileName)
 {
   // Define the path where the user-defined trajectory JSON files are located
@@ -70,6 +79,9 @@ ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile
   return config;
 }
 
+/**
+ * @struct Global Parameters
+ */
 // Constructor
 GlobalParameters::GlobalParameters(MultiThreadedNode& node) :
   PUBLISH_ACTUATOR_MOTORS_FLAG(true),

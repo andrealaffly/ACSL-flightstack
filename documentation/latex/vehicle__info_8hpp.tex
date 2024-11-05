@@ -1,0 +1,108 @@
+\hypertarget{vehicle__info_8hpp}{}\doxysection{ACSL-\/flightstack/include/flightstack/control/vehicle\+\_\+info.hpp File Reference}
+\label{vehicle__info_8hpp}\index{ACSL-\/flightstack/include/flightstack/control/vehicle\_info.hpp@{ACSL-\/flightstack/include/flightstack/control/vehicle\_info.hpp}}
+
+
+Vehicle properties such as mass, intertia matrix, motor thrust curves, etc.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+Include dependency graph for vehicle\+\_\+info.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{vehicle__info_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vehicle__info_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}}
+\begin{DoxyCompactList}\small\item\em Vehicle Info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr double \mbox{\hyperlink{vehicle__info_8hpp_a19dc3e1272d51eba4dc8f63fc5366528}{GRAVITATIONAL\+\_\+\+ACCELERATION}} = 9.\+80665
+\item 
+constexpr double \mbox{\hyperlink{vehicle__info_8hpp_abf3ae21cad34cdc9f22e30b864bafbec}{UPPER\+\_\+\+MOTOR\+\_\+\+THRUST\+\_\+\+SATURATION\+\_\+\+LIMIT\+\_\+\+IN\+\_\+\+NEWTON}} = 9.\+5
+\item 
+constexpr double \mbox{\hyperlink{vehicle__info_8hpp_ae687c39aaf34b5d511752f39593a6e40}{LOWER\+\_\+\+MOTOR\+\_\+\+THRUST\+\_\+\+SATURATION\+\_\+\+LIMIT\+\_\+\+IN\+\_\+\+NEWTON}} = 0.\+3
+\item 
+constexpr double \mbox{\hyperlink{vehicle__info_8hpp_af64c76b779c90dfa13654ce8706ecedd}{MINIMUM\+\_\+\+VALUE\+\_\+\+PUBLISH\+\_\+\+MOTORS}} = 0.\+05
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Vehicle properties such as mass, intertia matrix, motor thrust curves, etc. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: vehicle\+\_\+info.\+hpp ~\newline
+ Author\+: Mattia Gramuglia ~\newline
+ Date\+: April 22, 2024 ~\newline
+ For info\+: Andrea L\textquotesingle{}Afflitto ~\newline
+ \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Vehicle properties such as mass, inertia matrix, motor thrust curves, etc.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{vehicle__info_8hpp_a19dc3e1272d51eba4dc8f63fc5366528}\label{vehicle__info_8hpp_a19dc3e1272d51eba4dc8f63fc5366528}} 
+\index{vehicle\_info.hpp@{vehicle\_info.hpp}!GRAVITATIONAL\_ACCELERATION@{GRAVITATIONAL\_ACCELERATION}}
+\index{GRAVITATIONAL\_ACCELERATION@{GRAVITATIONAL\_ACCELERATION}!vehicle\_info.hpp@{vehicle\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{GRAVITATIONAL\_ACCELERATION}{GRAVITATIONAL\_ACCELERATION}}
+{\footnotesize\ttfamily constexpr double GRAVITATIONAL\+\_\+\+ACCELERATION = 9.\+80665\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 49 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{vehicle__info_8hpp_ae687c39aaf34b5d511752f39593a6e40}\label{vehicle__info_8hpp_ae687c39aaf34b5d511752f39593a6e40}} 
+\index{vehicle\_info.hpp@{vehicle\_info.hpp}!LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON@{LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}}
+\index{LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON@{LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}!vehicle\_info.hpp@{vehicle\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}{LOWER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}}
+{\footnotesize\ttfamily constexpr double LOWER\+\_\+\+MOTOR\+\_\+\+THRUST\+\_\+\+SATURATION\+\_\+\+LIMIT\+\_\+\+IN\+\_\+\+NEWTON = 0.\+3\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 53 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{vehicle__info_8hpp_af64c76b779c90dfa13654ce8706ecedd}\label{vehicle__info_8hpp_af64c76b779c90dfa13654ce8706ecedd}} 
+\index{vehicle\_info.hpp@{vehicle\_info.hpp}!MINIMUM\_VALUE\_PUBLISH\_MOTORS@{MINIMUM\_VALUE\_PUBLISH\_MOTORS}}
+\index{MINIMUM\_VALUE\_PUBLISH\_MOTORS@{MINIMUM\_VALUE\_PUBLISH\_MOTORS}!vehicle\_info.hpp@{vehicle\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{MINIMUM\_VALUE\_PUBLISH\_MOTORS}{MINIMUM\_VALUE\_PUBLISH\_MOTORS}}
+{\footnotesize\ttfamily constexpr double MINIMUM\+\_\+\+VALUE\+\_\+\+PUBLISH\+\_\+\+MOTORS = 0.\+05\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 55 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{vehicle__info_8hpp_abf3ae21cad34cdc9f22e30b864bafbec}\label{vehicle__info_8hpp_abf3ae21cad34cdc9f22e30b864bafbec}} 
+\index{vehicle\_info.hpp@{vehicle\_info.hpp}!UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON@{UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}}
+\index{UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON@{UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}!vehicle\_info.hpp@{vehicle\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}{UPPER\_MOTOR\_THRUST\_SATURATION\_LIMIT\_IN\_NEWTON}}
+{\footnotesize\ttfamily constexpr double UPPER\+\_\+\+MOTOR\+\_\+\+THRUST\+\_\+\+SATURATION\+\_\+\+LIMIT\+\_\+\+IN\+\_\+\+NEWTON = 9.\+5\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 51 of file vehicle\+\_\+info.\+hpp.
+

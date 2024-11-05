@@ -1,5 +1,5 @@
 # ACSL Flight Stack
-[![BSD License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](LICENSE.txt)
+[![BSD License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/andrealaffly/ACSL-flightstack/blob/main/LICENSE.txt)
 
 To clone this repo with all the needed submodules you can run the command:
 
@@ -52,10 +52,6 @@ This flight stack is compatible with **[ROS2 Foxy](https://docs.ros.org/en/foxy/
 
 - Provided by a motion capture system over UDP (or, alternatively, GNSS).
 - IMU (Inertial Measurement Unit) from the Pixhawk flight controller.
-
-## How to Plot Log Data
-
-The GitHub repository **[ACSL-flightstack-accessories](https://github.com/andrealaffly/ACSL-flightstack-accessories)** provides MATLAB scripts to plot flight log data and examples of flight tests data.
   
 ## Demo
 A demo of this flight stack is available on **[YouTube](https://youtu.be/Ykjjg21iAm0)**
@@ -73,4 +69,5 @@ For more information, visit [https://lafflitto.com](https://lafflitto.com).
 ---
 
 This software is distributed under a permissive **3-Clause BSD License**.
+
 

@@ -23,16 +23,21 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        vehicle_state.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 9, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        vehicle_state.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 9, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Class storing the state of the vehicle coming from the flight controller (Pixhawk)
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+
+/**
+ * @file vehicle_state.hpp
+ * @brief Class storing the state of the vehicle coming from the flight controller (Pixhawk)
+ */
 
 #ifndef VEHICLE_STATE_HPP
 #define VEHICLE_STATE_HPP
@@ -44,13 +49,25 @@
 #include <Eigen/Dense>
 
 // Forward declaration of MultiThreadedNode class
+/**
+ * @class MultiThreadedNode
+ */
 class MultiThreadedNode;
 
+/**
+ * @class VehicleState
+ * @brief Orientation of the vehicle at a given instant of time
+ */
 class VehicleState 
 {
 public:
 
   // Constructor
+  /**
+   * @brief Construct a new Vehicle State object
+   * 
+   * @param node 
+   */
   VehicleState(MultiThreadedNode& node);
 
   // Getter functions

@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -23,21 +24,30 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        vehicle_state.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 9, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        vehicle_state.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 9, 2024 \n  
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class storing the state of the vehicle coming from the flight controller (Pixhawk)
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+///@endcond
+/**
+ * @file vehicle_state.cpp
+ * @brief Class storing the state of the vehicle coming from the flight controller (Pixhawk)
+ */
 #include "vehicle_state.hpp"
 #include "multi_threaded_node.hpp"
 
 // Constructor
+/**
+ * @brief Construct a new Vehicle State:: Vehicle State object
+ * 
+ * @param node 
+ */
 VehicleState::VehicleState(MultiThreadedNode& node) :
   node_(node),
   timestamp_initial_(node.getInitialTimestamp()), // Initialize timestamp_initial_ with the value from MultiThreadedNode

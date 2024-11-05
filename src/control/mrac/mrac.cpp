@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        mrac.cpp
- * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        mrac.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 13, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Implementation of the MRAC controller.
@@ -34,12 +34,19 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file mrac.cpp
+ * @brief Implementation of the MRAC controller
+ */
 #include "multi_threaded_node.hpp"
 #include "mrac.hpp"
 #include "logging_mrac.hpp"
 #include "json_parser.hpp"
 
 // Constructor
+/**
+ * @class MRAC
+ */
 MRAC::MRAC(MultiThreadedNode& node) : 
   Control(node)
 {

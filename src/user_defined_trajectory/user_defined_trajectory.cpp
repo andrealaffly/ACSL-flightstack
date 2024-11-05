@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        user_defined_trajectory.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 12, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        user_defined_trajectory.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 12, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class that contains the common members that each type of user-defined trajectory class will inherit
@@ -34,10 +34,18 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file user_defined_trajectory.cpp
+ * @brief Class that contains the common members that each type of user-defined trajectory class will inherit
+ */
+
 #include "user_defined_trajectory.hpp"
 #include "multi_threaded_node.hpp"
 
 // Constructor
+/**
+ * @class UserDefinedTrajectory
+ */
 UserDefinedTrajectory::UserDefinedTrajectory(MultiThreadedNode& node) :
 	node_(node),
 	timestamp_initial_(node.getInitialTimestamp()), // Initialize timestamp_initial_ with the value from MultiThreadedNode

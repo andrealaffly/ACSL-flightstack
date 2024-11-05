@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -40,19 +41,22 @@
  *              See the License for the specific language governing permissions and
  *              limitations under the License.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        udp_driver.cpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        udp_driver.cpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 21, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class for UDP driver.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file udp_driver.cpp
+ * @brief Class for UDP driver
+ */
 #include "udp_driver.hpp"
 
 namespace _drivers_
@@ -60,16 +64,20 @@ namespace _drivers_
 namespace _udp_driver_
 {
 
+// Construct a new Udp Driver object
+// param ctx
 UdpDriver::UdpDriver(const IoContext & ctx)
 : m_ctx(ctx)
 {
 }
 
+// init_sender for ip and port
 void UdpDriver::init_sender(const std::string & ip, uint16_t port)
 {
   m_sender = std::make_shared<UdpSocket>(m_ctx, ip, port);
 }
 
+// init_sender for remote and host
 void UdpDriver::init_sender(
   const std::string & remote_ip, uint16_t remote_port,
   const std::string & host_ip, uint16_t host_port)
@@ -77,6 +85,7 @@ void UdpDriver::init_sender(
   m_sender = std::make_shared<UdpSocket>(m_ctx, remote_ip, remote_port, host_ip, host_port);
 }
 
+// init_reciever
 void UdpDriver::init_receiver(const std::string & ip, uint16_t port)
 {
   try {

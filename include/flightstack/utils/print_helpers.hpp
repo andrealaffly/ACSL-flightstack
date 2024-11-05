@@ -34,6 +34,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file print_helpers.hpp
+ * @brief Inline functions for all the classes of the flightstack to use
+ */
+
 #ifndef PRINT_HELPERS_HPP_
 #define PRINT_HELPERS_HPP_
 
@@ -54,6 +59,11 @@ namespace helper
 {
 
 // Function to print a single message of any type
+/**
+ * @brief Function to print a single message of any type
+ * @tparam T 
+ * @param msg 
+ */
 template <typename T>
 inline void FLIGHTSTACK_INFO(const T& msg)
 {
@@ -61,6 +71,14 @@ inline void FLIGHTSTACK_INFO(const T& msg)
 }
 
 // Function to print a string and another data type together
+/**
+ * @brief Function to print a string and another data type together
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_INFO(const T1& str, const T2& value)
 {
@@ -68,6 +86,13 @@ inline void FLIGHTSTACK_INFO(const T1& str, const T2& value)
 }
 
 // Throttled single message
+/**
+ * @brief Throttled single message
+ * 
+ * @tparam T 
+ * @param msg 
+ * @param throttle_interval_ms 
+ */
 template <typename T>
 inline void FLIGHTSTACK_INFO(const T& msg, int throttle_interval_ms)
 {
@@ -83,6 +108,15 @@ inline void FLIGHTSTACK_INFO(const T& msg, int throttle_interval_ms)
 }
 
 // Throttled string and another data type
+/**
+ * @brief Throttled string and another data type
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ * @param throttle_interval_ms 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_INFO(const T1& str, const T2& value, int throttle_interval_ms)
 {
@@ -98,6 +132,15 @@ inline void FLIGHTSTACK_INFO(const T1& str, const T2& value, int throttle_interv
 }
 
 // Function to print a string and an Eigen matrix
+/**
+ * @brief Function to print a string and an Eigen matrix
+ * 
+ * @tparam T 
+ * @tparam Rows 
+ * @tparam Cols 
+ * @param str 
+ * @param mat 
+ */
 template <typename T, int Rows, int Cols>
 inline void FLIGHTSTACK_INFO_MATRIX(const std::string& str, const Eigen::Matrix<T, Rows, Cols>& mat)
 {
@@ -105,6 +148,12 @@ inline void FLIGHTSTACK_INFO_MATRIX(const std::string& str, const Eigen::Matrix<
 }
 
 // Function to print a single message of any type with carriage return
+/**
+ * @brief Functio to print a single message of any type with carriage return 
+ * 
+ * @tparam T 
+ * @param msg 
+ */
 template <typename T>
 inline void FLIGHTSTACK_INFO_STREAM(const T& msg)
 {
@@ -112,6 +161,12 @@ inline void FLIGHTSTACK_INFO_STREAM(const T& msg)
 }
 
 // Function to print a single message of any type with carriage return - NO TAG
+/**
+ * @brief Function to print a single message of any type with carriage return - NO TAG
+ * 
+ * @tparam T 
+ * @param msg 
+ */
 template <typename T>
 inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T& msg)
 {
@@ -119,6 +174,14 @@ inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T& msg)
 }
 
 // Function to print a string and another data type with carriage return
+/**
+ * @brief Function to print a string and another data type with carriage return 
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_INFO_STREAM(const T1& str, const T2& value)
 {
@@ -126,6 +189,14 @@ inline void FLIGHTSTACK_INFO_STREAM(const T1& str, const T2& value)
 }
 
 // Function to print a string and another data type with carriage return - NO TAG
+/**
+ * @brief Functio to print a string and another data type with carriage return - NO TAG
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T1& str, const T2& value)
 {
@@ -133,6 +204,13 @@ inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T1& str, const T2& value)
 }
 
 // Throttled single message with carriage return
+/**
+ * @brief Throttled single message with carriage return
+ * 
+ * @tparam T 
+ * @param msg 
+ * @param throttle_interval_ms 
+ */
 template <typename T>
 inline void FLIGHTSTACK_INFO_STREAM(const T& msg, int throttle_interval_ms)
 {
@@ -148,6 +226,13 @@ inline void FLIGHTSTACK_INFO_STREAM(const T& msg, int throttle_interval_ms)
 }
 
 // Throttled single message with carriage return - NO TAG
+/**
+ * @brief Throttled single message withc carriage return - NO TAG
+ * 
+ * @tparam T 
+ * @param msg 
+ * @param throttle_interval_ms 
+ */
 template <typename T>
 inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T& msg, int throttle_interval_ms)
 {
@@ -163,6 +248,15 @@ inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T& msg, int throttle_interval_m
 }
 
 // Throttled string and another data type with carriage return
+/**
+ * @brief Throttled string and another data type with carriage return
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ * @param throttle_interval_ms 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_INFO_STREAM(const T1& str, const T2& value, int throttle_interval_ms)
 {
@@ -178,6 +272,15 @@ inline void FLIGHTSTACK_INFO_STREAM(const T1& str, const T2& value, int throttle
 }
 
 // Throttled string and another data type with carriage return - NO TAG
+/**
+ * @brief Throttled string and another data type with carriage reutrn - NO TAG
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ * @param throttle_interval_ms 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T1& str, const T2& value, int throttle_interval_ms)
 {
@@ -193,6 +296,12 @@ inline void FLIGHTSTACK_INFO_STREAM_NO_TAG(const T1& str, const T2& value, int t
 }
 
 // Function to print an error message of any type and terminate the program
+/**
+ * @brief Function to print an error message of any type and terminate the program 
+ * 
+ * @tparam T 
+ * @param msg 
+ */
 template <typename T>
 inline void FLIGHTSTACK_ERROR(const T& msg)
 {
@@ -201,6 +310,14 @@ inline void FLIGHTSTACK_ERROR(const T& msg)
 }
 
 // Function to print a string and another data type as an error and terminate the program
+/**
+ * @brief Function to print a string and another data type as an error and terminate the program
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_ERROR(const T1& str, const T2& value)
 {
@@ -209,6 +326,12 @@ inline void FLIGHTSTACK_ERROR(const T1& str, const T2& value)
 }
 
 // Function to print a warning message of any type
+/**
+ * @brief Function to print a warning message of any type
+ * 
+ * @tparam T 
+ * @param msg 
+ */
 template <typename T>
 inline void FLIGHTSTACK_WARNING(const T& msg)
 {
@@ -216,6 +339,14 @@ inline void FLIGHTSTACK_WARNING(const T& msg)
 }
 
 // Function to print a string and another data type as a warning
+/**
+ * @brief Function to print a string and another data type as a warning
+ * 
+ * @tparam T1 
+ * @tparam T2 
+ * @param str 
+ * @param value 
+ */
 template <typename T1, typename T2>
 inline void FLIGHTSTACK_WARNING(const T1& str, const T2& value)
 {

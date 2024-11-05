@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,12 +22,12 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        control_callback.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 19, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        control_callback.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 19, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Callback that is executed at a fixed specified rate defined by the "timer_controller_".
@@ -34,14 +35,17 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file control_callback.cpp
+ * @brief Callback that is executed at a fixed specified rate defined by the "timer_controller_".
+ */
 #include "control.hpp"
 #include "multi_threaded_node.hpp"
 
 
-/*
-  Callback function that is executed at a fixed specified rate defined by the "timer_controller_"
-*/
+/**
+ * @class MultiThreadedNode
+ */
 void MultiThreadedNode::controller_callback()
 {
   /* // Extract current thread

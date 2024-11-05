@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_mrac.cpp
- * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        logging_mrac.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 13, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Logger for the MRAC controller.
@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file logging_mrac.cpp
+ * @brief Logger for the MRAC controller
+ */
 #include "mrac.hpp"
 #include "logging_mrac.hpp"
 #include "multi_threaded_node.hpp"
@@ -41,6 +45,9 @@
 // Define the logger for LogData
 src::logger LogData_MRAC::logger_logdata;
 
+/**
+ * @class LogData_MRAC
+ */
 // Constructor
 LogData_MRAC::LogData_MRAC(MultiThreadedNode& node, MRAC& controller) :
   node_(node),
@@ -273,7 +280,7 @@ void LogData_MRAC::logInitializeHeaders()
 	BOOST_LOG(LogData_MRAC::logger_logdata) << oss.str();
 }
 
-// Function to initialize the logging system
+// Function to initialize the logging system 
 void LogData_MRAC::logInitializeLogging()
 {
   // Get the current date and time

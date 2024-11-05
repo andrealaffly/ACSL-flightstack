@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,7 +22,6 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
 /***********************************************************************************************************************  
  * Part of the code in this file leverages the following material.
  *
@@ -40,12 +40,12 @@
  *              See the License for the specific language governing permissions and
  *              limitations under the License.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        io_context.cpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        io_context.cpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 21, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class for IoContext to manage thread for udp.
@@ -54,6 +54,10 @@
  **********************************************************************************************************************/
 
 #include "io_context.hpp"
+/**
+ * @file io_context.cpp
+ * @brief Class for IoContext to manage thread for udp
+ */
 
 namespace _drivers_
 {
@@ -61,6 +65,11 @@ namespace _common_
 {
 
 // Delegating to the modified constructor with -1 for default CPU
+
+/**
+ * @class IoContext
+ * Delegating to the modified constructor with -1 for default CPU
+ */
 IoContext::IoContext()
 : IoContext(std::thread::hardware_concurrency()) {}
 

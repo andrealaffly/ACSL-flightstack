@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,12 +22,12 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        pid.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 22, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        pid.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 22, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Implementation of the PID controller.
@@ -34,6 +35,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file pid.cpp
+ * @brief Immplementation of the PID controller
+ */
 #include "multi_threaded_node.hpp"
 #include "pid.hpp"
 #include "logging_pid.hpp"

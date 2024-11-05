@@ -1,3 +1,4 @@
+///@cond 
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,12 +22,12 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        pixhawk_vehicle_odometry.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 9, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        pixhawk_vehicle_odometry.cpp \n 
+ * Author:      Mattia Gramuglia \n  
+ * Date:        April 9, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk.
@@ -34,6 +35,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file pixhawk_vehicle_odometry.cpp
+ * @brief Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk
+ */
 #include "multi_threaded_node.hpp"
 #include "vehicle_state.hpp"
 

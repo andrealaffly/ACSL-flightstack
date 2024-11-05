@@ -23,16 +23,21 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        pid_gains.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 23, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        pid_gains.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 23, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Tuning gains of the PID controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+
+/**
+ * @file pid_gains.hpp
+ * @brief Tuning gains of the PID controller
+ */
 
 #ifndef PID_GAINS_HPP
 #define PID_GAINS_HPP
@@ -44,6 +49,10 @@
 
 
 // Struct containing the PID tuning gains coming from the .json file 
+/**
+ * @struct GainsPID
+ * @brief Struct containing the PID tuning gains coming from the .json file
+ */
 struct GainsPID 
 {
   Eigen::Matrix3d KP_translational;

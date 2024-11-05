@@ -42,10 +42,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        udp_socket.hpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        udp_socket.hpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 21, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class for UDP socket creation using IoContext.
@@ -53,6 +53,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file udp_socket.hpp
+ * @brief Class for UDP socket creation using IoContext
+ */
 #ifndef UDP_SOCKET_HPP_
 #define UDP_SOCKET_HPP_
 
@@ -76,6 +80,10 @@ namespace _udp_driver_
 
 using Functor = std::function<void (const std::vector<uint8_t> &)>;
 
+/**
+ * @class UdpSocket
+ * @brief Creates a UDP socket
+ */
 class UdpSocket
 {
 public:
@@ -98,36 +106,68 @@ public:
 	std::string host_ip() const;
 	uint16_t host_port() const;
 
+	/**
+	 * @brief Open a UdpSocket
+	 */
 	void open();
+
+	/**
+	 * @brief Close a UdpSocket
+	 */
 	void close();
+
+	/**
+	 * @brief Check if UdpSocket is open
+	 * 
+	 * @return true 
+	 * @return false 
+	 */
 	bool isOpen() const;
+
+	/**
+	 * @brief No fucking idea
+	 */
 	void bind();
 
-	/*
-	* Blocking Send Operation
-	*/
+	/**
+	 * @brief Blocking Send Operation
+	 * @param vector<uint8_t>
+	 */
 	std::size_t send(std::vector<uint8_t> & buff);
 
-	/*
-	* Blocking Receive Operation
-	*/
+	/**
+	 * @brief Blocking Receive Operation
+	 * @param @param vector<uint8_t>
+	 */
 	size_t receive(std::vector<uint8_t> & buff);
 
-	/*
-	* NonBlocking Send Operation
-	*/
+	/**
+	 * @brief NonBlocking Send Operation
+	 * @param buff 
+	 */
 	void asyncSend(std::vector<uint8_t> & buff);
 
-	/*
-	* NonBlocking Receive Operation
-	*/
+	/**
+	 * @brief NonBlocking Receive Operation
+	 * @param func 
+	 */
 	void asyncReceive(Functor func);
 
 private:
+	/**
+	 * @brief asyncSendHandler
+	 * @param error 
+	 * @param bytes_transferred 
+	 */
 	void asyncSendHandler(
 		const asio::error_code & error,
 		std::size_t bytes_transferred);
 
+	/**
+	 * @brief asyncReceiveHandler
+	 * @param error 
+	 * @param bytes_transferred 
+	 */
 	void asyncReceiveHandler(
 		const asio::error_code & error,
 		std::size_t bytes_transferred);

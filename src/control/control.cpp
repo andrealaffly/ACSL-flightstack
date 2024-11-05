@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,12 +22,12 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
- * File:        control.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 19, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        control.cpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 19, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: General class that contains common members used by most of the control algorithms.
@@ -35,11 +36,20 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file control.cpp
+ * @brief This file contains the general class containing the common memvers used by most of the control algorithms.
+ * Control algorithm classes inherit from this class.
+ */
+
 #include "multi_threaded_node.hpp"
 #include "control.hpp"
 
 
 // Constructor
+/**
+ * @class Control
+ */
 Control::ControlInternalMembers::ControlInternalMembers() : 
   mu_translational_raw(Eigen::Vector3d::Zero()),
   mu_translational(Eigen::Vector3d::Zero()),
@@ -95,6 +105,9 @@ Control::Control(MultiThreadedNode& node) :
   Function to read the differentiator gains coming from the .json file and assign it to the vehicle info 
   in vehicle_info.hpp
 */
+
+
+// This function reads the differentiator gains from a specified JSON file and updates the vehicle_info structure accordingly.
 void Control::readJSONdifferentiatorFile()
 {
   // Define the JSON file where the differentiator gains are located
@@ -271,6 +284,8 @@ Eigen::Matrix3d Control::rotationMatrix321GlobalToLocal(const double& roll, cons
   thrust/motor curve obtained experimentally using the thrust stand.
   For QUADCOPTER 
 */
+
+
 void Control::computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info)
 {
   /*

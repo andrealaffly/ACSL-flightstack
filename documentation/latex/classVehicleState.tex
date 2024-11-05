@@ -1,0 +1,587 @@
+\hypertarget{classVehicleState}{}\doxysection{Vehicle\+State Class Reference}
+\label{classVehicleState}\index{VehicleState@{VehicleState}}
+
+
+Orientation of the vehicle at a given instant of time.  
+
+
+
+
+{\ttfamily \#include $<$vehicle\+\_\+state.\+hpp$>$}
+
+
+
+Collaboration diagram for Vehicle\+State\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classVehicleState__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVehicleState_a4072b7b067fdab166b3edfb1d80b10d6}{Vehicle\+State}} (\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&node)
+\begin{DoxyCompactList}\small\item\em Construct a new Vehicle State object. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classVehicleState_a7ac054537105a80760d183937fd8ef78}{get\+Timestamp}} () const
+\item 
+Eigen\+::\+Vector3d \& \mbox{\hyperlink{classVehicleState_a1cbd5577488cbdf0460137d909a6f40c}{get\+Position}} ()
+\item 
+Eigen\+::\+Quaterniond \& \mbox{\hyperlink{classVehicleState_a8624fb65c7e55e4f8abf95fb5de5f715}{get\+Quaternion}} ()
+\item 
+Eigen\+::\+Vector3d \& \mbox{\hyperlink{classVehicleState_a13924ee94c3fbd546f8913c63e9b3c32}{get\+Velocity}} ()
+\item 
+Eigen\+::\+Vector3d \& \mbox{\hyperlink{classVehicleState_aea92443c1a0eb67568633352ddc0be12}{get\+Angular\+Velocity}} ()
+\item 
+Eigen\+::\+Vector3d \& \mbox{\hyperlink{classVehicleState_a6a85e5ec68f0b7a0770f38e73ef68e91}{get\+Euler\+Angles\+RPY}} ()
+\item 
+const std\+::atomic$<$ uint64\+\_\+t $>$ \& \mbox{\hyperlink{classVehicleState_abb2dcb2d207f98b61046715c15bb8c47}{get\+Initial\+Timestamp}} () const
+\item 
+double \& \mbox{\hyperlink{classVehicleState_aea3b4da96daa0948cc5a60067695ab8a}{get\+Time\+Odometry\+In\+Seconds}} ()
+\item 
+bool \mbox{\hyperlink{classVehicleState_ab5a88ca96f90a14f1c138e41761f8350}{get\+Is\+Offset\+Odometry\+Msg}} () const
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classVehicleState_aee67120b235a2c2e3a78fa0c3a5706d8}{get\+Timestamp\+Offset}} () const
+\item 
+Eigen\+::\+Vector3d \& \mbox{\hyperlink{classVehicleState_a1c237acc138b2e67b7a2fb63de519a13}{get\+Position\+Offset}} ()
+\item 
+Eigen\+::\+Quaterniond \& \mbox{\hyperlink{classVehicleState_ac988fe0fac61e9b50880acf804ffd57b}{get\+Quaternion\+Offset}} ()
+\item 
+Eigen\+::\+Vector3d \& \mbox{\hyperlink{classVehicleState_a4b563598e9e9f5caf96f5f5307f0e633}{get\+Euler\+Angles\+RPYOffset}} ()
+\item 
+Eigen\+::\+Quaterniond \& \mbox{\hyperlink{classVehicleState_a977197ff651efc96b44db122120dbdda}{get\+Yaw\+Quaternion\+Inverse\+Offset}} ()
+\item 
+void \mbox{\hyperlink{classVehicleState_a531d09ea0db0fbe9a0ad9edfdaeb4b93}{set\+Timestamp}} (uint64\+\_\+t timestamp)
+\item 
+void \mbox{\hyperlink{classVehicleState_a48a4321d9f7f146aabacd38fe1c7b7fc}{set\+Position}} (const Eigen\+::\+Vector3d \&position)
+\item 
+void \mbox{\hyperlink{classVehicleState_a40ddb6b36e742fc63ff000c58a9a49c7}{set\+Quaternion}} (const Eigen\+::\+Quaterniond \&q)
+\item 
+void \mbox{\hyperlink{classVehicleState_ace0610ae6167e01be44ab9c04240f3d9}{set\+Velocity}} (const Eigen\+::\+Vector3d \&velocity)
+\item 
+void \mbox{\hyperlink{classVehicleState_ab148a1cb81057c0d192df788d8f895be}{set\+Angular\+Velocity}} (const Eigen\+::\+Vector3d \&angular\+\_\+velocity)
+\item 
+void \mbox{\hyperlink{classVehicleState_a0e810db7210dbd8020ad7b2b85cb1679}{set\+Euler\+Angles\+RPY}} (const Eigen\+::\+Quaterniond \&q)
+\item 
+void \mbox{\hyperlink{classVehicleState_aa46174e2cf4e9accbf41baef87737663}{set\+Time\+Odometry\+In\+Seconds}} ()
+\item 
+void \mbox{\hyperlink{classVehicleState_adab0b829145dbde0c9bc0920f8771bc1}{set\+Is\+Offset\+Odometry\+Msg}} (bool value)
+\item 
+void \mbox{\hyperlink{classVehicleState_a0c3a344b98c682c69742a9496cf51c0c}{set\+Timestamp\+Offset}} (uint64\+\_\+t timestamp\+\_\+offset)
+\item 
+void \mbox{\hyperlink{classVehicleState_a58c2ed1c9698389dd51422ca7d632eb0}{set\+Position\+Offset}} (const Eigen\+::\+Vector3d \&position\+\_\+offset)
+\item 
+void \mbox{\hyperlink{classVehicleState_a5d7f0a0b408145d8e107ee5d65d2a1d8}{set\+Quaternion\+Offset}} (const Eigen\+::\+Quaterniond \&q\+\_\+offset)
+\item 
+void \mbox{\hyperlink{classVehicleState_aaddf2e9040fdb4ed1792b2c78c435ac5}{set\+Euler\+Angles\+RPYOffset}} (const Eigen\+::\+Quaterniond \&q\+\_\+offset)
+\item 
+void \mbox{\hyperlink{classVehicleState_adf083bd85d71ca9f19bd449697878620}{set\+Yaw\+Quaternion\+Inverse\+Offset}} ()
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classVehicleState_a34cdad75150dbcfd9be5e2eefb2fb295}{quaternion\+To\+Euler\+Angles\+RPY}} (const Eigen\+::\+Quaterniond \&q)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \& \mbox{\hyperlink{classVehicleState_a23121fc40787cdec05ef67b608237d4c}{node\+\_\+}}
+\item 
+const std\+::atomic$<$ uint64\+\_\+t $>$ \& \mbox{\hyperlink{classVehicleState_a7eed79b42807403f467de1f57c100c45}{timestamp\+\_\+initial\+\_\+}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classVehicleState_a5c71ce6e2765150ef9539c5dce73248b}{timestamp\+\_\+}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classVehicleState_a60fa613507af47d53925cfcf031a43c7}{position\+\_\+}}
+\item 
+Eigen\+::\+Quaterniond \mbox{\hyperlink{classVehicleState_a04c212d5ea296f6b76c2f176e2d55df7}{q\+\_\+}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classVehicleState_a3a485ed3ed9521da734c71a4cc4f8f90}{velocity\+\_\+}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classVehicleState_af68ceee66f08a8640930d97cc2e9377e}{angular\+\_\+velocity\+\_\+}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classVehicleState_ad6ef2a6ee57bfdc18cadd4b5f002d8cb}{euler\+\_\+angles\+\_\+rpy\+\_\+}}
+\item 
+double \mbox{\hyperlink{classVehicleState_a26ea3e0108c7f90cbae7382f03c9adcb}{time\+\_\+odometry\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classVehicleState_ae2b93304ba7e531368e6f4ef980d771f}{is\+\_\+offset\+\_\+odometry\+\_\+msg\+\_\+}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classVehicleState_aef193acd2d7151bb45bf066d4fa8bd5a}{timestamp\+\_\+offset\+\_\+}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classVehicleState_a2ea2a39d3fde1f8202fca5eabfa6e016}{position\+\_\+offset\+\_\+}}
+\item 
+Eigen\+::\+Quaterniond \mbox{\hyperlink{classVehicleState_a47e3caf7b45a0c6350714bace743f429}{q\+\_\+offset\+\_\+}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classVehicleState_a4001db78e4bed8be586e260d44afa372}{euler\+\_\+angles\+\_\+rpy\+\_\+offset\+\_\+}}
+\item 
+Eigen\+::\+Quaterniond \mbox{\hyperlink{classVehicleState_ae0d760e30dfd39495c6762342194bf6b}{yaw\+\_\+quaternion\+\_\+inverse\+\_\+offset\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Orientation of the vehicle at a given instant of time. 
+
+Definition at line 61 of file vehicle\+\_\+state.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVehicleState_a4072b7b067fdab166b3edfb1d80b10d6}\label{classVehicleState_a4072b7b067fdab166b3edfb1d80b10d6}} 
+\index{VehicleState@{VehicleState}!VehicleState@{VehicleState}}
+\index{VehicleState@{VehicleState}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{VehicleState()}{VehicleState()}}
+{\footnotesize\ttfamily Vehicle\+State\+::\+Vehicle\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
+
+
+
+Construct a new Vehicle State object. 
+
+Construct a new Vehicle State\+:\+: Vehicle State object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file vehicle\+\_\+state.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVehicleState_aea92443c1a0eb67568633352ddc0be12}\label{classVehicleState_aea92443c1a0eb67568633352ddc0be12}} 
+\index{VehicleState@{VehicleState}!getAngularVelocity@{getAngularVelocity}}
+\index{getAngularVelocity@{getAngularVelocity}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getAngularVelocity()}{getAngularVelocity()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d \& Vehicle\+State\+::get\+Angular\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 90 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a6a85e5ec68f0b7a0770f38e73ef68e91}\label{classVehicleState_a6a85e5ec68f0b7a0770f38e73ef68e91}} 
+\index{VehicleState@{VehicleState}!getEulerAnglesRPY@{getEulerAnglesRPY}}
+\index{getEulerAnglesRPY@{getEulerAnglesRPY}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getEulerAnglesRPY()}{getEulerAnglesRPY()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d \& Vehicle\+State\+::get\+Euler\+Angles\+RPY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 95 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a4b563598e9e9f5caf96f5f5307f0e633}\label{classVehicleState_a4b563598e9e9f5caf96f5f5307f0e633}} 
+\index{VehicleState@{VehicleState}!getEulerAnglesRPYOffset@{getEulerAnglesRPYOffset}}
+\index{getEulerAnglesRPYOffset@{getEulerAnglesRPYOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getEulerAnglesRPYOffset()}{getEulerAnglesRPYOffset()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d \& Vehicle\+State\+::get\+Euler\+Angles\+RPYOffset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 131 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_abb2dcb2d207f98b61046715c15bb8c47}\label{classVehicleState_abb2dcb2d207f98b61046715c15bb8c47}} 
+\index{VehicleState@{VehicleState}!getInitialTimestamp@{getInitialTimestamp}}
+\index{getInitialTimestamp@{getInitialTimestamp}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getInitialTimestamp()}{getInitialTimestamp()}}
+{\footnotesize\ttfamily const std\+::atomic$<$ uint64\+\_\+t $>$ \& Vehicle\+State\+::get\+Initial\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 100 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_ab5a88ca96f90a14f1c138e41761f8350}\label{classVehicleState_ab5a88ca96f90a14f1c138e41761f8350}} 
+\index{VehicleState@{VehicleState}!getIsOffsetOdometryMsg@{getIsOffsetOdometryMsg}}
+\index{getIsOffsetOdometryMsg@{getIsOffsetOdometryMsg}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getIsOffsetOdometryMsg()}{getIsOffsetOdometryMsg()}}
+{\footnotesize\ttfamily bool Vehicle\+State\+::get\+Is\+Offset\+Odometry\+Msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 111 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a1cbd5577488cbdf0460137d909a6f40c}\label{classVehicleState_a1cbd5577488cbdf0460137d909a6f40c}} 
+\index{VehicleState@{VehicleState}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d \& Vehicle\+State\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a1c237acc138b2e67b7a2fb63de519a13}\label{classVehicleState_a1c237acc138b2e67b7a2fb63de519a13}} 
+\index{VehicleState@{VehicleState}!getPositionOffset@{getPositionOffset}}
+\index{getPositionOffset@{getPositionOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getPositionOffset()}{getPositionOffset()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d \& Vehicle\+State\+::get\+Position\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a8624fb65c7e55e4f8abf95fb5de5f715}\label{classVehicleState_a8624fb65c7e55e4f8abf95fb5de5f715}} 
+\index{VehicleState@{VehicleState}!getQuaternion@{getQuaternion}}
+\index{getQuaternion@{getQuaternion}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getQuaternion()}{getQuaternion()}}
+{\footnotesize\ttfamily Eigen\+::\+Quaterniond \& Vehicle\+State\+::get\+Quaternion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 80 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_ac988fe0fac61e9b50880acf804ffd57b}\label{classVehicleState_ac988fe0fac61e9b50880acf804ffd57b}} 
+\index{VehicleState@{VehicleState}!getQuaternionOffset@{getQuaternionOffset}}
+\index{getQuaternionOffset@{getQuaternionOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getQuaternionOffset()}{getQuaternionOffset()}}
+{\footnotesize\ttfamily Eigen\+::\+Quaterniond \& Vehicle\+State\+::get\+Quaternion\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 126 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_aea3b4da96daa0948cc5a60067695ab8a}\label{classVehicleState_aea3b4da96daa0948cc5a60067695ab8a}} 
+\index{VehicleState@{VehicleState}!getTimeOdometryInSeconds@{getTimeOdometryInSeconds}}
+\index{getTimeOdometryInSeconds@{getTimeOdometryInSeconds}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getTimeOdometryInSeconds()}{getTimeOdometryInSeconds()}}
+{\footnotesize\ttfamily double \& Vehicle\+State\+::get\+Time\+Odometry\+In\+Seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 105 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a7ac054537105a80760d183937fd8ef78}\label{classVehicleState_a7ac054537105a80760d183937fd8ef78}} 
+\index{VehicleState@{VehicleState}!getTimestamp@{getTimestamp}}
+\index{getTimestamp@{getTimestamp}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getTimestamp()}{getTimestamp()}}
+{\footnotesize\ttfamily uint64\+\_\+t Vehicle\+State\+::get\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 70 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_aee67120b235a2c2e3a78fa0c3a5706d8}\label{classVehicleState_aee67120b235a2c2e3a78fa0c3a5706d8}} 
+\index{VehicleState@{VehicleState}!getTimestampOffset@{getTimestampOffset}}
+\index{getTimestampOffset@{getTimestampOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getTimestampOffset()}{getTimestampOffset()}}
+{\footnotesize\ttfamily uint64\+\_\+t Vehicle\+State\+::get\+Timestamp\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 116 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a13924ee94c3fbd546f8913c63e9b3c32}\label{classVehicleState_a13924ee94c3fbd546f8913c63e9b3c32}} 
+\index{VehicleState@{VehicleState}!getVelocity@{getVelocity}}
+\index{getVelocity@{getVelocity}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d \& Vehicle\+State\+::get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 85 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a977197ff651efc96b44db122120dbdda}\label{classVehicleState_a977197ff651efc96b44db122120dbdda}} 
+\index{VehicleState@{VehicleState}!getYawQuaternionInverseOffset@{getYawQuaternionInverseOffset}}
+\index{getYawQuaternionInverseOffset@{getYawQuaternionInverseOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{getYawQuaternionInverseOffset()}{getYawQuaternionInverseOffset()}}
+{\footnotesize\ttfamily Eigen\+::\+Quaterniond \& Vehicle\+State\+::get\+Yaw\+Quaternion\+Inverse\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a34cdad75150dbcfd9be5e2eefb2fb295}\label{classVehicleState_a34cdad75150dbcfd9be5e2eefb2fb295}} 
+\index{VehicleState@{VehicleState}!quaternionToEulerAnglesRPY@{quaternionToEulerAnglesRPY}}
+\index{quaternionToEulerAnglesRPY@{quaternionToEulerAnglesRPY}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{quaternionToEulerAnglesRPY()}{quaternionToEulerAnglesRPY()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Vehicle\+State\+::quaternion\+To\+Euler\+Angles\+RPY (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Quaterniond \&}]{q }\end{DoxyParamCaption})}
+
+
+
+Definition at line 225 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_ab148a1cb81057c0d192df788d8f895be}\label{classVehicleState_ab148a1cb81057c0d192df788d8f895be}} 
+\index{VehicleState@{VehicleState}!setAngularVelocity@{setAngularVelocity}}
+\index{setAngularVelocity@{setAngularVelocity}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setAngularVelocity()}{setAngularVelocity()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Angular\+Velocity (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{angular\+\_\+velocity }\end{DoxyParamCaption})}
+
+
+
+Definition at line 162 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a0e810db7210dbd8020ad7b2b85cb1679}\label{classVehicleState_a0e810db7210dbd8020ad7b2b85cb1679}} 
+\index{VehicleState@{VehicleState}!setEulerAnglesRPY@{setEulerAnglesRPY}}
+\index{setEulerAnglesRPY@{setEulerAnglesRPY}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setEulerAnglesRPY()}{setEulerAnglesRPY()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Euler\+Angles\+RPY (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Quaterniond \&}]{q }\end{DoxyParamCaption})}
+
+
+
+Definition at line 167 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_aaddf2e9040fdb4ed1792b2c78c435ac5}\label{classVehicleState_aaddf2e9040fdb4ed1792b2c78c435ac5}} 
+\index{VehicleState@{VehicleState}!setEulerAnglesRPYOffset@{setEulerAnglesRPYOffset}}
+\index{setEulerAnglesRPYOffset@{setEulerAnglesRPYOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setEulerAnglesRPYOffset()}{setEulerAnglesRPYOffset()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Euler\+Angles\+RPYOffset (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Quaterniond \&}]{q\+\_\+offset }\end{DoxyParamCaption})}
+
+
+
+Definition at line 199 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_adab0b829145dbde0c9bc0920f8771bc1}\label{classVehicleState_adab0b829145dbde0c9bc0920f8771bc1}} 
+\index{VehicleState@{VehicleState}!setIsOffsetOdometryMsg@{setIsOffsetOdometryMsg}}
+\index{setIsOffsetOdometryMsg@{setIsOffsetOdometryMsg}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setIsOffsetOdometryMsg()}{setIsOffsetOdometryMsg()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Is\+Offset\+Odometry\+Msg (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 179 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a48a4321d9f7f146aabacd38fe1c7b7fc}\label{classVehicleState_a48a4321d9f7f146aabacd38fe1c7b7fc}} 
+\index{VehicleState@{VehicleState}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Position (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{position }\end{DoxyParamCaption})}
+
+
+
+Definition at line 147 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a58c2ed1c9698389dd51422ca7d632eb0}\label{classVehicleState_a58c2ed1c9698389dd51422ca7d632eb0}} 
+\index{VehicleState@{VehicleState}!setPositionOffset@{setPositionOffset}}
+\index{setPositionOffset@{setPositionOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setPositionOffset()}{setPositionOffset()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Position\+Offset (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{position\+\_\+offset }\end{DoxyParamCaption})}
+
+
+
+Definition at line 189 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a40ddb6b36e742fc63ff000c58a9a49c7}\label{classVehicleState_a40ddb6b36e742fc63ff000c58a9a49c7}} 
+\index{VehicleState@{VehicleState}!setQuaternion@{setQuaternion}}
+\index{setQuaternion@{setQuaternion}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setQuaternion()}{setQuaternion()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Quaternion (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Quaterniond \&}]{q }\end{DoxyParamCaption})}
+
+
+
+Definition at line 152 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a5d7f0a0b408145d8e107ee5d65d2a1d8}\label{classVehicleState_a5d7f0a0b408145d8e107ee5d65d2a1d8}} 
+\index{VehicleState@{VehicleState}!setQuaternionOffset@{setQuaternionOffset}}
+\index{setQuaternionOffset@{setQuaternionOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setQuaternionOffset()}{setQuaternionOffset()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Quaternion\+Offset (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Quaterniond \&}]{q\+\_\+offset }\end{DoxyParamCaption})}
+
+
+
+Definition at line 194 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_aa46174e2cf4e9accbf41baef87737663}\label{classVehicleState_aa46174e2cf4e9accbf41baef87737663}} 
+\index{VehicleState@{VehicleState}!setTimeOdometryInSeconds@{setTimeOdometryInSeconds}}
+\index{setTimeOdometryInSeconds@{setTimeOdometryInSeconds}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setTimeOdometryInSeconds()}{setTimeOdometryInSeconds()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Time\+Odometry\+In\+Seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 173 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a531d09ea0db0fbe9a0ad9edfdaeb4b93}\label{classVehicleState_a531d09ea0db0fbe9a0ad9edfdaeb4b93}} 
+\index{VehicleState@{VehicleState}!setTimestamp@{setTimestamp}}
+\index{setTimestamp@{setTimestamp}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setTimestamp()}{setTimestamp()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Timestamp (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{timestamp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_a0c3a344b98c682c69742a9496cf51c0c}\label{classVehicleState_a0c3a344b98c682c69742a9496cf51c0c}} 
+\index{VehicleState@{VehicleState}!setTimestampOffset@{setTimestampOffset}}
+\index{setTimestampOffset@{setTimestampOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setTimestampOffset()}{setTimestampOffset()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Timestamp\+Offset (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{timestamp\+\_\+offset }\end{DoxyParamCaption})}
+
+
+
+Definition at line 184 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_ace0610ae6167e01be44ab9c04240f3d9}\label{classVehicleState_ace0610ae6167e01be44ab9c04240f3d9}} 
+\index{VehicleState@{VehicleState}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Velocity (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3d \&}]{velocity }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file vehicle\+\_\+state.\+cpp.
+
+\mbox{\Hypertarget{classVehicleState_adf083bd85d71ca9f19bd449697878620}\label{classVehicleState_adf083bd85d71ca9f19bd449697878620}} 
+\index{VehicleState@{VehicleState}!setYawQuaternionInverseOffset@{setYawQuaternionInverseOffset}}
+\index{setYawQuaternionInverseOffset@{setYawQuaternionInverseOffset}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{setYawQuaternionInverseOffset()}{setYawQuaternionInverseOffset()}}
+{\footnotesize\ttfamily void Vehicle\+State\+::set\+Yaw\+Quaternion\+Inverse\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 207 of file vehicle\+\_\+state.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classVehicleState_af68ceee66f08a8640930d97cc2e9377e}\label{classVehicleState_af68ceee66f08a8640930d97cc2e9377e}} 
+\index{VehicleState@{VehicleState}!angular\_velocity\_@{angular\_velocity\_}}
+\index{angular\_velocity\_@{angular\_velocity\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{angular\_velocity\_}{angular\_velocity\_}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Vehicle\+State\+::angular\+\_\+velocity\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 116 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_ad6ef2a6ee57bfdc18cadd4b5f002d8cb}\label{classVehicleState_ad6ef2a6ee57bfdc18cadd4b5f002d8cb}} 
+\index{VehicleState@{VehicleState}!euler\_angles\_rpy\_@{euler\_angles\_rpy\_}}
+\index{euler\_angles\_rpy\_@{euler\_angles\_rpy\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{euler\_angles\_rpy\_}{euler\_angles\_rpy\_}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Vehicle\+State\+::euler\+\_\+angles\+\_\+rpy\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 118 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a4001db78e4bed8be586e260d44afa372}\label{classVehicleState_a4001db78e4bed8be586e260d44afa372}} 
+\index{VehicleState@{VehicleState}!euler\_angles\_rpy\_offset\_@{euler\_angles\_rpy\_offset\_}}
+\index{euler\_angles\_rpy\_offset\_@{euler\_angles\_rpy\_offset\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{euler\_angles\_rpy\_offset\_}{euler\_angles\_rpy\_offset\_}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Vehicle\+State\+::euler\+\_\+angles\+\_\+rpy\+\_\+offset\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 128 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_ae2b93304ba7e531368e6f4ef980d771f}\label{classVehicleState_ae2b93304ba7e531368e6f4ef980d771f}} 
+\index{VehicleState@{VehicleState}!is\_offset\_odometry\_msg\_@{is\_offset\_odometry\_msg\_}}
+\index{is\_offset\_odometry\_msg\_@{is\_offset\_odometry\_msg\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{is\_offset\_odometry\_msg\_}{is\_offset\_odometry\_msg\_}}
+{\footnotesize\ttfamily bool Vehicle\+State\+::is\+\_\+offset\+\_\+odometry\+\_\+msg\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 124 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a23121fc40787cdec05ef67b608237d4c}\label{classVehicleState_a23121fc40787cdec05ef67b608237d4c}} 
+\index{VehicleState@{VehicleState}!node\_@{node\_}}
+\index{node\_@{node\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{node\_}{node\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}}\& Vehicle\+State\+::node\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 109 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a60fa613507af47d53925cfcf031a43c7}\label{classVehicleState_a60fa613507af47d53925cfcf031a43c7}} 
+\index{VehicleState@{VehicleState}!position\_@{position\_}}
+\index{position\_@{position\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{position\_}{position\_}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Vehicle\+State\+::position\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 113 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a2ea2a39d3fde1f8202fca5eabfa6e016}\label{classVehicleState_a2ea2a39d3fde1f8202fca5eabfa6e016}} 
+\index{VehicleState@{VehicleState}!position\_offset\_@{position\_offset\_}}
+\index{position\_offset\_@{position\_offset\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{position\_offset\_}{position\_offset\_}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Vehicle\+State\+::position\+\_\+offset\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 126 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a04c212d5ea296f6b76c2f176e2d55df7}\label{classVehicleState_a04c212d5ea296f6b76c2f176e2d55df7}} 
+\index{VehicleState@{VehicleState}!q\_@{q\_}}
+\index{q\_@{q\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{q\_}{q\_}}
+{\footnotesize\ttfamily Eigen\+::\+Quaterniond Vehicle\+State\+::q\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 114 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a47e3caf7b45a0c6350714bace743f429}\label{classVehicleState_a47e3caf7b45a0c6350714bace743f429}} 
+\index{VehicleState@{VehicleState}!q\_offset\_@{q\_offset\_}}
+\index{q\_offset\_@{q\_offset\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{q\_offset\_}{q\_offset\_}}
+{\footnotesize\ttfamily Eigen\+::\+Quaterniond Vehicle\+State\+::q\+\_\+offset\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 127 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a26ea3e0108c7f90cbae7382f03c9adcb}\label{classVehicleState_a26ea3e0108c7f90cbae7382f03c9adcb}} 
+\index{VehicleState@{VehicleState}!time\_odometry\_@{time\_odometry\_}}
+\index{time\_odometry\_@{time\_odometry\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{time\_odometry\_}{time\_odometry\_}}
+{\footnotesize\ttfamily double Vehicle\+State\+::time\+\_\+odometry\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 120 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a5c71ce6e2765150ef9539c5dce73248b}\label{classVehicleState_a5c71ce6e2765150ef9539c5dce73248b}} 
+\index{VehicleState@{VehicleState}!timestamp\_@{timestamp\_}}
+\index{timestamp\_@{timestamp\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{timestamp\_}{timestamp\_}}
+{\footnotesize\ttfamily uint64\+\_\+t Vehicle\+State\+::timestamp\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 112 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a7eed79b42807403f467de1f57c100c45}\label{classVehicleState_a7eed79b42807403f467de1f57c100c45}} 
+\index{VehicleState@{VehicleState}!timestamp\_initial\_@{timestamp\_initial\_}}
+\index{timestamp\_initial\_@{timestamp\_initial\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{timestamp\_initial\_}{timestamp\_initial\_}}
+{\footnotesize\ttfamily const std\+::atomic$<$uint64\+\_\+t$>$\& Vehicle\+State\+::timestamp\+\_\+initial\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 110 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_aef193acd2d7151bb45bf066d4fa8bd5a}\label{classVehicleState_aef193acd2d7151bb45bf066d4fa8bd5a}} 
+\index{VehicleState@{VehicleState}!timestamp\_offset\_@{timestamp\_offset\_}}
+\index{timestamp\_offset\_@{timestamp\_offset\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{timestamp\_offset\_}{timestamp\_offset\_}}
+{\footnotesize\ttfamily uint64\+\_\+t Vehicle\+State\+::timestamp\+\_\+offset\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 125 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_a3a485ed3ed9521da734c71a4cc4f8f90}\label{classVehicleState_a3a485ed3ed9521da734c71a4cc4f8f90}} 
+\index{VehicleState@{VehicleState}!velocity\_@{velocity\_}}
+\index{velocity\_@{velocity\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{velocity\_}{velocity\_}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Vehicle\+State\+::velocity\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 115 of file vehicle\+\_\+state.\+hpp.
+
+\mbox{\Hypertarget{classVehicleState_ae0d760e30dfd39495c6762342194bf6b}\label{classVehicleState_ae0d760e30dfd39495c6762342194bf6b}} 
+\index{VehicleState@{VehicleState}!yaw\_quaternion\_inverse\_offset\_@{yaw\_quaternion\_inverse\_offset\_}}
+\index{yaw\_quaternion\_inverse\_offset\_@{yaw\_quaternion\_inverse\_offset\_}!VehicleState@{VehicleState}}
+\doxysubsubsection{\texorpdfstring{yaw\_quaternion\_inverse\_offset\_}{yaw\_quaternion\_inverse\_offset\_}}
+{\footnotesize\ttfamily Eigen\+::\+Quaterniond Vehicle\+State\+::yaw\+\_\+quaternion\+\_\+inverse\+\_\+offset\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 129 of file vehicle\+\_\+state.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ACSL-\/flightstack/include/flightstack/pixhawk\+\_\+interface/\mbox{\hyperlink{vehicle__state_8hpp}{vehicle\+\_\+state.\+hpp}}\item 
+ACSL-\/flightstack/src/pixhawk\+\_\+interface/\mbox{\hyperlink{vehicle__state_8cpp}{vehicle\+\_\+state.\+cpp}}\end{DoxyCompactItemize}

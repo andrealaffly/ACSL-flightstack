@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        control.hpp
- * Author:      Mattia Gramuglia
- * Date:        April 19, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        control.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        April 19, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: General class that contains common members used by most of the control algorithms.
@@ -34,6 +34,13 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+
+/**
+ * @file control.hpp
+ * @brief General class that contains common members used by most of the control algorithms
+ * 
+ * Control algorithm classes inherit from this class
+ */
 
 #ifndef CONTROL_HPP
 #define CONTROL_HPP
@@ -51,12 +58,20 @@
 
 using namespace boost::numeric::odeint;
 
-// The type of container used to hold the state vector
+/**
+ * @brief The type of container used to hold the state vector
+ */
 typedef std::vector<double> state_type;
 
-// Forward declaration of MultiThreadedNode class
+/**
+ * @class MultiThreadedNode
+ */
 class MultiThreadedNode;
 
+/**
+ * @class Control
+ * @brief Control class 
+ */
 class Control 
 {
 public:
@@ -64,6 +79,10 @@ public:
   /*
     This struct contains the variables that are common among all controllers as they are the foundations of the base
     control architecture framework.
+  */
+ /**
+  * @brief This struct contains the variables that are commmon among all controllers as they are the foundations of the base control architecture framework
+  * @struct ControlInternalMembers
   */
   struct ControlInternalMembers
   {
@@ -103,6 +122,10 @@ public:
     Struct that encapsulates references to external variables to be used inside the computeControlAlgorithm function
     to increase readability
   */
+ /**
+  * @brief Struct that encapsulates references to external variables to be used inside the computeControlAlgorithm function to increase readability
+  * @struct ControlReferences
+  */
   struct ControlReferences
   {
     //Constructor
@@ -122,17 +145,32 @@ public:
   };
 
   // Constructor
+  /**
+   * @param node 
+   */
   Control(MultiThreadedNode& node);
 
+  /**
+   * @param None
+   */
   void readJSONdifferentiatorFile();
 
   // Getter functions
+  /**
+   * @brief Getter functions
+   * @param None
+   * @return MultiThreadedNode& 
+   */
   MultiThreadedNode& getNode() const;
   const VehicleInfo& getVehicleInfo() const;
   const ControlInternalMembers& getControlInternalMembers() const;
   const std::chrono::duration<double, std::micro>& getAlgorithmExecutionTimeMicroseconds() const;
 
   // Setter function
+  /**
+   * @brief Set the Algorithm Execution Time Microseconds object
+   * @param duration 
+   */
   void setAlgorithmExecutionTimeMicroseconds(std::chrono::duration<double, std::micro> duration);
 
   Eigen::Matrix3d jacobianMatrix(const double& roll, const double& pitch);
@@ -146,30 +184,62 @@ public:
 
   Eigen::Matrix3d rotationMatrix321GlobalToLocal(const double& roll, const double& pitch, const double& yaw);
 
+  /**
+   * @param cim 
+   * @param vehicle_info 
+   */
   void computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info);
 
+  /** 
+   * @param cim 
+   * @param vehicle_info 
+   */
   void computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& vehicle_info);
 
+  /**
+   * @param cim 
+   */
   void compute_U1_RollDes_PitchDes(ControlInternalMembers& cim);
 
+  /**
+   * @param cim 
+   * @param position 
+   * @param desired_position 
+   */
   void computeTranslationalPositionError(ControlInternalMembers& cim,
                                          const Eigen::Vector3d& position,
                                          const Eigen::Vector3d& desired_position);
 
+  /**
+   * @param cim 
+   * @param euler_angles_rpy 
+   * @param angular_position_desired 
+   */
   void computeAngularError(ControlInternalMembers& cim,
                            const Eigen::Vector3d& euler_angles_rpy,
                            const Eigen::Vector3d& angular_position_desired);
 
+  /**
+   * @param cim 
+   * @param cr 
+   */
   void computeRotationalParameters(ControlInternalMembers& cim, ControlReferences& cr);
 
   double wrapAngleToMinusPiAndPi(double alpha);
 
   double makeYawAngularErrorContinuous(double yaw, double user_defined_yaw);
 
-  //define_const_stepper
+  /**
+   * define_const_stepper
+   */
   runge_kutta4< state_type > stepper;
 
   template <typename T>
+  /**
+   * @param entity 
+   * @param dxdt 
+   * @param current_index 
+   */
   inline void assignElementsToDxdt(T& entity, state_type &dxdt, int& current_index)
   {
     // constexpr int Rows = T::RowsAtCompileTime; // Get number of rows at compile time
@@ -194,6 +264,12 @@ public:
              the norm of the tracking error becomes smaller than the prescribed value e_0.
   */
   template <typename T>
+  /**
+   * @param e_vector 
+   * @param delta 
+   * @param e_0 
+   * @return double 
+   */
   inline double deadZoneModulationFunction(const T& e_vector,
                                            const double& delta,
                                            const double& e_0)

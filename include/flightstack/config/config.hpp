@@ -23,10 +23,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        config.hpp
- * Author:      Mattia Gramuglia
- * Date:        June 7, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        config.hpp \n 
+ * Author:      Mattia Gramuglia \n 
+ * Date:        June 7, 2024 \n 
+ * For info:    Andrea L'Afflitto  \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Configuration file. Here you specify which controller you want to run at compile time.
@@ -34,6 +34,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file config.hpp
+ * @brief Configuration file. Here you specify which cotroller you want to run at compile time.
+ */
 #ifndef CONFIG_HPP
 #define CONFIG_HPP
 
@@ -41,6 +45,11 @@
 #include <nlohmann/json.hpp>
 
 // Forward declaration of MultiThreadedNode class
+
+/**
+ * @class MultiThreadedNode
+ * 
+ */
 class MultiThreadedNode;
 
 /*********************************************************************************************************************
@@ -77,6 +86,12 @@ using ControlType = MRAC;
   Configurations Parameters set from config.json 
 **********************************************************************************************************************
 */
+
+/**
+ * @struct ConfigurationParameters
+ * @brief Configurations Parameters set from config.json
+ * 
+ */
 struct ConfigurationParameters
 {
   // Name of the piecewise polynomial user-defined trajectory file
@@ -85,6 +100,11 @@ struct ConfigurationParameters
   // Time in seconds for which the UAV will perform hovering after having completed the user-defined trajectory
   double hover_after_trajectory_time_seconds;
 
+  /**
+  * @brief Function that reads the configuration parameters and assigns it to the members of the ConfigurationParameters struct
+  * @param configFileName Name of the JSON file containing the config parameters
+  * @return config struct containing the configuration parameters .
+  */
   static ConfigurationParameters readConfigurationParametersFile(const std::string& configFileName);
 
 };
@@ -93,6 +113,11 @@ struct ConfigurationParameters
   Global Parameters shared among all the program
 **********************************************************************************************************************
 */
+
+/**
+ * @struct GlobalParameters
+ * @brief Global parameteres shared among all the program
+ */
 struct GlobalParameters
 {
   // Flag for publishing data to the motors

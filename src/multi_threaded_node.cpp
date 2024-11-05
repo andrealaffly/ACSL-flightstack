@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,12 +22,12 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond 
 /***********************************************************************************************************************
- * File:        multi_threaded_node.cpp
- * Author:      Mattia Gramuglia
- * Date:        April 9, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        multi_threaded_node.cpp \n
+ * Author:      Mattia Gramuglia \n
+ * Date:        April 9, 2024 \n 
+ * For info:    Andrea L'Afflitto \n
  *              a.lafflitto@vt.edu
  * 
  * Description: Multithreaded ROS2 node that joins together all the flight stack components
@@ -36,6 +37,14 @@
 
 #include "multi_threaded_node.hpp"
 
+ /**
+  * @file multi_threaded_node.cpp.
+  * @brief Multithreaded ROS2 ndoe that joins together all the flight stakc components
+  */
+
+/**
+ * @class MultiThreadedNode
+ */
 MultiThreadedNode::MultiThreadedNode(rclcpp::NodeOptions options)
 : Node("MultiThreadedNode", options),
   config_(ConfigurationParameters::readConfigurationParametersFile("config.json")),
@@ -69,6 +78,9 @@ std::string string_thread_id()
 /*
   Function that when called updates the PRIVATE variable "time_current_" to the current time
 */
+
+
+
 void MultiThreadedNode::updateCurrentTimeInSeconds()
 {
   time_current_ = ((this->get_clock()->now().nanoseconds() / 1000) - timestamp_initial_) / 1e6;
@@ -109,7 +121,6 @@ GlobalParameters MultiThreadedNode::getGlobalParameters() const {
   return global_params_;
 }
 
-// Function that performs the setup of the Pixhawk vehicle odometry subscription callback/thread
 void MultiThreadedNode::setupPixhawkOdometrySubscriber()
 {
   // Pixhawk vehicle odometry subscription callback group

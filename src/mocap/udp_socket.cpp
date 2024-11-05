@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,7 +22,7 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************  
  * Part of the code in this file leverages the following material.
  *
@@ -42,17 +43,20 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        udp_socket.cpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        udp_socket.cpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 21, 2024 \n 
+ * For info:    Andrea L'Afflitto \n 
  *              a.lafflitto@vt.edu
  * 
  * Description: Class for UDP socket creation using IoContext.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+/**
+ * @file udp_socket.cpp
+ * @brief Class for UDP socket creation using IoContext
+ */
 #include "udp_socket.hpp"
 
 namespace _drivers_
@@ -60,6 +64,9 @@ namespace _drivers_
 namespace _udp_driver_
 {
 
+/**
+ * @class UdpSocket 
+ */
 UdpSocket::UdpSocket(
   const IoContext & ctx,
   const std::string & remote_ip,
@@ -120,6 +127,7 @@ size_t UdpSocket::receive(std::vector<uint8_t> & buff)
   return len;
 }
 
+
 void UdpSocket::asyncSend(std::vector<uint8_t> & buff)
 {
   m_udp_socket.async_send_to(
@@ -129,6 +137,7 @@ void UdpSocket::asyncSend(std::vector<uint8_t> & buff)
       asyncSendHandler(error, bytes_transferred);
     });
 }
+
 
 void UdpSocket::asyncReceive(Functor func)
 {
@@ -152,6 +161,10 @@ void UdpSocket::asyncSendHandler(
   }
 }
 
+/**
+ * @param error 
+ * @param bytes_transferred 
+ */
 void UdpSocket::asyncReceiveHandler(
   const asio::error_code & error,
   std::size_t bytes_transferred)

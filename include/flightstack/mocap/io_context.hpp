@@ -42,10 +42,10 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        io_context.hpp
- * Author:      Giri Mugundan Kumar
- * Date:        April 21, 2024
- * For info:    Andrea L'Afflitto 
+ * File:        io_context.hpp \n 
+ * Author:      Giri Mugundan Kumar \n 
+ * Date:        April 21, 2024 \n 
+ * For info:    Andrea L'Afflitto \n  
  *              a.lafflitto@vt.edu
  * 
  * Description: Class for IoContext to manage thread for udp.
@@ -53,6 +53,10 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+/**
+ * @file io_context.hpp
+ * @brief Class for IoContext to manage thread for udp
+ */
 #ifndef IO_CONTEXT_HPP_
 #define IO_CONTEXT_HPP_
 
@@ -69,8 +73,15 @@ namespace _drivers_
 namespace _common_
 {
 
-///! A workaround of boost::thread_group
-// Copied from https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2
+/**
+ * A workaround of boost::thead_group
+ * Copied from https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2
+ */
+/**
+ * @struct thread_group
+ * @brief A workarouond of boost::thread_group
+ * Copied from https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2
+ */
 struct thread_group
 {
   std::vector<std::thread> tg;
@@ -81,12 +92,28 @@ struct thread_group
   thread_group(thread_group &&)                   = delete;
 
   template<class ... Args>
+  /**
+   * @brief Create a thread object
+   * 
+   * @param args 
+   */
   void create_thread(Args && ... args) {tg.emplace_back(std::forward<Args>(args)...);}
-
+  
+  /**
+   * add_thread
+   * @param t 
+   */
   void add_thread(std::thread && t) {tg.emplace_back(std::move(t));}
 
+  /**
+   * @return std::size_t 
+   */
   std::size_t size() const {return tg.size();}
 
+  /**
+   *  join_all
+   *  @param None
+   */
   void join_all()
   {
     for (auto & thread : tg) {
@@ -98,24 +125,59 @@ struct thread_group
 
 };
 
+/**
+ * @class IoContext
+ * @brief Create a Io Context object
+ */
 class IoContext
 {
 public:
   IoContext();
+  /**
+   * @brief Construct a new Io Context object
+   * 
+   * @param threads_count 
+   */
   explicit IoContext(size_t threads_count);
   ~IoContext();
 
   IoContext(const IoContext &) = delete;
   IoContext & operator=(const IoContext &) = delete;
 
+  /**
+   * @brief ios (Not sure what to put here)
+   * @param None
+   * @return asio::io_service& 
+   */
   asio::io_service & ios() const;
 
+  /**
+   * @brief Check if io_context is stopped
+   * @param None
+   * @return true 
+   * @return false 
+   */
   bool isServiceStopped();
+  /**
+   * @brief Service thread count
+   * @param None
+   * @return uint32_t 
+   */
   uint32_t serviceThreadCount();
 
+  /**
+   * @brief waitForExit
+   * @param None
+   */
   void waitForExit();
 
   template<class F>
+  
+  /**
+   * @brief post iocontext
+   * 
+   * @param f 
+   */
   void post(F f)
   {
     ios().post(f);
