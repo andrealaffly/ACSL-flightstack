@@ -1,12 +1,12 @@
-<map id="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/piecewise_polynomial_trajectory.hpp" name="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/piecewise_polynomial_trajectory.hpp">
-<area shape="rect" id="node1" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="239,5,487,91"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,139,68,165"/>
-<area shape="rect" id="node3" title=" " alt="" coords="93,139,151,165"/>
-<area shape="rect" id="node4" title=" " alt="" coords="176,139,249,165"/>
-<area shape="rect" id="node5" title=" " alt="" coords="274,139,354,165"/>
-<area shape="rect" id="node6" title=" " alt="" coords="379,139,447,165"/>
-<area shape="rect" id="node7" title=" " alt="" coords="535,213,637,240"/>
-<area shape="rect" id="node8" title=" " alt="" coords="522,139,669,165"/>
-<area shape="rect" id="node9" href="$user__defined__trajectory_8hpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="693,139,895,165"/>
-<area shape="rect" id="node10" title=" " alt="" coords="763,213,825,240"/>
+<map id="ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/piecewise_polynomial_trajectory.hpp" name="ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/piecewise_polynomial_trajectory.hpp">
+<area shape="rect" id="node1" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="243,5,484,76"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,124,68,151"/>
+<area shape="rect" id="node3" title=" " alt="" coords="93,124,151,151"/>
+<area shape="rect" id="node4" title=" " alt="" coords="176,124,249,151"/>
+<area shape="rect" id="node5" title=" " alt="" coords="274,124,354,151"/>
+<area shape="rect" id="node6" title=" " alt="" coords="379,124,447,151"/>
+<area shape="rect" id="node7" title=" " alt="" coords="535,199,637,225"/>
+<area shape="rect" id="node8" title=" " alt="" coords="522,124,669,151"/>
+<area shape="rect" id="node9" href="$user__defined__trajectory_8hpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="693,124,895,151"/>
+<area shape="rect" id="node10" title=" " alt="" coords="763,199,825,225"/>
 </map>

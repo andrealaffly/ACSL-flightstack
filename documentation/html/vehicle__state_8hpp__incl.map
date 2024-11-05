@@ -1,7 +1,7 @@
-<map id="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/pixhawk_interface/vehicle_state.hpp" name="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/pixhawk_interface/vehicle_state.hpp">
-<area shape="rect" id="node1" title="Class storing the state of the vehicle coming from the flight controller (Pixhawk)" alt="" coords="31,5,297,76"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,124,64,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="89,124,151,151"/>
-<area shape="rect" id="node4" title=" " alt="" coords="176,124,243,151"/>
-<area shape="rect" id="node5" title=" " alt="" coords="267,124,370,151"/>
+<map id="ACSL&#45;flightstack/include/flightstack/pixhawk_interface/vehicle_state.hpp" name="ACSL&#45;flightstack/include/flightstack/pixhawk_interface/vehicle_state.hpp">
+<area shape="rect" id="node1" title="Class storing the state of the vehicle coming from the flight controller (Pixhawk)" alt="" coords="55,5,273,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,64,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,109,151,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="176,109,243,136"/>
+<area shape="rect" id="node5" title=" " alt="" coords="267,109,370,136"/>
 </map>

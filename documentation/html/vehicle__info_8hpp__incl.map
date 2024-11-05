@@ -1,5 +1,5 @@
-<map id="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/control/vehicle_info.hpp" name="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/control/vehicle_info.hpp">
-<area shape="rect" id="node1" title="Vehicle properties such as mass, intertia matrix, motor thrust curves, etc." alt="" coords="5,5,224,76"/>
-<area shape="rect" id="node2" title=" " alt="" coords="30,124,93,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="117,124,219,151"/>
+<map id="ACSL&#45;flightstack/include/flightstack/control/vehicle_info.hpp" name="ACSL&#45;flightstack/include/flightstack/control/vehicle_info.hpp">
+<area shape="rect" id="node1" title="Vehicle properties such as mass, intertia matrix, motor thrust curves, etc." alt="" coords="5,5,200,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="18,109,81,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="105,109,207,136"/>
 </map>
