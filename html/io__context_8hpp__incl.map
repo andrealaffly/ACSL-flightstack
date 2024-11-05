@@ -1,9 +1,0 @@
-<map id="include/flightstack/mocap/io_context.hpp" name="include/flightstack/mocap/io_context.hpp">
-<area shape="rect" id="node1" title="Class for IoContext to manage thread for udp." alt="" coords="185,5,356,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,83,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="107,95,170,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="194,95,254,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="279,95,356,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="380,95,460,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="484,95,625,121"/>
-</map>

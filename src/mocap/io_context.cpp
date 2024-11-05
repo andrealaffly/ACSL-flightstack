@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,7 +22,6 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
 /***********************************************************************************************************************  
  * Part of the code in this file leverages the following material.
  *
@@ -40,7 +40,7 @@
  *              See the License for the specific language governing permissions and
  *              limitations under the License.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
  * File:        io_context.cpp
  * Author:      Giri Mugundan Kumar

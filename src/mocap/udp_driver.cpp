@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -40,7 +41,7 @@
  *              See the License for the specific language governing permissions and
  *              limitations under the License.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
  * File:        udp_driver.cpp
  * Author:      Giri Mugundan Kumar

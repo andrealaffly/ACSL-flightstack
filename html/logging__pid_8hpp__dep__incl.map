@@ -1,5 +1,0 @@
-<map id="include/flightstack/control/pid/logging_pid.hpp" name="include/flightstack/control/pid/logging_pid.hpp">
-<area shape="rect" id="node1" title="Logger for the PID controller." alt="" coords="110,5,257,61"/>
-<area shape="rect" id="node2" href="$logging__pid_8cpp.html" title="Logger for the PID controller." alt="" coords="5,109,172,151"/>
-<area shape="rect" id="node3" href="$pid_8cpp.html" title="Immplementation of the PID controller." alt="" coords="197,117,362,143"/>
-</map>

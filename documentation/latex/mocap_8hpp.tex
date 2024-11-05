@@ -1,0 +1,227 @@
+\hypertarget{mocap_8hpp}{}\doxysection{/mnt/c/\+Users/siddh/\+Onedrive/\+Desktop/\+ACSL-\/flightstack/include/flightstack/mocap/mocap.hpp File Reference}
+\label{mocap_8hpp}\index{/mnt/c/Users/siddh/Onedrive/Desktop/ACSL-\/flightstack/include/flightstack/mocap/mocap.hpp@{/mnt/c/Users/siddh/Onedrive/Desktop/ACSL-\/flightstack/include/flightstack/mocap/mocap.hpp}}
+
+
+Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap\+\_\+odometry topic for EFK2 fusion.  
+
+
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$bit$>$}\newline
+{\ttfamily \#include $<$rclcpp/rclcpp.\+hpp$>$}\newline
+{\ttfamily \#include $<$rclcpp\+\_\+lifecycle/lifecycle\+\_\+node.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}lifecycle\+\_\+msgs/msg/transition.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$lifecycle\+\_\+msgs/msg/state.\+hpp$>$}\newline
+{\ttfamily \#include $<$px4\+\_\+msgs/msg/vehicle\+\_\+odometry.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}udp\+\_\+driver.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logging\+\_\+mocap.\+hpp\char`\"{}}\newline
+Include dependency graph for mocap.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mocap_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mocap_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__drivers___1_1__udp__driver___1_1mocap__states}{\+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::mocap\+\_\+states}}
+\begin{DoxyCompactList}\small\item\em Define struct variables to store parsed data. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode}{\+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::\+Udp\+Receiver\+Node}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class__drivers___1_1__udp__driver___1_1UdpReceiverNode}{Udp\+Receiver\+Node}} class which can recieve UDP datagrams. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace__drivers__}{\+\_\+drivers\+\_\+}}
+\item 
+ \mbox{\hyperlink{namespace__drivers___1_1__udp__driver__}{\+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{mocap_8hpp_a0b9177049bd66ba72942a529a537e984}{LNI}} = rclcpp\+\_\+lifecycle\+::node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespace__drivers___1_1__udp__driver___ae36232dc4261e7caaa7c440bb09724b2}{\+\_\+drivers\+\_\+\+::\+\_\+udp\+\_\+driver\+\_\+\+::string\+\_\+thread\+\_\+id}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{mocap_8hpp_a814e9253f87e8282693801e9f558c9d2}{GROUND\+\_\+\+STATION\+\_\+\+IP}} = \char`\"{}127.\+0.\+0.\+1\char`\"{}
+\item 
+constexpr const char $\ast$ \mbox{\hyperlink{mocap_8hpp_a4950a8d87881832aeb19bc9dc823e949}{ODROID\+\_\+\+M1\+S\+\_\+\+IP}} = \char`\"{}192.\+168.\+12.\+1\char`\"{}
+\item 
+constexpr uint16\+\_\+t \mbox{\hyperlink{mocap_8hpp_a369edc1aaf5f53fd968090572d783620}{ODROID\+\_\+\+M1\+S\+\_\+\+PORT}} = 52000
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_a2ddbf2c1c54f051762a17fecea9e5614}{POSE\+\_\+\+FRAME\+\_\+\+UNKNOWN}} = 0
+\begin{DoxyCompactList}\small\item\em -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- USER DEFINED -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- /// \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_a9498fc7a67b5e2359244405014fa1185}{POSE\+\_\+\+FRAME\+\_\+\+NED}} = 1
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_acd945371fa34d41309e582fc09a2ed68}{POSE\+\_\+\+FRAME\+\_\+\+FRD}} = 2
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_aedd733ab9aa07f9cc7c114ac25d74b57}{VELOCITY\+\_\+\+FRAME\+\_\+\+UNKNOWN}} = 0
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_ad7d0cce572b25f60daef3129ecc2f4d5}{VELOCITY\+\_\+\+FRAME\+\_\+\+NED}} = 1
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_addf6acdd93e3173b761c9c8c624c4a45}{VELOCITY\+\_\+\+FRAME\+\_\+\+FRD}} = 2
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{mocap_8hpp_a45289b30613008d14c525850b1ffd343}{VELOCITY\+\_\+\+FRAME\+\_\+\+BODY\+\_\+\+FRD}} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Node definition for UDP socket as a lifecyle node Writes messages to pixhawk mocap\+\_\+odometry topic for EFK2 fusion. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. Part of the code in this file leverages the following material.
+
+Referenced\+: \href{https://github.com/ros-drivers/transport_drivers/tree/main}{\texttt{ https\+://github.\+com/ros-\/drivers/transport\+\_\+drivers/tree/main}} Copyright 2021 Leo\+Drive.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+ Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+AS IS\char`\"{} BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. File\+: \mbox{\hyperlink{mocap_8hpp}{mocap.\+hpp}} Author\+: Giri Mugundan Kumar Date\+: April 20, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Node definition for UDP socket as a lifecycle node. Writes messages to pixhawk mocap\+\_\+odometry topic for EFK2 fusion.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mocap_8hpp_a0b9177049bd66ba72942a529a537e984}\label{mocap_8hpp_a0b9177049bd66ba72942a529a537e984}} 
+\index{mocap.hpp@{mocap.hpp}!LNI@{LNI}}
+\index{LNI@{LNI}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{LNI}{LNI}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{mocap_8hpp_a0b9177049bd66ba72942a529a537e984}{LNI}} =  rclcpp\+\_\+lifecycle\+::node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface}
+
+
+
+Definition at line 104 of file mocap.\+hpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mocap_8hpp_a814e9253f87e8282693801e9f558c9d2}\label{mocap_8hpp_a814e9253f87e8282693801e9f558c9d2}} 
+\index{mocap.hpp@{mocap.hpp}!GROUND\_STATION\_IP@{GROUND\_STATION\_IP}}
+\index{GROUND\_STATION\_IP@{GROUND\_STATION\_IP}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{GROUND\_STATION\_IP}{GROUND\_STATION\_IP}}
+{\footnotesize\ttfamily constexpr const char$\ast$ GROUND\+\_\+\+STATION\+\_\+\+IP = \char`\"{}127.\+0.\+0.\+1\char`\"{}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 86 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_a4950a8d87881832aeb19bc9dc823e949}\label{mocap_8hpp_a4950a8d87881832aeb19bc9dc823e949}} 
+\index{mocap.hpp@{mocap.hpp}!ODROID\_M1S\_IP@{ODROID\_M1S\_IP}}
+\index{ODROID\_M1S\_IP@{ODROID\_M1S\_IP}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{ODROID\_M1S\_IP}{ODROID\_M1S\_IP}}
+{\footnotesize\ttfamily constexpr const char$\ast$ ODROID\+\_\+\+M1\+S\+\_\+\+IP = \char`\"{}192.\+168.\+12.\+1\char`\"{}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 87 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_a369edc1aaf5f53fd968090572d783620}\label{mocap_8hpp_a369edc1aaf5f53fd968090572d783620}} 
+\index{mocap.hpp@{mocap.hpp}!ODROID\_M1S\_PORT@{ODROID\_M1S\_PORT}}
+\index{ODROID\_M1S\_PORT@{ODROID\_M1S\_PORT}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{ODROID\_M1S\_PORT}{ODROID\_M1S\_PORT}}
+{\footnotesize\ttfamily constexpr uint16\+\_\+t ODROID\+\_\+\+M1\+S\+\_\+\+PORT = 52000\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 89 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_acd945371fa34d41309e582fc09a2ed68}\label{mocap_8hpp_acd945371fa34d41309e582fc09a2ed68}} 
+\index{mocap.hpp@{mocap.hpp}!POSE\_FRAME\_FRD@{POSE\_FRAME\_FRD}}
+\index{POSE\_FRAME\_FRD@{POSE\_FRAME\_FRD}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{POSE\_FRAME\_FRD}{POSE\_FRAME\_FRD}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t POSE\+\_\+\+FRAME\+\_\+\+FRD = 2\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 96 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_a9498fc7a67b5e2359244405014fa1185}\label{mocap_8hpp_a9498fc7a67b5e2359244405014fa1185}} 
+\index{mocap.hpp@{mocap.hpp}!POSE\_FRAME\_NED@{POSE\_FRAME\_NED}}
+\index{POSE\_FRAME\_NED@{POSE\_FRAME\_NED}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{POSE\_FRAME\_NED}{POSE\_FRAME\_NED}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t POSE\+\_\+\+FRAME\+\_\+\+NED = 1\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 95 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_a2ddbf2c1c54f051762a17fecea9e5614}\label{mocap_8hpp_a2ddbf2c1c54f051762a17fecea9e5614}} 
+\index{mocap.hpp@{mocap.hpp}!POSE\_FRAME\_UNKNOWN@{POSE\_FRAME\_UNKNOWN}}
+\index{POSE\_FRAME\_UNKNOWN@{POSE\_FRAME\_UNKNOWN}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{POSE\_FRAME\_UNKNOWN}{POSE\_FRAME\_UNKNOWN}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t POSE\+\_\+\+FRAME\+\_\+\+UNKNOWN = 0\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- USER DEFINED -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- /// 
+
+
+
+Definition at line 94 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_a45289b30613008d14c525850b1ffd343}\label{mocap_8hpp_a45289b30613008d14c525850b1ffd343}} 
+\index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_BODY\_FRD@{VELOCITY\_FRAME\_BODY\_FRD}}
+\index{VELOCITY\_FRAME\_BODY\_FRD@{VELOCITY\_FRAME\_BODY\_FRD}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{VELOCITY\_FRAME\_BODY\_FRD}{VELOCITY\_FRAME\_BODY\_FRD}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t VELOCITY\+\_\+\+FRAME\+\_\+\+BODY\+\_\+\+FRD = 3\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 101 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_addf6acdd93e3173b761c9c8c624c4a45}\label{mocap_8hpp_addf6acdd93e3173b761c9c8c624c4a45}} 
+\index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_FRD@{VELOCITY\_FRAME\_FRD}}
+\index{VELOCITY\_FRAME\_FRD@{VELOCITY\_FRAME\_FRD}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{VELOCITY\_FRAME\_FRD}{VELOCITY\_FRAME\_FRD}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t VELOCITY\+\_\+\+FRAME\+\_\+\+FRD = 2\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 100 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_ad7d0cce572b25f60daef3129ecc2f4d5}\label{mocap_8hpp_ad7d0cce572b25f60daef3129ecc2f4d5}} 
+\index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_NED@{VELOCITY\_FRAME\_NED}}
+\index{VELOCITY\_FRAME\_NED@{VELOCITY\_FRAME\_NED}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{VELOCITY\_FRAME\_NED}{VELOCITY\_FRAME\_NED}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t VELOCITY\+\_\+\+FRAME\+\_\+\+NED = 1\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 99 of file mocap.\+hpp.
+
+\mbox{\Hypertarget{mocap_8hpp_aedd733ab9aa07f9cc7c114ac25d74b57}\label{mocap_8hpp_aedd733ab9aa07f9cc7c114ac25d74b57}} 
+\index{mocap.hpp@{mocap.hpp}!VELOCITY\_FRAME\_UNKNOWN@{VELOCITY\_FRAME\_UNKNOWN}}
+\index{VELOCITY\_FRAME\_UNKNOWN@{VELOCITY\_FRAME\_UNKNOWN}!mocap.hpp@{mocap.hpp}}
+\doxysubsubsection{\texorpdfstring{VELOCITY\_FRAME\_UNKNOWN}{VELOCITY\_FRAME\_UNKNOWN}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t VELOCITY\+\_\+\+FRAME\+\_\+\+UNKNOWN = 0\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 98 of file mocap.\+hpp.
+

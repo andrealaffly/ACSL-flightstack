@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -21,7 +22,7 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **********************************************************************************************************************/
-
+///@endcond
 /***********************************************************************************************************************
  * File:        control.cpp
  * Author:      Mattia Gramuglia

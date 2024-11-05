@@ -1,0 +1,418 @@
+\hypertarget{structVehicleInfo}{}\doxysection{Vehicle\+Info Struct Reference}
+\label{structVehicleInfo}\index{VehicleInfo@{VehicleInfo}}
+
+
+Vehicle Info.  
+
+
+
+
+{\ttfamily \#include $<$vehicle\+\_\+info.\+hpp$>$}
+
+
+
+Collaboration diagram for Vehicle\+Info\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{structVehicleInfo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{structVehicleInfo_a1dd7e2fa722751359e3573f5ca896435}{mass}} = 1.\+920
+\item 
+const Eigen\+::\+Matrix3d \mbox{\hyperlink{structVehicleInfo_a0058e9ad8b0abc22a52ab378871964f6}{inertia\+\_\+matrix}}
+\item 
+const double \mbox{\hyperlink{structVehicleInfo_a0cf404fb2b1b1dbb99c6353af2c9fdcb}{air\+\_\+density}} = 1.\+225
+\item 
+const double \mbox{\hyperlink{structVehicleInfo_ae0f8af8402b235276a64482d93394511}{surface\+\_\+area}} = 0.\+07
+\item 
+const double \mbox{\hyperlink{structVehicleInfo_a9525f45db80679b9fb9d0af03df15988}{drag\+\_\+coefficient}} = 1.\+28
+\item 
+const Eigen\+::\+Matrix3d \mbox{\hyperlink{structVehicleInfo_aacb360f4e88f9ecd25ad258c656f7660}{drag\+\_\+coefficient\+\_\+matrix}}
+\item 
+const double \mbox{\hyperlink{structVehicleInfo_a147db9131e3cfabb72ca8de5c6c1cf16}{distance\+\_\+motors\+\_\+cenetrline\+\_\+x\+\_\+dir}} = 0.\+0881269
+\item 
+const double \mbox{\hyperlink{structVehicleInfo_a32be020766301ca1738335588413c95f}{distance\+\_\+motors\+\_\+cenetrline\+\_\+y\+\_\+dir}} = 0.\+1083450
+\item 
+const double \mbox{\hyperlink{structVehicleInfo_ae37ec8db22bf30d695c17b667ca98c39}{propeller\+\_\+drag\+\_\+coefficient}} = 0.\+01
+\item 
+Eigen\+::\+Matrix2d \mbox{\hyperlink{structVehicleInfo_a02f0b5bf5f4eddcfcc35571c6b91be49}{A\+\_\+filter\+\_\+roll\+\_\+des}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structVehicleInfo_ae220af9f5305600483f987c78ff0d02d}{B\+\_\+filter\+\_\+roll\+\_\+des}}
+\item 
+Eigen\+::\+Row\+Vector2d \mbox{\hyperlink{structVehicleInfo_a28115858657c494f6fecfdefe5ed2b35}{C\+\_\+filter\+\_\+roll\+\_\+des}}
+\item 
+double \mbox{\hyperlink{structVehicleInfo_ab135245e0ebf55d1e95d226656d33193}{D\+\_\+filter\+\_\+roll\+\_\+des}}
+\item 
+Eigen\+::\+Matrix2d \mbox{\hyperlink{structVehicleInfo_a7bbaa00b592d90d4e97d6f2ed7343415}{A\+\_\+filter\+\_\+pitch\+\_\+des}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structVehicleInfo_ad52aebb809b5809c5f0265668a315318}{B\+\_\+filter\+\_\+pitch\+\_\+des}}
+\item 
+Eigen\+::\+Row\+Vector2d \mbox{\hyperlink{structVehicleInfo_a523f79a16ddca825ac835c2502c4e08f}{C\+\_\+filter\+\_\+pitch\+\_\+des}}
+\item 
+double \mbox{\hyperlink{structVehicleInfo_aaa59beb9c61bcf353315aa5dcb9f5284}{D\+\_\+filter\+\_\+pitch\+\_\+des}}
+\item 
+Eigen\+::\+Matrix2d \mbox{\hyperlink{structVehicleInfo_a419c28d60e8705ac09be3598aa925d8e}{A\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structVehicleInfo_a11e2888ff6a918e106322ad688b5a50f}{B\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}}
+\item 
+Eigen\+::\+Row\+Vector2d \mbox{\hyperlink{structVehicleInfo_a774369d0252a22a07f391b0a3b358f2a}{C\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}}
+\item 
+double \mbox{\hyperlink{structVehicleInfo_a0d8e4113dfae722d5f05496a79b36079}{D\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}}
+\item 
+Eigen\+::\+Matrix2d \mbox{\hyperlink{structVehicleInfo_a116399a40298501cf70cb5c04a39ef3a}{A\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structVehicleInfo_ac91d7997982835933816f2076c0a5924}{B\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}}
+\item 
+Eigen\+::\+Row\+Vector2d \mbox{\hyperlink{structVehicleInfo_a0b8e1eadf1c481bf7c7b8bd148f3f6c2}{C\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}}
+\item 
+double \mbox{\hyperlink{structVehicleInfo_a7d4b236c820712b74bb8dd43479a0abd}{D\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}}
+\item 
+const Eigen\+::\+Matrix$<$ double, 8, 4 $>$ \mbox{\hyperlink{structVehicleInfo_a54f466611eb026d4060532fc8847fd5b}{mixer\+\_\+matrix}}
+\item 
+const Eigen\+::\+Matrix4d \mbox{\hyperlink{structVehicleInfo_aabb5fb4b10cab0820d5a0900182443d1}{mixer\+\_\+matrix\+\_\+quadcopter}}
+\begin{DoxyCompactList}\small\item\em Declare const matrix mixer\+\_\+matrix\+\_\+quadcopter using a lambda function. \end{DoxyCompactList}\item 
+const Eigen\+::\+Vector\+Xd \mbox{\hyperlink{structVehicleInfo_a04753de209995b92192c116070bf05ae}{thrust\+\_\+polynomial\+\_\+coefficients\+\_\+quadcopter}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Vehicle Info. 
+
+Definition at line 61 of file vehicle\+\_\+info.\+hpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structVehicleInfo_a7bbaa00b592d90d4e97d6f2ed7343415}\label{structVehicleInfo_a7bbaa00b592d90d4e97d6f2ed7343415}} 
+\index{VehicleInfo@{VehicleInfo}!A\_filter\_pitch\_des@{A\_filter\_pitch\_des}}
+\index{A\_filter\_pitch\_des@{A\_filter\_pitch\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{A\_filter\_pitch\_des}{A\_filter\_pitch\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Vehicle\+Info\+::\+A\+\_\+filter\+\_\+pitch\+\_\+des}
+
+
+
+Definition at line 119 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a116399a40298501cf70cb5c04a39ef3a}\label{structVehicleInfo_a116399a40298501cf70cb5c04a39ef3a}} 
+\index{VehicleInfo@{VehicleInfo}!A\_filter\_pitch\_dot\_des@{A\_filter\_pitch\_dot\_des}}
+\index{A\_filter\_pitch\_dot\_des@{A\_filter\_pitch\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{A\_filter\_pitch\_dot\_des}{A\_filter\_pitch\_dot\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Vehicle\+Info\+::\+A\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 131 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a02f0b5bf5f4eddcfcc35571c6b91be49}\label{structVehicleInfo_a02f0b5bf5f4eddcfcc35571c6b91be49}} 
+\index{VehicleInfo@{VehicleInfo}!A\_filter\_roll\_des@{A\_filter\_roll\_des}}
+\index{A\_filter\_roll\_des@{A\_filter\_roll\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{A\_filter\_roll\_des}{A\_filter\_roll\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Vehicle\+Info\+::\+A\+\_\+filter\+\_\+roll\+\_\+des}
+
+
+
+Definition at line 113 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a419c28d60e8705ac09be3598aa925d8e}\label{structVehicleInfo_a419c28d60e8705ac09be3598aa925d8e}} 
+\index{VehicleInfo@{VehicleInfo}!A\_filter\_roll\_dot\_des@{A\_filter\_roll\_dot\_des}}
+\index{A\_filter\_roll\_dot\_des@{A\_filter\_roll\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{A\_filter\_roll\_dot\_des}{A\_filter\_roll\_dot\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Vehicle\+Info\+::\+A\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 125 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a0cf404fb2b1b1dbb99c6353af2c9fdcb}\label{structVehicleInfo_a0cf404fb2b1b1dbb99c6353af2c9fdcb}} 
+\index{VehicleInfo@{VehicleInfo}!air\_density@{air\_density}}
+\index{air\_density@{air\_density}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{air\_density}{air\_density}}
+{\footnotesize\ttfamily const double Vehicle\+Info\+::air\+\_\+density = 1.\+225}
+
+
+
+Definition at line 73 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_ad52aebb809b5809c5f0265668a315318}\label{structVehicleInfo_ad52aebb809b5809c5f0265668a315318}} 
+\index{VehicleInfo@{VehicleInfo}!B\_filter\_pitch\_des@{B\_filter\_pitch\_des}}
+\index{B\_filter\_pitch\_des@{B\_filter\_pitch\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{B\_filter\_pitch\_des}{B\_filter\_pitch\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Vehicle\+Info\+::\+B\+\_\+filter\+\_\+pitch\+\_\+des}
+
+
+
+Definition at line 120 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_ac91d7997982835933816f2076c0a5924}\label{structVehicleInfo_ac91d7997982835933816f2076c0a5924}} 
+\index{VehicleInfo@{VehicleInfo}!B\_filter\_pitch\_dot\_des@{B\_filter\_pitch\_dot\_des}}
+\index{B\_filter\_pitch\_dot\_des@{B\_filter\_pitch\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{B\_filter\_pitch\_dot\_des}{B\_filter\_pitch\_dot\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Vehicle\+Info\+::\+B\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 132 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_ae220af9f5305600483f987c78ff0d02d}\label{structVehicleInfo_ae220af9f5305600483f987c78ff0d02d}} 
+\index{VehicleInfo@{VehicleInfo}!B\_filter\_roll\_des@{B\_filter\_roll\_des}}
+\index{B\_filter\_roll\_des@{B\_filter\_roll\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{B\_filter\_roll\_des}{B\_filter\_roll\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Vehicle\+Info\+::\+B\+\_\+filter\+\_\+roll\+\_\+des}
+
+
+
+Definition at line 114 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a11e2888ff6a918e106322ad688b5a50f}\label{structVehicleInfo_a11e2888ff6a918e106322ad688b5a50f}} 
+\index{VehicleInfo@{VehicleInfo}!B\_filter\_roll\_dot\_des@{B\_filter\_roll\_dot\_des}}
+\index{B\_filter\_roll\_dot\_des@{B\_filter\_roll\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{B\_filter\_roll\_dot\_des}{B\_filter\_roll\_dot\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Vehicle\+Info\+::\+B\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 126 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a523f79a16ddca825ac835c2502c4e08f}\label{structVehicleInfo_a523f79a16ddca825ac835c2502c4e08f}} 
+\index{VehicleInfo@{VehicleInfo}!C\_filter\_pitch\_des@{C\_filter\_pitch\_des}}
+\index{C\_filter\_pitch\_des@{C\_filter\_pitch\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{C\_filter\_pitch\_des}{C\_filter\_pitch\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Row\+Vector2d Vehicle\+Info\+::\+C\+\_\+filter\+\_\+pitch\+\_\+des}
+
+
+
+Definition at line 121 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a0b8e1eadf1c481bf7c7b8bd148f3f6c2}\label{structVehicleInfo_a0b8e1eadf1c481bf7c7b8bd148f3f6c2}} 
+\index{VehicleInfo@{VehicleInfo}!C\_filter\_pitch\_dot\_des@{C\_filter\_pitch\_dot\_des}}
+\index{C\_filter\_pitch\_dot\_des@{C\_filter\_pitch\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{C\_filter\_pitch\_dot\_des}{C\_filter\_pitch\_dot\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Row\+Vector2d Vehicle\+Info\+::\+C\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 133 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a28115858657c494f6fecfdefe5ed2b35}\label{structVehicleInfo_a28115858657c494f6fecfdefe5ed2b35}} 
+\index{VehicleInfo@{VehicleInfo}!C\_filter\_roll\_des@{C\_filter\_roll\_des}}
+\index{C\_filter\_roll\_des@{C\_filter\_roll\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{C\_filter\_roll\_des}{C\_filter\_roll\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Row\+Vector2d Vehicle\+Info\+::\+C\+\_\+filter\+\_\+roll\+\_\+des}
+
+
+
+Definition at line 115 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a774369d0252a22a07f391b0a3b358f2a}\label{structVehicleInfo_a774369d0252a22a07f391b0a3b358f2a}} 
+\index{VehicleInfo@{VehicleInfo}!C\_filter\_roll\_dot\_des@{C\_filter\_roll\_dot\_des}}
+\index{C\_filter\_roll\_dot\_des@{C\_filter\_roll\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{C\_filter\_roll\_dot\_des}{C\_filter\_roll\_dot\_des}}
+{\footnotesize\ttfamily Eigen\+::\+Row\+Vector2d Vehicle\+Info\+::\+C\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 127 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_aaa59beb9c61bcf353315aa5dcb9f5284}\label{structVehicleInfo_aaa59beb9c61bcf353315aa5dcb9f5284}} 
+\index{VehicleInfo@{VehicleInfo}!D\_filter\_pitch\_des@{D\_filter\_pitch\_des}}
+\index{D\_filter\_pitch\_des@{D\_filter\_pitch\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{D\_filter\_pitch\_des}{D\_filter\_pitch\_des}}
+{\footnotesize\ttfamily double Vehicle\+Info\+::\+D\+\_\+filter\+\_\+pitch\+\_\+des}
+
+
+
+Definition at line 122 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a7d4b236c820712b74bb8dd43479a0abd}\label{structVehicleInfo_a7d4b236c820712b74bb8dd43479a0abd}} 
+\index{VehicleInfo@{VehicleInfo}!D\_filter\_pitch\_dot\_des@{D\_filter\_pitch\_dot\_des}}
+\index{D\_filter\_pitch\_dot\_des@{D\_filter\_pitch\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{D\_filter\_pitch\_dot\_des}{D\_filter\_pitch\_dot\_des}}
+{\footnotesize\ttfamily double Vehicle\+Info\+::\+D\+\_\+filter\+\_\+pitch\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 134 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_ab135245e0ebf55d1e95d226656d33193}\label{structVehicleInfo_ab135245e0ebf55d1e95d226656d33193}} 
+\index{VehicleInfo@{VehicleInfo}!D\_filter\_roll\_des@{D\_filter\_roll\_des}}
+\index{D\_filter\_roll\_des@{D\_filter\_roll\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{D\_filter\_roll\_des}{D\_filter\_roll\_des}}
+{\footnotesize\ttfamily double Vehicle\+Info\+::\+D\+\_\+filter\+\_\+roll\+\_\+des}
+
+
+
+Definition at line 116 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a0d8e4113dfae722d5f05496a79b36079}\label{structVehicleInfo_a0d8e4113dfae722d5f05496a79b36079}} 
+\index{VehicleInfo@{VehicleInfo}!D\_filter\_roll\_dot\_des@{D\_filter\_roll\_dot\_des}}
+\index{D\_filter\_roll\_dot\_des@{D\_filter\_roll\_dot\_des}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{D\_filter\_roll\_dot\_des}{D\_filter\_roll\_dot\_des}}
+{\footnotesize\ttfamily double Vehicle\+Info\+::\+D\+\_\+filter\+\_\+roll\+\_\+dot\+\_\+des}
+
+
+
+Definition at line 128 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a147db9131e3cfabb72ca8de5c6c1cf16}\label{structVehicleInfo_a147db9131e3cfabb72ca8de5c6c1cf16}} 
+\index{VehicleInfo@{VehicleInfo}!distance\_motors\_cenetrline\_x\_dir@{distance\_motors\_cenetrline\_x\_dir}}
+\index{distance\_motors\_cenetrline\_x\_dir@{distance\_motors\_cenetrline\_x\_dir}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{distance\_motors\_cenetrline\_x\_dir}{distance\_motors\_cenetrline\_x\_dir}}
+{\footnotesize\ttfamily const double Vehicle\+Info\+::distance\+\_\+motors\+\_\+cenetrline\+\_\+x\+\_\+dir = 0.\+0881269}
+
+
+
+Definition at line 84 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a32be020766301ca1738335588413c95f}\label{structVehicleInfo_a32be020766301ca1738335588413c95f}} 
+\index{VehicleInfo@{VehicleInfo}!distance\_motors\_cenetrline\_y\_dir@{distance\_motors\_cenetrline\_y\_dir}}
+\index{distance\_motors\_cenetrline\_y\_dir@{distance\_motors\_cenetrline\_y\_dir}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{distance\_motors\_cenetrline\_y\_dir}{distance\_motors\_cenetrline\_y\_dir}}
+{\footnotesize\ttfamily const double Vehicle\+Info\+::distance\+\_\+motors\+\_\+cenetrline\+\_\+y\+\_\+dir = 0.\+1083450}
+
+
+
+Definition at line 86 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a9525f45db80679b9fb9d0af03df15988}\label{structVehicleInfo_a9525f45db80679b9fb9d0af03df15988}} 
+\index{VehicleInfo@{VehicleInfo}!drag\_coefficient@{drag\_coefficient}}
+\index{drag\_coefficient@{drag\_coefficient}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{drag\_coefficient}{drag\_coefficient}}
+{\footnotesize\ttfamily const double Vehicle\+Info\+::drag\+\_\+coefficient = 1.\+28}
+
+
+
+Definition at line 77 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_aacb360f4e88f9ecd25ad258c656f7660}\label{structVehicleInfo_aacb360f4e88f9ecd25ad258c656f7660}} 
+\index{VehicleInfo@{VehicleInfo}!drag\_coefficient\_matrix@{drag\_coefficient\_matrix}}
+\index{drag\_coefficient\_matrix@{drag\_coefficient\_matrix}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{drag\_coefficient\_matrix}{drag\_coefficient\_matrix}}
+{\footnotesize\ttfamily const Eigen\+::\+Matrix3d Vehicle\+Info\+::drag\+\_\+coefficient\+\_\+matrix}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (Eigen::Matrix3d() << }
+\DoxyCodeLine{    \mbox{\hyperlink{structVehicleInfo_a9525f45db80679b9fb9d0af03df15988}{drag\_coefficient}}, 0,                0,}
+\DoxyCodeLine{    0,                \mbox{\hyperlink{structVehicleInfo_a9525f45db80679b9fb9d0af03df15988}{drag\_coefficient}}, 0,}
+\DoxyCodeLine{    0,                0,                0}
+\DoxyCodeLine{  ).finished()}
+
+\end{DoxyCode}
+
+
+Definition at line 78 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a0058e9ad8b0abc22a52ab378871964f6}\label{structVehicleInfo_a0058e9ad8b0abc22a52ab378871964f6}} 
+\index{VehicleInfo@{VehicleInfo}!inertia\_matrix@{inertia\_matrix}}
+\index{inertia\_matrix@{inertia\_matrix}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{inertia\_matrix}{inertia\_matrix}}
+{\footnotesize\ttfamily const Eigen\+::\+Matrix3d Vehicle\+Info\+::inertia\+\_\+matrix}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (Eigen::Matrix3d() << }
+\DoxyCodeLine{     2.271990e-\/02, -\/6.557000e-\/06, -\/1.003498e-\/03,}
+\DoxyCodeLine{    -\/6.557000e-\/06,  2.202047e-\/02,  5.658400e-\/06,}
+\DoxyCodeLine{    -\/1.003498e-\/03,  5.658400e-\/06,  1.614693e-\/02}
+\DoxyCodeLine{  ).finished()}
+
+\end{DoxyCode}
+
+
+Definition at line 66 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a1dd7e2fa722751359e3573f5ca896435}\label{structVehicleInfo_a1dd7e2fa722751359e3573f5ca896435}} 
+\index{VehicleInfo@{VehicleInfo}!mass@{mass}}
+\index{mass@{mass}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{mass}{mass}}
+{\footnotesize\ttfamily const double Vehicle\+Info\+::mass = 1.\+920}
+
+
+
+Definition at line 64 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a54f466611eb026d4060532fc8847fd5b}\label{structVehicleInfo_a54f466611eb026d4060532fc8847fd5b}} 
+\index{VehicleInfo@{VehicleInfo}!mixer\_matrix@{mixer\_matrix}}
+\index{mixer\_matrix@{mixer\_matrix}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{mixer\_matrix}{mixer\_matrix}}
+{\footnotesize\ttfamily const Eigen\+::\+Matrix$<$double, 8, 4$>$ Vehicle\+Info\+::mixer\+\_\+matrix}
+
+
+
+Definition at line 137 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_aabb5fb4b10cab0820d5a0900182443d1}\label{structVehicleInfo_aabb5fb4b10cab0820d5a0900182443d1}} 
+\index{VehicleInfo@{VehicleInfo}!mixer\_matrix\_quadcopter@{mixer\_matrix\_quadcopter}}
+\index{mixer\_matrix\_quadcopter@{mixer\_matrix\_quadcopter}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{mixer\_matrix\_quadcopter}{mixer\_matrix\_quadcopter}}
+{\footnotesize\ttfamily const Eigen\+::\+Matrix4d Vehicle\+Info\+::mixer\+\_\+matrix\+\_\+quadcopter}
+
+
+
+Declare const matrix mixer\+\_\+matrix\+\_\+quadcopter using a lambda function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mat 
+\end{DoxyReturn}
+
+
+Definition at line 200 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_ae37ec8db22bf30d695c17b667ca98c39}\label{structVehicleInfo_ae37ec8db22bf30d695c17b667ca98c39}} 
+\index{VehicleInfo@{VehicleInfo}!propeller\_drag\_coefficient@{propeller\_drag\_coefficient}}
+\index{propeller\_drag\_coefficient@{propeller\_drag\_coefficient}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{propeller\_drag\_coefficient}{propeller\_drag\_coefficient}}
+{\footnotesize\ttfamily const double Vehicle\+Info\+::propeller\+\_\+drag\+\_\+coefficient = 0.\+01}
+
+
+
+Definition at line 88 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_ae0f8af8402b235276a64482d93394511}\label{structVehicleInfo_ae0f8af8402b235276a64482d93394511}} 
+\index{VehicleInfo@{VehicleInfo}!surface\_area@{surface\_area}}
+\index{surface\_area@{surface\_area}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{surface\_area}{surface\_area}}
+{\footnotesize\ttfamily const double Vehicle\+Info\+::surface\+\_\+area = 0.\+07}
+
+
+
+Definition at line 75 of file vehicle\+\_\+info.\+hpp.
+
+\mbox{\Hypertarget{structVehicleInfo_a04753de209995b92192c116070bf05ae}\label{structVehicleInfo_a04753de209995b92192c116070bf05ae}} 
+\index{VehicleInfo@{VehicleInfo}!thrust\_polynomial\_coefficients\_quadcopter@{thrust\_polynomial\_coefficients\_quadcopter}}
+\index{thrust\_polynomial\_coefficients\_quadcopter@{thrust\_polynomial\_coefficients\_quadcopter}!VehicleInfo@{VehicleInfo}}
+\doxysubsubsection{\texorpdfstring{thrust\_polynomial\_coefficients\_quadcopter}{thrust\_polynomial\_coefficients\_quadcopter}}
+{\footnotesize\ttfamily const Eigen\+::\+Vector\+Xd Vehicle\+Info\+::thrust\+\_\+polynomial\+\_\+coefficients\+\_\+quadcopter}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (Eigen::VectorXd(8) << }
+\DoxyCodeLine{    0.00000318912344541255,}
+\DoxyCodeLine{    -\/0.000107583270223678,}
+\DoxyCodeLine{    0.00147671457913486,}
+\DoxyCodeLine{    -\/0.0107666934546496,}
+\DoxyCodeLine{    0.0459838527842087,}
+\DoxyCodeLine{    -\/0.121504752465409,}
+\DoxyCodeLine{    0.285725583084306,}
+\DoxyCodeLine{    -\/0.0118110779377008}
+\DoxyCodeLine{  ).finished()}
+
+\end{DoxyCode}
+
+
+Definition at line 247 of file vehicle\+\_\+info.\+hpp.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/siddh/\+Onedrive/\+Desktop/\+ACSL-\/flightstack/include/flightstack/control/\mbox{\hyperlink{vehicle__info_8hpp}{vehicle\+\_\+info.\+hpp}}\end{DoxyCompactItemize}

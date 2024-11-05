@@ -1,0 +1,369 @@
+\hypertarget{structControl_1_1ControlInternalMembers}{}\doxysection{Control\+::Control\+Internal\+Members Struct Reference}
+\label{structControl_1_1ControlInternalMembers}\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+
+
+This struct contains the variables that are commmon among all controllers as they are the foundations of the base control architecture framework.  
+
+
+
+
+{\ttfamily \#include $<$control.\+hpp$>$}
+
+
+
+Collaboration diagram for Control\+::Control\+Internal\+Members\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{structControl_1_1ControlInternalMembers__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structControl_1_1ControlInternalMembers_aef6dafde53f685605b102cc9b2a268a0}{Control\+Internal\+Members}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_acf90731d8e95f8c9c611c74871667323}{mu\+\_\+translational\+\_\+raw}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a8586f1f58fe843939c25ddb227aa0836}{mu\+\_\+translational}}
+\item 
+Eigen\+::\+Vector4d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_afa35f935b1720913e11cb4ddf68f5413}{U\+\_\+control\+\_\+inputs}}
+\item 
+Eigen\+::\+Ref$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a4a912063d28534d996273fdb13df7cdd}{U2\+\_\+\+U3\+\_\+\+U4}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a2f17b7037459f62b1b1f4f4b17ab8130}{angular\+\_\+position\+\_\+desired}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_afbd247d5b3eb3b998f01535614001e96}{angular\+\_\+position\+\_\+desired\+\_\+dot}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_aa89b907e29e30643a4bb18c22df2f949}{angular\+\_\+position\+\_\+desired\+\_\+dot\+\_\+dot}}
+\item 
+double \& \mbox{\hyperlink{structControl_1_1ControlInternalMembers_adc1e3e2f64c1464dc7f4e4e05f144161}{roll\+\_\+desired}}
+\item 
+double \& \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a2416b56eca331ffedd258bf414d1d48a}{pitch\+\_\+desired}}
+\item 
+double \& \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a33e78f7b23f39b6b42ecb5dfc483c444}{roll\+\_\+desired\+\_\+dot}}
+\item 
+double \& \mbox{\hyperlink{structControl_1_1ControlInternalMembers_ade9a895975116e06ea67451d82f64c1e}{pitch\+\_\+desired\+\_\+dot}}
+\item 
+double \& \mbox{\hyperlink{structControl_1_1ControlInternalMembers_adf675a69666648f608d17b40dc22e444}{roll\+\_\+desired\+\_\+dot\+\_\+dot}}
+\item 
+double \& \mbox{\hyperlink{structControl_1_1ControlInternalMembers_ad108d5096053a4d4a219cf7c323be7e7}{pitch\+\_\+desired\+\_\+dot\+\_\+dot}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a9d2059fde174b8c812195e6301c0c0c3}{internal\+\_\+state\+\_\+roll\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a5558743ddfb1ddac26ff6dca1cb34ec0}{internal\+\_\+state\+\_\+pitch\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a0f5379d72f6f5dac60f5a45f4d26b5b4}{internal\+\_\+state\+\_\+roll\+\_\+dot\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Vector2d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a2d60566cc7c4a66a283b12c2f85d8dbc}{internal\+\_\+state\+\_\+pitch\+\_\+dot\+\_\+des\+\_\+filter}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_ae70b8d3eebe47d60412cfa61093f3f7f}{jacobian\+\_\+matrix\+\_\+inverse}}
+\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a2d2efa0579acffb583926bc4c1283e81}{rotation\+\_\+matrix\+\_\+321\+\_\+global\+\_\+to\+\_\+local}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a80f32d436e486e543e974a204ce1f47f}{euler\+\_\+angles\+\_\+rpy\+\_\+dot}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_af696b1766cd8f6807fdc5f05ec20beda}{angular\+\_\+error}}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a73727f4eb402f66d052ed65a9fb0b8f9}{translational\+\_\+position\+\_\+error}}
+\item 
+Eigen\+::\+Matrix$<$ double, 8, 1 $>$ \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a699e1550540ef8c00fbfbd68e002887c}{thrust\+\_\+vector}}
+\item 
+Eigen\+::\+Matrix$<$ double, 8, 1 $>$ \mbox{\hyperlink{structControl_1_1ControlInternalMembers_ac89ebda1f692108c8269458e1f2a3b48}{thrust\+\_\+vector\+\_\+normalized}}
+\item 
+Eigen\+::\+Vector4d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a2d99f6d12a969de7d705f88004ad7c65}{thrust\+\_\+vector\+\_\+quadcopter}}
+\item 
+Eigen\+::\+Vector4d \mbox{\hyperlink{structControl_1_1ControlInternalMembers_a5b81f86dceff3d4977e43c31d83b811f}{thrust\+\_\+vector\+\_\+quadcopter\+\_\+normalized}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This struct contains the variables that are commmon among all controllers as they are the foundations of the base control architecture framework. 
+
+Definition at line 87 of file control.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_aef6dafde53f685605b102cc9b2a268a0}\label{structControl_1_1ControlInternalMembers_aef6dafde53f685605b102cc9b2a268a0}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!ControlInternalMembers@{ControlInternalMembers}}
+\index{ControlInternalMembers@{ControlInternalMembers}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{ControlInternalMembers()}{ControlInternalMembers()}}
+{\footnotesize\ttfamily Control\+::\+Control\+Internal\+Members\+::\+Control\+Internal\+Members (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file control.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_af696b1766cd8f6807fdc5f05ec20beda}\label{structControl_1_1ControlInternalMembers_af696b1766cd8f6807fdc5f05ec20beda}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!angular\_error@{angular\_error}}
+\index{angular\_error@{angular\_error}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{angular\_error}{angular\_error}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::angular\+\_\+error}
+
+
+
+Definition at line 112 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a2f17b7037459f62b1b1f4f4b17ab8130}\label{structControl_1_1ControlInternalMembers_a2f17b7037459f62b1b1f4f4b17ab8130}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!angular\_position\_desired@{angular\_position\_desired}}
+\index{angular\_position\_desired@{angular\_position\_desired}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{angular\_position\_desired}{angular\_position\_desired}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::angular\+\_\+position\+\_\+desired}
+
+
+
+Definition at line 96 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_afbd247d5b3eb3b998f01535614001e96}\label{structControl_1_1ControlInternalMembers_afbd247d5b3eb3b998f01535614001e96}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!angular\_position\_desired\_dot@{angular\_position\_desired\_dot}}
+\index{angular\_position\_desired\_dot@{angular\_position\_desired\_dot}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{angular\_position\_desired\_dot}{angular\_position\_desired\_dot}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::angular\+\_\+position\+\_\+desired\+\_\+dot}
+
+
+
+Definition at line 97 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_aa89b907e29e30643a4bb18c22df2f949}\label{structControl_1_1ControlInternalMembers_aa89b907e29e30643a4bb18c22df2f949}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!angular\_position\_desired\_dot\_dot@{angular\_position\_desired\_dot\_dot}}
+\index{angular\_position\_desired\_dot\_dot@{angular\_position\_desired\_dot\_dot}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{angular\_position\_desired\_dot\_dot}{angular\_position\_desired\_dot\_dot}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::angular\+\_\+position\+\_\+desired\+\_\+dot\+\_\+dot}
+
+
+
+Definition at line 98 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a80f32d436e486e543e974a204ce1f47f}\label{structControl_1_1ControlInternalMembers_a80f32d436e486e543e974a204ce1f47f}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!euler\_angles\_rpy\_dot@{euler\_angles\_rpy\_dot}}
+\index{euler\_angles\_rpy\_dot@{euler\_angles\_rpy\_dot}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{euler\_angles\_rpy\_dot}{euler\_angles\_rpy\_dot}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::euler\+\_\+angles\+\_\+rpy\+\_\+dot}
+
+
+
+Definition at line 111 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a5558743ddfb1ddac26ff6dca1cb34ec0}\label{structControl_1_1ControlInternalMembers_a5558743ddfb1ddac26ff6dca1cb34ec0}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!internal\_state\_pitch\_des\_filter@{internal\_state\_pitch\_des\_filter}}
+\index{internal\_state\_pitch\_des\_filter@{internal\_state\_pitch\_des\_filter}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{internal\_state\_pitch\_des\_filter}{internal\_state\_pitch\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Control\+::\+Control\+Internal\+Members\+::internal\+\_\+state\+\_\+pitch\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 106 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a2d60566cc7c4a66a283b12c2f85d8dbc}\label{structControl_1_1ControlInternalMembers_a2d60566cc7c4a66a283b12c2f85d8dbc}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!internal\_state\_pitch\_dot\_des\_filter@{internal\_state\_pitch\_dot\_des\_filter}}
+\index{internal\_state\_pitch\_dot\_des\_filter@{internal\_state\_pitch\_dot\_des\_filter}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{internal\_state\_pitch\_dot\_des\_filter}{internal\_state\_pitch\_dot\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Control\+::\+Control\+Internal\+Members\+::internal\+\_\+state\+\_\+pitch\+\_\+dot\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 108 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a9d2059fde174b8c812195e6301c0c0c3}\label{structControl_1_1ControlInternalMembers_a9d2059fde174b8c812195e6301c0c0c3}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!internal\_state\_roll\_des\_filter@{internal\_state\_roll\_des\_filter}}
+\index{internal\_state\_roll\_des\_filter@{internal\_state\_roll\_des\_filter}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{internal\_state\_roll\_des\_filter}{internal\_state\_roll\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Control\+::\+Control\+Internal\+Members\+::internal\+\_\+state\+\_\+roll\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 105 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a0f5379d72f6f5dac60f5a45f4d26b5b4}\label{structControl_1_1ControlInternalMembers_a0f5379d72f6f5dac60f5a45f4d26b5b4}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!internal\_state\_roll\_dot\_des\_filter@{internal\_state\_roll\_dot\_des\_filter}}
+\index{internal\_state\_roll\_dot\_des\_filter@{internal\_state\_roll\_dot\_des\_filter}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{internal\_state\_roll\_dot\_des\_filter}{internal\_state\_roll\_dot\_des\_filter}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2d Control\+::\+Control\+Internal\+Members\+::internal\+\_\+state\+\_\+roll\+\_\+dot\+\_\+des\+\_\+filter}
+
+
+
+Definition at line 107 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_ae70b8d3eebe47d60412cfa61093f3f7f}\label{structControl_1_1ControlInternalMembers_ae70b8d3eebe47d60412cfa61093f3f7f}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!jacobian\_matrix\_inverse@{jacobian\_matrix\_inverse}}
+\index{jacobian\_matrix\_inverse@{jacobian\_matrix\_inverse}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{jacobian\_matrix\_inverse}{jacobian\_matrix\_inverse}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Control\+::\+Control\+Internal\+Members\+::jacobian\+\_\+matrix\+\_\+inverse}
+
+
+
+Definition at line 109 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a8586f1f58fe843939c25ddb227aa0836}\label{structControl_1_1ControlInternalMembers_a8586f1f58fe843939c25ddb227aa0836}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!mu\_translational@{mu\_translational}}
+\index{mu\_translational@{mu\_translational}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{mu\_translational}{mu\_translational}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::mu\+\_\+translational}
+
+
+
+Definition at line 93 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_acf90731d8e95f8c9c611c74871667323}\label{structControl_1_1ControlInternalMembers_acf90731d8e95f8c9c611c74871667323}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!mu\_translational\_raw@{mu\_translational\_raw}}
+\index{mu\_translational\_raw@{mu\_translational\_raw}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{mu\_translational\_raw}{mu\_translational\_raw}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::mu\+\_\+translational\+\_\+raw}
+
+
+
+Definition at line 92 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a2416b56eca331ffedd258bf414d1d48a}\label{structControl_1_1ControlInternalMembers_a2416b56eca331ffedd258bf414d1d48a}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!pitch\_desired@{pitch\_desired}}
+\index{pitch\_desired@{pitch\_desired}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{pitch\_desired}{pitch\_desired}}
+{\footnotesize\ttfamily double\& Control\+::\+Control\+Internal\+Members\+::pitch\+\_\+desired}
+
+
+
+Definition at line 100 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_ade9a895975116e06ea67451d82f64c1e}\label{structControl_1_1ControlInternalMembers_ade9a895975116e06ea67451d82f64c1e}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!pitch\_desired\_dot@{pitch\_desired\_dot}}
+\index{pitch\_desired\_dot@{pitch\_desired\_dot}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{pitch\_desired\_dot}{pitch\_desired\_dot}}
+{\footnotesize\ttfamily double\& Control\+::\+Control\+Internal\+Members\+::pitch\+\_\+desired\+\_\+dot}
+
+
+
+Definition at line 102 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_ad108d5096053a4d4a219cf7c323be7e7}\label{structControl_1_1ControlInternalMembers_ad108d5096053a4d4a219cf7c323be7e7}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!pitch\_desired\_dot\_dot@{pitch\_desired\_dot\_dot}}
+\index{pitch\_desired\_dot\_dot@{pitch\_desired\_dot\_dot}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{pitch\_desired\_dot\_dot}{pitch\_desired\_dot\_dot}}
+{\footnotesize\ttfamily double\& Control\+::\+Control\+Internal\+Members\+::pitch\+\_\+desired\+\_\+dot\+\_\+dot}
+
+
+
+Definition at line 104 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_adc1e3e2f64c1464dc7f4e4e05f144161}\label{structControl_1_1ControlInternalMembers_adc1e3e2f64c1464dc7f4e4e05f144161}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!roll\_desired@{roll\_desired}}
+\index{roll\_desired@{roll\_desired}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{roll\_desired}{roll\_desired}}
+{\footnotesize\ttfamily double\& Control\+::\+Control\+Internal\+Members\+::roll\+\_\+desired}
+
+
+
+Definition at line 99 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a33e78f7b23f39b6b42ecb5dfc483c444}\label{structControl_1_1ControlInternalMembers_a33e78f7b23f39b6b42ecb5dfc483c444}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!roll\_desired\_dot@{roll\_desired\_dot}}
+\index{roll\_desired\_dot@{roll\_desired\_dot}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{roll\_desired\_dot}{roll\_desired\_dot}}
+{\footnotesize\ttfamily double\& Control\+::\+Control\+Internal\+Members\+::roll\+\_\+desired\+\_\+dot}
+
+
+
+Definition at line 101 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_adf675a69666648f608d17b40dc22e444}\label{structControl_1_1ControlInternalMembers_adf675a69666648f608d17b40dc22e444}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!roll\_desired\_dot\_dot@{roll\_desired\_dot\_dot}}
+\index{roll\_desired\_dot\_dot@{roll\_desired\_dot\_dot}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{roll\_desired\_dot\_dot}{roll\_desired\_dot\_dot}}
+{\footnotesize\ttfamily double\& Control\+::\+Control\+Internal\+Members\+::roll\+\_\+desired\+\_\+dot\+\_\+dot}
+
+
+
+Definition at line 103 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a2d2efa0579acffb583926bc4c1283e81}\label{structControl_1_1ControlInternalMembers_a2d2efa0579acffb583926bc4c1283e81}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!rotation\_matrix\_321\_global\_to\_local@{rotation\_matrix\_321\_global\_to\_local}}
+\index{rotation\_matrix\_321\_global\_to\_local@{rotation\_matrix\_321\_global\_to\_local}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{rotation\_matrix\_321\_global\_to\_local}{rotation\_matrix\_321\_global\_to\_local}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Control\+::\+Control\+Internal\+Members\+::rotation\+\_\+matrix\+\_\+321\+\_\+global\+\_\+to\+\_\+local}
+
+
+
+Definition at line 110 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a699e1550540ef8c00fbfbd68e002887c}\label{structControl_1_1ControlInternalMembers_a699e1550540ef8c00fbfbd68e002887c}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!thrust\_vector@{thrust\_vector}}
+\index{thrust\_vector@{thrust\_vector}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{thrust\_vector}{thrust\_vector}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 8, 1$>$ Control\+::\+Control\+Internal\+Members\+::thrust\+\_\+vector}
+
+
+
+Definition at line 114 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_ac89ebda1f692108c8269458e1f2a3b48}\label{structControl_1_1ControlInternalMembers_ac89ebda1f692108c8269458e1f2a3b48}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!thrust\_vector\_normalized@{thrust\_vector\_normalized}}
+\index{thrust\_vector\_normalized@{thrust\_vector\_normalized}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{thrust\_vector\_normalized}{thrust\_vector\_normalized}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$double, 8, 1$>$ Control\+::\+Control\+Internal\+Members\+::thrust\+\_\+vector\+\_\+normalized}
+
+
+
+Definition at line 115 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a2d99f6d12a969de7d705f88004ad7c65}\label{structControl_1_1ControlInternalMembers_a2d99f6d12a969de7d705f88004ad7c65}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!thrust\_vector\_quadcopter@{thrust\_vector\_quadcopter}}
+\index{thrust\_vector\_quadcopter@{thrust\_vector\_quadcopter}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{thrust\_vector\_quadcopter}{thrust\_vector\_quadcopter}}
+{\footnotesize\ttfamily Eigen\+::\+Vector4d Control\+::\+Control\+Internal\+Members\+::thrust\+\_\+vector\+\_\+quadcopter}
+
+
+
+Definition at line 116 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a5b81f86dceff3d4977e43c31d83b811f}\label{structControl_1_1ControlInternalMembers_a5b81f86dceff3d4977e43c31d83b811f}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!thrust\_vector\_quadcopter\_normalized@{thrust\_vector\_quadcopter\_normalized}}
+\index{thrust\_vector\_quadcopter\_normalized@{thrust\_vector\_quadcopter\_normalized}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{thrust\_vector\_quadcopter\_normalized}{thrust\_vector\_quadcopter\_normalized}}
+{\footnotesize\ttfamily Eigen\+::\+Vector4d Control\+::\+Control\+Internal\+Members\+::thrust\+\_\+vector\+\_\+quadcopter\+\_\+normalized}
+
+
+
+Definition at line 117 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a73727f4eb402f66d052ed65a9fb0b8f9}\label{structControl_1_1ControlInternalMembers_a73727f4eb402f66d052ed65a9fb0b8f9}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!translational\_position\_error@{translational\_position\_error}}
+\index{translational\_position\_error@{translational\_position\_error}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{translational\_position\_error}{translational\_position\_error}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Control\+::\+Control\+Internal\+Members\+::translational\+\_\+position\+\_\+error}
+
+
+
+Definition at line 113 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_a4a912063d28534d996273fdb13df7cdd}\label{structControl_1_1ControlInternalMembers_a4a912063d28534d996273fdb13df7cdd}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!U2\_U3\_U4@{U2\_U3\_U4}}
+\index{U2\_U3\_U4@{U2\_U3\_U4}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{U2\_U3\_U4}{U2\_U3\_U4}}
+{\footnotesize\ttfamily Eigen\+::\+Ref$<$Eigen\+::\+Vector3d$>$ Control\+::\+Control\+Internal\+Members\+::\+U2\+\_\+\+U3\+\_\+\+U4}
+
+
+
+Definition at line 95 of file control.\+hpp.
+
+\mbox{\Hypertarget{structControl_1_1ControlInternalMembers_afa35f935b1720913e11cb4ddf68f5413}\label{structControl_1_1ControlInternalMembers_afa35f935b1720913e11cb4ddf68f5413}} 
+\index{Control::ControlInternalMembers@{Control::ControlInternalMembers}!U\_control\_inputs@{U\_control\_inputs}}
+\index{U\_control\_inputs@{U\_control\_inputs}!Control::ControlInternalMembers@{Control::ControlInternalMembers}}
+\doxysubsubsection{\texorpdfstring{U\_control\_inputs}{U\_control\_inputs}}
+{\footnotesize\ttfamily Eigen\+::\+Vector4d Control\+::\+Control\+Internal\+Members\+::\+U\+\_\+control\+\_\+inputs}
+
+
+
+Definition at line 94 of file control.\+hpp.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/siddh/\+Onedrive/\+Desktop/\+ACSL-\/flightstack/include/flightstack/control/\mbox{\hyperlink{control_8hpp}{control.\+hpp}}\item 
+/mnt/c/\+Users/siddh/\+Onedrive/\+Desktop/\+ACSL-\/flightstack/src/control/\mbox{\hyperlink{control_8cpp}{control.\+cpp}}\end{DoxyCompactItemize}

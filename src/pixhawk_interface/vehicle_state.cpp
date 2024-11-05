@@ -1,3 +1,4 @@
+///@cond
 /***********************************************************************************************************************
  * Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.
  * 
@@ -33,7 +34,7 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+///@endcond
 /**
  * @file vehicle_state.cpp
  * @brief Class storing the state of the vehicle coming from the flight controller (Pixhawk)
