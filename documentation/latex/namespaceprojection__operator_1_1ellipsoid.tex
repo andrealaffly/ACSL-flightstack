@@ -6,7 +6,7 @@
 {\footnotesize template$<$int N$>$ }\\\mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}$<$ N $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_a37b27c2a1f3d69d7aa0be231ea4d5fc6}{convex\+Function}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+e, const Eigen\+::\+Matrix$<$ double, N, N $>$ \&S, const double epsilon)
 \begin{DoxyCompactList}\small\item\em Convex function to compute h and dh\+\_\+dx. The outer convex set is an ellipsoid centered in x\+\_\+e with semi-\/axis length described by the diagonal elements that populate the S matrix. If S = diag(1/a$^\wedge$2, 1/b$^\wedge$2, 1/c$^\wedge$2) then the semi-\/axis lengths are \mbox{[}a, b, c\mbox{]}. The inner convex set is the outer convex set ellipsoid scaled by the coefficient alpha = 1/sqrt(1 + epsilon). \end{DoxyCompactList}\item 
 {\footnotesize template$<$int N$>$ }\\Eigen\+::\+Matrix$<$ double, N, 1 $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_ac45ca812de980e8f831959ea1cc4f241}{projection\+Vector}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+d, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+e, const Eigen\+::\+Matrix$<$ double, N, N $>$ \&S, const double epsilon)
-\begin{DoxyCompactList}\small\item\em Function to project the vector x\+\_\+d based on the \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_a37b27c2a1f3d69d7aa0be231ea4d5fc6}{projection\+\_\+operator\+::ellipsoid\+::convex\+Function()}} x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Function to project the vector x\+\_\+d based on the projection\+\_\+operator\+::ellipsoid\+::convex\+Function() x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Derived1 , typename Derived2 $>$ }\\auto \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_a129854ec60147e673b036ebd6b02cfce}{projection\+Matrix}} (const Eigen\+::\+Matrix\+Base$<$ Derived1 $>$ \&matrix, const Eigen\+::\+Matrix\+Base$<$ Derived2 $>$ \&matrix\+\_\+d, const Eigen\+::\+Matrix$<$ double, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time, 1 $>$ \&x\+\_\+e, const Eigen\+::\+Matrix$<$ double, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time, Derived1\+::\+Rows\+At\+Compile\+Time $\ast$Derived1\+::\+Cols\+At\+Compile\+Time $>$ \&S, const double epsilon) -\/$>$ Eigen\+::\+Matrix$<$ typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time $>$
 \begin{DoxyCompactList}\small\item\em Function to apply projection\+Vector to a matrix by reshaping it into a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -81,7 +81,7 @@ Eigen\+::\+Matrix$<$double, N, 1$>$ projection\+\_\+operator\+::ellipsoid\+::pro
 
 
 
-Function to project the vector x\+\_\+d based on the \mbox{\hyperlink{namespaceprojection__operator_1_1ellipsoid_a37b27c2a1f3d69d7aa0be231ea4d5fc6}{projection\+\_\+operator\+::ellipsoid\+::convex\+Function()}} x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) 
+Function to project the vector x\+\_\+d based on the projection\+\_\+operator\+::ellipsoid\+::convex\+Function() x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) 
 
 
 \begin{DoxyParams}{Parameters}

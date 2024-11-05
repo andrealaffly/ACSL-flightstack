@@ -92,7 +92,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct contains the variables that are used in this particular controller.  <a href="structMRAC_1_1ControllerSpecificInternalMembers.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMRAC_1_1StateController.html">StateController</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents the state of the <a class="el" href="classMRAC.html">MRAC</a> controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).  <a href="structMRAC_1_1StateController.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents the state of the MRAC controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).  <a href="structMRAC_1_1StateController.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -111,7 +111,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a215fd9aff4cee50bb265f0c91f190e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classLogData__MRAC.html">LogData_MRAC</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMRAC.html#a8a215fd9aff4cee50bb265f0c91f190e">getLogData</a> () const</td></tr>
 <tr class="separator:a8a215fd9aff4cee50bb265f0c91f190e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0e10274b5bbfb541addfe78dfacf689"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMRAC.html#af0e10274b5bbfb541addfe78dfacf689">readJSONfile</a> (const std::string &amp;fileName)</td></tr>
-<tr class="memdesc:af0e10274b5bbfb541addfe78dfacf689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to read the tuning gains coming from the .json file and assign it to the gains_ struct instantiated in the <a class="el" href="classMRAC.html">MRAC</a> class.  <a href="classMRAC.html#af0e10274b5bbfb541addfe78dfacf689">More...</a><br /></td></tr>
+<tr class="memdesc:af0e10274b5bbfb541addfe78dfacf689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to read the tuning gains coming from the .json file and assign it to the gains_ struct instantiated in the MRAC class.  <a href="classMRAC.html#af0e10274b5bbfb541addfe78dfacf689">More...</a><br /></td></tr>
 <tr class="separator:af0e10274b5bbfb541addfe78dfacf689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01976c11a5fb7022ee7a8258acb02310"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMRAC.html#a01976c11a5fb7022ee7a8258acb02310">initializeControllerParameters</a> (<a class="el" href="structVehicleInfo.html">VehicleInfo</a> &amp;<a class="el" href="classControl.html#abf64312fbd5890115a4341e12358274a">vehicle_info</a>, <a class="el" href="structGainsMRAC.html">GainsMRAC</a> &amp;<a class="el" href="classMRAC.html#ac798b35fcf37b5cf639cf6f8c5babe05">gains_</a>)</td></tr>
 <tr class="memdesc:a01976c11a5fb7022ee7a8258acb02310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that given the gains read from the JSON file, initializes the rest of the parameters accordingly.  <a href="classMRAC.html#a01976c11a5fb7022ee7a8258acb02310">More...</a><br /></td></tr>
@@ -135,7 +135,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa329e097d567c9695f36dcf50fe264af"><td class="mdescLeft">&#160;</td><td class="mdescRight">INNER LOOP CONTROLLER USED FOR DEBUGGING, using 'desired' instead of 'reference-model' in the baseline.  <a href="classMRAC.html#aa329e097d567c9695f36dcf50fe264af">More...</a><br /></td></tr>
 <tr class="separator:aa329e097d567c9695f36dcf50fe264af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f4587bf36d8977c318bc22240b347d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMRAC.html#a4f4587bf36d8977c318bc22240b347d6">computeControlAlgorithm</a> ()</td></tr>
-<tr class="memdesc:a4f4587bf36d8977c318bc22240b347d6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classMRAC.html">MRAC</a> <a class="el" href="classControl.html" title="Control class.">Control</a> algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates.  <a href="classMRAC.html#a4f4587bf36d8977c318bc22240b347d6">More...</a><br /></td></tr>
+<tr class="memdesc:a4f4587bf36d8977c318bc22240b347d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">MRAC Control algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates.  <a href="classMRAC.html#a4f4587bf36d8977c318bc22240b347d6">More...</a><br /></td></tr>
 <tr class="separator:a4f4587bf36d8977c318bc22240b347d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classControl"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classControl')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classControl.html">Control</a></td></tr>
 <tr class="memitem:a4922b4ac95cc6c99d6495d199a2b0341 inherit pub_methods_classControl"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControl.html#a4922b4ac95cc6c99d6495d199a2b0341">Control</a> (<a class="el" href="classMultiThreadedNode.html">MultiThreadedNode</a> &amp;node)</td></tr>
@@ -308,7 +308,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classMRAC.html">MRAC</a> <a class="el" href="classControl.html" title="Control class.">Control</a> algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. </p>
+<p>MRAC Control algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -733,7 +733,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Getter functions. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structMRAC_1_1StateController.html" title="This struct represents the state of the MRAC controller differential equations that will be integrate...">StateController</a>&amp; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>StateController&amp; </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="mrac_8cpp_source.html#l00120">120</a> of file <a class="el" href="mrac_8cpp_source.html">mrac.cpp</a>.</p>
 
@@ -813,7 +813,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function to read the tuning gains coming from the .json file and assign it to the gains_ struct instantiated in the <a class="el" href="classMRAC.html">MRAC</a> class. </p>
+<p>Function to read the tuning gains coming from the .json file and assign it to the gains_ struct instantiated in the MRAC class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">const</td><td>std::string&amp; fileName </td></tr>
@@ -971,8 +971,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/c/Users/siddh/Onedrive/Desktop/ACSL-flightstack/include/flightstack/control/mrac/<a class="el" href="mrac_8hpp_source.html">mrac.hpp</a></li>
-<li>/mnt/c/Users/siddh/Onedrive/Desktop/ACSL-flightstack/src/control/mrac/<a class="el" href="mrac_8cpp_source.html">mrac.cpp</a></li>
+<li>/mnt/c/Users/siddh/OneDrive/Desktop/ACSL-flightstack/include/flightstack/control/mrac/<a class="el" href="mrac_8hpp_source.html">mrac.hpp</a></li>
+<li>/mnt/c/Users/siddh/OneDrive/Desktop/ACSL-flightstack/src/control/mrac/<a class="el" href="mrac_8cpp_source.html">mrac.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

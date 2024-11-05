@@ -1,25 +1,25 @@
-<map id="/mnt/c/Users/siddh/Onedrive/Desktop/ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/user_defined_trajectory.hpp" name="/mnt/c/Users/siddh/Onedrive/Desktop/ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/user_defined_trajectory.hpp">
-<area shape="rect" id="node1" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="1361,5,1579,91"/>
-<area shape="rect" id="node2" href="$multi__threaded__node_8hpp.html" title="Multithreaded ROS2 node that joins together all the flight stack components." alt="" coords="1361,628,1579,699"/>
-<area shape="rect" id="node17" href="$user__defined__trajectory_8cpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="5,747,185,832"/>
-<area shape="rect" id="node18" href="$piecewise__polynomial__trajectory_8hpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="1646,139,1894,224"/>
-<area shape="rect" id="node3" href="$main_8hpp.html" title="Main file." alt="" coords="1710,754,1929,825"/>
-<area shape="rect" id="node5" href="$config_8cpp.html" title="Contains the functions that reads the configuration parameters and assigns it to the members of the C..." alt="" coords="617,754,797,825"/>
-<area shape="rect" id="node6" href="$control_8cpp.html" title="This file contains the general class containing the common memvers used by most of the control algori..." alt="" coords="2565,754,2745,825"/>
-<area shape="rect" id="node7" href="$control__callback_8cpp.html" title="Callback that is executed at a fixed specified rate defined by the &quot;timer_controller_&quot;." alt="" coords="209,754,389,825"/>
-<area shape="rect" id="node8" href="$logging__mrac_8cpp.html" title="Logger for the MRAC controller." alt="" coords="821,754,1001,825"/>
-<area shape="rect" id="node9" href="$mrac_8cpp.html" title="Implementation of the MRAC controller." alt="" coords="413,754,593,825"/>
-<area shape="rect" id="node10" href="$logging__pid_8cpp.html" title="Logger for the PID controller." alt="" coords="2157,754,2337,825"/>
-<area shape="rect" id="node11" href="$pid_8cpp.html" title="Immplementation of the PID controller." alt="" coords="2361,754,2541,825"/>
-<area shape="rect" id="node12" href="$multi__threaded__node_8cpp.html" title="Multithreaded ROS2 ndoe that joins together all the flight stakc components." alt="" coords="1953,754,2133,825"/>
-<area shape="rect" id="node13" href="$pixhawk__actuator__motors_8cpp.html" title="Callback that is executed at a fixed specified rate defined by the &quot;timer_controller_&quot;." alt="" coords="1025,747,1232,832"/>
-<area shape="rect" id="node14" href="$pixhawk__vehicle__odometry_8cpp.html" title="Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk." alt="" coords="1257,747,1457,832"/>
-<area shape="rect" id="node15" href="$vehicle__state_8cpp.html" title="Class storing the state of the vehicle coming from the flight controller (Pixhawk)" alt="" coords="1481,754,1686,825"/>
-<area shape="rect" id="node16" href="$piecewise__polynomial__trajectory_8cpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="2770,747,2986,832"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="FlightStack (Multirotor) main.cpp file." alt="" coords="1728,880,1911,936"/>
-<area shape="rect" id="node19" href="$control_8hpp.html" title="General class that contains common members used by most of the control algorithms." alt="" coords="1555,272,1774,343"/>
-<area shape="rect" id="node20" href="$mrac_8hpp.html" title="Implementation of MRAC controller." alt="" coords="790,391,1009,461"/>
-<area shape="rect" id="node23" href="$pid_8hpp.html" title="Implementation of the PID controller." alt="" coords="1603,628,1822,699"/>
-<area shape="rect" id="node21" href="$config_8hpp.html" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="717,509,935,580"/>
-<area shape="rect" id="node22" href="$logging__mocap_8cpp.html" title="Logger for the motion capture (MOCAP) system." alt="" coords="745,628,925,699"/>
+<map id="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/user_defined_trajectory.hpp" name="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/user_defined_trajectory/user_defined_trajectory.hpp">
+<area shape="rect" id="node1" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="1374,5,1593,91"/>
+<area shape="rect" id="node2" href="$multi__threaded__node_8hpp.html" title="Multithreaded ROS2 node that joins together all the flight stack components." alt="" coords="1374,628,1593,699"/>
+<area shape="rect" id="node17" href="$user__defined__trajectory_8cpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="5,747,188,832"/>
+<area shape="rect" id="node18" href="$piecewise__polynomial__trajectory_8hpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="1659,139,1907,224"/>
+<area shape="rect" id="node3" href="$main_8hpp.html" title="Main file." alt="" coords="1723,754,1942,825"/>
+<area shape="rect" id="node5" href="$config_8cpp.html" title="Contains the functions that reads the configuration parameters and assigns it to the members of the C..." alt="" coords="625,754,808,825"/>
+<area shape="rect" id="node6" href="$control_8cpp.html" title="This file contains the general class containing the common memvers used by most of the control algori..." alt="" coords="2587,754,2769,825"/>
+<area shape="rect" id="node7" href="$control__callback_8cpp.html" title="Callback that is executed at a fixed specified rate defined by the &quot;timer_controller_&quot;." alt="" coords="212,754,395,825"/>
+<area shape="rect" id="node8" href="$logging__mrac_8cpp.html" title="Logger for the MRAC controller." alt="" coords="832,754,1015,825"/>
+<area shape="rect" id="node9" href="$mrac_8cpp.html" title="Implementation of the MRAC controller." alt="" coords="419,754,601,825"/>
+<area shape="rect" id="node10" href="$logging__pid_8cpp.html" title="Logger for the PID controller." alt="" coords="2173,754,2356,825"/>
+<area shape="rect" id="node11" href="$pid_8cpp.html" title="Immplementation of the PID controller." alt="" coords="2380,754,2563,825"/>
+<area shape="rect" id="node12" href="$multi__threaded__node_8cpp.html" title="Multithreaded ROS2 ndoe that joins together all the flight stakc components." alt="" coords="1967,754,2149,825"/>
+<area shape="rect" id="node13" href="$pixhawk__actuator__motors_8cpp.html" title="Callback that is executed at a fixed specified rate defined by the &quot;timer_controller_&quot;." alt="" coords="1039,747,1245,832"/>
+<area shape="rect" id="node14" href="$pixhawk__vehicle__odometry_8cpp.html" title="Callback that is executed everytime a VehicleOdometry message is made available by Pixhawk." alt="" coords="1270,747,1470,832"/>
+<area shape="rect" id="node15" href="$vehicle__state_8cpp.html" title="Class storing the state of the vehicle coming from the flight controller (Pixhawk)" alt="" coords="1494,754,1699,825"/>
+<area shape="rect" id="node16" href="$piecewise__polynomial__trajectory_8cpp.html" title="Piecewise polynomial minimu&#45;jerk trajectory computed offline through a MATLAB script." alt="" coords="2794,747,3010,832"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="FlightStack (Multirotor) main.cpp file." alt="" coords="1741,880,1924,936"/>
+<area shape="rect" id="node19" href="$control_8hpp.html" title="General class that contains common members used by most of the control algorithms." alt="" coords="1569,272,1787,343"/>
+<area shape="rect" id="node20" href="$mrac_8hpp.html" title="Implementation of MRAC controller." alt="" coords="802,391,1021,461"/>
+<area shape="rect" id="node23" href="$pid_8hpp.html" title="Implementation of the PID controller." alt="" coords="1617,628,1835,699"/>
+<area shape="rect" id="node21" href="$config_8hpp.html" title="Configuration file. Here you specify which cotroller you want to run at compile time." alt="" coords="729,509,947,580"/>
+<area shape="rect" id="node22" href="$logging__mocap_8cpp.html" title="Logger for the motion capture (MOCAP) system." alt="" coords="755,628,937,699"/>
 </map>

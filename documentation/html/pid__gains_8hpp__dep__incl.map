@@ -1,6 +1,6 @@
-<map id="/mnt/c/Users/siddh/Onedrive/Desktop/ACSL&#45;flightstack/include/flightstack/control/pid/pid_gains.hpp" name="/mnt/c/Users/siddh/Onedrive/Desktop/ACSL&#45;flightstack/include/flightstack/control/pid/pid_gains.hpp">
-<area shape="rect" id="node1" title="Tuning gains of the PID controller." alt="" coords="87,5,306,76"/>
-<area shape="rect" id="node2" href="$pid_8hpp.html" title="Implementation of the PID controller." alt="" coords="87,124,306,195"/>
-<area shape="rect" id="node3" href="$logging__pid_8cpp.html" title="Logger for the PID controller." alt="" coords="5,243,185,313"/>
-<area shape="rect" id="node4" href="$pid_8cpp.html" title="Immplementation of the PID controller." alt="" coords="209,243,389,313"/>
+<map id="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/control/pid/pid_gains.hpp" name="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/include/flightstack/control/pid/pid_gains.hpp">
+<area shape="rect" id="node1" title="Tuning gains of the PID controller." alt="" coords="90,5,309,76"/>
+<area shape="rect" id="node2" href="$pid_8hpp.html" title="Implementation of the PID controller." alt="" coords="90,124,309,195"/>
+<area shape="rect" id="node3" href="$logging__pid_8cpp.html" title="Logger for the PID controller." alt="" coords="5,243,188,313"/>
+<area shape="rect" id="node4" href="$pid_8cpp.html" title="Immplementation of the PID controller." alt="" coords="212,243,395,313"/>
 </map>

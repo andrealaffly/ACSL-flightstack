@@ -1,5 +1,5 @@
-<map id="/mnt/c/Users/siddh/Onedrive/Desktop/ACSL&#45;flightstack/src/user_defined_trajectory/user_defined_trajectory.cpp" name="/mnt/c/Users/siddh/Onedrive/Desktop/ACSL&#45;flightstack/src/user_defined_trajectory/user_defined_trajectory.cpp">
-<area shape="rect" id="node1" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="811,5,991,91"/>
+<map id="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/src/user_defined_trajectory/user_defined_trajectory.cpp" name="/mnt/c/Users/siddh/OneDrive/Desktop/ACSL&#45;flightstack/src/user_defined_trajectory/user_defined_trajectory.cpp">
+<area shape="rect" id="node1" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="809,5,992,91"/>
 <area shape="rect" id="node2" href="$user__defined__trajectory_8hpp.html" title="Class that contains the common members that each type of user&#45;defined trajectory class will inherit." alt="" coords="5,556,207,583"/>
 <area shape="rect" id="node5" href="$multi__threaded__node_8hpp.html" title="Multithreaded ROS2 node that joins together all the flight stack components." alt="" coords="1627,139,1815,165"/>
 <area shape="rect" id="node3" title=" " alt="" coords="365,631,428,657"/>

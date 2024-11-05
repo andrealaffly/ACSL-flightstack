@@ -28,7 +28,7 @@ Collaboration diagram for MRAC\+:\nopagebreak
 struct \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}}
 \begin{DoxyCompactList}\small\item\em This struct contains the variables that are used in this particular controller. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}}
-\begin{DoxyCompactList}\small\item\em This struct represents the state of the \mbox{\hyperlink{classMRAC}{MRAC}} controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This struct represents the state of the MRAC controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,7 +45,7 @@ const \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controll
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogData__MRAC}{Log\+Data\+\_\+\+MRAC}} $>$ \mbox{\hyperlink{classMRAC_a8a215fd9aff4cee50bb265f0c91f190e}{get\+Log\+Data}} () const
 \item 
 void \mbox{\hyperlink{classMRAC_af0e10274b5bbfb541addfe78dfacf689}{read\+JSONfile}} (const std\+::string \&file\+Name)
-\begin{DoxyCompactList}\small\item\em Function to read the tuning gains coming from the .json file and assign it to the gains\+\_\+ struct instantiated in the \mbox{\hyperlink{classMRAC}{MRAC}} class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Function to read the tuning gains coming from the .json file and assign it to the gains\+\_\+ struct instantiated in the MRAC class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMRAC_a01976c11a5fb7022ee7a8258acb02310}{initialize\+Controller\+Parameters}} (\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&\mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}})
 \begin{DoxyCompactList}\small\item\em Function that given the gains read from the JSON file, initializes the rest of the parameters accordingly. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMRAC_a3e73bc317fb0b7488ca58913cea5f634}{assign\+System\+To\+Dxdt}} (\mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}}, \mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} \&dxdt, const double)
@@ -61,7 +61,7 @@ void \mbox{\hyperlink{classMRAC_af7288854f607ce1fbedbf9101b5d6a71}{compute\+Inne
 void \mbox{\hyperlink{classMRAC_aa329e097d567c9695f36dcf50fe264af}{compute\+Inner\+Loop\+DEBUGGING}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&\mbox{\hyperlink{classMRAC_ad9479a70d42a041232322b946a93f4d8}{state\+\_\+}}, \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&\mbox{\hyperlink{classControl_a72c21299fee71707c64758f1c3e72406}{cr}}, \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&\mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}}, \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&\mbox{\hyperlink{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}{csim\+\_\+}})
 \begin{DoxyCompactList}\small\item\em INNER LOOP CONTROLLER USED FOR DEBUGGING, using \textquotesingle{}desired\textquotesingle{} instead of \textquotesingle{}reference-\/model\textquotesingle{} in the baseline. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMRAC_a4f4587bf36d8977c318bc22240b347d6}{compute\+Control\+Algorithm}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classMRAC}{MRAC}} \mbox{\hyperlink{classControl}{Control}} algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em MRAC Control algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -136,7 +136,7 @@ Definition at line 293 of file mrac.\+cpp.
 
 
 
-\mbox{\hyperlink{classMRAC}{MRAC}} \mbox{\hyperlink{classControl}{Control}} algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. 
+MRAC Control algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -335,7 +335,7 @@ Definition at line 144 of file mrac.\+cpp.
 Getter functions. 
 
 \begin{DoxyReturn}{Returns}
-\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}}\& 
+State\+Controller\& 
 \end{DoxyReturn}
 
 
@@ -380,7 +380,7 @@ Definition at line 229 of file mrac.\+cpp.
 
 
 
-Function to read the tuning gains coming from the .json file and assign it to the gains\+\_\+ struct instantiated in the \mbox{\hyperlink{classMRAC}{MRAC}} class. 
+Function to read the tuning gains coming from the .json file and assign it to the gains\+\_\+ struct instantiated in the MRAC class. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -458,5 +458,5 @@ Definition at line 280 of file mrac.\+hpp.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/mnt/c/\+Users/siddh/\+Onedrive/\+Desktop/\+ACSL-\/flightstack/include/flightstack/control/mrac/\mbox{\hyperlink{mrac_8hpp}{mrac.\+hpp}}\item 
-/mnt/c/\+Users/siddh/\+Onedrive/\+Desktop/\+ACSL-\/flightstack/src/control/mrac/\mbox{\hyperlink{mrac_8cpp}{mrac.\+cpp}}\end{DoxyCompactItemize}
+/mnt/c/\+Users/siddh/\+One\+Drive/\+Desktop/\+ACSL-\/flightstack/include/flightstack/control/mrac/\mbox{\hyperlink{mrac_8hpp}{mrac.\+hpp}}\item 
+/mnt/c/\+Users/siddh/\+One\+Drive/\+Desktop/\+ACSL-\/flightstack/src/control/mrac/\mbox{\hyperlink{mrac_8cpp}{mrac.\+cpp}}\end{DoxyCompactItemize}

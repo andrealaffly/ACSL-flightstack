@@ -6,7 +6,7 @@
 {\footnotesize template$<$int N$>$ }\\\mbox{\hyperlink{structprojection__operator_1_1ConvexFunctionOutput}{Convex\+Function\+Output}}$<$ N $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}{convex\+Function}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const double x\+\_\+max, const double epsilon)
 \begin{DoxyCompactList}\small\item\em Convex function to compute h and dh\+\_\+dx. The inner convex set is a ball of radius sqrt(x\+\_\+max) The outer convex set is a ball of radius sqrt(x\+\_\+max + epsilon) \end{DoxyCompactList}\item 
 {\footnotesize template$<$int N$>$ }\\Eigen\+::\+Matrix$<$ double, N, 1 $>$ \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ae6d6d86afbd57c120adc9ebf0c3a02f5}{projection\+Vector}} (const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ double, N, 1 $>$ \&x\+\_\+d, const double x\+\_\+max, const double epsilon)
-\begin{DoxyCompactList}\small\item\em Function to project the vector x\+\_\+d based on the \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}{projection\+\_\+operator\+::ball\+::convex\+Function()}} x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Function to project the vector x\+\_\+d based on the projection\+\_\+operator\+::ball\+::convex\+Function() x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Derived1 , typename Derived2 $>$ }\\auto \mbox{\hyperlink{namespaceprojection__operator_1_1ball_a23f6da124afe115b40aa29ced98bb185}{projection\+Matrix}} (const Eigen\+::\+Matrix\+Base$<$ Derived1 $>$ \&matrix, const Eigen\+::\+Matrix\+Base$<$ Derived2 $>$ \&matrix\+\_\+d, const double x\+\_\+max, const double epsilon) -\/$>$ Eigen\+::\+Matrix$<$ typename Derived1\+::\+Scalar, Derived1\+::\+Rows\+At\+Compile\+Time, Derived1\+::\+Cols\+At\+Compile\+Time $>$
 \begin{DoxyCompactList}\small\item\em Function to apply projection\+Vector to a matrix by reshaping it into a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -77,7 +77,7 @@ Eigen\+::\+Matrix$<$double, N, 1$>$ projection\+\_\+operator\+::ball\+::projecti
 
 
 
-Function to project the vector x\+\_\+d based on the \mbox{\hyperlink{namespaceprojection__operator_1_1ball_ad7c36d67aa07bdcfaed0829bcfb64e66}{projection\+\_\+operator\+::ball\+::convex\+Function()}} x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) 
+Function to project the vector x\+\_\+d based on the projection\+\_\+operator\+::ball\+::convex\+Function() x\+\_\+d\+: derivative wrt time of x (RHS of its dynamics equation) 
 
 
 \begin{DoxyParams}{Parameters}

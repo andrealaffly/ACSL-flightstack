@@ -1,5 +1,5 @@
 # ACSL Flight Stack
-[![BSD License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](../../LICENSE.txt)
+[![BSD License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/andrealaffly/ACSL-flightstack/blob/main/LICENSE.txt)
 
 To clone this repo with all the needed submodules you can run the command:
 

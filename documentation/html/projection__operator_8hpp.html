@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACSL Flightstack Documentation: /mnt/c/Users/siddh/Onedrive/Desktop/ACSL-flightstack/include/flightstack/control/mrac/projection_operator.hpp File Reference</title>
+<title>ACSL Flightstack Documentation: /mnt/c/Users/siddh/OneDrive/Desktop/ACSL-flightstack/include/flightstack/control/mrac/projection_operator.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,7 +75,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of the projection operator to be used in the <a class="el" href="classMRAC.html">MRAC</a> controllers.  
+<p>Implementation of the projection operator to be used in the MRAC controllers.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;Eigen/Dense&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -122,7 +122,7 @@ Functions</h2></td></tr>
 <tr class="separator:ad7c36d67aa07bdcfaed0829bcfb64e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, N, 1 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ball.html#ae6d6d86afbd57c120adc9ebf0c3a02f5">projection_operator::ball::projectionVector</a> (const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x, const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x_d, const double x_max, const double epsilon)</td></tr>
-<tr class="memdesc:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to project the vector x_d based on the <a class="el" href="namespaceprojection__operator_1_1ball.html#ad7c36d67aa07bdcfaed0829bcfb64e66" title="Convex function to compute h and dh_dx. The inner convex set is a ball of radius sqrt(x_max) The oute...">projection_operator::ball::convexFunction()</a> x_d: derivative wrt time of x (RHS of its dynamics equation)  <a href="namespaceprojection__operator_1_1ball.html#ae6d6d86afbd57c120adc9ebf0c3a02f5">More...</a><br /></td></tr>
+<tr class="memdesc:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to project the vector x_d based on the projection_operator::ball::convexFunction() x_d: derivative wrt time of x (RHS of its dynamics equation)  <a href="namespaceprojection__operator_1_1ball.html#ae6d6d86afbd57c120adc9ebf0c3a02f5">More...</a><br /></td></tr>
 <tr class="separator:ae6d6d86afbd57c120adc9ebf0c3a02f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23f6da124afe115b40aa29ced98bb185"><td class="memTemplParams" colspan="2">template&lt;typename Derived1 , typename Derived2 &gt; </td></tr>
 <tr class="memitem:a23f6da124afe115b40aa29ced98bb185"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ball.html#a23f6da124afe115b40aa29ced98bb185">projection_operator::ball::projectionMatrix</a> (const Eigen::MatrixBase&lt; Derived1 &gt; &amp;matrix, const Eigen::MatrixBase&lt; Derived2 &gt; &amp;matrix_d, const double x_max, const double epsilon) -&gt; Eigen::Matrix&lt; typename Derived1::Scalar, Derived1::RowsAtCompileTime, Derived1::ColsAtCompileTime &gt;</td></tr>
@@ -134,7 +134,7 @@ Functions</h2></td></tr>
 <tr class="separator:a37b27c2a1f3d69d7aa0be231ea4d5fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac45ca812de980e8f831959ea1cc4f241"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:ac45ca812de980e8f831959ea1cc4f241"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, N, 1 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#ac45ca812de980e8f831959ea1cc4f241">projection_operator::ellipsoid::projectionVector</a> (const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x, const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x_d, const Eigen::Matrix&lt; double, N, 1 &gt; &amp;x_e, const Eigen::Matrix&lt; double, N, N &gt; &amp;S, const double epsilon)</td></tr>
-<tr class="memdesc:ac45ca812de980e8f831959ea1cc4f241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to project the vector x_d based on the <a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#a37b27c2a1f3d69d7aa0be231ea4d5fc6" title="Convex function to compute h and dh_dx. The outer convex set is an ellipsoid centered in x_e with sem...">projection_operator::ellipsoid::convexFunction()</a> x_d: derivative wrt time of x (RHS of its dynamics equation)  <a href="namespaceprojection__operator_1_1ellipsoid.html#ac45ca812de980e8f831959ea1cc4f241">More...</a><br /></td></tr>
+<tr class="memdesc:ac45ca812de980e8f831959ea1cc4f241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to project the vector x_d based on the projection_operator::ellipsoid::convexFunction() x_d: derivative wrt time of x (RHS of its dynamics equation)  <a href="namespaceprojection__operator_1_1ellipsoid.html#ac45ca812de980e8f831959ea1cc4f241">More...</a><br /></td></tr>
 <tr class="separator:ac45ca812de980e8f831959ea1cc4f241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a129854ec60147e673b036ebd6b02cfce"><td class="memTemplParams" colspan="2">template&lt;typename Derived1 , typename Derived2 &gt; </td></tr>
 <tr class="memitem:a129854ec60147e673b036ebd6b02cfce"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprojection__operator_1_1ellipsoid.html#a129854ec60147e673b036ebd6b02cfce">projection_operator::ellipsoid::projectionMatrix</a> (const Eigen::MatrixBase&lt; Derived1 &gt; &amp;matrix, const Eigen::MatrixBase&lt; Derived2 &gt; &amp;matrix_d, const Eigen::Matrix&lt; double, Derived1::RowsAtCompileTime *Derived1::ColsAtCompileTime, 1 &gt; &amp;x_e, const Eigen::Matrix&lt; double, Derived1::RowsAtCompileTime *Derived1::ColsAtCompileTime, Derived1::RowsAtCompileTime *Derived1::ColsAtCompileTime &gt; &amp;S, const double epsilon) -&gt; Eigen::Matrix&lt; typename Derived1::Scalar, Derived1::RowsAtCompileTime, Derived1::ColsAtCompileTime &gt;</td></tr>
@@ -142,7 +142,7 @@ Functions</h2></td></tr>
 <tr class="separator:a129854ec60147e673b036ebd6b02cfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of the projection operator to be used in the <a class="el" href="classMRAC.html">MRAC</a> controllers. </p>
+<div class="textblock"><p>Implementation of the projection operator to be used in the MRAC controllers. </p>
 <p>Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L'Afflitto. All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <ol type="1">
@@ -150,12 +150,12 @@ Functions</h2></td></tr>
 <li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
 <li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
 </ol>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File: <a class="el" href="projection__operator_8hpp.html" title="Implementation of the projection operator to be used in the MRAC controllers.">projection_operator.hpp</a> <br  />
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File: projection_operator.hpp <br  />
  Author: Mattia Gramuglia <br  />
  Date: September 4, 2024 <br  />
  For info: Andrea L'Afflitto <br  />
  <a href="#" onclick="location.href='mai'+'lto:'+'a.l'+'af'+'fli'+'tt'+'o@v'+'t.'+'edu'; return false;">a.laf<span style="display: none;">.nosp@m.</span>flit<span style="display: none;">.nosp@m.</span>to@vt<span style="display: none;">.nosp@m.</span>.edu</a></p>
-<p>Description: Implementation of the projection operator to be used in the <a class="el" href="classMRAC.html">MRAC</a> controllers. For reference: A. L'Afflitto, "Notes on Adaptive Control and Estimation", Springer, Sec. 3.5. or E. Lavretsky, K. Wise, "Robust and Adaptive Control", Springer 2013, Sec. 11.4</p>
+<p>Description: Implementation of the projection operator to be used in the MRAC controllers. For reference: A. L'Afflitto, "Notes on Adaptive Control and Estimation", Springer, Sec. 3.5. or E. Lavretsky, K. Wise, "Robust and Adaptive Control", Springer 2013, Sec. 11.4</p>
 <p>GitHub: <a href="https://github.com/andrealaffly/ACSL-flightstack.git">https://github.com/andrealaffly/ACSL-flightstack.git</a> </p>
 
 <p class="definition">Definition in file <a class="el" href="projection__operator_8hpp_source.html">projection_operator.hpp</a>.</p>
