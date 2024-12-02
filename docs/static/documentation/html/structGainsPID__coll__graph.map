@@ -1,4 +1,0 @@
-<map id="GainsPID" name="GainsPID">
-<area shape="rect" id="node1" title="Struct containing the PID tuning gains coming from the .json file." alt="" coords="5,168,87,195"/>
-<area shape="rect" id="node2" title=" " alt="" coords="6,5,86,32"/>
-</map>
