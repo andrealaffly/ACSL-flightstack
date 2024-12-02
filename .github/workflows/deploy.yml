@@ -65,11 +65,11 @@ jobs:
           node-version: 18
           cache: npm
       - name: Install dependencies
+        working-directory: ./docs
         run: npm ci
-        working-directory: ./docs
       - name: Test build website
-        run: npm run build
         working-directory: ./docs
+        run: npm run build
   deploy:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
@@ -87,9 +87,9 @@ jobs:
       - name: Deploy to GitHub Pages
         env:
           USE_SSH: true
+        working-directory: ./docs
         run: |
           # git config --global user.email "actions@github.com"
           # git config --global user.name "gh-actions"
           npm ci
           npm run deploy
-        working-directory: ./docs
