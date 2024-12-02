@@ -63,11 +63,14 @@ jobs:
       - name: Install dependencies
         working-directory: ./docs  # Change this if necessary
         run: |
-          npm ci  # or npm install if package-lock.json is not present
+          npm install
+          # npm ci  # or npm install if package-lock.json is not present
 
       - name: Build Docusaurus site
         working-directory: ./docs
-        run: npm run build
+        run: |
+          npm run build
+          npm run test
 
       - name: Check if CNAME exists and create it if missing
         run: |
