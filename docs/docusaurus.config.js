@@ -15,13 +15,16 @@ favicon: "img/ACSL_Logo.jpg",
   // Set the production url of your site here
   url: "https://andrealaffly.github.io",
   // url: "https://acslstack.com",
+
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: "/ACSL-flightstack/",
   // baseUrl: "/",
 
   // GitHub pages deployment config.
-  organizationName: "Advanced Control Systems Lab", // Usually your GitHub org/user name.
-  projectName: "Flightstack", // Usually your repo name.
+  organizationName: "andrealaffly", // Usually your GitHub org/user name.
+  projectName: "ACSL-flightstack", // Usually your repo name.
+
+  trailingSlash: false,
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
