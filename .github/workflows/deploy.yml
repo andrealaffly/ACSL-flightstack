@@ -1,100 +1,44 @@
-# name: Deploy Docusaurus Site
-
-# on:
-#   push:
-#     branches:
-#       - main  # or the branch where your website source code resides
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: 18  # specify the Node.js version you're using
-
-#       - name: Install dependencies
-#         working-directory: ./docs  # Change this if necessary
-#         run: |
-#           npm install
-#           # npm ci  # or npm install if package-lock.json is not present
-
-#       - name: Build Docusaurus site
-#         working-directory: ./docs
-#         run: npm run build
-
-#       - name: Check if CNAME exists and create it if missing
-#         run: |
-#           if [ ! -f ./docs/build/CNAME ]; then
-#             echo "acslstack.com" > ./docs/build/CNAME
-#           fi
-
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: ./docs/build 
-#           cname: acslstack.com # Add your custom domain here
-
 name: Deploy Docusaurus Site
 
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
+      - main  # or the branch where your website source code resides
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 18  # specify the Node.js version you're using
 
       - name: Install dependencies
-        run: npm ci  # Or npm install if package-lock.json is not present
+        working-directory: ./docs  # Change this if necessary
+        run: |
+          npm install
+          # npm ci  # or npm install if package-lock.json is not present
 
       - name: Build Docusaurus site
-        run: npm run build  # Ensure the build command runs successfully
+        working-directory: ./docs
+        run: npm run build
 
-      # Store the build folder as an artifact
-      - name: Upload build folder as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: docusaurus-build
-          path: build  # Adjust this to the correct path if needed
+      - name: Check if CNAME exists and create it if missing
+        run: |
+          if [ ! -f ./docs/build/CNAME ]; then
+            echo "acslstack.com" > ./docs/build/CNAME
+          fi
 
-  deploy:
-    runs-on: ubuntu-latest  # Specify the virtual machine for this job
-
-    needs: build  # This job will run after the build job
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Download the build folder artifact from the build job
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: docusaurus-build
-
-      # Deploy to GitHub Pages (use the downloaded build folder)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build  # Path to the downloaded build folder
-          cname: acslstack.com  # Optional, if you have a custom domain
+          publish_dir: ./docs/build 
+          cname: acslstack.com # Add your custom domain here
 
 
