@@ -13,9 +13,9 @@ const config = {
 favicon: "img/ACSL_Logo.jpg",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://andrealaffly.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/",
+  baseUrl: "/ACSL-flightstack/",
 
   // GitHub pages deployment config.
   organizationName: "Advanced Control Systems Lab", // Usually your GitHub org/user name.
