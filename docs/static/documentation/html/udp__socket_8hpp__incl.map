@@ -1,0 +1,13 @@
+<map id="ACSL&#45;flightstack/include/flightstack/mocap/udp_socket.hpp" name="ACSL&#45;flightstack/include/flightstack/mocap/udp_socket.hpp">
+<area shape="rect" id="node1" title="Class for UDP socket creation using IoContext." alt="" coords="143,5,321,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,61,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="85,109,144,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="105,184,167,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="192,184,272,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="297,184,357,211"/>
+<area shape="rect" id="node7" title=" " alt="" coords="463,109,571,136"/>
+<area shape="rect" id="node8" href="$io__context_8hpp.html" title="Class for IoContext to manage thread for udp." alt="" coords="321,109,439,136"/>
+<area shape="rect" id="node9" title=" " alt="" coords="381,184,459,211"/>
+<area shape="rect" id="node10" title=" " alt="" coords="483,184,560,211"/>
+<area shape="rect" id="node11" title=" " alt="" coords="584,184,725,211"/>
+</map>

@@ -1,0 +1,95 @@
+\hypertarget{continuous__lyapunov__equation_8hpp}{}\doxysection{ACSL-\/flightstack/include/flightstack/utils/continuous\+\_\+lyapunov\+\_\+equation.hpp File Reference}
+\label{continuous__lyapunov__equation_8hpp}\index{ACSL-\/flightstack/include/flightstack/utils/continuous\_lyapunov\_equation.hpp@{ACSL-\/flightstack/include/flightstack/utils/continuous\_lyapunov\_equation.hpp}}
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$Eigen/\+QR$>$}\newline
+Include dependency graph for continuous\+\_\+lyapunov\+\_\+equation.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{continuous__lyapunov__equation_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{continuous__lyapunov__equation_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceinternal}{internal}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} = Eigen\+::\+Matrix$<$ double, 1, 1 $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a87898df1c0be39d4073b61d033390502}{Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix\+Xd $>$ \&A, const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix\+Xd $>$ \&Q)
+\item 
+\mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} \mbox{\hyperlink{namespaceinternal_ad562fa598b41250cae8630c0e71bd2d3}{internal\+::\+Solve1\+By1\+Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const \mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} $>$ \&A, const Eigen\+::\+Ref$<$ const \mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} $>$ \&Q)
+\item 
+Eigen\+::\+Matrix2d \mbox{\hyperlink{namespaceinternal_aebd54a34b552061069eb01f90c80e56d}{internal\+::\+Solve2\+By2\+Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix2d $>$ \&A, const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix2d $>$ \&Q)
+\item 
+Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{namespaceinternal_a0a6a8e54395b7cd13933846217da98fa}{internal\+::\+Solve\+Reduced\+Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix\+Xd $>$ \&A, const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix\+Xd $>$ \&Q)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}\label{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}} 
+\index{continuous\_lyapunov\_equation.hpp@{continuous\_lyapunov\_equation.hpp}!Vector1d@{Vector1d}}
+\index{Vector1d@{Vector1d}!continuous\_lyapunov\_equation.hpp@{continuous\_lyapunov\_equation.hpp}}
+\doxysubsubsection{\texorpdfstring{Vector1d}{Vector1d}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} =  Eigen\+::\+Matrix$<$double, 1, 1$>$}
+
+WARNING !!! The following code uses a different convention than MATLAB\textquotesingle{}s. This code solves the equation\+: {\ttfamily AᵀX + XA + Q = 0} MATLAB command \char`\"{}lyap(\+A, Q)\char`\"{} solves the equation\+: {\ttfamily AX + XAᵀ + Q = 0} So this code provides the same result as obtained in MATLAB using the command\+: lyap(A\textquotesingle{}, Q) !!!!!!!!!!! 
+
+Definition at line 101 of file continuous\+\_\+lyapunov\+\_\+equation.\+hpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{continuous__lyapunov__equation_8hpp_a87898df1c0be39d4073b61d033390502}\label{continuous__lyapunov__equation_8hpp_a87898df1c0be39d4073b61d033390502}} 
+\index{continuous\_lyapunov\_equation.hpp@{continuous\_lyapunov\_equation.hpp}!RealContinuousLyapunovEquation@{RealContinuousLyapunovEquation}}
+\index{RealContinuousLyapunovEquation@{RealContinuousLyapunovEquation}!continuous\_lyapunov\_equation.hpp@{continuous\_lyapunov\_equation.hpp}}
+\doxysubsubsection{\texorpdfstring{RealContinuousLyapunovEquation()}{RealContinuousLyapunovEquation()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd Real\+Continuous\+Lyapunov\+Equation (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix\+Xd $>$ \&}]{A,  }\item[{const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix\+Xd $>$ \&}]{Q }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & A user defined real square matrix. \\
+\hline
+{\em Q} & A user defined real symmetric matrix.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+Q is a symmetric matrix.
+\end{DoxyPrecond}
+Computes a unique solution X to the continuous Lyapunov equation\+: {\ttfamily AᵀX + XA + Q = 0}, where A is real and square, and Q is real, symmetric and of equal size as A. 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if A or Q are not square matrices or do not have the same size.\\
+\hline
+\end{DoxyExceptions}
+Limitations\+: Given the Eigenvalues of A as λ₁, ..., λₙ, there exists a unique solution if and only if λᵢ + λ̅ⱼ ≠ 0 ∀ i,j, where λ̅ⱼ is the complex conjugate of λⱼ. 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if the solution is not unique.\\
+\hline
+\end{DoxyExceptions}
+There are no further limitations on the eigenvalues of A. Further, if all λᵢ have negative real parts, and if Q is positive semi-\/definite, then X is also positive semi-\/definite \mbox{[}1\mbox{]}. Therefore, if one searches for a Lyapunov function V(z) = zᵀ\+Xz for the stable linear system ż = Az, then the solution of the Lyapunov Equation {\ttfamily AᵀX + XA + Q = 0} only returns a valid Lyapunov function if Q is positive semi-\/definite.
+
+The implementation is based on SLICOT routine SB03\+MD \mbox{[}2\mbox{]}. Note the transformation Q = -\/C. The complexity of this routine is O(n³). If A is larger than 2-\/by-\/2, then a Schur factorization is performed. 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if Schur factorization failed.\\
+\hline
+\end{DoxyExceptions}
+A tolerance of ε is used to check if a double variable is equal to zero, where the default value for ε is 1e-\/10. It has been used to check (1) if λᵢ + λ̅ⱼ = 0, ∀ i,j; (2) if A is a 1-\/by-\/1 zero matrix; (3) if A\textquotesingle{}s trace or determinant is 0 when A is a 2-\/by-\/2 matrix.
+
+\mbox{[}1\mbox{]} Bartels, R.\+H. and G.\+W. Stewart, \char`\"{}\+Solution of the Matrix Equation AX + XB = C,\char`\"{} Comm. of the ACM, Vol. 15, No. 9, 1972.
+
+\mbox{[}2\mbox{]} \href{http://slicot.org/objects/software/shared/doc/SB03MD.html}{\texttt{ http\+://slicot.\+org/objects/software/shared/doc/\+SB03\+MD.\+html}} 
