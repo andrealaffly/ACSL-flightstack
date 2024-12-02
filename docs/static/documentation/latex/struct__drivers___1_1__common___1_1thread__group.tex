@@ -1,0 +1,155 @@
+\hypertarget{struct__drivers___1_1__common___1_1thread__group}{}\doxysection{\+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group Struct Reference}
+\label{struct__drivers___1_1__common___1_1thread__group}\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+
+
+A workarouond of boost\+::thread\+\_\+group Copied from \href{https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2}{\texttt{ https\+://gist.\+github.\+com/coin-\/au-\/carre/ceb8a790cec3b3535b015be3ec2a1ce2}}.  
+
+
+
+
+{\ttfamily \#include $<$io\+\_\+context.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_a17dc19daa61ba0a6eeeeb7210563b8a3}{thread\+\_\+group}} ()=default
+\item 
+\mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_abcbb91cb4c4db06150b870dd2f0a0507}{thread\+\_\+group}} (const \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \&)=delete
+\item 
+\mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \& \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_ab5ba1854830bf0d16b35c4a9215c2eaf}{operator=}} (const \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \&)=delete
+\item 
+\mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_aeb9691462c9946e25602b069826def65}{thread\+\_\+group}} (\mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \&\&)=delete
+\item 
+{\footnotesize template$<$class ... Args$>$ }\\void \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_a44ef5c190872bd7a6924e7b1a24c1986}{create\+\_\+thread}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Create a thread object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_a290a854cbcb36fbaf2fd31da84cf49ed}{add\+\_\+thread}} (std\+::thread \&\&t)
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_ac4b5db9f3e84a9fffedee8da821e517c}{size}} () const
+\item 
+void \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_af7b7775504d010f647d5dee016338f9b}{join\+\_\+all}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::thread $>$ \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group_aa85ff62e482c709013a49e51f5ba1e37}{tg}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A workarouond of boost\+::thread\+\_\+group Copied from \href{https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2}{\texttt{ https\+://gist.\+github.\+com/coin-\/au-\/carre/ceb8a790cec3b3535b015be3ec2a1ce2}}. 
+
+A workaround of boost\+::thead\+\_\+group Copied from \href{https://gist.github.com/coin-au-carre/ceb8a790cec3b3535b015be3ec2a1ce2}{\texttt{ https\+://gist.\+github.\+com/coin-\/au-\/carre/ceb8a790cec3b3535b015be3ec2a1ce2}} 
+
+Definition at line 85 of file io\+\_\+context.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_a17dc19daa61ba0a6eeeeb7210563b8a3}\label{struct__drivers___1_1__common___1_1thread__group_a17dc19daa61ba0a6eeeeb7210563b8a3}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!thread\_group@{thread\_group}}
+\index{thread\_group@{thread\_group}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{thread\_group()}{thread\_group()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::thread\+\_\+group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_abcbb91cb4c4db06150b870dd2f0a0507}\label{struct__drivers___1_1__common___1_1thread__group_abcbb91cb4c4db06150b870dd2f0a0507}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!thread\_group@{thread\_group}}
+\index{thread\_group@{thread\_group}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{thread\_group()}{thread\_group()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::thread\+\_\+group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_aeb9691462c9946e25602b069826def65}\label{struct__drivers___1_1__common___1_1thread__group_aeb9691462c9946e25602b069826def65}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!thread\_group@{thread\_group}}
+\index{thread\_group@{thread\_group}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{thread\_group()}{thread\_group()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::thread\+\_\+group (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_a290a854cbcb36fbaf2fd31da84cf49ed}\label{struct__drivers___1_1__common___1_1thread__group_a290a854cbcb36fbaf2fd31da84cf49ed}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!add\_thread@{add\_thread}}
+\index{add\_thread@{add\_thread}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{add\_thread()}{add\_thread()}}
+{\footnotesize\ttfamily void \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::add\+\_\+thread (\begin{DoxyParamCaption}\item[{std\+::thread \&\&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+add\+\_\+thread 
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file io\+\_\+context.\+hpp.
+
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_a44ef5c190872bd7a6924e7b1a24c1986}\label{struct__drivers___1_1__common___1_1thread__group_a44ef5c190872bd7a6924e7b1a24c1986}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!create\_thread@{create\_thread}}
+\index{create\_thread@{create\_thread}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{create\_thread()}{create\_thread()}}
+{\footnotesize\ttfamily template$<$class ... Args$>$ \\
+void \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::create\+\_\+thread (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a thread object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file io\+\_\+context.\+hpp.
+
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_af7b7775504d010f647d5dee016338f9b}\label{struct__drivers___1_1__common___1_1thread__group_af7b7775504d010f647d5dee016338f9b}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!join\_all@{join\_all}}
+\index{join\_all@{join\_all}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{join\_all()}{join\_all()}}
+{\footnotesize\ttfamily void \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::join\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+join\+\_\+all 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 117 of file io\+\_\+context.\+hpp.
+
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_ab5ba1854830bf0d16b35c4a9215c2eaf}\label{struct__drivers___1_1__common___1_1thread__group_ab5ba1854830bf0d16b35c4a9215c2eaf}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!operator=@{operator=}}
+\index{operator=@{operator=}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}}\& \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__drivers___1_1__common___1_1thread__group}{thread\+\_\+group}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_ac4b5db9f3e84a9fffedee8da821e517c}\label{struct__drivers___1_1__common___1_1thread__group_ac4b5db9f3e84a9fffedee8da821e517c}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!size@{size}}
+\index{size@{size}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file io\+\_\+context.\+hpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct__drivers___1_1__common___1_1thread__group_aa85ff62e482c709013a49e51f5ba1e37}\label{struct__drivers___1_1__common___1_1thread__group_aa85ff62e482c709013a49e51f5ba1e37}} 
+\index{\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}!tg@{tg}}
+\index{tg@{tg}!\_drivers\_::\_common\_::thread\_group@{\_drivers\_::\_common\_::thread\_group}}
+\doxysubsubsection{\texorpdfstring{tg}{tg}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::thread$>$ \+\_\+drivers\+\_\+\+::\+\_\+common\+\_\+\+::thread\+\_\+group\+::tg}
+
+
+
+Definition at line 87 of file io\+\_\+context.\+hpp.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ACSL-\/flightstack/include/flightstack/mocap/\mbox{\hyperlink{io__context_8hpp}{io\+\_\+context.\+hpp}}\end{DoxyCompactItemize}

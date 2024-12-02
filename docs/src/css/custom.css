@@ -1,0 +1,89 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #5a76bf;
+  --ifm-color-primary-dark: #4766b6;
+  --ifm-color-primary-darker: #4360ac;
+  --ifm-color-primary-darkest: #374f8e;
+  --ifm-color-primary-light: #3614de;
+  --ifm-color-primary-lighter: #788fcb;
+  --ifm-color-primary-lightest: #97a8d7;
+}
+
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(243, 240, 240, 0.3);
+}
+
+/* src/css/custom.css */
+
+/* Main container for all authors */
+.blog-post-authors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+/* Styling for each author profile */
+.blog-post-author {
+  display: flex;
+  align-items: center; /* Align image and text horizontally */
+  gap: 15px; /* Add space between the image and text */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure profiles take up the full width of the container */
+  max-width: 800px;
+}
+
+/* Profile image styling */
+.blog-post-author img {
+  border-radius: 50%; /* Make the images circular */
+  width: 80px;
+  height: 80px;
+}
+.blog-post-author h3,
+.blog-post-author p,
+.blog-post-author a {
+  
+  color: #2c3e50; /* Dark text for light mode */
+}
+
+
+/* Social icons styling */
+.social-icons {
+  display: flex;
+  gap: 10px; /* Space between icons */
+  margin-top: 5px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer; /* Makes the icons clickable */
+}
+.featureImg {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px; /* Optional: Rounded corners */
+  margin-top: 10px;   /* Optional: Space above the image */
+}
+
+
+

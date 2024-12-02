@@ -1,0 +1,13 @@
+<map id="Control" name="Control">
+<area shape="rect" id="node1" title="Control class." alt="" coords="731,345,800,372"/>
+<area shape="rect" id="node2" href="$structControl_1_1ControlInternalMembers.html" title="This struct contains the variables that are commmon among all controllers as they are the foundations..." alt="" coords="413,257,587,298"/>
+<area shape="rect" id="node3" title=" " alt="" coords="57,191,136,217"/>
+<area shape="rect" id="node4" title=" " alt="" coords="57,265,137,292"/>
+<area shape="rect" id="node5" href="$structControl_1_1ControlReferences.html" title="Struct that encapsulates references to external variables to be used inside the computeControlAlgorit..." alt="" coords="401,323,599,349"/>
+<area shape="rect" id="node6" href="$structVehicleInfo.html" title="Vehicle Info." alt="" coords="453,373,547,400"/>
+<area shape="rect" id="node7" title=" " alt="" coords="57,372,137,399"/>
+<area shape="rect" id="node8" href="$classMultiThreadedNode.html" title="Multithreaded Node Class." alt="" coords="425,447,575,473"/>
+<area shape="rect" id="node9" title=" " alt="" coords="45,423,148,449"/>
+<area shape="rect" id="node10" href="$structConfigurationParameters.html" title="Configurations Parameters set from config.json." alt="" coords="5,473,188,500"/>
+<area shape="rect" id="node11" href="$structGlobalParameters.html" title="Global parameteres shared among all the program." alt="" coords="27,524,166,551"/>
+</map>

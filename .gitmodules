@@ -1,0 +1,13 @@
+[submodule "include/eigen"]
+	path = include/eigen
+	url = https://gitlab.com/libeigen/eigen.git
+	branch = 3.4
+
+[submodule "include/json"]
+	path = include/json
+	url = https://github.com/nlohmann/json.git
+
+[submodule "include/boost"]
+	path = include/boost
+	url = https://github.com/boostorg/boost.git
+

@@ -1,0 +1,88 @@
+\hypertarget{continuous__lyapunov__equation_8cpp}{}\doxysection{ACSL-\/flightstack/src/utils/continuous\+\_\+lyapunov\+\_\+equation.cpp File Reference}
+\label{continuous__lyapunov__equation_8cpp}\index{ACSL-\/flightstack/src/utils/continuous\_lyapunov\_equation.cpp@{ACSL-\/flightstack/src/utils/continuous\_lyapunov\_equation.cpp}}
+
+
+Computes the solution of the continuos Lyapunov equation.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include \char`\"{}continuous\+\_\+lyapunov\+\_\+equation.\+hpp\char`\"{}}\newline
+Include dependency graph for continuous\+\_\+lyapunov\+\_\+equation.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{continuous__lyapunov__equation_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceinternal}{internal}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Matrix\+Xd \mbox{\hyperlink{continuous__lyapunov__equation_8cpp_a7a6d9497b1fb20f16e191d1965f7787c}{Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const Matrix\+Xd $>$ \&A, const Eigen\+::\+Ref$<$ const Matrix\+Xd $>$ \&Q)
+\begin{DoxyCompactList}\small\item\em Real\+Continuous\+Lyapunov\+Equation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} \mbox{\hyperlink{namespaceinternal_ad562fa598b41250cae8630c0e71bd2d3}{internal\+::\+Solve1\+By1\+Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const \mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} $>$ \&A, const Eigen\+::\+Ref$<$ const \mbox{\hyperlink{continuous__lyapunov__equation_8hpp_a6d923e79e6e92c2556edd86520145077}{Vector1d}} $>$ \&Q)
+\item 
+Matrix2d \mbox{\hyperlink{namespaceinternal_a14237876478f053869d8485464e3778c}{internal\+::\+Solve2\+By2\+Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const Matrix2d $>$ \&A, const Eigen\+::\+Ref$<$ const Matrix2d $>$ \&Q)
+\item 
+Matrix\+Xd \mbox{\hyperlink{namespaceinternal_aa7edfe9c9b885716bc39dc95af4afa53}{internal\+::\+Solve\+Reduced\+Real\+Continuous\+Lyapunov\+Equation}} (const Eigen\+::\+Ref$<$ const Matrix\+Xd $>$ \&S, const Eigen\+::\+Ref$<$ const Matrix\+Xd $>$ \&Q\+\_\+bar)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the solution of the continuos Lyapunov equation. 
+
+Part of the code in this file leverages the following material.
+
+Referenced\+: \href{https://github.com/RobotLocomotion/drake/pull/10885/files}{\texttt{ https\+://github.\+com/\+Robot\+Locomotion/drake/pull/10885/files}} All components of Drake are licensed under the BSD 3-\/Clause License shown below. Where noted in the source code, some portions may be subject to other permissive, non-\/viral licenses.
+
+Copyright 2012-\/2022 Robot Locomotion Group @ CSAIL All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the Massachusetts Institute of Technology nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \char`\"{}\+AS IS\char`\"{} AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: continuous\+\_\+lyapunov\+\_\+equation.\+cpp ~\newline
+ Author\+: Mattia Gramuglia ~\newline
+ Date\+: June 14, 2024 ~\newline
+ For info\+: Andrea L\textquotesingle{}Afflitto ~\newline
+ \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Computes the solution of the continuos Lyapunov equation WARNING !!! The following code uses a different convention than MATLAB\textquotesingle{}s. This code solves the equation\+: {\ttfamily AᵀX + XA + Q = 0} MATLAB command \char`\"{}lyap(\+A, Q)\char`\"{} solves the equation\+: {\ttfamily AX + XAᵀ + Q = 0} So this code provides the same result as obtained in MATLAB using the command\+: lyap(A\textquotesingle{}, Q) !!!!!!!!!!!
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}}
+
+WARNING !!! The following code uses a different convention than MATLAB\textquotesingle{}s. This code solves the equation\+: {\ttfamily AᵀX + XA + Q = 0} MATLAB command \char`\"{}lyap(\+A, Q)\char`\"{} solves the equation\+: {\ttfamily AX + XAᵀ + Q = 0} So this code provides the same result as obtained in MATLAB using the command\+: lyap(A\textquotesingle{}, Q)!!!!!!!!!!! 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{continuous__lyapunov__equation_8cpp_a7a6d9497b1fb20f16e191d1965f7787c}\label{continuous__lyapunov__equation_8cpp_a7a6d9497b1fb20f16e191d1965f7787c}} 
+\index{continuous\_lyapunov\_equation.cpp@{continuous\_lyapunov\_equation.cpp}!RealContinuousLyapunovEquation@{RealContinuousLyapunovEquation}}
+\index{RealContinuousLyapunovEquation@{RealContinuousLyapunovEquation}!continuous\_lyapunov\_equation.cpp@{continuous\_lyapunov\_equation.cpp}}
+\doxysubsubsection{\texorpdfstring{RealContinuousLyapunovEquation()}{RealContinuousLyapunovEquation()}}
+{\footnotesize\ttfamily Matrix\+Xd Real\+Continuous\+Lyapunov\+Equation (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Ref$<$ const Matrix\+Xd $>$ \&}]{A,  }\item[{const Eigen\+::\+Ref$<$ const Matrix\+Xd $>$ \&}]{Q }\end{DoxyParamCaption})}
+
+
+
+Real\+Continuous\+Lyapunov\+Equation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & \\
+\hline
+{\em Q} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matrix\+Xd 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file continuous\+\_\+lyapunov\+\_\+equation.\+cpp.
+

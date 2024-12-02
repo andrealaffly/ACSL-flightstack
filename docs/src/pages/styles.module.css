@@ -1,0 +1,168 @@
+.container {
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Dark mode header color */
+html[data-theme='dark'] .header {
+  color: #ffffff; /* Lighter text for dark background */
+}
+
+.hardwareGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #f8f9fa; /* Light mode background */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Dark mode card background */
+html[data-theme='dark'] .card {
+  background-color: #0d8067; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme='dark'] .card:hover {
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+a {
+  color: #010101;
+  text-decoration: none;
+}
+b {
+  color: #2690e1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #1169c1;
+}
+
+/* Dark mode link color */
+html[data-theme='dark'] a {
+  color: #f6fbfb; /* Lighter blue for better visibility */
+}
+html[data-theme='dark'] a:hover {
+  text-decoration: underline;
+  color: #09f3df;
+}
+
+.description {
+  font-size: 20px; /* Increase the font size as needed */
+  line-height: 1.6; /* Adjust the line height for better readability */
+  margin-bottom: 30px; /* Control the space below the text */
+  padding: 1rem; /* Add inner space around the content */
+  box-sizing: border-box;
+  background-color: #f9f9f9; /* Light background color for the box */
+  color: black;
+  border-radius: 8px; /* Rounded corners for a smooth look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+html[data-theme='dark'] .description {
+  background-color: #0d8067; /* Dark background */
+  color: #e0e0e0; /* Light tex
+  t color */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.tableHeader {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+
+
+/* Dark mode table header color */
+html[data-theme='dark'] .tableHeader {
+  color: #ffffff;
+}
+
+.searchInput {
+  width: 20%; /* Adjust width as needed */
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+  text-align: center; /* Center the text inside the input */
+}
+.searchInput:focus {
+  border-color: #1a73e8;
+}
+
+/* Dark mode search input styling */
+html[data-theme='dark'] .searchInput {
+  background-color: #2c3e50;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+.dataTable {
+  width: auto; /* Adjust width if needed */
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.dataTable th,
+.dataTable td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: center; /* Center the text in each cell */
+}
+
+.dataTable th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+/* Dark mode table styling */
+html[data-theme='dark'] .dataTable th {
+  background-color: #1b1b1b;
+  color: #e0e0e0;
+}
+
+.dataTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Dark mode table row styling */
+html[data-theme='dark'] .dataTable tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.minibox{
+  text-align: center;
+}

@@ -1,0 +1,156 @@
+\hypertarget{print__helpers_8hpp}{}\doxysection{ACSL-\/flightstack/include/flightstack/utils/print\+\_\+helpers.hpp File Reference}
+\label{print__helpers_8hpp}\index{ACSL-\/flightstack/include/flightstack/utils/print\_helpers.hpp@{ACSL-\/flightstack/include/flightstack/utils/print\_helpers.hpp}}
+
+
+Inline functions for all the classes of the flightstack to use.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+Include dependency graph for print\+\_\+helpers.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{print__helpers_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{print__helpers_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacehelper}{helper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{print__helpers_8hpp_a23c70d699a5a775bc2e1ebeb8603f630}{COLOR\+\_\+\+BLUE}}~\char`\"{}\textbackslash{}033\mbox{[}1;34m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{print__helpers_8hpp_afc9149f5de51bd9ac4f5ebbfa153f018}{COLOR\+\_\+\+GREEN}}~\char`\"{}\textbackslash{}033\mbox{[}1;32m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{print__helpers_8hpp_ad86358bf19927183dd7b4ae215a29731}{COLOR\+\_\+\+RED}}~\char`\"{}\textbackslash{}033\mbox{[}1;31m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{print__helpers_8hpp_aef75f616b9a3fdb10d38395dfb996873}{COLOR\+\_\+\+ORANGE}}~\char`\"{}\textbackslash{}033\mbox{[}38;5;214m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{print__helpers_8hpp_a17f760256046df23dd0ab46602f04d02}{COLOR\+\_\+\+RESET}}~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_a817801aac6bfc175300d3feefa400840}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO}} (const T \&msg)
+\begin{DoxyCompactList}\small\item\em Function to print a single message of any type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_a4978baa62092f79170d1295e6fd64ed9}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO}} (const T1 \&str, const T2 \&value)
+\begin{DoxyCompactList}\small\item\em Function to print a string and another data type together. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_a7b52e3f1f6f3ae47848092487d6e8cec}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO}} (const T \&msg, int throttle\+\_\+interval\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Throttled single message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_af89b673ae5bed836cd88ce0ad2c8b7e8}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO}} (const T1 \&str, const T2 \&value, int throttle\+\_\+interval\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Throttled string and another data type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , int Rows, int Cols$>$ }\\void \mbox{\hyperlink{namespacehelper_ae124eba17b97efa6ca227201405f4ffd}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+MATRIX}} (const std\+::string \&str, const Eigen\+::\+Matrix$<$ T, Rows, Cols $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em Function to print a string and an Eigen matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_ab220cf8ee4cc5ff079bdbc1a04c491e0}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM}} (const T \&msg)
+\begin{DoxyCompactList}\small\item\em Functio to print a single message of any type with carriage return. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_a64f4884af03789d48d374cb008904dd0}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM\+\_\+\+NO\+\_\+\+TAG}} (const T \&msg)
+\begin{DoxyCompactList}\small\item\em Function to print a single message of any type with carriage return -\/ NO TAG. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_aa2eab8096e034b80620156518f07cd6c}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM}} (const T1 \&str, const T2 \&value)
+\begin{DoxyCompactList}\small\item\em Function to print a string and another data type with carriage return. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_aa66567eacea16497f976db7d373cce3d}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM\+\_\+\+NO\+\_\+\+TAG}} (const T1 \&str, const T2 \&value)
+\begin{DoxyCompactList}\small\item\em Functio to print a string and another data type with carriage return -\/ NO TAG. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_af4bedaed0bb1af44457aa1cd3dd43484}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM}} (const T \&msg, int throttle\+\_\+interval\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Throttled single message with carriage return. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_ae9aa1c59f5fcef18d6f2b41ed3a98bfa}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM\+\_\+\+NO\+\_\+\+TAG}} (const T \&msg, int throttle\+\_\+interval\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Throttled single message withc carriage return -\/ NO TAG. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_a8cd1153b83c2bc3ebd17707afc72fddf}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM}} (const T1 \&str, const T2 \&value, int throttle\+\_\+interval\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Throttled string and another data type with carriage return. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_a1bb7386e8debe97a21a57425d834e3e2}{helper\+::\+FLIGHTSTACK\+\_\+\+INFO\+\_\+\+STREAM\+\_\+\+NO\+\_\+\+TAG}} (const T1 \&str, const T2 \&value, int throttle\+\_\+interval\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Throttled string and another data type with carriage reutrn -\/ NO TAG. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_ac295afbeb943cd5a246fd4f68221cd46}{helper\+::\+FLIGHTSTACK\+\_\+\+ERROR}} (const T \&msg)
+\begin{DoxyCompactList}\small\item\em Function to print an error message of any type and terminate the program. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_ad29ef6a798e939d4bf8bcd9066d5dab2}{helper\+::\+FLIGHTSTACK\+\_\+\+ERROR}} (const T1 \&str, const T2 \&value)
+\begin{DoxyCompactList}\small\item\em Function to print a string and another data type as an error and terminate the program. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespacehelper_a80868490cd2c0dc6c35b8c2ba1a22ab5}{helper\+::\+FLIGHTSTACK\+\_\+\+WARNING}} (const T \&msg)
+\begin{DoxyCompactList}\small\item\em Function to print a warning message of any type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\void \mbox{\hyperlink{namespacehelper_a9a6c0721f63630f24ee3696d80fd4332}{helper\+::\+FLIGHTSTACK\+\_\+\+WARNING}} (const T1 \&str, const T2 \&value)
+\begin{DoxyCompactList}\small\item\em Function to print a string and another data type as a warning. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Inline functions for all the classes of the flightstack to use. 
+
+Copyright (c) 2024 Mattia Gramuglia, Giri M. Kumar, Andrea L\textquotesingle{}Afflitto. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “\+AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. File\+: print\+\_\+helpers.\+hpp Author\+: Giri Mugundan Kumar Date\+: September 12, 2024 For info\+: Andrea L\textquotesingle{}Afflitto \href{mailto:a.lafflitto@vt.edu}{\texttt{ a.\+lafflitto@vt.\+edu}}
+
+Description\+: Inline functions for all the classes of the flightstack to use.
+
+Git\+Hub\+: \href{https://github.com/andrealaffly/ACSL-flightstack.git}{\texttt{ https\+://github.\+com/andrealaffly/\+ACSL-\/flightstack.\+git}} 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{print__helpers_8hpp_a23c70d699a5a775bc2e1ebeb8603f630}\label{print__helpers_8hpp_a23c70d699a5a775bc2e1ebeb8603f630}} 
+\index{print\_helpers.hpp@{print\_helpers.hpp}!COLOR\_BLUE@{COLOR\_BLUE}}
+\index{COLOR\_BLUE@{COLOR\_BLUE}!print\_helpers.hpp@{print\_helpers.hpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_BLUE}{COLOR\_BLUE}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+BLUE~\char`\"{}\textbackslash{}033\mbox{[}1;34m\char`\"{}}
+
+
+
+Definition at line 52 of file print\+\_\+helpers.\+hpp.
+
+\mbox{\Hypertarget{print__helpers_8hpp_afc9149f5de51bd9ac4f5ebbfa153f018}\label{print__helpers_8hpp_afc9149f5de51bd9ac4f5ebbfa153f018}} 
+\index{print\_helpers.hpp@{print\_helpers.hpp}!COLOR\_GREEN@{COLOR\_GREEN}}
+\index{COLOR\_GREEN@{COLOR\_GREEN}!print\_helpers.hpp@{print\_helpers.hpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_GREEN}{COLOR\_GREEN}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+GREEN~\char`\"{}\textbackslash{}033\mbox{[}1;32m\char`\"{}}
+
+
+
+Definition at line 53 of file print\+\_\+helpers.\+hpp.
+
+\mbox{\Hypertarget{print__helpers_8hpp_aef75f616b9a3fdb10d38395dfb996873}\label{print__helpers_8hpp_aef75f616b9a3fdb10d38395dfb996873}} 
+\index{print\_helpers.hpp@{print\_helpers.hpp}!COLOR\_ORANGE@{COLOR\_ORANGE}}
+\index{COLOR\_ORANGE@{COLOR\_ORANGE}!print\_helpers.hpp@{print\_helpers.hpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_ORANGE}{COLOR\_ORANGE}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+ORANGE~\char`\"{}\textbackslash{}033\mbox{[}38;5;214m\char`\"{}}
+
+
+
+Definition at line 55 of file print\+\_\+helpers.\+hpp.
+
+\mbox{\Hypertarget{print__helpers_8hpp_ad86358bf19927183dd7b4ae215a29731}\label{print__helpers_8hpp_ad86358bf19927183dd7b4ae215a29731}} 
+\index{print\_helpers.hpp@{print\_helpers.hpp}!COLOR\_RED@{COLOR\_RED}}
+\index{COLOR\_RED@{COLOR\_RED}!print\_helpers.hpp@{print\_helpers.hpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_RED}{COLOR\_RED}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+RED~\char`\"{}\textbackslash{}033\mbox{[}1;31m\char`\"{}}
+
+
+
+Definition at line 54 of file print\+\_\+helpers.\+hpp.
+
+\mbox{\Hypertarget{print__helpers_8hpp_a17f760256046df23dd0ab46602f04d02}\label{print__helpers_8hpp_a17f760256046df23dd0ab46602f04d02}} 
+\index{print\_helpers.hpp@{print\_helpers.hpp}!COLOR\_RESET@{COLOR\_RESET}}
+\index{COLOR\_RESET@{COLOR\_RESET}!print\_helpers.hpp@{print\_helpers.hpp}}
+\doxysubsubsection{\texorpdfstring{COLOR\_RESET}{COLOR\_RESET}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+RESET~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}}
+
+
+
+Definition at line 56 of file print\+\_\+helpers.\+hpp.
+
