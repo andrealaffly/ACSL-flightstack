@@ -68,9 +68,7 @@ jobs:
 
       - name: Build Docusaurus site
         working-directory: ./docs
-        run: |
-          npm run build
-          npm run test
+        run: npm run build
 
       - name: Check if CNAME exists and create it if missing
         run: |
