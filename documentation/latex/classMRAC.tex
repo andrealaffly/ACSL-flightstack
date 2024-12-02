@@ -1,0 +1,462 @@
+\hypertarget{classMRAC}{}\doxysection{MRAC Class Reference}
+\label{classMRAC}\index{MRAC@{MRAC}}
+
+
+{\ttfamily \#include $<$mrac.\+hpp$>$}
+
+
+
+Inheritance diagram for MRAC\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{classMRAC__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for MRAC\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMRAC__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}}
+\begin{DoxyCompactList}\small\item\em This struct contains the variables that are used in this particular controller. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}}
+\begin{DoxyCompactList}\small\item\em This struct represents the state of the MRAC controller differential equations that will be integrated at each RK4 iteration. IT IS NOT THE VEHICLE STATE (e.\+g. POSITION, VELOCITY, etc.). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMRAC_a96ef66af1308909c455ed4010363b6f1}{MRAC}} (\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&node)
+\item 
+\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \& \mbox{\hyperlink{classMRAC_aa008fd7ad41501775dead88bc96e3043}{get\+State\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Getter functions. \end{DoxyCompactList}\item 
+const double \& \mbox{\hyperlink{classMRAC_abb1f28fbcb316464eadb0e5b38c119d3}{get\+Time\+Step\+RK4}} () const
+\item 
+const \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \& \mbox{\hyperlink{classMRAC_a2966683253e39e608a3ba052970d1d67}{get\+Gains}} () const
+\item 
+const \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \& \mbox{\hyperlink{classMRAC_a9a7a6b2bf4528777eabf88feae8c30ad}{get\+Controller\+Specific\+Internal\+Members}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogData__MRAC}{Log\+Data\+\_\+\+MRAC}} $>$ \mbox{\hyperlink{classMRAC_a8a215fd9aff4cee50bb265f0c91f190e}{get\+Log\+Data}} () const
+\item 
+void \mbox{\hyperlink{classMRAC_af0e10274b5bbfb541addfe78dfacf689}{read\+JSONfile}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Function to read the tuning gains coming from the .json file and assign it to the gains\+\_\+ struct instantiated in the MRAC class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_a01976c11a5fb7022ee7a8258acb02310}{initialize\+Controller\+Parameters}} (\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&\mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}})
+\begin{DoxyCompactList}\small\item\em Function that given the gains read from the JSON file, initializes the rest of the parameters accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_a3e73bc317fb0b7488ca58913cea5f634}{assign\+System\+To\+Dxdt}} (\mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}}, \mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} \&dxdt, const double)
+\begin{DoxyCompactList}\small\item\em Assigning the right-\/hand side of the differential equations to the first time derivative of the full\+\_\+state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_a51f5e7772d7f4b184e072cf28f523f62}{compute\+Filter\+Differentiator\+Variables}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&\mbox{\hyperlink{classMRAC_ad9479a70d42a041232322b946a93f4d8}{state\+\_\+}})
+\begin{DoxyCompactList}\small\item\em Function to compute the variables used for the differentiator of the desired roll and pitch angles. This function calculates the internal states and derivatives (first and second) of the roll and pitch desired angles using the provided filter coefficients and the current state variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_adf727d6eb0087e81fe1cd9661bcafc46}{compute\+Outer\+Loop}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&\mbox{\hyperlink{classMRAC_ad9479a70d42a041232322b946a93f4d8}{state\+\_\+}}, \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&\mbox{\hyperlink{classControl_a72c21299fee71707c64758f1c3e72406}{cr}}, \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&\mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}}, \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&\mbox{\hyperlink{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}{csim\+\_\+}})
+\begin{DoxyCompactList}\small\item\em OUTER LOOP CONTROLLER. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_a60553e4a308beab552080a51b4cb5e7d}{compute\+Outer\+Loop\+DEBUGGING}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&\mbox{\hyperlink{classMRAC_ad9479a70d42a041232322b946a93f4d8}{state\+\_\+}}, \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&\mbox{\hyperlink{classControl_a72c21299fee71707c64758f1c3e72406}{cr}}, \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&\mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}}, \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&\mbox{\hyperlink{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}{csim\+\_\+}})
+\begin{DoxyCompactList}\small\item\em OUTER LOOP CONTROLLER USED FOR DEBUGGING, using \textquotesingle{}user\textquotesingle{} instead of \textquotesingle{}reference-\/model\textquotesingle{} in the baseline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_af7288854f607ce1fbedbf9101b5d6a71}{compute\+Inner\+Loop}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&\mbox{\hyperlink{classMRAC_ad9479a70d42a041232322b946a93f4d8}{state\+\_\+}}, \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&\mbox{\hyperlink{classControl_a72c21299fee71707c64758f1c3e72406}{cr}}, \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&\mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}}, \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&\mbox{\hyperlink{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}{csim\+\_\+}})
+\begin{DoxyCompactList}\small\item\em INNER LOOP CONTROLLER. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_aa329e097d567c9695f36dcf50fe264af}{compute\+Inner\+Loop\+DEBUGGING}} (\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&\mbox{\hyperlink{classControl_ae617f475a998d077429d22807fe9ff89}{cim}}, \mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&\mbox{\hyperlink{classControl_abf64312fbd5890115a4341e12358274a}{vehicle\+\_\+info}}, \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&\mbox{\hyperlink{classMRAC_ad9479a70d42a041232322b946a93f4d8}{state\+\_\+}}, \mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&\mbox{\hyperlink{classControl_a72c21299fee71707c64758f1c3e72406}{cr}}, \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&\mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}}, \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&\mbox{\hyperlink{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}{csim\+\_\+}})
+\begin{DoxyCompactList}\small\item\em INNER LOOP CONTROLLER USED FOR DEBUGGING, using \textquotesingle{}desired\textquotesingle{} instead of \textquotesingle{}reference-\/model\textquotesingle{} in the baseline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMRAC_a4f4587bf36d8977c318bc22240b347d6}{compute\+Control\+Algorithm}} ()
+\begin{DoxyCompactList}\small\item\em MRAC Control algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \& \mbox{\hyperlink{classMRAC_a6cf73d99dc2a261b376cc1a18ff523c6}{get\+Controller\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \mbox{\hyperlink{classMRAC_ad9479a70d42a041232322b946a93f4d8}{state\+\_\+}}
+\item 
+const double \mbox{\hyperlink{classMRAC_a3471c5e0066efa640d9598849e219670}{time\+\_\+step\+\_\+rk4\+\_\+}} = 0.\+01
+\item 
+\mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \mbox{\hyperlink{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}{gains\+\_\+}}
+\item 
+\mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \mbox{\hyperlink{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}{csim\+\_\+}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogData__MRAC}{Log\+Data\+\_\+\+MRAC}} $>$ \mbox{\hyperlink{classMRAC_ac42fabe72fbf3979bc57a2e6b8e363bd}{log\+\_\+data\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{classMRAC_a2c1e0520e968846a47e55d24e8bf2592}{controller\+\_\+name\+\_\+}} = \char`\"{}MRAC\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file mrac.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMRAC_a96ef66af1308909c455ed4010363b6f1}\label{classMRAC_a96ef66af1308909c455ed4010363b6f1}} 
+\index{MRAC@{MRAC}!MRAC@{MRAC}}
+\index{MRAC@{MRAC}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{MRAC()}{MRAC()}}
+{\footnotesize\ttfamily MRAC\+::\+MRAC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMultiThreadedNode}{Multi\+Threaded\+Node}} \&}]{node }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file mrac.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMRAC_a3e73bc317fb0b7488ca58913cea5f634}\label{classMRAC_a3e73bc317fb0b7488ca58913cea5f634}} 
+\index{MRAC@{MRAC}!assignSystemToDxdt@{assignSystemToDxdt}}
+\index{assignSystemToDxdt@{assignSystemToDxdt}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{assignSystemToDxdt()}{assignSystemToDxdt()}}
+{\footnotesize\ttfamily void MRAC\+::assign\+System\+To\+Dxdt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}}}]{,  }\item[{\mbox{\hyperlink{control_8hpp_ac2cbd93a71d714f5088358ef9ce8ed48}{state\+\_\+type}} \&}]{dxdt,  }\item[{const double}]{ }\end{DoxyParamCaption})}
+
+
+
+Assigning the right-\/hand side of the differential equations to the first time derivative of the full\+\_\+state. 
+
+
+
+Definition at line 293 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a4f4587bf36d8977c318bc22240b347d6}\label{classMRAC_a4f4587bf36d8977c318bc22240b347d6}} 
+\index{MRAC@{MRAC}!computeControlAlgorithm@{computeControlAlgorithm}}
+\index{computeControlAlgorithm@{computeControlAlgorithm}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{computeControlAlgorithm()}{computeControlAlgorithm()}}
+{\footnotesize\ttfamily void MRAC\+::compute\+Control\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+MRAC Control algorithm Function to compute various rotational parameters. This function sets the desired angle, angular rate and angular acceleration for yaw, computes the inverse of the Jacobian matrix, the derivative of the Euler angles, and the rotation matrix to go from global to local coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 928 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a51f5e7772d7f4b184e072cf28f523f62}\label{classMRAC_a51f5e7772d7f4b184e072cf28f523f62}} 
+\index{MRAC@{MRAC}!computeFilterDifferentiatorVariables@{computeFilterDifferentiatorVariables}}
+\index{computeFilterDifferentiatorVariables@{computeFilterDifferentiatorVariables}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{computeFilterDifferentiatorVariables()}{computeFilterDifferentiatorVariables()}}
+{\footnotesize\ttfamily void MRAC\+::compute\+Filter\+Differentiator\+Variables (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info,  }\item[{\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&}]{state\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Function to compute the variables used for the differentiator of the desired roll and pitch angles. This function calculates the internal states and derivatives (first and second) of the roll and pitch desired angles using the provided filter coefficients and the current state variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em vehicle\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 336 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_af7288854f607ce1fbedbf9101b5d6a71}\label{classMRAC_af7288854f607ce1fbedbf9101b5d6a71}} 
+\index{MRAC@{MRAC}!computeInnerLoop@{computeInnerLoop}}
+\index{computeInnerLoop@{computeInnerLoop}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{computeInnerLoop()}{computeInnerLoop()}}
+{\footnotesize\ttfamily void MRAC\+::compute\+Inner\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info,  }\item[{\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&}]{state\+\_\+,  }\item[{\mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&}]{cr,  }\item[{\mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&}]{gains\+\_\+,  }\item[{\mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&}]{csim\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+INNER LOOP CONTROLLER. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em vehicle\+\_\+info} & \\
+\hline
+{\em state\+\_\+} & \\
+\hline
+{\em cr} & \\
+\hline
+{\em gains\+\_\+} & \\
+\hline
+{\em csim\+\_\+} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 620 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_aa329e097d567c9695f36dcf50fe264af}\label{classMRAC_aa329e097d567c9695f36dcf50fe264af}} 
+\index{MRAC@{MRAC}!computeInnerLoopDEBUGGING@{computeInnerLoopDEBUGGING}}
+\index{computeInnerLoopDEBUGGING@{computeInnerLoopDEBUGGING}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{computeInnerLoopDEBUGGING()}{computeInnerLoopDEBUGGING()}}
+{\footnotesize\ttfamily void MRAC\+::compute\+Inner\+Loop\+DEBUGGING (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info,  }\item[{\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&}]{state\+\_\+,  }\item[{\mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&}]{cr,  }\item[{\mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&}]{gains\+\_\+,  }\item[{\mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&}]{csim\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+INNER LOOP CONTROLLER USED FOR DEBUGGING, using \textquotesingle{}desired\textquotesingle{} instead of \textquotesingle{}reference-\/model\textquotesingle{} in the baseline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em vehicle\+\_\+info} & \\
+\hline
+{\em state\+\_\+} & \\
+\hline
+{\em cr} & \\
+\hline
+{\em gains\+\_\+} & \\
+\hline
+{\em csim\+\_\+} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 773 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_adf727d6eb0087e81fe1cd9661bcafc46}\label{classMRAC_adf727d6eb0087e81fe1cd9661bcafc46}} 
+\index{MRAC@{MRAC}!computeOuterLoop@{computeOuterLoop}}
+\index{computeOuterLoop@{computeOuterLoop}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{computeOuterLoop()}{computeOuterLoop()}}
+{\footnotesize\ttfamily void MRAC\+::compute\+Outer\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info,  }\item[{\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&}]{state\+\_\+,  }\item[{\mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&}]{cr,  }\item[{\mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&}]{gains\+\_\+,  }\item[{\mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&}]{csim\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+OUTER LOOP CONTROLLER. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em vehicle\+\_\+info} & \\
+\hline
+{\em state\+\_\+} & \\
+\hline
+{\em cr} & \\
+\hline
+{\em gains\+\_\+} & \\
+\hline
+{\em csim\+\_\+} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 363 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a60553e4a308beab552080a51b4cb5e7d}\label{classMRAC_a60553e4a308beab552080a51b4cb5e7d}} 
+\index{MRAC@{MRAC}!computeOuterLoopDEBUGGING@{computeOuterLoopDEBUGGING}}
+\index{computeOuterLoopDEBUGGING@{computeOuterLoopDEBUGGING}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{computeOuterLoopDEBUGGING()}{computeOuterLoopDEBUGGING()}}
+{\footnotesize\ttfamily void MRAC\+::compute\+Outer\+Loop\+DEBUGGING (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structControl_1_1ControlInternalMembers}{Control\+Internal\+Members}} \&}]{cim,  }\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info,  }\item[{\mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} \&}]{state\+\_\+,  }\item[{\mbox{\hyperlink{structControl_1_1ControlReferences}{Control\+References}} \&}]{cr,  }\item[{\mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&}]{gains\+\_\+,  }\item[{\mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} \&}]{csim\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+OUTER LOOP CONTROLLER USED FOR DEBUGGING, using \textquotesingle{}user\textquotesingle{} instead of \textquotesingle{}reference-\/model\textquotesingle{} in the baseline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cim} & \\
+\hline
+{\em vehicle\+\_\+info} & \\
+\hline
+{\em state\+\_\+} & \\
+\hline
+{\em cr} & \\
+\hline
+{\em gains\+\_\+} & \\
+\hline
+{\em csim\+\_\+} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 491 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a6cf73d99dc2a261b376cc1a18ff523c6}\label{classMRAC_a6cf73d99dc2a261b376cc1a18ff523c6}} 
+\index{MRAC@{MRAC}!getControllerName@{getControllerName}}
+\index{getControllerName@{getControllerName}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{getControllerName()}{getControllerName()}}
+{\footnotesize\ttfamily const std\+::string \& MRAC\+::get\+Controller\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 149 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a9a7a6b2bf4528777eabf88feae8c30ad}\label{classMRAC_a9a7a6b2bf4528777eabf88feae8c30ad}} 
+\index{MRAC@{MRAC}!getControllerSpecificInternalMembers@{getControllerSpecificInternalMembers}}
+\index{getControllerSpecificInternalMembers@{getControllerSpecificInternalMembers}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{getControllerSpecificInternalMembers()}{getControllerSpecificInternalMembers()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{MRAC\+::\+Controller\+Specific\+Internal\+Members}} \& MRAC\+::get\+Controller\+Specific\+Internal\+Members (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 136 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a2966683253e39e608a3ba052970d1d67}\label{classMRAC_a2966683253e39e608a3ba052970d1d67}} 
+\index{MRAC@{MRAC}!getGains@{getGains}}
+\index{getGains@{getGains}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{getGains()}{getGains()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \& MRAC\+::get\+Gains (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 130 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a8a215fd9aff4cee50bb265f0c91f190e}\label{classMRAC_a8a215fd9aff4cee50bb265f0c91f190e}} 
+\index{MRAC@{MRAC}!getLogData@{getLogData}}
+\index{getLogData@{getLogData}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{getLogData()}{getLogData()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogData__MRAC}{Log\+Data\+\_\+\+MRAC}} $>$ MRAC\+::get\+Log\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 144 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_aa008fd7ad41501775dead88bc96e3043}\label{classMRAC_aa008fd7ad41501775dead88bc96e3043}} 
+\index{MRAC@{MRAC}!getStateController@{getStateController}}
+\index{getStateController@{getStateController}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{getStateController()}{getStateController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMRAC_1_1StateController}{MRAC\+::\+State\+Controller}} \& MRAC\+::get\+State\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter functions. 
+
+\begin{DoxyReturn}{Returns}
+State\+Controller\& 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_abb1f28fbcb316464eadb0e5b38c119d3}\label{classMRAC_abb1f28fbcb316464eadb0e5b38c119d3}} 
+\index{MRAC@{MRAC}!getTimeStepRK4@{getTimeStepRK4}}
+\index{getTimeStepRK4@{getTimeStepRK4}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{getTimeStepRK4()}{getTimeStepRK4()}}
+{\footnotesize\ttfamily const double \& MRAC\+::get\+Time\+Step\+RK4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 125 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_a01976c11a5fb7022ee7a8258acb02310}\label{classMRAC_a01976c11a5fb7022ee7a8258acb02310}} 
+\index{MRAC@{MRAC}!initializeControllerParameters@{initializeControllerParameters}}
+\index{initializeControllerParameters@{initializeControllerParameters}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{initializeControllerParameters()}{initializeControllerParameters()}}
+{\footnotesize\ttfamily void MRAC\+::initialize\+Controller\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structVehicleInfo}{Vehicle\+Info}} \&}]{vehicle\+\_\+info,  }\item[{\mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} \&}]{gains\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Function that given the gains read from the JSON file, initializes the rest of the parameters accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vehicle\+\_\+info} & \\
+\hline
+{\em gains\+\_\+} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 229 of file mrac.\+cpp.
+
+\mbox{\Hypertarget{classMRAC_af0e10274b5bbfb541addfe78dfacf689}\label{classMRAC_af0e10274b5bbfb541addfe78dfacf689}} 
+\index{MRAC@{MRAC}!readJSONfile@{readJSONfile}}
+\index{readJSONfile@{readJSONfile}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{readJSONfile()}{readJSONfile()}}
+{\footnotesize\ttfamily void MRAC\+::read\+JSONfile (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Function to read the tuning gains coming from the .json file and assign it to the gains\+\_\+ struct instantiated in the MRAC class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & std\+::string\& file\+Name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 158 of file mrac.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMRAC_a2c1e0520e968846a47e55d24e8bf2592}\label{classMRAC_a2c1e0520e968846a47e55d24e8bf2592}} 
+\index{MRAC@{MRAC}!controller\_name\_@{controller\_name\_}}
+\index{controller\_name\_@{controller\_name\_}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{controller\_name\_}{controller\_name\_}}
+{\footnotesize\ttfamily const std\+::string MRAC\+::controller\+\_\+name\+\_\+ = \char`\"{}MRAC\char`\"{}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 290 of file mrac.\+hpp.
+
+\mbox{\Hypertarget{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}\label{classMRAC_acb8fa36e0f495cafa8676f48b1a85fe1}} 
+\index{MRAC@{MRAC}!csim\_@{csim\_}}
+\index{csim\_@{csim\_}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{csim\_}{csim\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMRAC_1_1ControllerSpecificInternalMembers}{Controller\+Specific\+Internal\+Members}} MRAC\+::csim\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 284 of file mrac.\+hpp.
+
+\mbox{\Hypertarget{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}\label{classMRAC_ac798b35fcf37b5cf639cf6f8c5babe05}} 
+\index{MRAC@{MRAC}!gains\_@{gains\_}}
+\index{gains\_@{gains\_}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{gains\_}{gains\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGainsMRAC}{Gains\+MRAC}} MRAC\+::gains\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 282 of file mrac.\+hpp.
+
+\mbox{\Hypertarget{classMRAC_ac42fabe72fbf3979bc57a2e6b8e363bd}\label{classMRAC_ac42fabe72fbf3979bc57a2e6b8e363bd}} 
+\index{MRAC@{MRAC}!log\_data\_@{log\_data\_}}
+\index{log\_data\_@{log\_data\_}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{log\_data\_}{log\_data\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classLogData__MRAC}{Log\+Data\+\_\+\+MRAC}}$>$ MRAC\+::log\+\_\+data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 287 of file mrac.\+hpp.
+
+\mbox{\Hypertarget{classMRAC_ad9479a70d42a041232322b946a93f4d8}\label{classMRAC_ad9479a70d42a041232322b946a93f4d8}} 
+\index{MRAC@{MRAC}!state\_@{state\_}}
+\index{state\_@{state\_}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{state\_}{state\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMRAC_1_1StateController}{State\+Controller}} MRAC\+::state\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 279 of file mrac.\+hpp.
+
+\mbox{\Hypertarget{classMRAC_a3471c5e0066efa640d9598849e219670}\label{classMRAC_a3471c5e0066efa640d9598849e219670}} 
+\index{MRAC@{MRAC}!time\_step\_rk4\_@{time\_step\_rk4\_}}
+\index{time\_step\_rk4\_@{time\_step\_rk4\_}!MRAC@{MRAC}}
+\doxysubsubsection{\texorpdfstring{time\_step\_rk4\_}{time\_step\_rk4\_}}
+{\footnotesize\ttfamily const double MRAC\+::time\+\_\+step\+\_\+rk4\+\_\+ = 0.\+01\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 280 of file mrac.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ACSL-\/flightstack/include/flightstack/control/mrac/\mbox{\hyperlink{mrac_8hpp}{mrac.\+hpp}}\item 
+ACSL-\/flightstack/src/control/mrac/\mbox{\hyperlink{mrac_8cpp}{mrac.\+cpp}}\end{DoxyCompactItemize}
