@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         working-directory: ./docs  # Change this if necessary
         run: |
-          npm install
+          npm ci
           # npm ci  # or npm install if package-lock.json is not present
 
       - name: Build Docusaurus site
