@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://your-docusaurus-site.example.com/blog</id>
+    <id>https://andrealaffly.github.io/ACSL-flightstack/blog</id>
     <title>Advanced Control Systems Lab Flight Stacks Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://your-docusaurus-site.example.com/blog"/>
+    <link rel="alternate" href="https://andrealaffly.github.io/ACSL-flightstack/blog"/>
     <subtitle>Advanced Control Systems Lab Flight Stacks Blog</subtitle>
-    <icon>https://your-docusaurus-site.example.com/img/ACSL_Logo.jpg</icon>
+    <icon>https://andrealaffly.github.io/ACSL-flightstack/img/ACSL_Logo.jpg</icon>
     <entry>
         <title type="html"><![CDATA[welcome]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/2021/08/26/welcome</id>
-        <link href="https://your-docusaurus-site.example.com/blog/2021/08/26/welcome"/>
+        <id>https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/26/welcome</id>
+        <link href="https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/26/welcome"/>
         <updated>2021-08-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[{/ truncate /}]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[mdx-blog-post]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/2021/08/01/mdx-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/blog/2021/08/01/mdx-blog-post"/>
+        <id>https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/01/mdx-blog-post</id>
+        <link href="https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/01/mdx-blog-post"/>
         <updated>2021-08-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[{/ truncate /}]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[long-blog-post]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/2019/05/29/long-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/blog/2019/05/29/long-blog-post"/>
+        <id>https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/29/long-blog-post</id>
+        <link href="https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/29/long-blog-post"/>
         <updated>2019-05-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[{/ truncate /}]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[first-blog-post]]></title>
-        <id>https://your-docusaurus-site.example.com/blog/2019/05/28/first-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/blog/2019/05/28/first-blog-post"/>
+        <id>https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/28/first-blog-post</id>
+        <link href="https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/28/first-blog-post"/>
         <updated>2019-05-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[{/ truncate /}]]></summary>
     </entry>

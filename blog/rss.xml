@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>Advanced Control Systems Lab Flight Stacks Blog</title>
-        <link>https://your-docusaurus-site.example.com/blog</link>
+        <link>https://andrealaffly.github.io/ACSL-flightstack/blog</link>
         <description>Advanced Control Systems Lab Flight Stacks Blog</description>
         <lastBuildDate>Thu, 26 Aug 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,29 +10,29 @@
         <language>en</language>
         <item>
             <title><![CDATA[welcome]]></title>
-            <link>https://your-docusaurus-site.example.com/blog/2021/08/26/welcome</link>
-            <guid>https://your-docusaurus-site.example.com/blog/2021/08/26/welcome</guid>
+            <link>https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/26/welcome</link>
+            <guid>https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/26/welcome</guid>
             <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[{/ truncate /}]]></description>
         </item>
         <item>
             <title><![CDATA[mdx-blog-post]]></title>
-            <link>https://your-docusaurus-site.example.com/blog/2021/08/01/mdx-blog-post</link>
-            <guid>https://your-docusaurus-site.example.com/blog/2021/08/01/mdx-blog-post</guid>
+            <link>https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/01/mdx-blog-post</link>
+            <guid>https://andrealaffly.github.io/ACSL-flightstack/blog/2021/08/01/mdx-blog-post</guid>
             <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[{/ truncate /}]]></description>
         </item>
         <item>
             <title><![CDATA[long-blog-post]]></title>
-            <link>https://your-docusaurus-site.example.com/blog/2019/05/29/long-blog-post</link>
-            <guid>https://your-docusaurus-site.example.com/blog/2019/05/29/long-blog-post</guid>
+            <link>https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/29/long-blog-post</link>
+            <guid>https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/29/long-blog-post</guid>
             <pubDate>Wed, 29 May 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[{/ truncate /}]]></description>
         </item>
         <item>
             <title><![CDATA[first-blog-post]]></title>
-            <link>https://your-docusaurus-site.example.com/blog/2019/05/28/first-blog-post</link>
-            <guid>https://your-docusaurus-site.example.com/blog/2019/05/28/first-blog-post</guid>
+            <link>https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/28/first-blog-post</link>
+            <guid>https://andrealaffly.github.io/ACSL-flightstack/blog/2019/05/28/first-blog-post</guid>
             <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[{/ truncate /}]]></description>
         </item>
