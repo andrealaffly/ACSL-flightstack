@@ -75,6 +75,8 @@ jobs:
           path: build  # Adjust this to the correct path if needed
 
   deploy:
+    runs-on: ubuntu-latest  # Specify the virtual machine for this job
+
     needs: build  # This job will run after the build job
 
     steps:
@@ -94,4 +96,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build  # Path to the downloaded build folder
           cname: acslstack.com  # Optional, if you have a custom domain
+
 
