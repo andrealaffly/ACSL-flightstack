@@ -23,6 +23,7 @@ favicon: "img/ACSL_Logo.jpg",
   // GitHub pages deployment config.
   organizationName: "andrealaffly", // Usually your GitHub org/user name.
   projectName: "ACSL-flightstack", // Usually your repo name.
+  deploymentBranch: 'gh-pages',
 
   trailingSlash: false,
 
