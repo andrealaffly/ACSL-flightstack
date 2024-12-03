@@ -130,10 +130,13 @@ jobs:
       - name: Build website
         run: npm run build
 
+      - name: List files after build
+        run: ls -la
+
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: /build
 
   deploy:
     name: Deploy to GitHub Pages
