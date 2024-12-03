@@ -130,8 +130,17 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: List files after build
-        run: ls -la
+      - name: List Current Directory
+        run: |
+          echo "Current Directory:"
+          pwd
+          echo "List Files:"
+          ls -la
+
+      - name: List Files in Build Directory
+        run: |
+          echo "List Files in ./build:"
+          ls -la ./build || echo "Directory ./build does not exist"
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
