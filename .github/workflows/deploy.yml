@@ -167,14 +167,14 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # - name: Deploy to gh-pages Branch
-      #   run: |
-      #     git config --global user.name "github-actions[bot]"
-      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      #     git fetch
-      #     git checkout -b gh-pages
-      #     git rm -rf . || true
-      #     cp -r ./docs/build/* .
-      #     git add .
-      #     git commit -m "Deploy to GitHub Pages"
-      #     git push --force origin gh-pages
+      - name: Deploy to gh-pages Branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch
+          git checkout -b gh-pages
+          git rm -rf . || true
+          cp -r ./docs/build/* .
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push --force origin gh-pages
