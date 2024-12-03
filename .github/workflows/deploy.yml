@@ -41,20 +41,79 @@
 #           publish_dir: ./docs/build 
 #           cname: acslstack.com # Add your custom domain here
 
+# name: Deploy to GitHub Pages
+
+# on:
+#   pull_request:
+#     branches: [main]
+#   push:
+#     branches: [main]
+
+# permissions:
+#   contents: write
+
+# jobs:
+#   test-deploy:
+#     if: github.event_name != 'push'
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+#       - uses: actions/setup-node@v4
+#         with:
+#           cache-dependency-path: ./docs
+#           node-version: 18
+#           cache: npm
+#       - name: Install dependencies
+#         working-directory: ./docs
+#         run: npm ci
+#       - name: Test build website
+#         working-directory: ./docs
+#         run: npm run build
+#   deploy:
+#     if: github.event_name != 'pull_request'
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+#       - uses: actions/setup-node@v4
+#         with:
+#           cache-dependency-path: ./docs
+#           node-version: 18
+#           cache: npm
+#       - uses: webfactory/ssh-agent@v0.5.0
+#         with:
+#           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+#       - name: Deploy to GitHub Pages
+#         env:
+#           USE_SSH: true
+#         working-directory: ./docs
+#         run: |
+#           # git config --global user.email "actions@github.com"
+#           # git config --global user.name "gh-actions"
+#           npm ci
+#           npm run deploy
+
+
 name: Deploy to GitHub Pages
 
-on:
-  pull_request:
-    branches: [main]
-  push:
-    branches: [main]
+defaults:
+  run:
+    shell: bash
+    working-directory: ./docs
 
-permissions:
-  contents: write
+on:
+  push:
+    branches:
+      - main
+    # Review gh actions docs if you want to further define triggers, paths, etc
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
-  test-deploy:
-    if: github.event_name != 'push'
+  build:
+    name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,36 +121,47 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          cache-dependency-path: ./docs
           node-version: 18
           cache: npm
+
       - name: Install dependencies
-        working-directory: ./docs
         run: npm ci
-      - name: Test build website
-        working-directory: ./docs
+      - name: Build website
         run: npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
   deploy:
-    if: github.event_name != 'pull_request'
+    name: Deploy to GitHub Pages
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          cache-dependency-path: ./docs
-          node-version: 18
-          cache: npm
-      - uses: webfactory/ssh-agent@v0.5.0
-        with:
-          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - name: Deploy to GitHub Pages
-        env:
-          USE_SSH: true
-        working-directory: ./docs
-        run: |
-          # git config --global user.email "actions@github.com"
-          # git config --global user.name "gh-actions"
-          npm ci
-          npm run deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # - name: Deploy to gh-pages Branch
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #     git fetch
+      #     git checkout -b gh-pages
+      #     git rm -rf . || true
+      #     cp -r ./docs/build/* .
+      #     git add .
+      #     git commit -m "Deploy to GitHub Pages"
+      #     git push --force origin gh-pages
