@@ -174,7 +174,7 @@ jobs:
           git fetch
           git checkout -b gh-pages
           git rm -rf . || true
-          cp -r ./docs/build/* .
+          cp -r docs/build/* .
           git add .
           git commit -m "Deploy to GitHub Pages"
           git push --force origin gh-pages
