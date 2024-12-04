@@ -99,7 +99,7 @@ favicon: "img/ACSL_Logo.jpg",
             items: [
               {
                 label: 'Multi-Rotor',
-                href: '${config.baseUrl}/documentation/html/index_ONE.html', // Link to the new React page
+                href: '/ACSL-flightstack/documentation/html/index_ONE.html', // Link to the new React page
               },
               {
                 label: 'Winged',
