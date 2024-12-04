@@ -99,7 +99,7 @@ favicon: "img/ACSL_Logo.jpg",
             items: [
               {
                 label: 'Multi-Rotor',
-                to: '/Documentation', // Link to the new React page
+                to: '/documentation/html/index_ONE.html', // Link to the new React page
               },
               {
                 label: 'Winged',
@@ -121,19 +121,19 @@ favicon: "img/ACSL_Logo.jpg",
             
             items: [
               {
-                label: "L'Afflitto Website",
+                label: "Dr. L'Afflitto Website",
                 href: "https://lafflitto.com/",
                 
               },
               {
-                label: "Winged Copter",
-                href: "https://github.com/andrealaffly/ACSL-flightstack-winged?tab=readme-ov-file",
-               
-              },
-              {
-                label: "Multi-Rotor",
+                label: "Multi-Rotor GitHub",
                 href: "https://github.com/andrealaffly/ACSL-flightstack?tab=readme-ov-file://lafflitto.com/",
                 
+              },
+              {
+                label: "Winged Copter GitHub",
+                href: "https://github.com/andrealaffly/ACSL-flightstack-winged?tab=readme-ov-file",
+               
               },
               {
                 label: "License",
