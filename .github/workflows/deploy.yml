@@ -137,10 +137,19 @@ jobs:
           echo "List Files:"
           ls -la
 
+      # - name: List Files in Build Directory
+      #   run: |
+      #     echo "List Files in ./build:"
+      #     ls -la ./build || echo "Directory ./build does not exist"
+
       - name: List Files in Build Directory
         run: |
-          echo "List Files in ./build:"
-          ls -la ./build || echo "Directory ./build does not exist"
+          echo "List Files in ./build and its subdirectories:"
+          if [ -d ./build ]; then
+            find ./build -type f -exec ls -la {} +
+          else
+            echo "Directory ./build does not exist"
+          fi
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
