@@ -20,13 +20,13 @@ function HomepageHeader() {
         <Link
   className={`${styles.buttonSpacing} button button--secondary button--lg`}
   href="https://github.com/andrealaffly/ACSL-flightstack-winged?tab=readme-ov-file">
-  Winged
+  Winged UAV
 </Link>
 
 <Link
   className="button button--secondary button--lg"
   href="https://github.com/andrealaffly/ACSL-flightstack?tab=readme-ov-file">
-  Multi-Rotor
+  Multi-Rotor UAV
 </Link>
 
         </div>
