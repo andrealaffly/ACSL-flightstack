@@ -57,14 +57,14 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
               <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
                 multi-rotor
               </Link>{' '}
-              UAV
+              UAV flight stack
             </li>
             <li>
               Doxygen documentation of{' '}
               <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
                 winged
               </Link>{' '}
-              UAV
+              UAV flight stack
             </li>
           </ul>
         </div>
@@ -134,7 +134,7 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
           </div>
         </div>
       </div>
-      <div style={{ textAlign: 'left', fontSize: '30px', marginBottom: '26px' }}>
+      <div style={{ textAlign: 'left', fontSize: '30px', marginBottom: '26px', marginLeft: '26px' }}>
         <strong>
           All community members are encouraged to use these flight stacks and recommend improvements
           through GitHub.
