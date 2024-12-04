@@ -7,7 +7,7 @@ import styles from './styles.module.css'; // Import CSS styles
 const FeatureList = [
   {
     title: 'GitHub',
-    imgSrc: '/img/file.jpg', // Correct path for the image
+    imgSrc: '/ACSL-flightstack/img/file.jpg', // Correct path for the image
     description: (
       <>
         We encourage users to make edits and contributions through GitHub.
@@ -16,7 +16,7 @@ const FeatureList = [
   },
   {
     title: 'Checkout our testing',
-    videoSrc: 'https://www.youtube.com/embed/Ykjjg21iAm0?start=29', // Video source
+    videoSrc: 'https://www.youtube.com/embed/Ykjjg21iAm0?start=0', // Video source
     description: (
       <>
       A video of an X8-Copter being tested in the ACSL. Check out the YouTube channel for additional resources.
@@ -25,7 +25,7 @@ const FeatureList = [
   },
   {
     title: 'Compatible hardware' ,
-    imgSrc: '/img/Copter2.png', // Correct path for the image
+    imgSrc: '/ACSL-flightstack/img/Copter2.png', // Correct path for the image
     description: (
       <>
         Compatible with PX4 hardware for seamless integration and operation.
