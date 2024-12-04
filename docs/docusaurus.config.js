@@ -98,12 +98,12 @@ favicon: "img/ACSL_Logo.jpg",
             position: 'right',
             items: [
               {
-                label: 'Multi-Rotor',
-                to: 'pathname:///ACSL-flightstack/documentation/html/index_ONE.html', // Link to the new React page
+                label: 'Multi-Rotor UAV',
+                to: 'pathname:///ACSL-flightstack/documentation/html/index_ONE.html',
               },
               {
-                label: 'Winged',
-                to: '/Documentation', // Link to the new React page
+                label: 'Winged UAV',
+                to: 'pathname:///ACSL-flightstack/documentation/html/index_ONE.html',
               },
             ]
           },
