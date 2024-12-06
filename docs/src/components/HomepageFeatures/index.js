@@ -7,7 +7,8 @@ import styles from './styles.module.css'; // Import CSS styles
 const FeatureList = [
   {
     title: 'GitHub',
-    imgSrc: '/ACSL-flightstack/img/file.jpg', // Correct path for the image
+    // imgSrc: '/ACSL-flightstack/img/file.jpg', // Correct path for the image
+    imgSrc: '/img/file.jpg', // Correct path for the image
     description: (
       <>
         We encourage users to make edits and contributions through GitHub.
@@ -25,7 +26,8 @@ const FeatureList = [
   },
   {
     title: 'Compatible hardware' ,
-    imgSrc: '/ACSL-flightstack/img/Copter2.png', // Correct path for the image
+    // imgSrc: '/ACSL-flightstack/img/Copter2.png', // Correct path for the image
+    imgSrc: '/img/Copter2.png', // Correct path for the image
     description: (
       <>
         Compatible with PX4 hardware for seamless integration and operation.
