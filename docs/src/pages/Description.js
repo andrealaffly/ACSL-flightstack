@@ -54,14 +54,16 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
             </li>
             <li>
               Doxygen documentation of{' '}
-              <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
+              {/* <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}> */}
+              <Link to="pathname:///documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
                 multi-rotor
               </Link>{' '}
               UAV flight stack
             </li>
             <li>
               Doxygen documentation of{' '}
-              <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
+              {/* <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}> */}
+              <Link to="pathname:///documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
                 winged
               </Link>{' '}
               UAV flight stack

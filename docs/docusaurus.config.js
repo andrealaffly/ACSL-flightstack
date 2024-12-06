@@ -13,12 +13,12 @@ const config = {
 favicon: "img/ACSL_Logo.jpg",
 
   // Set the production url of your site here
-  url: "https://andrealaffly.github.io",
-  // url: "https://acslstack.com",
+  // url: "https://andrealaffly.github.io",
+  url: "https://acslstack.com",
 
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/ACSL-flightstack/",
-  // baseUrl: "/",
+  // baseUrl: "/ACSL-flightstack/",
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   organizationName: "andrealaffly", // Usually your GitHub org/user name.
@@ -99,11 +99,13 @@ favicon: "img/ACSL_Logo.jpg",
             items: [
               {
                 label: 'Multi-Rotor UAV',
-                to: 'pathname:///ACSL-flightstack/documentation/html/index_ONE.html',
+                to: 'pathname:///documentation/html/index_ONE.html',
+                // to: 'pathname:///ACSL-flightstack/documentation/html/index_ONE.html',
               },
               {
                 label: 'Winged UAV',
-                to: 'pathname:///ACSL-flightstack/documentation/html/index_ONE.html',
+                to: 'pathname:///documentation/html/index_ONE.html',
+                // to: 'pathname:///ACSL-flightstack/documentation/html/index_ONE.html',
               },
             ]
           },
