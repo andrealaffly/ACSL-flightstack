@@ -5,10 +5,10 @@ import styles from './styles.module.css'; // Import your custom styles
 // Sample data with placeholders for Notes
 const data = [
   {
-    githubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/06/20240613/PID',
+    flightDataGitHubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/06/20240613/PID',
     platform: 'X8-Copter',
     controlTechnique: 'PID',
-    navSys: 'MoCap',
+    stateEst: 'MoCap',
     flightConditions: 'Nominal',
     youtubeVideo: '',
     date: '2024-06-13',
@@ -16,10 +16,10 @@ const data = [
     notes: 'N/A',
   },
   {
-    githubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/07/20240720/MRAC',
+    flightDataGitHubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/07/20240720/MRAC',
     platform: 'X8-Copter',
     controlTechnique: 'MRAC',
-    navSys: 'MoCap',
+    stateEst: 'MoCap',
     flightConditions: 'Nominal',
     youtubeVideo: '',
     date: '2024-07-20',
@@ -27,10 +27,10 @@ const data = [
     notes: 'N/A',
   },
   {
-    githubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/07/20240729/MRAC',
+    flightDataGitHubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/07/20240729/MRAC',
     platform: 'X8-Copter',
     controlTechnique: 'PID & MRAC',
-    navSys: 'MoCap',
+    stateEst: 'MoCap',
     flightConditions: 'Off-Nominal',
     youtubeVideo: '',
     date: '2024-07-29',
@@ -47,7 +47,7 @@ export default function SearchableTable() {
     (item) =>
       item.platform.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.controlTechnique.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.navSys.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.stateEst.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.flightConditions.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.notes.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -72,11 +72,11 @@ export default function SearchableTable() {
             <tr>
               <th>Date</th>
               <th>Control Technique</th>
-              <th>Navigation Systems</th>
+              <th>State Estimation</th>
               <th>Flight Conditions</th>
               <th>Notes</th>
               <th>Platform</th>
-              <th>Link to GitHub</th>
+              <th>Flight Data</th>
               <th>Publication</th>
             </tr>
           </thead>
@@ -86,13 +86,13 @@ export default function SearchableTable() {
                 <tr key={index}>
                   <td>{item.date}</td>
                   <td>{item.controlTechnique}</td>
-                  <td>{item.navSys}</td>
+                  <td>{item.stateEst}</td>
                   <td>{item.flightConditions}</td>
                   <td>{item.notes || <div className={styles.notesPlaceholder}><p>Notes coming soon...</p></div>}</td>
                   <td>{item.platform}</td>
                   <td>
-                    {item.githubLink ? (
-                      <a href={item.githubLink} target="_blank" rel="noopener noreferrer">
+                    {item.flightDataGitHubLink ? (
+                      <a href={item.flightDataGitHubLink} target="_blank" rel="noopener noreferrer">
                         GitHub
                       </a>
                     ) : (
