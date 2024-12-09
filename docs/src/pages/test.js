@@ -16,15 +16,15 @@ const data = [
     notes: 'N/A',
   },
   {
-    githubLink: 'https://github.com/another-repo-link',
-    platform: 'QRBP',
+    githubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/07/20240720/MRAC',
+    platform: 'X8-Copter',
     controlTechnique: 'MRAC',
-    navSys: 'VisNav',
-    flightConditions: 'Off-Nominal',
+    navSys: 'MoCap',
+    flightConditions: 'Nominal',
     youtubeVideo: '',
-    date: '2024-11-17',
-    publication: 'Conference ABC',
-    notes: 'Payload experiment with unsteady loads.',
+    date: '2024-07-20',
+    publication: 'N/A',
+    notes: 'N/A',
   },
 ];
 
