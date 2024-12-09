@@ -12,6 +12,19 @@ export default function References() {
           <section>
             <h2>📑 Conference Papers and Journals</h2>
             <ul>
+            <li>
+                <strong>M. Gramuglia, G. M. Kumar, and A. L'Afflitto</strong><br />
+                <em> Potential and Challenges for a Certified Application of Model Reference Adaptive Control to Aerial Vehicles</em>,{' '}
+                <a
+                  href="https://lafflitto.com/Documents/LAfflitto_Potential_MRAC_Certification.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  [PAPER]
+                </a>
+                <br />
+                <span> IEEE International Workshop on Technologies for Defense and Security (TechDefense), Naples, Italy, November 2024</span>
+              </li>
               <li>
                 <strong>M. Gramuglia, G. M. Kumar, and A. L'Afflitto</strong><br />
                 <em>Two-Layer Adaptive Funnel MRAC with Applications to the Control of Multi-Rotor UAVs</em>,{' '}
