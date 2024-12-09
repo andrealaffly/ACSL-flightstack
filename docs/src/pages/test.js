@@ -26,6 +26,17 @@ const data = [
     publication: 'N/A',
     notes: 'N/A',
   },
+  {
+    githubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/07/20240729/MRAC',
+    platform: 'X8-Copter',
+    controlTechnique: 'PID & MRAC',
+    navSys: 'MoCap',
+    flightConditions: 'Off-Nominal',
+    youtubeVideo: '',
+    date: '2024-07-29',
+    publication: 'TechDefense 2024',
+    notes: 'Carrying an unknown steady and unsteady payload',
+  },
 ];
 
 export default function SearchableTable() {
