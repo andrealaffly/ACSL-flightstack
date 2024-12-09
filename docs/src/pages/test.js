@@ -5,15 +5,15 @@ import styles from './styles.module.css'; // Import your custom styles
 // Sample data with placeholders for Notes
 const data = [
   {
-    githubLink: 'https://github.com/your-repo-link',
-    platform: 'X8',
+    githubLink: 'https://github.com/andrealaffly/ACSL-flightstack-accessories/tree/main/Flight_Data/2024/06/20240613/PID',
+    platform: 'X8-Copter',
     controlTechnique: 'PID',
-    navSys: 'GPS',
+    navSys: 'MoCap',
     flightConditions: 'Nominal',
     youtubeVideo: '',
-    date: '2024-11-18',
-    publication: 'Journal XYZ',
-    notes: 'Initial flight test with stable conditions.',
+    date: '2024-06-13',
+    publication: 'N/A',
+    notes: 'N/A',
   },
   {
     githubLink: 'https://github.com/another-repo-link',

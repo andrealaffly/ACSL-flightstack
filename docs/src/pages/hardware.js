@@ -81,7 +81,7 @@ export default function CompatibleHardware() {
                 V1.15.0
               </a>
             </p>
-            <p><strong>State estimation:</strong> Motion Capture (VICON)/RTK-GPS</p>
+            <p><strong>State estimation:</strong> Motion Capture (VICON) / RTK-GPS</p>
             
           </div>
 
