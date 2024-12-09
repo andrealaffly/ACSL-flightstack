@@ -35,7 +35,7 @@ const data = [
     youtubeVideo: '',
     date: '2024-07-29',
     publication: (
-      <a href="/Journals#2024-pub3" target="_blank" rel="noopener noreferrer">
+      <a href="/Journals#2024-pub3" rel="noopener noreferrer">
         [1]
       </a>
     ),
