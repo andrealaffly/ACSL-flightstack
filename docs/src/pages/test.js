@@ -34,7 +34,11 @@ const data = [
     flightConditions: 'Off-Nominal',
     youtubeVideo: '',
     date: '2024-07-29',
-    publication: 'TechDefense 2024',
+    publication: [
+      <a href="/Journals#2024-pub3" target="_blank" rel="noopener noreferrer">
+        1
+      </a>
+    ],
     notes: 'Carrying an unknown steady and unsteady payload',
   },
 ];
