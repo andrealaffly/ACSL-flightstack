@@ -16,25 +16,30 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons} >
-        <Link
-  className={`${styles.buttonSpacing} button button--secondary button--lg`}
-  href="https://github.com/andrealaffly/ACSL-flightstack-winged?tab=readme-ov-file">
-  Winged UAV
-</Link>
+        <div className={styles.buttons}>
+          <Link
+            className={`${styles.buttonSpacing} button button--secondary button--lg`}
+            href="https://github.com/andrealaffly/ACSL-flightstack-winged?tab=readme-ov-file">
+            Winged UAV
+          </Link>
 
-<Link
-  className="button button--secondary button--lg"
-  href="https://github.com/andrealaffly/ACSL-flightstack?tab=readme-ov-file">
-  Multi-Rotor UAV
-</Link>
+          <Link
+            className={`${styles.buttonSpacing} button button--secondary button--lg`}
+            href="https://github.com/andrealaffly/ACSL-flightstack?tab=readme-ov-file">
+            Multi-Rotor UAV
+          </Link>
 
+          <Link
+            className="button button--secondary button--lg"
+            href="https://github.com/andrealaffly/PyChrono_Wrapper">
+            PyChrono-based Simulator
+          </Link>
         </div>
-        
       </div>
     </header>
   );
 }
+
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
