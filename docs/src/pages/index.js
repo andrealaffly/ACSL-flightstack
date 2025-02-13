@@ -31,7 +31,7 @@ function HomepageHeader() {
 
           <Link
             className="button button--secondary button--lg"
-            href="https://github.com/andrealaffly/PyChrono_Wrapper">
+            href="https://github.com/andrealaffly/UAV_Sim_PyChrono">
             PyChrono-based Simulator
           </Link>
         </div>

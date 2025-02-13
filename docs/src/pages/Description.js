@@ -71,7 +71,7 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
             <li>
               A PyChrono-based high-fidelity simulator for UAVs{' '}
               <a
-                href="https://github.com/andrealaffly/PyChrono_Wrapper"
+                href="https://github.com/andrealaffly/UAV_Sim_PyChrono"
                 style={{ textDecoration: 'underline' }}
               >
                 [GitHub]
