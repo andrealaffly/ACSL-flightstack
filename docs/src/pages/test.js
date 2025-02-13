@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import styles from './styles.module.css'; // Import your custom styles
-import { publications } from './Journals'; // Import publication list
+import { flightstack_publications } from './Journals'; // Import flightstack related publication list
+import { simulation_publications } from './Journals'; // Import simulation (PyChrono) related publication list
 
 // Sample data with placeholders for Notes
 const data = [
@@ -35,17 +36,27 @@ const data = [
     flightConditions: 'Off-Nominal',
     youtubeVideo: '',
     date: '2024-07-29',
-    publicationId: '2024-pub3',
+    publicationId: '2024-pub1',
     notes: 'Carrying an unknown steady and unsteady payload',
   },
 ];
 
 // Function to get publication reference dynamically
-const getPublicationReference = (publicationId) => {
-  const index = publications.findIndex((pub) => pub.id === publicationId);
+const getFlightstackPublicationReference = (publicationId) => {
+  const index = flightstack_publications.findIndex((pub) => pub.id === publicationId);
   return index !== -1 ? (
     <a href={`/Journals#${publicationId}`} rel="noopener noreferrer">
-      [{index + 1}]
+      [F.{index + 1}]
+    </a>
+  ) : 'N/A';
+};
+
+// Function to get publication reference dynamically
+const getSimulationPublicationReference = (publicationId) => {
+  const index = simulation_publications.findIndex((pub) => pub.id === publicationId);
+  return index !== -1 ? (
+    <a href={`/Journals#${publicationId}`} rel="noopener noreferrer">
+      [S.{index + 1}]
     </a>
   ) : 'N/A';
 };
@@ -110,7 +121,7 @@ export default function SearchableTable() {
                       'N/A'
                     )}
                   </td>
-                  <td>{getPublicationReference(item.publicationId)}</td>
+                  <td>{getFlightstackPublicationReference(item.publicationId)}</td>
                 </tr>
               ))
             ) : (

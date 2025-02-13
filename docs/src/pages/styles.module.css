@@ -166,3 +166,24 @@ html[data-theme='dark'] .dataTable tr:nth-child(even) {
 .minibox{
   text-align: center;
 }
+
+
+/* Added later */
+/* ----------------------------------------------------------------- */
+.customList {
+  list-style-type: none;
+  padding-left: -10px;
+}
+
+/* color: #ff6600;  color (Orange) */
+/* #002147 (Oxford blue) */
+/* #001f3f;  Navy blue */
+/* #0074D9;  Light Navy Blue */
+/* #008CFF (Sky Blue) */
+/* #3399FF (Soft Blue) */
+.index {
+  font-size: 1.2em;  
+  font-weight: bold;
+  color: #0074D9; 
+  margin-right: 15px; 
+}
