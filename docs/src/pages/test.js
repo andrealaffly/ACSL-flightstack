@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import styles from './styles.module.css'; // Import your custom styles
+import { publications } from './Journals'; // Import publication list
 
 // Sample data with placeholders for Notes
 const data = [
@@ -12,7 +13,7 @@ const data = [
     flightConditions: 'Nominal',
     youtubeVideo: '',
     date: '2024-06-13',
-    publication: 'N/A',
+    publicationId: 'N/A',
     notes: 'N/A',
   },
   {
@@ -23,7 +24,7 @@ const data = [
     flightConditions: 'Nominal',
     youtubeVideo: '',
     date: '2024-07-20',
-    publication: 'N/A',
+    publicationId: 'N/A',
     notes: 'N/A',
   },
   {
@@ -34,19 +35,25 @@ const data = [
     flightConditions: 'Off-Nominal',
     youtubeVideo: '',
     date: '2024-07-29',
-    publication: (
-      <a href="/Journals#2024-pub3" rel="noopener noreferrer">
-        [1]
-      </a>
-    ),
+    publicationId: '2024-pub3',
     notes: 'Carrying an unknown steady and unsteady payload',
   },
 ];
 
+// Function to get publication reference dynamically
+const getPublicationReference = (publicationId) => {
+  const index = publications.findIndex((pub) => pub.id === publicationId);
+  return index !== -1 ? (
+    <a href={`/Journals#${publicationId}`} rel="noopener noreferrer">
+      [{index + 1}]
+    </a>
+  ) : 'N/A';
+};
+
 export default function SearchableTable() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Filter data based on the search query
+  // Filter data based on search query
   const filteredData = data.filter(
     (item) =>
       item.platform.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -103,7 +110,7 @@ export default function SearchableTable() {
                       'N/A'
                     )}
                   </td>
-                  <td>{item.publication}</td>
+                  <td>{getPublicationReference(item.publicationId)}</td>
                 </tr>
               ))
             ) : (

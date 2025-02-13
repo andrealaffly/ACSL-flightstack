@@ -29,7 +29,7 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
               A flight stack for multi-rotor UAVs{' '}
               <a
                 href="https://github.com/andrealaffly/ACSL-flightstack?tab=readme-ov-file"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: 'underline' }}
               >
                 [GitHub]
               </a>
@@ -38,7 +38,7 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
               A flight stack for fixed-wing UAVs{' '}
               <a
                 href="https://github.com/andrealaffly/ACSL-flightstack-winged?tab=readme-ov-file"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: 'underline' }}
               >
                 [GitHub]
               </a>
@@ -47,7 +47,7 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
               A suite of Matlab® codes to plot logged flight data{' '}
               <a
                 href="https://github.com/andrealaffly/ACSL-flightstack-accessories"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: 'underline' }}
               >
                 [GitHub]
               </a>
@@ -55,7 +55,7 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
             <li>
               Doxygen documentation of{' '}
               {/* <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}> */}
-              <Link to="pathname:///documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
+              <Link to="pathname:///documentation/html/index_ONE.html" style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
                 multi-rotor
               </Link>{' '}
               UAV flight stack
@@ -63,10 +63,19 @@ export default function UAVDescription({ imgWidth = '80%', imgHeight = 'auto' })
             <li>
               Doxygen documentation of{' '}
               {/* <Link to="pathname:///ACSL-flightstack/documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}> */}
-              <Link to="pathname:///documentation/html/index_ONE.html" style={{ textDecoration: 'none' }}>
+              <Link to="pathname:///documentation/html/index_ONE.html" style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
                 winged
               </Link>{' '}
               UAV flight stack
+            </li>
+            <li>
+              A PyChrono-based high-fidelity simulator for UAVs{' '}
+              <a
+                href="https://github.com/andrealaffly/PyChrono_Wrapper"
+                style={{ textDecoration: 'underline' }}
+              >
+                [GitHub]
+              </a>
             </li>
           </ul>
         </div>
