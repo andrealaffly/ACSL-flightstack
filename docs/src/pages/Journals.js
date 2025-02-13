@@ -49,7 +49,7 @@ function References() {
 
         <div className={styles.card}>
           <section>
-            <h2>📑 Conference Papers and Journals</h2>
+            <h2>📑 Relevant Journal and Conference Papers</h2>
             <ol>
               {publications.map((pub, index) => (
                 <li key={pub.id} id={pub.id}>
