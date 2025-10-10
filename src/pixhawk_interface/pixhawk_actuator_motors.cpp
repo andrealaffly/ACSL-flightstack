@@ -34,7 +34,8 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
+#include "config.hpp"
+#include "control.hpp"
 #include "multi_threaded_node.hpp"
 
 /*
@@ -128,28 +129,17 @@ void MultiThreadedNode::publish_actuator_motors()
 	if (time_current_ < global_params_.TAKEOFF_START_TIME_SECONDS || 
 		  time_current_ > global_params_.DISARM_START_TIME_SECONDS) 
 	{
-		msg.control[0] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[1] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[2] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[3] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[4] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[5] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[6] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[7] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		msg.control[0] = this->getControl()->getParamsVehicle().minValuePublishMotors;
+		msg.control[1] = this->getControl()->getParamsVehicle().minValuePublishMotors;
+		msg.control[2] = this->getControl()->getParamsVehicle().minValuePublishMotors;
+		msg.control[3] = this->getControl()->getParamsVehicle().minValuePublishMotors;
+		msg.control[4] = this->getControl()->getParamsVehicle().minValuePublishMotors;
+		msg.control[5] = this->getControl()->getParamsVehicle().minValuePublishMotors;
+		msg.control[6] = this->getControl()->getParamsVehicle().minValuePublishMotors;
+		msg.control[7] = this->getControl()->getParamsVehicle().minValuePublishMotors;
 	} else {
 
-		/* // QUADCOPTER
-		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[0];
-		msg.control[1] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[1];
-		msg.control[2] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[2];
-		msg.control[3] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[3];
-		msg.control[4] = 0.0;
-		msg.control[5] = 0.0;
-		msg.control[6] = 0.0;
-		msg.control[7] = 0.0;
-		*/
-
-		// X8-COPTER
+#if VEH_ARCH == ARCH_X8
 		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[0];
 		msg.control[1] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[1];
 		msg.control[2] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[2];
@@ -158,6 +148,20 @@ void MultiThreadedNode::publish_actuator_motors()
 		msg.control[5] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[5];
 		msg.control[6] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[6];
 		msg.control[7] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[7];
+
+#elif VEH_ARCH == ARCH_QUAD
+		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[0];
+		msg.control[1] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[1];
+		msg.control[2] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[2];
+		msg.control[3] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[3];
+
+		msg.control[4] = 0.0;
+		msg.control[5] = 0.0;
+		msg.control[6] = 0.0;
+		msg.control[7] = 0.0;
+#else
+  #error "Invalid architecture selection"
+#endif
 	}
 	
 	msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;

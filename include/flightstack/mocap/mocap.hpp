@@ -63,7 +63,6 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <bit>
 
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_lifecycle/lifecycle_node.hpp>
@@ -73,15 +72,12 @@
 
 #include "udp_driver.hpp"
 #include "logging_mocap.hpp"
+#include "json_parser.hpp"
 
 using lifecycle_msgs::msg::State;
 using lifecycle_msgs::msg::Transition;
+using namespace nlohmann;
 
-// -> IP of the Odroid M1s
-inline constexpr const char* GROUND_STATION_IP = "127.0.0.1"; // For testing 
-inline constexpr const char* ODROID_M1S_IP = "192.168.12.1";
-// -> PORT of the Odroid M1s
-inline constexpr uint16_t ODROID_M1S_PORT = 52000;
 
 
 /// ------------- USER DEFINED ------------- ///
@@ -119,6 +115,13 @@ namespace _udp_driver_
     double rollspeed;
     double pitchspeed;
     double yawspeed;
+  };
+
+  struct network_params
+  {
+    std::string GROUND_STATION_IP;
+    std::string HOST_IP;
+    int HOST_PORT;
   };
 
 /// \brief UdpReceiverNode class which can receive UDP datagrams
@@ -173,14 +176,11 @@ private:
   /// \brief Get the parameters for the ip and port to ping
   void get_params();
 
+  // Load network parameters from json file
+  void setNetwork(json j);
+
   /// Pointer to the asio context owned by this node for async communication
   std::unique_ptr<IoContext> m_owned_ctx{};
-  
-  /// String for the ip of the odrioid
-  std::string m_ip{};
-      
-  /// String for the port of the odroid
-  uint16_t m_port{};
   
   /// Pointer for the udp driver which wraps the udp socket
   std::unique_ptr<UdpDriver> m_udp_driver;
@@ -199,6 +199,9 @@ private:
 
   /// Instantiate mocap_states struct
   struct mocap_states mc;
+
+  /// Instantiate network_params struct
+  struct network_params np;
 
   /// \brief Debugger function to output the mocap data.
   void debugMocapData2screen();

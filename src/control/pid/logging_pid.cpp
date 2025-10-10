@@ -33,10 +33,52 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+#include "config.hpp"
+
+#if SELECTED_CONTROLLER == __PID__
+#include <atomic>
+#include <cstddef>
+#include <chrono>
+#include <fstream>
+#include <experimental/filesystem>
+#include <iomanip>
+#include <ostream>
+#include <sstream>
+#include <string>
+
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/date_time/posix_time/posix_time_types.hpp>
+#include <boost/log/attributes.hpp>
+#include <boost/log/attributes/scoped_attribute.hpp>
+#include <boost/log/core.hpp>
+#include <boost/log/expressions.hpp>
+#include <boost/log/sinks/sync_frontend.hpp>
+#include <boost/log/sinks/text_ostream_backend.hpp>
+#include <boost/log/sources/basic_logger.hpp>
+#include <boost/log/sources/record_ostream.hpp>
+#include <boost/log/sources/severity_channel_logger.hpp>
+#include <boost/log/sources/severity_logger.hpp>
+#include <boost/log/support/date_time.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/utility/setup/common_attributes.hpp>
+#include <boost/log/utility/setup/file.hpp>
+#include <boost/log/utility/value_ref.hpp>
+#include <boost/phoenix/bind.hpp>
+#include <boost/smart_ptr/make_shared_object.hpp>
+#include <boost/smart_ptr/shared_ptr.hpp>
+#include <Eigen/Dense>
 
 #include "pid.hpp"
 #include "logging_pid.hpp"
 #include "multi_threaded_node.hpp"
+
+namespace logging = boost::log;
+namespace sinks = boost::log::sinks;
+namespace src = boost::log::sources;
+namespace expr = boost::log::expressions;
+namespace attrs = boost::log::attributes;
+namespace keywords = boost::log::keywords;
+namespace fs = std::experimental::filesystem;
 
 // Define the logger for LogData
 src::logger LogData_PID::logger_logdata;
@@ -176,20 +218,20 @@ void LogData_PID::logInitializeLogging()
   std::string log_base_directory = "./src/flightstack/log/" + current_date  + "/" + ControlType::getControllerName();
 
   // Check if the directory exists, and create it if it doesn't
-  if (!std::filesystem::exists(log_base_directory)) {
-    std::filesystem::create_directories(log_base_directory);
+  if (!fs::exists(log_base_directory)) {
+    fs::create_directories(log_base_directory);
   }
 
   // Check if the "logs" subdirectory exists within the log_base_directory, create it if needed
   std::string logs_directory = log_base_directory + "/logs";
-  if (!std::filesystem::exists(logs_directory)) {
-      std::filesystem::create_directories(logs_directory);
+  if (!fs::exists(logs_directory)) {
+      fs::create_directories(logs_directory);
   }
 
   // Check if the "gains" subdirectory exists within the log_base_directory, create it if needed
   std::string gains_directory = log_base_directory + "/gains";
-  if (!std::filesystem::exists(gains_directory)) {
-      std::filesystem::create_directories(gains_directory);
+  if (!fs::exists(gains_directory)) {
+      fs::create_directories(gains_directory);
   }
 
   // Generate the log file name with a timestamp
@@ -227,14 +269,14 @@ void LogData_PID::logInitializeLogging()
   logging::add_common_attributes(); // Add attributes like timestamp
 
   // Copy the gains file to the gains_directory with a new name containing the time info
-  std::string source_file = "./src/flightstack/params/control/pid/gains_pid.json";
+  std::string source_file = "./src/flightstack/params/control/pid/pid_gains.json";
   std::stringstream target_ss;
   target_ss << gains_directory << "/gains_pid_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".json";
   std::string target_file = target_ss.str();
 
-  if (std::filesystem::exists(source_file)) {
+  if (fs::exists(source_file)) {
     std::cout << "GAINS FILE PRESENT" << std::endl;
-    std::filesystem::copy(source_file, target_file);
+    fs::copy(source_file, target_file);
   } else {
     std::cout << "GAINS FILE NOT PRESENT" << std::endl;
   }
@@ -354,3 +396,4 @@ void LogData_PID::logLogData()
 	BOOST_LOG(LogData_PID::logger_logdata) << oss.str();
 }
 
+#endif  //SELECTED_CONTROLLER == __PID__

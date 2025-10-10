@@ -33,6 +33,7 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+#include "config.hpp"
 
 #include "user_defined_trajectory.hpp"
 #include "multi_threaded_node.hpp"

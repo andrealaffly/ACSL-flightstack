@@ -1,4 +1,9 @@
 {
-  "user_defined_trajectory_file": "bean_trajectory0p6.json",
-  "hover_after_trajectory_time_seconds": 5.0
+  "user_defined_trajectory_file": "takeoff_1meter.json",
+  "hover_after_trajectory_time_seconds": 5.0,
+  "network": {
+    "ground_station_ip": "127.0.0.1",
+    "host_ip": "0.0.0.0",
+    "host_port": 52000
+  }
 }

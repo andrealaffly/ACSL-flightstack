@@ -33,12 +33,9 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
 #ifndef PID_GAINS_HPP
 #define PID_GAINS_HPP
 
-#include <cmath>
-#include <algorithm>
 
 #include <Eigen/Dense>
 

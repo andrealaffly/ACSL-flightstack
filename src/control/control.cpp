@@ -35,8 +35,11 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
+#include "config.hpp"
 #include "multi_threaded_node.hpp"
 #include "control.hpp"
+#include "piecewise_polynomial_trajectory.hpp"
+#include "json_parser.hpp"
 
 
 // Constructor
@@ -88,45 +91,8 @@ Control::Control(MultiThreadedNode& node) :
   cr(node),
   node_(node)
 {
-  this->readJSONdifferentiatorFile();
-}
-
-/*
-  Function to read the differentiator gains coming from the .json file and assign it to the vehicle info 
-  in vehicle_info.hpp
-*/
-void Control::readJSONdifferentiatorFile()
-{
-  // Define the JSON file where the differentiator gains are located
-  const std::string jsonFile = "./src/flightstack/params/control/differentiator_gains.json";
-
-  std::ifstream file(jsonFile);
-  if (!file.is_open()) {
-    throw std::runtime_error("Could not open file: " + jsonFile);
-  }
-
-	nlohmann::json j;
-	file >> j;
-	
-  this->vehicle_info.A_filter_roll_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_roll_des"]);
-  this->vehicle_info.B_filter_roll_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_roll_des"]);
-  this->vehicle_info.C_filter_roll_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_roll_des"]);
-  this->vehicle_info.D_filter_roll_des = j["D_filter_roll_des"];
-
-  this->vehicle_info.A_filter_pitch_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_pitch_des"]);
-  this->vehicle_info.B_filter_pitch_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_pitch_des"]);
-  this->vehicle_info.C_filter_pitch_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_pitch_des"]);
-  this->vehicle_info.D_filter_pitch_des = j["D_filter_pitch_des"];
-
-  this->vehicle_info.A_filter_roll_dot_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_roll_dot_des"]);
-  this->vehicle_info.B_filter_roll_dot_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_roll_dot_des"]);
-  this->vehicle_info.C_filter_roll_dot_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_roll_dot_des"]);
-  this->vehicle_info.D_filter_roll_dot_des = j["D_filter_roll_dot_des"];
-
-  this->vehicle_info.A_filter_pitch_dot_des = extractMatrixFromJSON<double, 2, 2>(j["A_filter_pitch_dot_des"]);
-  this->vehicle_info.B_filter_pitch_dot_des = extractMatrixFromJSON<double, 2, 1>(j["B_filter_pitch_dot_des"]);
-  this->vehicle_info.C_filter_pitch_dot_des = extractMatrixFromJSON<double, 1, 2>(j["C_filter_pitch_dot_des"]);
-  this->vehicle_info.D_filter_pitch_dot_des = j["D_filter_pitch_dot_des"];
+  json j = readJsonFile(paramsFile);
+  vehicle_info = ParamsVehicle(j);
 }
 
 // Getter function that returns a reference to the current MultiThreadedNode object
@@ -134,8 +100,8 @@ MultiThreadedNode& Control::getNode() const {
   return node_;
 }
 
-// Getter function that returns a reference to the current VehicleInfo object
-const VehicleInfo& Control::getVehicleInfo() const 
+// Getter function that returns a reference to the current ParamsVehicle object
+const ParamsVehicle& Control::getParamsVehicle() const 
 {
   return vehicle_info;
 }
@@ -271,36 +237,44 @@ Eigen::Matrix3d Control::rotationMatrix321GlobalToLocal(const double& roll, cons
   thrust/motor curve obtained experimentally using the thrust stand.
   For QUADCOPTER 
 */
-void Control::computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info)
+void Control::computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, ParamsVehicle& vehicle_info)
 {
   /*
     Compute the thrust in Newton that each motor needs to produce
   */
-  cim.thrust_vector_quadcopter = vehicle_info.mixer_matrix_quadcopter * cim.U_control_inputs;
 
+  cim.thrust_vector_quadcopter = vehicle_info.mixer_matrix_quadcopter *cim.U_control_inputs;
+  // std::cout << "U control Inputs: " << cim.U_control_inputs << std::endl;
   /* 
   Apply upper saturation at UPPER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON and
   lower saturation at LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON
   */
   Eigen::Vector4d thrust_vector_quadcopter_saturated = (cim.thrust_vector_quadcopter.
-    cwiseMin(UPPER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON).
-    cwiseMax(LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON));
+    cwiseMin(vehicle_info.motorSaturationUpper).
+    cwiseMax(vehicle_info.motorSaturationLower));
+    
+  // std::cout << "Thrust of each Motor (T1 T2 T3 T4)" << std::endl;
+  // std::cout << "T1: " << cim.thrust_vector_quadcopter[0] << std::endl;
+  // std::cout << "T2: " << cim.thrust_vector_quadcopter[1] << std::endl;
+  // std::cout << "T3: " << cim.thrust_vector_quadcopter[2] << std::endl;
+  // std::cout << "T4: " << cim.thrust_vector_quadcopter[3] << std::endl;
+  // std::cout << "Saturated Thrust of each Motor (T1 T2 T3 T4)" << std::endl;
+  // std::cout << "T1: " << thrust_vector_quadcopter_saturated[0] << std::endl;
+  // std::cout << "T2: " << thrust_vector_quadcopter_saturated[1] << std::endl;
+  // std::cout << "T3: " << thrust_vector_quadcopter_saturated[2] << std::endl;
+  // std::cout << "T4: " << thrust_vector_quadcopter_saturated[3] << std::endl;
 
   cim.thrust_vector_quadcopter_normalized[0] = 
-    evaluatePolynomial(vehicle_info.thrust_polynomial_coefficients_quadcopter,
-                       thrust_vector_quadcopter_saturated[0]);
+    thrust_vector_quadcopter_saturated[0]/vehicle_info.motorSaturationUpper;
 
   cim.thrust_vector_quadcopter_normalized[1] = 
-    evaluatePolynomial(vehicle_info.thrust_polynomial_coefficients_quadcopter,
-                       thrust_vector_quadcopter_saturated[1]);
+    thrust_vector_quadcopter_saturated[1]/vehicle_info.motorSaturationUpper;
 
   cim.thrust_vector_quadcopter_normalized[2] = 
-    evaluatePolynomial(vehicle_info.thrust_polynomial_coefficients_quadcopter,
-                       thrust_vector_quadcopter_saturated[2]);
+    thrust_vector_quadcopter_saturated[2]/vehicle_info.motorSaturationUpper;
 
   cim.thrust_vector_quadcopter_normalized[3] = 
-    evaluatePolynomial(vehicle_info.thrust_polynomial_coefficients_quadcopter,
-                       thrust_vector_quadcopter_saturated[3]);
+    thrust_vector_quadcopter_saturated[3]/vehicle_info.motorSaturationUpper;
 
 }
 
@@ -310,7 +284,7 @@ void Control::computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim,
   thrust/motor curve obtained experimentally using the thrust stand.
   For X8-COPTER 
 */
-void Control::computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& vehicle_info)
+void Control::computeNormalizedThrust(ControlInternalMembers& cim, ParamsVehicle& vehicle_info)
 {
   /*
     Compute the thrust in Newton that each motor needs to produce
@@ -322,8 +296,8 @@ void Control::computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& 
   lower saturation at LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON
   */
   Eigen::Matrix<double, 8, 1> thrust_vector_saturated = (cim.thrust_vector.
-    cwiseMin(UPPER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON).
-    cwiseMax(LOWER_MOTOR_THRUST_SATURATION_LIMIT_IN_NEWTON));
+    cwiseMin(vehicle_info.motorSaturationUpper).
+    cwiseMax(vehicle_info.motorSaturationLower));
 
   cim.thrust_vector_normalized[0] = 
     evaluatePolynomial(vehicle_info.thrust_polynomial_coefficients_quadcopter,

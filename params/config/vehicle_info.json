@@ -1,0 +1,121 @@
+{
+  "motorSaturationUpper":20.0,
+  "motorSaturationLower":0.3,
+  "minValuePublishMotors":0.05,
+  "mass":1.92,
+  "inertia_matrix":{
+    
+    "scaling_coef": 2.202047e-02,
+    "matrix":[[1, 0, 0],
+              [0, 1, 0], 
+              [0, 0, 0]]
+            },
+  "air_density":1.225,
+  "surface_area":0.07,
+  "drag_coefficient_matrix":{
+    
+    "scaling_coef": 1.28,
+    "matrix":[[1, 0, 0],
+              [0, 1, 0], 
+              [0, 0, 0]]
+            },
+  "distance_motors_centerline_x_dir":0.18,
+  "distance_motors_centerline_y_dir":0.18,
+  "propeller_drag_coefficient":0.01,
+  "A_filter_roll_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-72, -1600],
+      [1, 0]
+    ]
+  },
+  "B_filter_roll_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_roll_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1600, 0]
+    ]
+  },
+  "D_filter_roll_des": 0.0,
+  
+  "A_filter_pitch_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-72, -1600],
+      [1, 0]
+    ]
+  },
+  "B_filter_pitch_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_pitch_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1600, 0]
+    ]
+  },
+  "D_filter_pitch_des": 0.0,
+
+  "A_filter_roll_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-50, -2500],
+      [1, 0]
+    ]
+  },
+  "B_filter_roll_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_roll_dot_des": {
+    "scaling_coef": 0.15,
+    "matrix": [
+      [2500, 0]
+    ]
+  },
+  "D_filter_roll_dot_des": 0.0,
+  
+  "A_filter_pitch_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [-50, -2500],
+      [1, 0]
+    ]
+  },
+  "B_filter_pitch_dot_des": {
+    "scaling_coef": 1.0,
+    "matrix": [
+      [1],
+      [0]
+    ]
+  },
+  "C_filter_pitch_dot_des": {
+    "scaling_coef": 0.15,
+    "matrix": [
+      [2500, 0]
+    ]
+  },
+  "D_filter_pitch_dot_des": 0.0,
+  "thrust_polynomial_coefficients_quadcopter":{
+    "matrix":[
+    [-4.351268484662274e-05,
+              0.001669101414746,
+              0.022577139547753,
+              0.181545764715026,
+              0.001722447659307]
+              ]
+  }
+}

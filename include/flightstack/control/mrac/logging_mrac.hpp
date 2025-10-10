@@ -40,8 +40,8 @@
 #include <atomic>
 #include <cstddef>
 #include <chrono>
-#include <filesystem>
 #include <fstream>
+#include <experimental/filesystem>
 #include <iomanip>
 #include <ostream>
 #include <sstream>
@@ -76,6 +76,7 @@ namespace src = boost::log::sources;
 namespace expr = boost::log::expressions;
 namespace attrs = boost::log::attributes;
 namespace keywords = boost::log::keywords;
+namespace fs = std::experimental::filesystem;
 
 // Forward declaration of MultiThreadedNode class
 class MultiThreadedNode;

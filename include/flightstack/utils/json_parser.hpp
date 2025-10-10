@@ -42,11 +42,13 @@
 #include <nlohmann/json.hpp>
 
 #include <Eigen/Dense>
+using namespace nlohmann;
+
+json readJsonFile(const std::string& jsonFile);
 
 struct MotorsCommands {
 
 	void readJSONConfig(const std::string& jsonFile);
-
 	float motor_1;
 	float motor_2;
 	float motor_3;
@@ -67,25 +69,33 @@ template<typename Scalar, int Rows, int Cols>
 inline Eigen::Matrix<Scalar, Rows, Cols> extractMatrixFromJSON(const nlohmann::json& jsonMatrix)
 {
 	// Extract the scaling coefficient
-	Scalar scaling_coef = jsonMatrix["scaling_coef"];
+	Scalar scaling_coef;
+	if (jsonMatrix.contains("scaling_coef")) {
+		scaling_coef = jsonMatrix["scaling_coef"];
+	}
+	else {
+		scaling_coef = 1.0;
+	}
 
 	// Initialize the Eigen matrix
 	Eigen::Matrix<Scalar, Rows, Cols> matrix;
 
 	// Populate the Eigen matrix with the values from the JSON, scaled by the scaling coefficient
-	for (int i = 0; i < Rows; ++i) {
-		for (int j = 0; j < Cols; ++j) {
-			matrix(i, j) = jsonMatrix["matrix"][i][j];
-		}
-	}
 
-	matrix *= scaling_coef;
+	if (jsonMatrix.contains("matrix")) {
+		for (int i = 0; i < Rows; ++i) {
+			for (int j = 0; j < Cols; ++j) {
+				matrix(i, j) = jsonMatrix["matrix"][i][j];
+			}
+		}
+		matrix *= scaling_coef;
+	}
+	else {
+		throw std::runtime_error("Matrix input missing in JSON");
+	}
 
 	return matrix;
 }
-
-
-
 
 #endif // JSON_PARSER_HPP
 

@@ -35,43 +35,42 @@
  **********************************************************************************************************************/
 
 #include "main.hpp"
+#include "config.hpp"
+#include "multi_threaded_node.hpp"
 
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
   
-  if constexpr (CURRENT_EKF2_FUSION_MODE == EKF2FusionMode::GPS)
-  {
-    // You MUST use the MultiThreadedExecutor to use, well, multiple threads
-    rclcpp::executors::MultiThreadedExecutor executor;
-    rclcpp::NodeOptions options;
-    auto multi_threaded_node = std::make_shared<MultiThreadedNode>(options);
-    executor.add_node(multi_threaded_node);
+#if EKF2_FUSION_MODE == FUSION_MODE_GPS
+  // You MUST use the MultiThreadedExecutor to use, well, multiple threads
+  rclcpp::executors::MultiThreadedExecutor executor;
+  rclcpp::NodeOptions options;
+  auto multi_threaded_node = std::make_shared<MultiThreadedNode>(options);
+  executor.add_node(multi_threaded_node);
 
-    std::cout << "CURRENT_EKF2_FUSION_MODE = GPS" << std::endl;
+  std::cout << "CURRENT_EKF2_FUSION_MODE = GPS" << std::endl;
 
-    executor.spin();
-    rclcpp::shutdown();
+  executor.spin();
+  rclcpp::shutdown();
 
-  } else if constexpr (CURRENT_EKF2_FUSION_MODE == EKF2FusionMode::MOCAP)
-  {
-    // You MUST use the MultiThreadedExecutor to use, well, multiple threads
-    rclcpp::executors::MultiThreadedExecutor executor;
-    rclcpp::NodeOptions options;
-    auto multi_threaded_node = std::make_shared<MultiThreadedNode>(options);
-    executor.add_node(multi_threaded_node);
+#elif EKF2_FUSION_MODE == FUSION_MODE_MOCAP
+  // You MUST use the MultiThreadedExecutor to use, well, multiple threads
+  rclcpp::executors::MultiThreadedExecutor executor;
+  rclcpp::NodeOptions options;
+  auto multi_threaded_node = std::make_shared<MultiThreadedNode>(options);
+  executor.add_node(multi_threaded_node);
 
-    std::cout << "CURRENT_EKF2_FUSION_MODE = MOCAP" << std::endl;
-    _drivers_::_common_::IoContext ctx{1}; 
-    auto mocap_node = std::make_shared<_drivers_::_udp_driver_::UdpReceiverNode>(
-      ctx,
-      multi_threaded_node->getInitialTimestamp());
-    executor.add_node(mocap_node->get_node_base_interface());
-    mocap_node->checkLifecycleNodeStarted();
+  std::cout << "CURRENT_EKF2_FUSION_MODE = MOCAP" << std::endl;
+  _drivers_::_common_::IoContext ctx{1}; 
+  auto mocap_node = std::make_shared<_drivers_::_udp_driver_::UdpReceiverNode>(
+    ctx,
+    multi_threaded_node->getInitialTimestamp());
+  executor.add_node(mocap_node->get_node_base_interface());
+  mocap_node->checkLifecycleNodeStarted();
 
-    executor.spin();
-    rclcpp::shutdown();
-  }
-
+  executor.spin();
+  rclcpp::shutdown();
+#endif //ENABLE_MOCAP == true
   return 0;
 }

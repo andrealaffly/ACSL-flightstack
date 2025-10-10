@@ -58,10 +58,16 @@
 #include "config.hpp"
 #include "json_parser.hpp"
 #include "vehicle_state.hpp"
+
 #include "user_defined_trajectory.hpp"
 #include "piecewise_polynomial_trajectory.hpp"
+
 #include "control.hpp"
+
+#if EKF2_FUSION_MODE == FUSION_MODE_MOCAP
 #include "mocap.hpp"
+#endif //ENABLE_MOCAP == true
+
 #include "print_helpers.hpp"
 
 
@@ -132,7 +138,7 @@ private:
     2 = flight terminated
   */
   int offboard_flag_; 
-
+  
   // Create a pointer to the PiecewisePolynomialTrajectory instance
   std::shared_ptr<PiecewisePolynomialTrajectory> user_defined_trajectory_;
 
@@ -156,4 +162,4 @@ private:
 
 std::string string_thread_id();
 
-#endif // MULTI_THREADED_NODE_HPP
+#endif //MULTI_THREADED_NODE_HPP

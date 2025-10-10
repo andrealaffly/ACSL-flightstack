@@ -33,7 +33,6 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
 #ifndef MRAC_HPP
 #define MRAC_HPP
 
@@ -47,6 +46,9 @@
 #include "mrac_gains.hpp"
 #include "continuous_lyapunov_equation.hpp"
 #include "projection_operator.hpp"
+#include "json_parser.hpp"
+
+using namespace nlohmann;
 
 // Forward declaration of LogData_MRAC class
 class LogData_MRAC;
@@ -148,39 +150,39 @@ public:
   std::shared_ptr<LogData_MRAC> getLogData() const;
   static const std::string& getControllerName();
 
-  void readJSONfile(const std::string& fileName);
+  void loadGains(json j);
 
-  void initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& gains_);
+  void initializeControllerParameters(ParamsVehicle& vehicle_info, GainsMRAC& gains_);
 
   void assignSystemToDxdt(state_type /* &x */, state_type &dxdt, const double /* t */);
 
   void computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
-                                            VehicleInfo& vehicle_info, 
+                                            ParamsVehicle& vehicle_info, 
                                             StateController& state_);
 
   void computeOuterLoop(ControlInternalMembers& cim,
-                        VehicleInfo& vehicle_info,
+                        ParamsVehicle& vehicle_info,
                         StateController& state_, 
                         ControlReferences& cr,
                         GainsMRAC& gains_,
                         ControllerSpecificInternalMembers& csim_);
 
   void computeOuterLoopDEBUGGING(ControlInternalMembers& cim,
-                                  VehicleInfo& vehicle_info,
+                                  ParamsVehicle& vehicle_info,
                                   StateController& state_, 
                                   ControlReferences& cr,
                                   GainsMRAC& gains_,
                                   ControllerSpecificInternalMembers& csim_);
 
   void computeInnerLoop(ControlInternalMembers& cim,
-                        VehicleInfo& vehicle_info,
+                        ParamsVehicle& vehicle_info,
                         StateController& state_, 
                         ControlReferences& cr,
                         GainsMRAC& gains_,
                         ControllerSpecificInternalMembers& csim_);
 
   void computeInnerLoopDEBUGGING(ControlInternalMembers& cim,
-                                  VehicleInfo& vehicle_info,
+                                  ParamsVehicle& vehicle_info,
                                   StateController& state_, 
                                   ControlReferences& cr,
                                   GainsMRAC& gains_,

@@ -33,7 +33,6 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
 #ifndef PID_HPP
 #define PID_HPP
 
@@ -116,18 +115,18 @@ public:
   void assignSystemToDxdt(state_type /* &x */, state_type &dxdt, const double /* t */);
 
   void computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
-                                            VehicleInfo& vehicle_info, 
+                                            ParamsVehicle& vehicle_info, 
                                             StateController& state_);
 
   void computeOuterLoop(ControlInternalMembers& cim,
-                        VehicleInfo& vehicle_info,
+                        ParamsVehicle& vehicle_info,
                         StateController& state_, 
                         ControlReferences& cr,
                         GainsPID& gains_,
                         ControllerSpecificInternalMembers& csim_);
 
   void computeInnerLoop(ControlInternalMembers& cim,
-                        VehicleInfo& vehicle_info,
+                        ParamsVehicle& vehicle_info,
                         StateController& state_, 
                         ControlReferences& cr,
                         GainsPID& gains_,
