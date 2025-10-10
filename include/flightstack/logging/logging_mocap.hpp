@@ -40,7 +40,7 @@
 #include <atomic>
 #include <cstddef>
 #include <chrono>
-#include <filesystem>
+#include <experimental/filesystem>
 #include <fstream>
 #include <iomanip>
 #include <ostream>
@@ -70,6 +70,7 @@
 #include <boost/smart_ptr/shared_ptr.hpp>
 #include <Eigen/Dense>
 
+namespace fs = std::experimental::filesystem;
 namespace logging = boost::log;
 namespace sinks = boost::log::sinks;
 namespace src = boost::log::sources;

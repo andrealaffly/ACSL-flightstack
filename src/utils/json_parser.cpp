@@ -34,14 +34,12 @@
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
-#include <fstream>
-#include <nlohmann/json.hpp>
-
 #include "json_parser.hpp"
+using namespace nlohmann;
 
 void MotorsCommands::readJSONConfig(const std::string& jsonFile) {
 	std::ifstream file(jsonFile);
-	nlohmann::json j;
+	json j;
 	file >> j;
 	
 	this->motor_1 = j["MotorsCommands"]["motor_1"];
@@ -55,4 +53,15 @@ void MotorsCommands::readJSONConfig(const std::string& jsonFile) {
 	
 }
 
+json readJsonFile(const std::string& jsonFile)
+{
+  json j;
 
+  std::ifstream file(jsonFile);
+  if (!file.is_open()) {
+    throw std::runtime_error("Could not open file: " + jsonFile);
+  }
+
+	file >> j;
+	return j;
+}

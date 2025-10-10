@@ -40,6 +40,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # Set the path to the Boost root directory
+set(Boost_NO_BOOST_CMAKE ON)
 set(BOOST_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/include/boost")
 
 # find dependencies
@@ -67,6 +68,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/json/include)
 
 set(SOURCES
   src/config/config.cpp
+  src/control/vehicleParams.cpp
   src/control/control.cpp
   src/control/control_callback.cpp
   src/control/mrac/logging_mrac.cpp
@@ -89,15 +91,14 @@ set(SOURCES
   src/utils/json_parser.cpp
 )
 
-
 # Add executable
 add_executable(flightstack ${SOURCES})
-
+target_compile_definitions(flightstack PUBLIC  BOOST_ALL_DYN_LINK)
 # Add header files to the target
 target_include_directories(flightstack PUBLIC)
 
 # Link against Boost libraries
-target_link_libraries(flightstack ${Boost_LIBRARIES})
+target_link_libraries(flightstack ${Boost_LIBRARIES} stdc++fs)
 
 ament_target_dependencies(flightstack rclcpp px4_msgs lifecycle_msgs rclcpp_lifecycle)
 

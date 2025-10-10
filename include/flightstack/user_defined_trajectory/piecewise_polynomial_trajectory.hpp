@@ -44,6 +44,7 @@
 #include <fstream>
 #include <iostream>
 #include <math.h>
+#include <atomic>
 
 #include <Eigen/Dense>
 #include <nlohmann/json.hpp>

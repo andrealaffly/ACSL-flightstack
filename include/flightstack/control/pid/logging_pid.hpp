@@ -37,45 +37,9 @@
 #ifndef LOGGING_PID_HPP
 #define LOGGING_PID_HPP
 
-#include <atomic>
-#include <cstddef>
-#include <chrono>
-#include <filesystem>
-#include <fstream>
-#include <iomanip>
-#include <ostream>
-#include <sstream>
-#include <string>
 
-#include <boost/date_time/posix_time/posix_time.hpp>
-#include <boost/date_time/posix_time/posix_time_types.hpp>
-#include <boost/log/attributes.hpp>
-#include <boost/log/attributes/scoped_attribute.hpp>
-#include <boost/log/core.hpp>
-#include <boost/log/expressions.hpp>
-#include <boost/log/sinks/sync_frontend.hpp>
-#include <boost/log/sinks/text_ostream_backend.hpp>
-#include <boost/log/sources/basic_logger.hpp>
 #include <boost/log/sources/logger.hpp>
-#include <boost/log/sources/record_ostream.hpp>
-#include <boost/log/sources/severity_channel_logger.hpp>
-#include <boost/log/sources/severity_logger.hpp>
-#include <boost/log/support/date_time.hpp>
-#include <boost/log/trivial.hpp>
-#include <boost/log/utility/setup/common_attributes.hpp>
-#include <boost/log/utility/setup/file.hpp>
-#include <boost/log/utility/value_ref.hpp>
-#include <boost/phoenix/bind.hpp>
-#include <boost/smart_ptr/make_shared_object.hpp>
-#include <boost/smart_ptr/shared_ptr.hpp>
-#include <Eigen/Dense>
-
-namespace logging = boost::log;
-namespace sinks = boost::log::sinks;
-namespace src = boost::log::sources;
-namespace expr = boost::log::expressions;
-namespace attrs = boost::log::attributes;
-namespace keywords = boost::log::keywords;
+using boost::log::sources::logger;
 
 // Forward declaration of MultiThreadedNode class
 class MultiThreadedNode;
@@ -88,7 +52,7 @@ class LogData_PID
 public:
 
   // Define logger for LogData
-  static src::logger logger_logdata;
+  static logger logger_logdata;
 
 	// Constructor
   LogData_PID(MultiThreadedNode& node, PID& controller);

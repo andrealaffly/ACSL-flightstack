@@ -44,6 +44,22 @@
 class MultiThreadedNode;
 
 /*********************************************************************************************************************
+  COMPILE SWITCHES
+**********************************************************************************************************************
+*/
+#define ENABLE_MOCAP false
+
+/*********************************************************************************************************************
+  Architecture selection
+**********************************************************************************************************************
+*/
+// Define named constants for vehicle architecture
+#define ARCH_X8 0
+#define ARCH_QUAD 1
+// SELECT here the ARCHITECTURE you want to run -----------------------------------------------------------------------
+#define VEH_ARCH ARCH_QUAD
+
+/*********************************************************************************************************************
   CONTROLLER selection
 **********************************************************************************************************************
 */
@@ -52,8 +68,12 @@ class MultiThreadedNode;
 #define __MRAC__ 2
 
 // SELECT here the CONTROLLER you want to run -----------------------------------------------------------------------
-#define SELECTED_CONTROLLER __MRAC__
+#define SELECTED_CONTROLLER __PID__
 // ------------------------------------------------------------------------------------------------------------------
+#define FUSION_MODE_GPS 0
+#define FUSION_MODE_MOCAP 1
+
+#define EKF2_FUSION_MODE FUSION_MODE_GPS
 
 // Define ControlType based on SELECTED_CONTROLLER using type aliasing
 #if SELECTED_CONTROLLER == __PID__ 

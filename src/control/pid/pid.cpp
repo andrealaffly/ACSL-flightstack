@@ -33,11 +33,14 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+#include "config.hpp"
 
+#if SELECTED_CONTROLLER == __PID__
 #include "multi_threaded_node.hpp"
 #include "pid.hpp"
 #include "logging_pid.hpp"
 #include "json_parser.hpp"
+using namespace nlohmann;
 
 // Constructor
 PID::PID(MultiThreadedNode& node) : 
@@ -126,7 +129,7 @@ void PID::readJSONfile(const std::string& fileName)
     throw std::runtime_error("Could not open file: " + jsonFile);
   }
 
-	nlohmann::json j;
+  json j;
 	file >> j;
 	
 
@@ -172,7 +175,7 @@ void PID::assignSystemToDxdt(state_type /* &x */, state_type &dxdt, const double
   angles using the provided filter coefficients and the current state variables.
 */
 void PID::computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
-                                                VehicleInfo& vehicle_info, 
+                                                ParamsVehicle& vehicle_info, 
                                                 StateController& state_)
 {
   cim.internal_state_roll_des_filter = vehicle_info.A_filter_roll_des * state_.state_roll_des_filter 
@@ -199,7 +202,7 @@ void PID::computeFilterDifferentiatorVariables(ControlInternalMembers& cim,
   OUTER LOOP CONTROLLER
 */
 void PID::computeOuterLoop(ControlInternalMembers& cim,
-                            VehicleInfo& vehicle_info,
+                            ParamsVehicle& vehicle_info,
                             StateController& state_, 
                             ControlReferences& cr,
                             GainsPID& gains_,
@@ -217,13 +220,15 @@ void PID::computeOuterLoop(ControlInternalMembers& cim,
     + csim_.outer_loop_I
     + cr.user_defined_acceleration
   );
+
+
 }
 
 /*
   INNER LOOP CONTROLLER
 */
 void PID::computeInnerLoop(ControlInternalMembers& cim,
-                            VehicleInfo& vehicle_info,
+                            ParamsVehicle& vehicle_info,
                             StateController& state_, 
                             ControlReferences& cr,
                             GainsPID& gains_,
@@ -293,10 +298,32 @@ void PID::computeControlAlgorithm()
     Compute the thrust in Newton that each motor needs to produce and convert it
     from Newton to the normalized value comprised between 0 and 1 to be sent to Pixhawk
   */
-  // FOR X8COPTER
-  this->computeNormalizedThrust(cim, vehicle_info);
 
+#if VEH_ARCH == ARCH_X8
+  // FOR X8
+  this->computeNormalizedThrust(cim, vehicle_info);
+#elif VEH_ARCH == ARCH_QUAD
   // FOR QUADCOPTER
-  // this->computeNormalizedThrustQuadcopterMode(cim, vehicle_info);
+  this->computeNormalizedThrustQuadcopterMode(cim, vehicle_info);
+#else
+  // Invalid architecture selection
+  #error "Invalid architecture selection"
+#endif
+
+  // Debug output: Print position error, motor input, and velocity for each axis
+  
+  std::cout << "Vector Inputs (U1, U2, U3, U4):" << std::endl;
+  std::cout << "  U1 (Total Thrust): " << cim.U_control_inputs[0] << std::endl;
+  std::cout << "  U2 (Roll Moment):  " << cim.U_control_inputs[1] << std::endl;
+  std::cout << "  U3 (Pitch Moment): " << cim.U_control_inputs[2] << std::endl;
+  std::cout << "  U4 (Yaw Moment):   " << cim.U_control_inputs[3] << std::endl;
+  
+  std::cout << "Motor Inputs (U1, U2, U3, U4):" << std::endl;
+  std::cout << "  M1 (Motor 1): " << cim.thrust_vector_quadcopter_normalized[0] << std::endl;
+  std::cout << "  M2 (Motor 2): " << cim.thrust_vector_quadcopter_normalized[1] << std::endl;
+  std::cout << "  M3 (Motor 3): " << cim.thrust_vector_quadcopter_normalized[2] << std::endl;
+  std::cout << "  M4 (Motor 4): " << cim.thrust_vector_quadcopter_normalized[3] << std::endl;
+
 
 }
+#endif //SELECTED_CONTROLLER == __PID__

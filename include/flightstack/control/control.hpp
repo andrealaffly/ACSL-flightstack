@@ -42,14 +42,12 @@
 #include <vector>
 #include <functional> 
 #include <chrono>
-
-#include <Eigen/Dense>
 #include <boost/numeric/odeint.hpp>
+#include <Eigen/Dense>
 
-#include "vehicle_info.hpp"
-#include "piecewise_polynomial_trajectory.hpp"
+#include "vehicleParams.hpp"
 
-using namespace boost::numeric::odeint;
+using boost::numeric::odeint::runge_kutta4;
 
 // The type of container used to hold the state vector
 typedef std::vector<double> state_type;
@@ -60,6 +58,7 @@ class MultiThreadedNode;
 class Control 
 {
 public:
+  static inline const std::string paramsFile = "./src/flightstack/params/config/vehicle_info.json";
 
   /*
     This struct contains the variables that are common among all controllers as they are the foundations of the base
@@ -124,11 +123,9 @@ public:
   // Constructor
   Control(MultiThreadedNode& node);
 
-  void readJSONdifferentiatorFile();
-
   // Getter functions
   MultiThreadedNode& getNode() const;
-  const VehicleInfo& getVehicleInfo() const;
+  const ParamsVehicle& getParamsVehicle() const;
   const ControlInternalMembers& getControlInternalMembers() const;
   const std::chrono::duration<double, std::micro>& getAlgorithmExecutionTimeMicroseconds() const;
 
@@ -146,9 +143,9 @@ public:
 
   Eigen::Matrix3d rotationMatrix321GlobalToLocal(const double& roll, const double& pitch, const double& yaw);
 
-  void computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info);
+  void computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, ParamsVehicle& vehicle_info);
 
-  void computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& vehicle_info);
+  void computeNormalizedThrust(ControlInternalMembers& cim, ParamsVehicle& vehicle_info);
 
   void compute_U1_RollDes_PitchDes(ControlInternalMembers& cim);
 
@@ -203,8 +200,8 @@ public:
 
 protected:
 
-  VehicleInfo vehicle_info;
-
+  ParamsVehicle vehicle_info;
+  
   ControlInternalMembers cim;
 
   ControlReferences cr;

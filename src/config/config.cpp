@@ -59,11 +59,11 @@ ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile
 
   ConfigurationParameters config;
 
-  if (config_json.contains("user_defined_trajectory_file")) {
+if (config_json.find("user_defined_trajectory_file") != config_json.end()) {
     config.user_defined_trajectory_file = config_json["user_defined_trajectory_file"].get<std::string>();
   }
 
-  if (config_json.contains("hover_after_trajectory_time_seconds")) {
+if (config_json.find("hover_after_trajectory_time_seconds") != config_json.end()) {
     config.hover_after_trajectory_time_seconds = config_json["hover_after_trajectory_time_seconds"].get<double>();
   }
 

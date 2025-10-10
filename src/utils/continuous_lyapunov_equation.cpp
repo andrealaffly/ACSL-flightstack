@@ -77,6 +77,9 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+#include "config.hpp"
+
+#if SELECTED_CONTROLLER == __MRAC__
 
 #include <cmath>
 #include <complex>
@@ -312,3 +315,5 @@ MatrixXd SolveReducedRealContinuousLyapunovEquation(
 }
 
 }  // namespace internal
+
+#endif //SELECTED_CONTROLLER == __MRAC__

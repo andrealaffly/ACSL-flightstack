@@ -35,6 +35,7 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+#include "config.hpp"
 
 #include <fstream>
 #include <nlohmann/json.hpp>

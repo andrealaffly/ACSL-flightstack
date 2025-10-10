@@ -38,7 +38,6 @@
 #include "control.hpp"
 #include "multi_threaded_node.hpp"
 
-
 /*
   Callback function that is executed at a fixed specified rate defined by the "timer_controller_"
 */
@@ -93,14 +92,14 @@ void MultiThreadedNode::controller_callback()
   // std::cout << "K_hat_r_translational " << control_->getStateController().K_hat_r_translational << std::endl;
   // std::cout << "thrust_vector_quadcopter " << control_->getControlInternalMembers().thrust_vector_quadcopter << std::endl;
   // std::cout << "thrust_vector_quadcopter_normalized " << control_->getControlInternalMembers().thrust_vector_quadcopter_normalized << std::endl;
-  // std::cout << "mass " << control_->getVehicleInfo().mass << std::endl;
-  // std::cout << "inertia_matrix " << control_->getVehicleInfo().inertia_matrix << std::endl;
-  // std::cout << "drag_coefficient_matrix " << control_->getVehicleInfo().drag_coefficient_matrix << std::endl;
+  // std::cout << "mass " << control_->getParamsVehicle().mass << std::endl;
+  // std::cout << "inertia_matrix " << control_->getParamsVehicle().inertia_matrix << std::endl;
+  // std::cout << "drag_coefficient_matrix " << control_->getParamsVehicle().drag_coefficient_matrix << std::endl;
   // std::cout << "r_cmd_translational " << control_->getControllerSpecificInternalMembers().r_cmd_translational << std::endl;
-  // std::cout << "A_filter_roll_des " << control_->getVehicleInfo().A_filter_roll_des << std::endl;
-  // std::cout << "B_filter_roll_des " << control_->getVehicleInfo().B_filter_roll_des << std::endl;
-  // std::cout << "C_filter_roll_des " << control_->getVehicleInfo().C_filter_roll_des << std::endl;
-  // std::cout << "D_filter_roll_des " << control_->getVehicleInfo().D_filter_roll_des << std::endl;
+  // std::cout << "A_filter_roll_des " << control_->getParamsVehicle().A_filter_roll_des << std::endl;
+  // std::cout << "B_filter_roll_des " << control_->getParamsVehicle().B_filter_roll_des << std::endl;
+  // std::cout << "C_filter_roll_des " << control_->getParamsVehicle().C_filter_roll_des << std::endl;
+  // std::cout << "D_filter_roll_des " << control_->getParamsVehicle().D_filter_roll_des << std::endl;
 
   // std::cout << "state_roll_des_filter " << control_->getStateController().state_roll_des_filter << std::endl;
   // std::cout << "KP_translational " << control_->getGains().KP_translational << std::endl;

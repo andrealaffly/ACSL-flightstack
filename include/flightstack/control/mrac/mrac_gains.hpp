@@ -33,7 +33,6 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
 #ifndef MRAC_GAINS_HPP
 #define MRAC_GAINS_HPP
 

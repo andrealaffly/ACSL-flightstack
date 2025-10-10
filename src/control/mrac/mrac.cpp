@@ -33,18 +33,24 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+#include "config.hpp"
+
+#if SELECTED_CONTROLLER == __MRAC__
 
 #include "multi_threaded_node.hpp"
 #include "mrac.hpp"
 #include "logging_mrac.hpp"
 #include "json_parser.hpp"
 
+using namespace nlohmann;
+
 // Constructor
 MRAC::MRAC(MultiThreadedNode& node) : 
   Control(node)
 {
   // Initialize controller gains
-  this->readJSONfile("gains_mrac.json");
+  json j = readJsonFile("./src/flightstack/params/control/mrac/gains_mrac.json");
+  this->loadGains(j);
   this->initializeControllerParameters(this->vehicle_info, this->gains_);
 
   log_data_ = std::make_shared<LogData_MRAC>(node, *this);
@@ -148,22 +154,9 @@ const std::string& MRAC::getControllerName()
   Function to read the tuning gains coming from the .json file and assign it to the
   gains_ struct instantiated in the MRAC class
 */
-void MRAC::readJSONfile(const std::string& fileName)
-{
-  // Define the path where the MRAC gains JSON files are located
-  const std::string path = "./src/flightstack/params/control/mrac/";
 
-  // Concatenate the path with the file name
-  std::string jsonFile = path + fileName;
-
-  std::ifstream file(jsonFile);
-  if (!file.is_open()) {
-    throw std::runtime_error("Could not open file: " + jsonFile);
-  }
-
-	nlohmann::json j;
-	file >> j;
-	
+void MRAC::loadGains(json j){
+  
   gains_.KP_refmod_translational = extractMatrixFromJSON<double, 3, 3>(j["BASELINE"]["KP_refmod_translational"]);
 	gains_.KD_refmod_translational = extractMatrixFromJSON<double, 3, 3>(j["BASELINE"]["KD_refmod_translational"]);
   gains_.KI_refmod_translational = extractMatrixFromJSON<double, 3, 3>(j["BASELINE"]["KI_refmod_translational"]);
@@ -213,13 +206,12 @@ void MRAC::readJSONfile(const std::string& fileName)
   gains_.x_e_Theta_rotational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_Theta_rotational"]);
   gains_.S_diagonal_Theta_rotational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["S_diagonal_Theta_rotational"]);
   gains_.alpha_Theta_rotational = j["ADAPTIVE"]["alpha_Theta_rotational"];
-
 }
 
 /*
   Function that given the gains read from the JSON file, initializes the rest of the parameters accordingly
 */
-void MRAC::initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& gains_)
+void MRAC::initializeControllerParameters(ParamsVehicle& vehicle_info, GainsMRAC& gains_)
 {
   // Initialize to zero the 6x6 matrix and set the top-right 3x3 block as follows
   gains_.A_translational.setZero();
@@ -277,7 +269,6 @@ void MRAC::initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& 
   gains_.epsilon_x_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_x_rotational);
   gains_.epsilon_r_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_r_rotational);
   gains_.epsilon_Theta_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_Theta_rotational);
-  
 }
 
 /*
@@ -327,7 +318,7 @@ void MRAC::assignSystemToDxdt(state_type /* &x */, state_type &dxdt, const doubl
   desired angles using the provided filter coefficients and the current state variables.
 */
 void MRAC::computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
-                                                VehicleInfo& vehicle_info, 
+                                                ParamsVehicle& vehicle_info, 
                                                 StateController& state_)
 {
   cim.internal_state_roll_des_filter = vehicle_info.A_filter_roll_des * state_.state_roll_des_filter 
@@ -354,7 +345,7 @@ void MRAC::computeFilterDifferentiatorVariables(ControlInternalMembers& cim,
   OUTER LOOP CONTROLLER
 */
 void MRAC::computeOuterLoop(ControlInternalMembers& cim,
-                            VehicleInfo& vehicle_info,
+                            ParamsVehicle& vehicle_info,
                             StateController& state_, 
                             ControlReferences& cr,
                             GainsMRAC& gains_,
@@ -482,7 +473,7 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
   OUTER LOOP CONTROLLER USED FOR DEBUGGING, using 'user' instead of 'reference-model' in the baseline
 */
 void MRAC::computeOuterLoopDEBUGGING(ControlInternalMembers& cim,
-                                      VehicleInfo& vehicle_info,
+                                      ParamsVehicle& vehicle_info,
                                       StateController& state_, 
                                       ControlReferences& cr,
                                       GainsMRAC& gains_,
@@ -611,7 +602,7 @@ void MRAC::computeOuterLoopDEBUGGING(ControlInternalMembers& cim,
   INNER LOOP CONTROLLER
 */
 void MRAC::computeInnerLoop(ControlInternalMembers& cim,
-                            VehicleInfo& vehicle_info,
+                            ParamsVehicle& vehicle_info,
                             StateController& state_, 
                             ControlReferences& cr,
                             GainsMRAC& gains_,
@@ -764,7 +755,7 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
   INNER LOOP CONTROLLER USED FOR DEBUGGING, using 'desired' instead of 'reference-model' in the baseline
 */
 void MRAC::computeInnerLoopDEBUGGING(ControlInternalMembers& cim,
-                                      VehicleInfo& vehicle_info,
+                                      ParamsVehicle& vehicle_info,
                                       StateController& state_, 
                                       ControlReferences& cr,
                                       GainsMRAC& gains_,
@@ -967,3 +958,5 @@ void MRAC::computeControlAlgorithm()
   // this->computeNormalizedThrustQuadcopterMode(cim, vehicle_info);  
 
 }
+
+#endif //SELECTED_CONTROLLER == __MRAC__

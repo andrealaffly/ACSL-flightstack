@@ -35,7 +35,6 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
-
 #ifndef PROJECTION_OPERATOR_HPP
 #define PROJECTION_OPERATOR_HPP
 
