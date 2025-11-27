@@ -92,7 +92,7 @@ void UdpReceiverNode::get_params()
   m_port = ODROID_M1S_PORT;
 
   RCLCPP_INFO(get_logger(), "ip: %s", m_ip.c_str());
-  RCLCPP_INFO(get_logger(), "port: %i", m_port);
+  // RCLCPP_INFO(get_logger(), "port: %i", m_port);
 }
 
 /// \brief Destructor - required to manage owned IoContext
@@ -123,10 +123,10 @@ LNI::CallbackReturn UdpReceiverNode::on_configure(const lc::State & state)
 {
   (void)state;
 
-  // Check if m_udp_driver is not null
-  if (m_udp_driver) {
-    RCLCPP_INFO(get_logger(), "UDP driver is initialized.");
-  }
+  // // Check if m_udp_driver is not null
+  // if (m_udp_driver) {
+  //   RCLCPP_INFO(get_logger(), "UDP driver is initialized.");
+  // }
 
   mocap_publisher_ = this->create_publisher<px4_msgs::msg::VehicleOdometry>(
     "/fmu/in/vehicle_visual_odometry", rclcpp::QoS(100));

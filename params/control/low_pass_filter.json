@@ -1,0 +1,9 @@
+{
+  "LOW_PASS_FILTER": {
+    "outer_loop_D": {
+      "x": {"cutoff_hz": 15.0, "sample_rate_hz": 100.0, "q": 0.7071},
+      "y": {"cutoff_hz": 15.0, "sample_rate_hz": 100.0, "q": 0.7071},
+      "z": {"cutoff_hz": 15.0, "sample_rate_hz": 100.0, "q": 0.7071}
+    }
+  }
+}

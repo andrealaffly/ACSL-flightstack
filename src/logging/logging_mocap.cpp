@@ -77,17 +77,84 @@ void MocapData::logInitializeHeaders()
 	BOOST_LOG(MocapData::logger_mocapdata) << oss.str();
 }
 
+// // Function to initialize the logging system
+// void MocapData::logInitializeLogging()
+// {
+//   // Get the current date and time
+//   auto now = std::chrono::system_clock::now();
+//   std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+
+//   // Get the current date in the desired format
+//   std::stringstream date_ss;
+//   date_ss << std::put_time(std::localtime(&now_c), "%Y%m%d"); // Current date
+//   std::string current_date = date_ss.str();
+
+//   // Create the directory path for the logs
+//   std::string log_base_directory = "./src/flightstack/log/" + current_date + "/" + ControlType::getControllerName();
+
+//   // Check if the directory exists, and create it if it doesn't
+//   if (!std::filesystem::exists(log_base_directory)) {
+//     std::filesystem::create_directories(log_base_directory);
+//   }
+
+//   // Check if the "mocap" subdirectory exists within the log_base_directory, create it if needed
+//   std::string mocap_directory = log_base_directory + "/mocap";
+//   if (!std::filesystem::exists(mocap_directory)) {
+//       std::filesystem::create_directories(mocap_directory);
+//   }
+
+//   // Generate the mocap log file name with a timestamp
+//   std::stringstream mocap_ss;
+//   mocap_ss << mocap_directory << "/mocap_log_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".log";
+//   std::string mocap_log_filename = mocap_ss.str();
+
+//   MocapData::logger_mocapdata.add_attribute("Tag", attrs::constant< std::string >("MocapTag"));
+
+//   // Define a synchronous sink with a text ostream backend
+//   typedef sinks::synchronous_sink<sinks::text_ostream_backend> text_sink;
+//   boost::shared_ptr<text_sink> mocap_sink = boost::make_shared<text_sink>();
+
+//   // Add a stream to the backend (in this case, a file stream)
+//   mocap_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(mocap_log_filename));
+
+//   // Set the formatter for the sink
+//   mocap_sink->set_formatter(
+//     expr::stream
+//     << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] " // Format date and time
+//     << "[" << expr::attr<boost::log::attributes::current_thread_id::value_type>("ThreadID") << "] " // Current thread ID
+//     << "[" << expr::attr<std::string>("Tag") << "] " // Tag attribute value
+//     << "[" << expr::attr<boost::log::attributes::current_process_id::value_type>("ProcessID") << "] " // Current process ID
+//     << "[" << expr::attr<unsigned int>("LineID") << "] " // Line ID
+//     << expr::smessage // Log message
+//   );
+
+//   // Add the sink to the logging core
+//   logging::core::get()->add_sink(mocap_sink);
+
+//   // Set a filter for the sink
+//   mocap_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "MocapTag");
+
+//   logging::add_common_attributes(); // Add attributes like timestamp
+
+//   logInitializeHeaders();
+// }
+
 // Function to initialize the logging system
 void MocapData::logInitializeLogging()
 {
-  // Get the current date and time
-  auto now = std::chrono::system_clock::now();
-  std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+  // Use the initial timestamp (in microseconds)
+  const uint64_t initial_timestamp_us = node_.getInitialTimestamp();  // microseconds since epoch
+  std::time_t initial_time_t = static_cast<std::time_t>(initial_timestamp_us / 1'000'000); // convert to seconds
 
-  // Get the current date in the desired format
+  // Get the date string: "%Y%m%d"
   std::stringstream date_ss;
-  date_ss << std::put_time(std::localtime(&now_c), "%Y%m%d"); // Current date
+  date_ss << std::put_time(std::localtime(&initial_time_t), "%Y%m%d");
   std::string current_date = date_ss.str();
+
+  // Get the timestamp string: "%Y%m%d_%H%M%S"
+  std::stringstream timestamp_ss;
+  timestamp_ss << std::put_time(std::localtime(&initial_time_t), "%Y%m%d_%H%M%S");
+  std::string current_timestamp = timestamp_ss.str();
 
   // Create the directory path for the logs
   std::string log_base_directory = "./src/flightstack/log/" + current_date + "/" + ControlType::getControllerName();
@@ -100,32 +167,32 @@ void MocapData::logInitializeLogging()
   // Check if the "mocap" subdirectory exists within the log_base_directory, create it if needed
   std::string mocap_directory = log_base_directory + "/mocap";
   if (!std::filesystem::exists(mocap_directory)) {
-      std::filesystem::create_directories(mocap_directory);
+    std::filesystem::create_directories(mocap_directory);
   }
 
-  // Generate the mocap log file name with a timestamp
+  // Generate the mocap log file name with the timestamp
   std::stringstream mocap_ss;
-  mocap_ss << mocap_directory << "/mocap_log_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".log";
+  mocap_ss << mocap_directory << "/mocap_log_" << current_timestamp << ".log";
   std::string mocap_log_filename = mocap_ss.str();
 
-  MocapData::logger_mocapdata.add_attribute("Tag", attrs::constant< std::string >("MocapTag"));
+  MocapData::logger_mocapdata.add_attribute("Tag", attrs::constant<std::string>("MocapTag"));
 
   // Define a synchronous sink with a text ostream backend
   typedef sinks::synchronous_sink<sinks::text_ostream_backend> text_sink;
   boost::shared_ptr<text_sink> mocap_sink = boost::make_shared<text_sink>();
 
-  // Add a stream to the backend (in this case, a file stream)
+  // Add a stream to the backend (file stream)
   mocap_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(mocap_log_filename));
 
   // Set the formatter for the sink
   mocap_sink->set_formatter(
     expr::stream
-    << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] " // Format date and time
-    << "[" << expr::attr<boost::log::attributes::current_thread_id::value_type>("ThreadID") << "] " // Current thread ID
-    << "[" << expr::attr<std::string>("Tag") << "] " // Tag attribute value
-    << "[" << expr::attr<boost::log::attributes::current_process_id::value_type>("ProcessID") << "] " // Current process ID
-    << "[" << expr::attr<unsigned int>("LineID") << "] " // Line ID
-    << expr::smessage // Log message
+    << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] "
+    << "[" << expr::attr<boost::log::attributes::current_thread_id::value_type>("ThreadID") << "] "
+    << "[" << expr::attr<std::string>("Tag") << "] "
+    << "[" << expr::attr<boost::log::attributes::current_process_id::value_type>("ProcessID") << "] "
+    << "[" << expr::attr<unsigned int>("LineID") << "] "
+    << expr::smessage
   );
 
   // Add the sink to the logging core

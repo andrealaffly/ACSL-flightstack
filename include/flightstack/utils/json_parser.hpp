@@ -33,15 +33,18 @@
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
+#pragma once
 
-#ifndef JSON_PARSER_HPP
-#define JSON_PARSER_HPP
-
+#include <cmath>
 #include <string>
 #include <fstream>
+#include <array>
+#include <type_traits>
 #include <nlohmann/json.hpp>
 
 #include <Eigen/Dense>
+
+#include "flightstack/utils/low_pass_filter.hpp"
 
 struct MotorsCommands {
 
@@ -66,27 +69,103 @@ struct MotorsCommands {
 template<typename Scalar, int Rows, int Cols>
 inline Eigen::Matrix<Scalar, Rows, Cols> extractMatrixFromJSON(const nlohmann::json& jsonMatrix)
 {
-	// Extract the scaling coefficient
-	Scalar scaling_coef = jsonMatrix["scaling_coef"];
-
 	// Initialize the Eigen matrix
 	Eigen::Matrix<Scalar, Rows, Cols> matrix;
 
-	// Populate the Eigen matrix with the values from the JSON, scaled by the scaling coefficient
-	for (int i = 0; i < Rows; ++i) {
-		for (int j = 0; j < Cols; ++j) {
-			matrix(i, j) = jsonMatrix["matrix"][i][j];
+	// Check if the matrix has a scaling coefficient
+	if (jsonMatrix.contains("scaling_coef")) {
+		// Extract the scaling coefficient
+		Scalar scaling_coef = jsonMatrix["scaling_coef"];
+
+		// Populate the Eigen matrix with the values from the JSON, scaled by the scaling coefficient
+		for (int i = 0; i < Rows; ++i) {
+			for (int j = 0; j < Cols; ++j) {
+				matrix(i, j) = jsonMatrix["matrix"][i][j];
+			}
+		}
+
+		matrix *= scaling_coef; // Apply scaling
+	}
+	else
+	{
+		// No scaling coefficient, just populate the matrix
+		for (int i = 0; i < Rows; ++i) {
+			for (int j = 0; j < Cols; ++j) {
+				matrix(i, j) = jsonMatrix[i][j];
+			}
 		}
 	}
-
-	matrix *= scaling_coef;
 
 	return matrix;
 }
 
+// Make Eigen matrices serializable using nlohmann::json
+namespace nlohmann {
+
+template <typename Scalar, int Rows, int Cols>
+struct adl_serializer<Eigen::Matrix<Scalar, Rows, Cols>>
+{
+	static void to_json(json& j, const Eigen::Matrix<Scalar, Rows, Cols>& mat)
+	{
+		j = json::array();
+		for (int i = 0; i < mat.rows(); ++i) {
+			json row = json::array();
+			for (int k = 0; k < mat.cols(); ++k)
+				row.push_back(mat(i, k));
+			j.push_back(row);
+		}
+	}
+
+	static void from_json(const json& j, Eigen::Matrix<Scalar, Rows, Cols>& mat)
+	{
+		mat.resize(j.size(), j.at(0).size());
+		for (int i = 0; i < mat.rows(); ++i)
+			for (int k = 0; k < mat.cols(); ++k)
+				mat(i, k) = j.at(i).at(k);
+	}
+};
+
+} // namespace nlohmann
 
 
+template<typename T>
+double DEG2RAD( const T deg )
+{
+	return deg * M_PI / 180.0;
+}
 
-#endif // JSON_PARSER_HPP
+template<typename T>
+double RAD2DEG( const T rad )
+{
+	return rad * 180.0 / M_PI;
+}
+
+
+namespace LowPassFilterJSON {
+
+template <typename FilterType>
+inline std::array<typename LowPassFilter::FilterVector3d<FilterType>::Config, 3>
+extractFilterConfigFromJSON(const nlohmann::json& j_filter)
+{
+	using Config = typename LowPassFilter::FilterVector3d<FilterType>::Config;
+	std::array<Config, 3> configs;
+
+	constexpr std::array<const char*, 3> axes = {"x", "y", "z"};
+
+	for (size_t i = 0; i < axes.size(); ++i) {
+		const auto& axis = axes[i];
+		configs[i].cutoff_hz = j_filter.at(axis).at("cutoff_hz").get<double>();
+		configs[i].sample_rate_hz = j_filter.at(axis).at("sample_rate_hz").get<double>();
+
+		if constexpr (std::is_same_v<FilterType, LowPassFilter::SecondOrder>) {
+			configs[i].q = j_filter.at(axis).value("q", 0.7071);
+		}
+	}
+
+	return configs;
+}
+
+} // namespace LowPassFilterJSON
+
 
 

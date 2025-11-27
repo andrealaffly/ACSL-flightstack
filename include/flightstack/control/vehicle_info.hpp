@@ -79,28 +79,6 @@ struct VehicleInfo
                                                             // motors along y direction in local FRD frame
   const double propeller_drag_coefficient = 0.01; // [m] propellers drag coefficient
 
-  // const Eigen::Matrix2d A_filter_roll_des = (Eigen::Matrix2d() << 
-  //   -40.824, -1049.8, 
-  //    1,   0 
-  // ).finished(); // A matrix of the roll_des filter
-
-  // const Eigen::Vector2d B_filter_roll_des = Eigen::Vector2d(1, 0); // B matrix of the roll_des filter
-
-  // const Eigen::RowVector2d C_filter_roll_des = Eigen::RowVector2d(1049.8, 0); // C matrix of the roll_des filter
-
-  // const double D_filter_roll_des = 0.0; // D matrix of the roll_des filter
-
-  // const Eigen::Matrix2d A_filter_pitch_des = (Eigen::Matrix2d() << 
-  //   -40.824, -1049.8, 
-  //     1,   0 
-  // ).finished(); // A matrix of the pitch_des filter
-
-  // const Eigen::Vector2d B_filter_pitch_des = Eigen::Vector2d(1, 0); // B matrix of the pitch_des filter
-
-  // const Eigen::RowVector2d C_filter_pitch_des = Eigen::RowVector2d(1049.8, 0); // C matrix of the pitch_des filter
-
-  // const double D_filter_pitch_des = 0.0; // D matrix of the pitch_des filter
-
   // Filter/differentiator values to compute roll_desired_dot
   Eigen::Matrix2d A_filter_roll_des;
   Eigen::Vector2d B_filter_roll_des;

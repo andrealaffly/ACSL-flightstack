@@ -23,32 +23,33 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_mrac.cpp
+ * File:        logging_two_layer_mrac.cpp
  * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
+ * Date:        September 23, 2024
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 
- * Description: Logger for the MRAC controller.
+ * Description: Logger for the TwoLayerMRAC controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
-#include "mrac.hpp"
-#include "logging_mrac.hpp"
+#include "two_layer_mrac.hpp"
+#include "logging_two_layer_mrac.hpp"
 #include "multi_threaded_node.hpp"
 
+
 // Define the logger for LogData
-src::logger LogData_MRAC::logger_logdata;
+src::logger LogData_TwoLayerMRAC::logger_logdata;
 
 // Constructor
-LogData_MRAC::LogData_MRAC(MultiThreadedNode& node, MRAC& controller) :
+LogData_TwoLayerMRAC::LogData_TwoLayerMRAC(MultiThreadedNode& node, TwoLayerMRAC& controller) :
   node_(node),
   controller_(controller)
 {}
 
 // Function to print headers
-void LogData_MRAC::logInitializeHeaders()
+void LogData_TwoLayerMRAC::logInitializeHeaders()
 {
 	std::ostringstream oss;
 
@@ -267,19 +268,60 @@ void LogData_MRAC::logInitializeHeaders()
       << "tau_adaptive_rotational z [Nm], "
       << "dead_zone_value_translational [-], "
       << "dead_zone_value_rotational [-], "
+      << "K_hat_g_translational index-00 [-], "
+      << "K_hat_g_translational index-10 [-], "
+      << "K_hat_g_translational index-20 [-], "
+      << "K_hat_g_translational index-30 [-], "
+      << "K_hat_g_translational index-40 [-], "
+      << "K_hat_g_translational index-50 [-], "
+      << "K_hat_g_translational index-01 [-], "
+      << "K_hat_g_translational index-11 [-], "
+      << "K_hat_g_translational index-21 [-], "
+      << "K_hat_g_translational index-31 [-], "
+      << "K_hat_g_translational index-41 [-], "
+      << "K_hat_g_translational index-51 [-], "
+      << "K_hat_g_translational index-02 [-], "
+      << "K_hat_g_translational index-12 [-], "
+      << "K_hat_g_translational index-22 [-], "
+      << "K_hat_g_translational index-32 [-], "
+      << "K_hat_g_translational index-42 [-], "
+      << "K_hat_g_translational index-52 [-], "
+      << "K_hat_g_rotational index-00 [-], "
+      << "K_hat_g_rotational index-10 [-], "
+      << "K_hat_g_rotational index-20 [-], "
+      << "K_hat_g_rotational index-01 [-], "
+      << "K_hat_g_rotational index-11 [-], "
+      << "K_hat_g_rotational index-21 [-], "
+      << "K_hat_g_rotational index-02 [-], "
+      << "K_hat_g_rotational index-12 [-], "
+      << "K_hat_g_rotational index-22 [-], "   
       << "proj_op_activated_K_hat_x_translational, "
       << "proj_op_activated_K_hat_r_translational, "
-      << "proj_op_activated_Theta_hat_translational, "
+      << "proj_op_activated_Theta_hat_translational, "      
+      << "proj_op_activated_K_hat_g_translational, "
       << "proj_op_activated_K_hat_x_rotational, "
       << "proj_op_activated_K_hat_r_rotational, "
       << "proj_op_activated_Theta_hat_rotational, "
+      << "proj_op_activated_K_hat_g_rotational, "
+      << "Mu translational raw local x [N], "
+      << "Mu translational raw local y [N], "
+      << "Mu translational raw local z [N], "
+      << "Safety Mechanism tSphere [-], "
+      << "Safety Mechanism tEllipticCone [-], "
+      << "Safety Mechanism tPlane [-], "
+      << "Safety Mechanism tPrime [-], "
+      << "Safety Mechanism safe_mech_activated [-], "
   ;
       
-	BOOST_LOG(LogData_MRAC::logger_logdata) << oss.str();
+  {
+    BOOST_LOG_SCOPED_LOGGER_ATTR(LogData_TwoLayerMRAC::logger_logdata,
+      "Tag", attrs::constant<std::string>("LogDataTag"));
+    BOOST_LOG(LogData_TwoLayerMRAC::logger_logdata) << oss.str();
+  }
 }
 
 // Function to initialize the logging system
-void LogData_MRAC::logInitializeLogging()
+void LogData_TwoLayerMRAC::logInitializeLogging()
 {
   // Get the current date and time
   auto now = std::chrono::system_clock::now();
@@ -301,28 +343,33 @@ void LogData_MRAC::logInitializeLogging()
   // Check if the "logs" subdirectory exists within the log_base_directory, create it if needed
   std::string logs_directory = log_base_directory + "/logs";
   if (!std::filesystem::exists(logs_directory)) {
-      std::filesystem::create_directories(logs_directory);
+    std::filesystem::create_directories(logs_directory);
   }
 
   // Check if the "gains" subdirectory exists within the log_base_directory, create it if needed
   std::string gains_directory = log_base_directory + "/gains";
   if (!std::filesystem::exists(gains_directory)) {
-      std::filesystem::create_directories(gains_directory);
+    std::filesystem::create_directories(gains_directory);
   }
+
+  // Check if the "info" subdirectory exists within the log_base_directory, create it if needed
+  std::string info_directory = log_base_directory + "/info";
+  if (!std::filesystem::exists(info_directory)) {
+    std::filesystem::create_directories(info_directory);
+  }
+
+  // ========== Main Log File Setup ===========
 
   // Generate the log file name with a timestamp
   std::stringstream log_ss;
   log_ss << logs_directory << "/log_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".log";
   std::string log_filename = log_ss.str();
 
-  // Add the "Tag" attribute with a constant value of "LogDataTag" to the logger
-  LogData_MRAC::logger_logdata.add_attribute("Tag", attrs::constant<std::string>("LogDataTag"));
-
   // Define a synchronous sink with a text ostream backend
   typedef sinks::synchronous_sink<sinks::text_ostream_backend> text_sink;
   boost::shared_ptr<text_sink> logdata_sink = boost::make_shared<text_sink>();
 
-  // Add a stream to the backend (in this case, a file stream)
+  // Add a stream to the interr sink (for the new log file)
   logdata_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(log_filename));
 
   // Set the formatter for the sink
@@ -336,32 +383,82 @@ void LogData_MRAC::logInitializeLogging()
     << expr::smessage // Log message
   );
 
-  // Add the sink to the logging core
-  logging::core::get()->add_sink(logdata_sink);
-
   // Set a filter for the sink
   logdata_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "LogDataTag");
+
+  // Add the interr sink to the logging core
+  logging::core::get()->add_sink(logdata_sink);
+
+  // =========================================
 
   logging::add_common_attributes(); // Add attributes like timestamp
 
   // Copy the gains file to the gains_directory with a new name containing the time info
-  std::string source_file = "./src/flightstack/params/control/mrac/gains_mrac.json";
-  std::stringstream target_ss;
-  target_ss << gains_directory << "/gains_mrac_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".json";
-  std::string target_file = target_ss.str();
-
-  if (std::filesystem::exists(source_file)) {
-    std::cout << "GAINS FILE PRESENT" << std::endl;
-    std::filesystem::copy(source_file, target_file);
+  std::string gains_source_file = "./src/flightstack/params/control/two_layer_mrac/gains_two_layer_mrac.json";
+  std::stringstream gains_target_ss;
+  gains_target_ss << gains_directory << "/gains_two_layer_mrac_" <<
+    std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".json";
+  std::string gains_target_file = gains_target_ss.str();
+  if (std::filesystem::exists(gains_source_file)) {
+    // std::cout << "GAINS FILE PRESENT" << std::endl;
+    std::filesystem::copy(gains_source_file, gains_target_file);
   } else {
     std::cout << "GAINS FILE NOT PRESENT" << std::endl;
   }
 
+  // Copy the outer_loop_safety_mechanism file to the info_directory with a new name containing the time info
+  std::string safe_mech_source_file = "./src/flightstack/params/control/outer_loop_safety_mechanism.json";
+  std::stringstream safe_mech_target_ss;
+  safe_mech_target_ss << info_directory << "/safe_mech_two_layer_mrac_" <<
+    std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".json";
+  std::string safe_mech_target_file = safe_mech_target_ss.str();
+  if (std::filesystem::exists(safe_mech_source_file)) {
+    // std::cout << "SAFETY MECHANISM PARAMETERS FILE PRESENT" << std::endl;
+    std::filesystem::copy(safe_mech_source_file, safe_mech_target_file);
+  } else {
+    std::cout << "SAFETY MECHANISM PARAMETERS FILE NOT PRESENT" << std::endl;
+  }
+
   logInitializeHeaders();
+
+  // ====== DEBUG Log File Setup ======
+  if constexpr (config_param::USE_DEBUG_LOGGER){
+
+    // Check if the "logs_debug" subdirectory exists within the log_base_directory, create it if needed
+    std::string logs_debug_directory = log_base_directory + "/logs_debug";
+    if (!std::filesystem::exists(logs_debug_directory)) {
+      std::filesystem::create_directories(logs_debug_directory);
+    }
+
+    // Generate the debug log file name with a timestamp
+    std::stringstream debug_log_ss;
+    debug_log_ss << logs_debug_directory << "/log_debug_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".log";
+    std::string debug_log_filename = debug_log_ss.str();
+
+    // Define a synchronous sink for the debug log file
+    boost::shared_ptr<text_sink> debug_sink = boost::make_shared<text_sink>();
+
+    // Add a stream to the debug sink (for the debug log file)
+    debug_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(debug_log_filename));
+
+    // Set the formatter for the debug log file
+    debug_sink->set_formatter(
+      expr::stream
+      << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] "
+      << "[" << expr::attr<std::string>("Tag") << "] "
+      << expr::smessage // Log message
+    );
+
+    // Add a filter to log only messages with the "DebugLogTag"
+    debug_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "DebugLogTag");
+
+    // Add the debug sink to the logging core
+    logging::core::get()->add_sink(debug_sink);
+  }
 }
 
 // Function to log the data
-void LogData_MRAC::logLogData()
+void LogData_TwoLayerMRAC::logLogData()
 {
 	std::ostringstream oss;
 
@@ -580,6 +677,33 @@ void LogData_MRAC::logLogData()
       << controller_.getControllerSpecificInternalMembers().tau_adaptive_rotational(2) << ", "
       << controller_.getControllerSpecificInternalMembers().dead_zone_value_translational << ", "
       << controller_.getControllerSpecificInternalMembers().dead_zone_value_rotational << ", "
+      << controller_.getStateController().K_hat_g_translational(0,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(1,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(2,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(3,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(4,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(5,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(0,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(1,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(2,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(3,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(4,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(5,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(0,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(1,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(2,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(3,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(4,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(5,2) << ", "
+      << controller_.getStateController().K_hat_g_rotational(0,0) << ", "
+      << controller_.getStateController().K_hat_g_rotational(1,0) << ", "
+      << controller_.getStateController().K_hat_g_rotational(2,0) << ", "
+      << controller_.getStateController().K_hat_g_rotational(0,1) << ", "
+      << controller_.getStateController().K_hat_g_rotational(1,1) << ", "
+      << controller_.getStateController().K_hat_g_rotational(2,1) << ", "
+      << controller_.getStateController().K_hat_g_rotational(0,2) << ", "
+      << controller_.getStateController().K_hat_g_rotational(1,2) << ", "
+      << controller_.getStateController().K_hat_g_rotational(2,2) << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_x_translational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_r_translational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_Theta_hat_translational << ", "
@@ -588,8 +712,51 @@ void LogData_MRAC::logLogData()
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_r_rotational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_Theta_hat_rotational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_g_rotational << ", "
-      ;
+      << controller_.getControlInternalMembers().mu_translational_raw_local(0) << ", "
+      << controller_.getControlInternalMembers().mu_translational_raw_local(1) << ", "
+      << controller_.getControlInternalMembers().mu_translational_raw_local(2) << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tSphere << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tEllipticCone << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tPlane << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tPrime << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().safe_mech_activated << ", "
+    ;
 
-	BOOST_LOG(LogData_MRAC::logger_logdata) << oss.str();
+  {
+    BOOST_LOG_SCOPED_LOGGER_ATTR(LogData_TwoLayerMRAC::logger_logdata,
+      "Tag", attrs::constant<std::string>("LogDataTag"));
+    BOOST_LOG(LogData_TwoLayerMRAC::logger_logdata) << oss.str();
+  }
+
+  /* 
+    Log to the DEBUG log file
+  */
+  if constexpr (config_param::USE_DEBUG_LOGGER){
+    std::ostringstream oss_debug;
+
+    oss_debug << ", "
+      << node_.getCurrentTime() << ", "
+    ;
+
+    // Log all elements of xerr 
+    for (uint8_t i = 0; i < controller_.getErrorIntegrator().xerr.size(); ++i) {
+      oss_debug << controller_.getErrorIntegrator().xerr[i] << ", ";
+    }
+
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_x_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_r_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().Theta_hat_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_g_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_x_dot_rotational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_r_dot_rotational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().Theta_hat_dot_rotational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_g_dot_rotational);
+
+    {
+      BOOST_LOG_SCOPED_LOGGER_ATTR(LogData_TwoLayerMRAC::logger_logdata,
+        "Tag", attrs::constant<std::string>("DebugLogTag"));
+      BOOST_LOG(LogData_TwoLayerMRAC::logger_logdata) << oss_debug.str();
+    }
+  }
 }
 

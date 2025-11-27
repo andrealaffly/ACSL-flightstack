@@ -41,7 +41,8 @@
 
 // Constructor
 Control::ControlInternalMembers::ControlInternalMembers() : 
-  mu_translational_raw(Eigen::Vector3d::Zero()),
+  mu_translational_raw_global(Eigen::Vector3d::Zero()),
+  mu_translational_raw_local(Eigen::Vector3d::Zero()),
   mu_translational(Eigen::Vector3d::Zero()),
   U_control_inputs(Eigen::Vector4d::Zero()),
   U2_U3_U4(U_control_inputs.segment<3>(1)),
@@ -89,6 +90,7 @@ Control::Control(MultiThreadedNode& node) :
   node_(node)
 {
   this->readJSONdifferentiatorFile();
+  safe_mech.readJSONfile();
 }
 
 /*
@@ -146,6 +148,12 @@ const Control::ControlInternalMembers& Control::getControlInternalMembers() cons
   return cim;
 }
 
+// Getter function that returns a reference to the OuterLoopSafetyMechanism object
+const outer_loop_safety_mechanism::OuterLoopSafetyMechanism& Control::getOuterLoopSafetyMechanism() const
+{
+  return safe_mech;
+}
+
 // Getter function 
 const std::chrono::duration<double, std::micro>& Control::getAlgorithmExecutionTimeMicroseconds() const
 {
@@ -159,72 +167,86 @@ void Control::setAlgorithmExecutionTimeMicroseconds(std::chrono::duration<double
 }
 
 // Function that computes the Jacobian matrix given roll and pitch angles
-Eigen::Matrix3d Control::jacobianMatrix(const double& roll, const double& pitch)
+Eigen::Matrix3d Control::jacobianMatrix(const double roll, const double pitch)
 {
   Eigen::Matrix3d jacobian_matrix;
+
+  double cos_pitch = std::cos(pitch);
+  double cos_roll = std::cos(roll);
+  double sin_roll = std::sin(roll);
 
   jacobian_matrix(0, 0) = 1;
   jacobian_matrix(0, 1) = 0;
   jacobian_matrix(0, 2) = -std::sin(pitch);
 
   jacobian_matrix(1, 0) = 0;
-  jacobian_matrix(1, 1) = std::cos(roll);
-  jacobian_matrix(1, 2) = std::sin(roll) * std::cos(pitch);
+  jacobian_matrix(1, 1) = cos_roll;
+  jacobian_matrix(1, 2) = sin_roll * cos_pitch;
 
   jacobian_matrix(2, 0) = 0;
-  jacobian_matrix(2, 1) = -std::sin(roll);
-  jacobian_matrix(2, 2) = std::cos(roll) * std::cos(pitch);
+  jacobian_matrix(2, 1) = -sin_roll;
+  jacobian_matrix(2, 2) = cos_roll * cos_pitch;
 
   return jacobian_matrix;
 }
 
 // Function that computes the time derivative of the Jacobian matrix given
 // roll and pitch angles and their time derivatives
-Eigen::Matrix3d Control::jacobianMatrixDot(const double& roll,
-                                           const double& pitch,
-                                           const double& roll_dot, 
-                                           const double& pitch_dot)
+Eigen::Matrix3d Control::jacobianMatrixDot(const double roll,
+                                           const double pitch,
+                                           const double roll_dot, 
+                                           const double pitch_dot)
 {
   Eigen::Matrix3d jacobian_matrix_dot;
 
+  double cos_pitch = std::cos(pitch);
+  double sin_pitch = std::sin(pitch);
+  double cos_roll = std::cos(roll);
+  double sin_roll = std::sin(roll);
+
   jacobian_matrix_dot(0, 0) = 0;
   jacobian_matrix_dot(0, 1) = 0;
-  jacobian_matrix_dot(0, 2) = -std::cos(pitch) * pitch_dot;
+  jacobian_matrix_dot(0, 2) = -cos_pitch * pitch_dot;
 
   jacobian_matrix_dot(1, 0) = 0;
-  jacobian_matrix_dot(1, 1) = -std::sin(roll) * roll_dot;
-  jacobian_matrix_dot(1, 2) = std::cos(roll) * std::cos(pitch) * roll_dot
-                              - std::sin(roll) * std::sin(pitch) * pitch_dot;
+  jacobian_matrix_dot(1, 1) = -sin_roll * roll_dot;
+  jacobian_matrix_dot(1, 2) = cos_roll * cos_pitch * roll_dot
+                              - sin_roll * sin_pitch * pitch_dot;
 
   jacobian_matrix_dot(2, 0) = 0;
-  jacobian_matrix_dot(2, 1) = -std::cos(roll) * roll_dot;
-  jacobian_matrix_dot(2, 2) = -std::sin(roll) * std::cos(pitch) * roll_dot
-                              - std::cos(roll) * std::sin(pitch) * pitch_dot;
+  jacobian_matrix_dot(2, 1) = -cos_roll * roll_dot;
+  jacobian_matrix_dot(2, 2) = -sin_roll * cos_pitch * roll_dot
+                              - cos_roll * sin_pitch * pitch_dot;
 
   return jacobian_matrix_dot;
 }
 
 // Function that returns a 3x3 Jacobian matrix inverse given roll and pitch angles.
-Eigen::Matrix3d Control::jacobianMatrixInverse(const double& roll, const double& pitch)
+Eigen::Matrix3d Control::jacobianMatrixInverse(const double roll, const double pitch)
 {
+  double cos_pitch = std::cos(pitch);
+  double sin_pitch = std::sin(pitch);
+  double cos_roll = std::cos(roll);
+  double sin_roll = std::sin(roll);
+
   // Ensure pitch is not near +/- pi/2 to avoid division by zero
-  if (std::abs(std::cos(pitch)) < 1e-6) {
+  if (std::abs(cos_pitch) < 1e-6) {
     throw std::invalid_argument("Pitch value results in division by zero.");
   }
 
   Eigen::Matrix3d jacobian_inverse;
 
   jacobian_inverse(0, 0) = 1;
-  jacobian_inverse(0, 1) = (std::sin(roll) * std::sin(pitch)) / std::cos(pitch);
-  jacobian_inverse(0, 2) = (std::cos(roll) * std::sin(pitch)) / std::cos(pitch);
+  jacobian_inverse(0, 1) = (sin_roll * sin_pitch) / cos_pitch;
+  jacobian_inverse(0, 2) = (cos_roll * sin_pitch) / cos_pitch;
 
   jacobian_inverse(1, 0) = 0;
-  jacobian_inverse(1, 1) = std::cos(roll);
-  jacobian_inverse(1, 2) = -std::sin(roll);
+  jacobian_inverse(1, 1) = cos_roll;
+  jacobian_inverse(1, 2) = -sin_roll;
 
   jacobian_inverse(2, 0) = 0;
-  jacobian_inverse(2, 1) = std::sin(roll) / std::cos(pitch);
-  jacobian_inverse(2, 2) = std::cos(roll) / std::cos(pitch);
+  jacobian_inverse(2, 1) = sin_roll / cos_pitch;
+  jacobian_inverse(2, 2) = cos_roll / cos_pitch;
 
   return jacobian_inverse;
 }
@@ -235,29 +257,36 @@ Eigen::Matrix3d Control::jacobianMatrixInverse(const double& roll, const double&
   rotation_matrix_321_local_to_global = R3 * R2 * R1; // hence
   rotation_matrix_321_global_to_local = R1_transpose * R2_transpose * R3_transpose;
 */
-Eigen::Matrix3d Control::rotationMatrix321GlobalToLocal(const double& roll, const double& pitch, const double& yaw)
+Eigen::Matrix3d Control::rotationMatrix321GlobalToLocal(const double roll, const double pitch, const double yaw)
 {
   Eigen::Matrix3d rotation_matrix_321_global_to_local;
   Eigen::Matrix3d R1_transpose;
   Eigen::Matrix3d R2_transpose;
   Eigen::Matrix3d R3_transpose;
 
+  double cos_pitch = std::cos(pitch);
+  double sin_pitch = std::sin(pitch);
+  double cos_roll = std::cos(roll);
+  double sin_roll = std::sin(roll);
+  double cos_yaw = std::cos(yaw);
+  double sin_yaw = std::sin(yaw);
+
   R1_transpose = (Eigen::Matrix3d() << 
-    1,  0,               0,
-    0,  std::cos(roll),  std::sin(roll),
-    0, -std::sin(roll),  std::cos(roll)
+    1,  0,         0,
+    0,  cos_roll,  sin_roll,
+    0, -sin_roll,  cos_roll
   ).finished();
 
   R2_transpose = (Eigen::Matrix3d() << 
-    std::cos(pitch),  0,  -std::sin(pitch),
-    0,                1,   0,
-    std::sin(pitch),  0,   std::cos(pitch)
+    cos_pitch,  0,  -sin_pitch,
+    0,          1,   0,
+    sin_pitch,  0,   cos_pitch
   ).finished();
 
   R3_transpose = (Eigen::Matrix3d() << 
-     std::cos(yaw),  std::sin(yaw),  0,
-    -std::sin(yaw),  std::cos(yaw),  0,
-     0,              0,              1
+     cos_yaw,  sin_yaw,  0,
+    -sin_yaw,  cos_yaw,  0,
+     0,        0,        1
   ).finished();
 
   rotation_matrix_321_global_to_local = R1_transpose * R2_transpose * R3_transpose;
@@ -368,9 +397,6 @@ void Control::computeNormalizedThrust(ControlInternalMembers& cim, VehicleInfo& 
 */
 void Control::compute_U1_RollDes_PitchDes(ControlInternalMembers& cim)
 {
-  // Convert the mu_translational from global to local coordinates
-  cim.mu_translational = cim.rotation_matrix_321_global_to_local * cim.mu_translational_raw; 
-
   cim.U_control_inputs[0] = std::sqrt(
       std::pow(cim.mu_translational[0], 2)
     + std::pow(cim.mu_translational[1], 2)

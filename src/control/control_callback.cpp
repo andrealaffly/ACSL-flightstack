@@ -66,16 +66,16 @@ void MultiThreadedNode::controller_callback()
 
   if (time_current_ > global_params_.TAKEOFF_START_TIME_SECONDS)
   {
-  // std::cout << "Starting DO_STEP " << std::endl;
   // Start time of the RK4 integration/Control algorithm
   auto start_time_rk4_integration = std::chrono::high_resolution_clock::now();
 
   control_->computeControlAlgorithm();
-  
-  control_->stepper.do_step(controllerBind,
+
+  control_->stepper.do_step(std::cref(controllerBind),
                             control_->getStateController().full_state,
                             this->time_current_,
                             control_->getTimeStepRK4());
+                            // control_->getErrorIntegrator().xerr); // Add this param if you want to estimate the error
 
   // End time of the RK4 integration/Control algorithm
   auto end_time_rk4_integration = std::chrono::high_resolution_clock::now();
@@ -84,8 +84,6 @@ void MultiThreadedNode::controller_callback()
     end_time_rk4_integration - start_time_rk4_integration
   );
   control_->setAlgorithmExecutionTimeMicroseconds(duration_time_rk4_integration);
-  // std::cout << "algorithm_execution_time_microseconds_ " << control_->getAlgorithmExecutionTimeMicroseconds().count() << std::endl;
-  // std::cout << "Ending DO_STEP " << std::endl;
   }
 
 

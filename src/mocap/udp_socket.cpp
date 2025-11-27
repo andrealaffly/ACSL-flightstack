@@ -203,7 +203,7 @@ void UdpSocket::open()
   try {
     m_udp_socket.open(udp::v4());
     m_udp_socket.set_option(udp::socket::reuse_address(true));
-    std::cout << "Socket receive is open" << std::endl;
+    // std::cout << "Socket receive is open" << std::endl;
   } catch (const std::exception& e) {
       // Handle the exception
       std::cerr << "An error occurred while opening or setting options for m_udp_socket: " << e.what() << std::endl;
@@ -230,7 +230,7 @@ void UdpSocket::bind()
 {
   try {
     m_udp_socket.bind(m_host_endpoint);
-    std::cout << "Socket receive is bound" << std::endl;
+    // std::cout << "Socket receive is bound" << std::endl;
   } catch (const std::exception& e) {
       // Handle the exception
       std::cerr << "An error occurred while binding m_udp_socket: " << e.what() << std::endl;
