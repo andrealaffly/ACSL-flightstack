@@ -113,7 +113,7 @@ public:
 
   void readJSONfile(const std::string& fileName);
 
-  void assignSystemToDxdt(state_type /* &x */, state_type &dxdt, const double /* t */);
+  void assignSystemToDxdt(const state_type /* &x */, state_type &dxdt, const double /* t */);
 
   void computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
                                             VehicleInfo& vehicle_info, 

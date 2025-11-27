@@ -76,8 +76,8 @@ IoContext::IoContext(size_t threads_count)
       });
   }
 
-  RCLCPP_INFO_STREAM(rclcpp::get_logger("IoContext::IoContext"),
-   "Thread(s) Created: " << serviceThreadCount());
+  // RCLCPP_INFO_STREAM(rclcpp::get_logger("IoContext::IoContext"),
+  //  "Thread(s) Created: " << serviceThreadCount());
 
 }
 

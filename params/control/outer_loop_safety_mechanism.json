@@ -1,0 +1,9 @@
+{
+  "maximum_total_thrust": 65.0,
+
+  "maximum_roll_angle": 45.0,
+
+  "maximum_pitch_angle": 45.0,
+
+  "alpha_plane": 0.1
+}

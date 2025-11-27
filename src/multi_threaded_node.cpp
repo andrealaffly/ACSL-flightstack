@@ -48,7 +48,7 @@ MultiThreadedNode::MultiThreadedNode(rclcpp::NodeOptions options)
 {
   std::cout << "SELECTED CONTROLLER: " << ControlType::getControllerName() << std::endl;
   
-  std::cout << "timestamp_initial_: " << this->timestamp_initial_ << std::endl;
+  // std::cout << "timestamp_initial_: " << this->timestamp_initial_ << std::endl;
 
   // Perform the setup of the Pixhawk vehicle odometry subscription callback/thread
   setupPixhawkOdometrySubscriber();

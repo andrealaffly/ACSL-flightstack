@@ -23,19 +23,19 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        mrac.hpp
+ * File:        two_layer_mrac.hpp
  * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
+ * Date:        September 23, 2024
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 
- * Description: Implementation of the MRAC controller.
+ * Description: Implementation of the Two-Layer MRAC controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
-#ifndef MRAC_HPP
-#define MRAC_HPP
+#ifndef TWO_LAYER_MRAC_HPP
+#define TWO_LAYER_MRAC_HPP
 
 #include <cmath>
 #include <algorithm>
@@ -44,20 +44,31 @@
 #include <Eigen/Dense>
 
 #include "control.hpp"
-#include "mrac_gains.hpp"
+#include "two_layer_mrac_gains.hpp"
 #include "continuous_lyapunov_equation.hpp"
 #include "projection_operator.hpp"
 
-// Forward declaration of LogData_MRAC class
-class LogData_MRAC;
+// Forward declaration of LogData_TwoLayerMRAC class
+class LogData_TwoLayerMRAC;
 
 
-class MRAC : public Control
+class TwoLayerMRAC : public Control
 {
 public:
 
   /*
-    This struct represents the state of the MRAC controller differential equations that will be integrated
+    Integration error estimated by the boost integrator
+  */
+  struct ErrorIntegrator 
+    {
+      // Constructor
+      ErrorIntegrator();
+
+      std::vector<double> xerr; 
+    };
+
+  /*
+    This struct represents the state of the TwoLayerMRAC controller differential equations that will be integrated
     at each RK4 iteration.
     IT IS NOT THE VEHICLE STATE (e.g. POSITION, VELOCITY, etc.).
   */
@@ -89,6 +100,8 @@ public:
     Eigen::Map<Eigen::Matrix<double, 3, 3>> K_hat_r_rotational;
     Eigen::Map<Eigen::Matrix<double, 6, 3>> Theta_hat_rotational; 
     Eigen::Map<Eigen::Matrix<double, 3, 1>> integral_angular_velocity_error_ref; // [omega] refmod - cmd
+    Eigen::Map<Eigen::Matrix<double, 6, 3>> K_hat_g_translational; // Two-Layer
+    Eigen::Map<Eigen::Matrix<double, 3, 3>> K_hat_g_rotational; // Two-Layer
   };
 
   /*
@@ -106,7 +119,8 @@ public:
     Eigen::Matrix<double, 6, 1> augmented_regressor_vector_translational;
     Eigen::Matrix<double, 6, 3> K_hat_x_dot_translational;
     Eigen::Matrix<double, 3, 3> K_hat_r_dot_translational; 
-    Eigen::Matrix<double, 6, 3> Theta_hat_dot_translational; 
+    Eigen::Matrix<double, 6, 3> Theta_hat_dot_translational;
+    Eigen::Matrix<double, 6, 3> K_hat_g_dot_translational; // Two-Layer
     Eigen::Matrix<double, 3, 1> mu_adaptive_translational;
     double dead_zone_value_translational;
     bool proj_op_activated_K_hat_x_translational;
@@ -130,7 +144,8 @@ public:
     Eigen::Matrix<double, 6, 1> augmented_regressor_vector_rotational;
     Eigen::Matrix<double, 3, 3> K_hat_x_dot_rotational; 
     Eigen::Matrix<double, 3, 3> K_hat_r_dot_rotational; 
-    Eigen::Matrix<double, 6, 3> Theta_hat_dot_rotational; 
+    Eigen::Matrix<double, 6, 3> Theta_hat_dot_rotational;
+    Eigen::Matrix<double, 3, 3> K_hat_g_dot_rotational; // Two-Layer
     Eigen::Vector3d tau_adaptive_rotational;
     double dead_zone_value_rotational;
     bool proj_op_activated_K_hat_x_rotational;
@@ -146,19 +161,20 @@ public:
   };
 
   // Constructor
-  MRAC(MultiThreadedNode& node);
+  TwoLayerMRAC(MultiThreadedNode& node);
 
   // Getter functions
+  ErrorIntegrator& getErrorIntegrator();
   StateController& getStateController();
   const double& getTimeStepRK4() const; 
-  const GainsMRAC& getGains() const;
+  const GainsTwoLayerMRAC& getGains() const;
   const ControllerSpecificInternalMembers& getControllerSpecificInternalMembers() const;
-  std::shared_ptr<LogData_MRAC> getLogData() const;
+  std::shared_ptr<LogData_TwoLayerMRAC> getLogData() const;
   static const std::string& getControllerName();
 
   void readJSONfile(const std::string& fileName);
 
-  void initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& gains_);
+  void initializeControllerParameters(VehicleInfo& vehicle_info, GainsTwoLayerMRAC& gains_);
 
   void assignSystemToDxdt(const state_type /* &x */, state_type &dxdt, const double /* t */);
 
@@ -170,35 +186,37 @@ public:
                         VehicleInfo& vehicle_info,
                         StateController& state_, 
                         ControlReferences& cr,
-                        GainsMRAC& gains_,
+                        GainsTwoLayerMRAC& gains_,
                         ControllerSpecificInternalMembers& csim_);
 
   void computeInnerLoop(ControlInternalMembers& cim,
                         VehicleInfo& vehicle_info,
                         StateController& state_, 
                         ControlReferences& cr,
-                        GainsMRAC& gains_,
+                        GainsTwoLayerMRAC& gains_,
                         ControllerSpecificInternalMembers& csim_);
 
   void computeControlAlgorithm();
 
 private:
 
+  ErrorIntegrator error_integrator_;
+
   StateController state_;
   const double time_step_rk4_ = 0.01; // [s] time step for integrating using RK4
 
-  GainsMRAC gains_;
+  GainsTwoLayerMRAC gains_;
 
   ControllerSpecificInternalMembers csim_;
 
   // Create a pointer to the LogData instance
-  std::shared_ptr<LogData_MRAC> log_data_;
+  std::shared_ptr<LogData_TwoLayerMRAC> log_data_;
 
   // Controller's name. Keep this equal to the class name to avoid ambiguity
-  static inline const std::string controller_name_ = "MRAC";
+  static inline const std::string controller_name_ = "TwoLayerMRAC";
 
 };
 
 
 
-#endif // MRAC_HPP
+#endif // TWO_LAYER_MRAC_HPP

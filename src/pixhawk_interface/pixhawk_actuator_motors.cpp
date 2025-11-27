@@ -61,7 +61,7 @@ void MultiThreadedNode::publisher_actuator_motors_callback()
   }
 
 	// Publish control input to the motors
-	if (global_params_.PUBLISH_ACTUATOR_MOTORS_FLAG)
+	if constexpr (config_param::PUBLISH_ACTUATOR_MOTORS_FLAG)
 	{
 		// offboard_control_mode needs to be paired with actuator_motors commands
 		publish_offboard_control_mode();
@@ -125,18 +125,48 @@ void MultiThreadedNode::publish_actuator_motors()
 
 	px4_msgs::msg::ActuatorMotors msg{};
 
+	constexpr int thrust_vector_normalized_rows = 
+			decltype(Control::ControlInternalMembers::thrust_vector_normalized)::RowsAtCompileTime;
+
 	if (time_current_ < global_params_.TAKEOFF_START_TIME_SECONDS || 
 		  time_current_ > global_params_.DISARM_START_TIME_SECONDS) 
 	{
-		msg.control[0] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[1] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[2] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[3] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[4] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[5] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[6] = MINIMUM_VALUE_PUBLISH_MOTORS;
-		msg.control[7] = MINIMUM_VALUE_PUBLISH_MOTORS;
-	} else {
+		for (int i = 0; i < thrust_vector_normalized_rows; i++)
+		{
+			// X8-COPTER
+			msg.control[i] = MINIMUM_VALUE_PUBLISH_MOTORS;
+		}
+	}
+	else
+	{
+		if constexpr (config_param::ENABLE_MOTOR_FAILURE)
+		{
+			Eigen::Matrix<double, 8, 1> motor_efficiency;
+
+			if (time_current_ > global_params_.MOTOR_FAILURE_START_TIME_SECONDS &&
+					time_current_ < global_params_.MOTOR_FAILURE_END_TIME_SECONDS)
+			{
+				motor_efficiency = config_.motor_failure_efficiencies;
+			}
+			else
+			{
+				motor_efficiency = Eigen::Matrix<double, 8, 1>::Ones();
+			}
+
+			for (int i = 0; i < thrust_vector_normalized_rows; i++)
+			{
+				// X8-COPTER
+				msg.control[i] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[i] * motor_efficiency[i];
+			}
+		}
+		else
+		{
+			for (int i = 0; i < thrust_vector_normalized_rows; i++)
+			{
+				// X8-COPTER
+				msg.control[i] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[i];
+			}
+		}
 
 		/* // QUADCOPTER
 		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_quadcopter_normalized[0];
@@ -148,36 +178,11 @@ void MultiThreadedNode::publish_actuator_motors()
 		msg.control[6] = 0.0;
 		msg.control[7] = 0.0;
 		*/
-
-		// X8-COPTER
-		msg.control[0] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[0];
-		msg.control[1] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[1];
-		msg.control[2] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[2];
-		msg.control[3] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[3];
-		msg.control[4] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[4];
-		msg.control[5] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[5];
-		msg.control[6] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[6];
-		msg.control[7] = this->getControl()->getControlInternalMembers().thrust_vector_normalized[7];
 	}
 	
 	msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
 
 	msg.reversible_flags = 0;
-	
-  /*
-	std::cout << "\n\n";
-  std::cout << "PUBLISHED ACTUATOR MOTORS"   << std::endl;
-  std::cout << "=========================="  << std::endl;
-	std::cout << "publish_actuator_motors() time_current_: " << time_current_ << " s" << std::endl;
-	std::cout << "publish_actuator_motors() motor_1      : " << msg.control[0] << std::endl;
-	std::cout << "publish_actuator_motors() motor_2      : " << msg.control[1] << std::endl;
-	std::cout << "publish_actuator_motors() motor_3      : " << msg.control[2] << std::endl;
-	std::cout << "publish_actuator_motors() motor_4      : " << msg.control[3] << std::endl;
-	std::cout << "publish_actuator_motors() motor_5      : " << msg.control[4] << std::endl;
-	std::cout << "publish_actuator_motors() motor_6      : " << msg.control[5] << std::endl;
-	std::cout << "publish_actuator_motors() motor_7      : " << msg.control[6] << std::endl;
-	std::cout << "publish_actuator_motors() motor_8      : " << msg.control[7] << "\n\n";
-	*/ 
 	
 	publisher_actuator_motors_->publish(msg);
 }

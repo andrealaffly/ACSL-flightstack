@@ -39,6 +39,7 @@
 
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include <Eigen/Dense>
 
 // Forward declaration of MultiThreadedNode class
 class MultiThreadedNode;
@@ -50,9 +51,11 @@ class MultiThreadedNode;
 // Define named constants for controller types
 #define __PID__ 1
 #define __MRAC__ 2
+#define __TWO_LAYER_MRAC__ 3
+#define __FUNNEL_TWO_LAYER_MRAC__ 4
 
 // SELECT here the CONTROLLER you want to run -----------------------------------------------------------------------
-#define SELECTED_CONTROLLER __MRAC__
+#define SELECTED_CONTROLLER __FUNNEL_TWO_LAYER_MRAC__
 // ------------------------------------------------------------------------------------------------------------------
 
 // Define ControlType based on SELECTED_CONTROLLER using type aliasing
@@ -68,9 +71,40 @@ using ControlType = PID;
 #include "logging_mrac.hpp"
 using ControlType = MRAC;
 
+#elif SELECTED_CONTROLLER == __TWO_LAYER_MRAC__
+
+#include "two_layer_mrac.hpp"
+#include "logging_two_layer_mrac.hpp"
+using ControlType = TwoLayerMRAC;
+
+#elif SELECTED_CONTROLLER == __FUNNEL_TWO_LAYER_MRAC__
+
+#include "funnel_two_layer_mrac.hpp"
+#include "logging_funnel_two_layer_mrac.hpp"
+using ControlType = FunnelTwoLayerMRAC;
+
 #else
 #error "ERROR: Unsupported controller type selected."
 #endif
+
+namespace config_param {
+
+// Flag for publishing data to the motors
+inline constexpr bool PUBLISH_ACTUATOR_MOTORS_FLAG = true;
+
+// Flag to enable/disable the MRAC projection operator
+inline constexpr bool USE_PROJECTION_OPERATOR = true;
+
+// Flag to enable/disable the debug logger
+inline constexpr bool USE_DEBUG_LOGGER = false;
+
+// Flag to enable/disable the safety mechanism between outer and inner loop
+inline constexpr bool USE_OUTER_LOOP_SAFETY_MECHANISM = true;
+
+// Flag to enable/disable motor failure
+inline constexpr bool ENABLE_MOTOR_FAILURE = false;
+
+} // namespace config_param
 
 
 /*********************************************************************************************************************
@@ -85,6 +119,16 @@ struct ConfigurationParameters
   // Time in seconds for which the UAV will perform hovering after having completed the user-defined trajectory
   double hover_after_trajectory_time_seconds;
 
+  // Time in seconds at which motor failure happens (start)
+  double motor_failure_start_time_seconds;
+
+  // Time in seconds for the motor failure duration
+  double motor_failure_duration_time_seconds;
+
+  // Array containing the motor efficiencies to simulate motor failure. Order: T1, T2, ..., T8.
+  // A "zero" turns off the motor completely, a "one" means the motor works as usual.
+  Eigen::Matrix<double, 8, 1> motor_failure_efficiencies;
+
   static ConfigurationParameters readConfigurationParametersFile(const std::string& configFileName);
 
 };
@@ -95,9 +139,6 @@ struct ConfigurationParameters
 */
 struct GlobalParameters
 {
-  // Flag for publishing data to the motors
-  bool PUBLISH_ACTUATOR_MOTORS_FLAG;
-
   // Time in seconds at which we arm the motors
   double ARM_START_TIME_SECONDS; 
 
@@ -116,6 +157,12 @@ struct GlobalParameters
   // Time in seconds at which we perform the offset of the VehicleState class members
   // This must always be performed before takeoff
   double OFFSET_ODOMETRY_TIME_SECONDS;
+
+  // Time in seconds at which motor failure happens (start)
+  double MOTOR_FAILURE_START_TIME_SECONDS;
+
+  // Time in seconds at which motor failure is resolved (end)
+  double MOTOR_FAILURE_END_TIME_SECONDS;
 
   // Default constructor
   GlobalParameters() = default;

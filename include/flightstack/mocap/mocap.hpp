@@ -168,6 +168,9 @@ public:
   // Getter function for the time_mocap_
   double& getTimeMocap();
 
+  // Getter for timestamp_initial
+  const std::atomic<uint64_t>& getInitialTimestamp() const { return timestamp_initial_; }
+
 private:
 
   /// \brief Get the parameters for the ip and port to ping

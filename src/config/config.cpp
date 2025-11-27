@@ -67,12 +67,23 @@ ConfigurationParameters ConfigurationParameters::readConfigurationParametersFile
     config.hover_after_trajectory_time_seconds = config_json["hover_after_trajectory_time_seconds"].get<double>();
   }
 
+  if (config_json.contains("motor_failure_start_time_seconds")) {
+    config.motor_failure_start_time_seconds = config_json["motor_failure_start_time_seconds"].get<double>();
+  }
+
+  if (config_json.contains("motor_failure_duration_time_seconds")) {
+    config.motor_failure_duration_time_seconds = config_json["motor_failure_duration_time_seconds"].get<double>();
+  }
+
+  if (config_json.contains("motor_failure_efficiencies")) {
+    config.motor_failure_efficiencies = extractMatrixFromJSON<double, 8, 1>(config_json["motor_failure_efficiencies"]);
+  }
+
   return config;
 }
 
 // Constructor
 GlobalParameters::GlobalParameters(MultiThreadedNode& node) :
-  PUBLISH_ACTUATOR_MOTORS_FLAG(true),
   ARM_START_TIME_SECONDS(5.0),
   TAKEOFF_START_TIME_SECONDS(10.0),
   LANDING_START_TIME_SECONDS(
@@ -81,5 +92,16 @@ GlobalParameters::GlobalParameters(MultiThreadedNode& node) :
     node.getConfigurationParameters().hover_after_trajectory_time_seconds),
   LANDING_END_TIME_SECONDS(this->LANDING_START_TIME_SECONDS + 4.0),
   DISARM_START_TIME_SECONDS(this->LANDING_END_TIME_SECONDS + 1.0),
-  OFFSET_ODOMETRY_TIME_SECONDS(this->TAKEOFF_START_TIME_SECONDS - 1.0)
-{}
+  OFFSET_ODOMETRY_TIME_SECONDS(this->TAKEOFF_START_TIME_SECONDS - 1.0),
+  MOTOR_FAILURE_START_TIME_SECONDS(
+    this->TAKEOFF_START_TIME_SECONDS + 
+    node.getConfigurationParameters().motor_failure_start_time_seconds),
+  MOTOR_FAILURE_END_TIME_SECONDS(this->MOTOR_FAILURE_START_TIME_SECONDS +
+    node.getConfigurationParameters().motor_failure_duration_time_seconds)
+{
+  if constexpr (config_param::ENABLE_MOTOR_FAILURE){
+    std::cout << "MOTOR FAILURE ENABLED" << std::endl;
+    std::cout << "MOTOR_FAILURE_START_TIME_SECONDS: " << this->MOTOR_FAILURE_START_TIME_SECONDS << std::endl;
+    std::cout << "MOTOR_FAILURE_END_TIME_SECONDS: " << this->MOTOR_FAILURE_END_TIME_SECONDS << std::endl;
+  }
+}

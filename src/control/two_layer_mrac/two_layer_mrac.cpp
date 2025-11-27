@@ -23,39 +23,44 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        mrac.cpp
+ * File:        two_layer_mrac.cpp
  * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
+ * Date:        September 23, 2024
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 
- * Description: Implementation of the MRAC controller.
+ * Description: Implementation of the TwoLayerMRAC controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
 #include "multi_threaded_node.hpp"
-#include "mrac.hpp"
-#include "logging_mrac.hpp"
+#include "two_layer_mrac.hpp"
+#include "logging_two_layer_mrac.hpp"
 #include "json_parser.hpp"
 
 // Constructor
-MRAC::MRAC(MultiThreadedNode& node) : 
+TwoLayerMRAC::TwoLayerMRAC(MultiThreadedNode& node) : 
   Control(node)
 {
   // Initialize controller gains
-  this->readJSONfile("gains_mrac.json");
+  this->readJSONfile("gains_two_layer_mrac.json");
   this->initializeControllerParameters(this->vehicle_info, this->gains_);
 
-  log_data_ = std::make_shared<LogData_MRAC>(node, *this);
+  log_data_ = std::make_shared<LogData_TwoLayerMRAC>(node, *this);
 
   // Initialize logging
 	log_data_->logInitializeLogging();
 }
 
+// Constructor initializes the xerr
+TwoLayerMRAC::ErrorIntegrator::ErrorIntegrator() : 
+  xerr(137)
+{}
+
 // Constructor initializes the full_state and sets the Eigen::Map references
-MRAC::StateController::StateController() : 
-  full_state(110, 0.0), // full_state vector
+TwoLayerMRAC::StateController::StateController() : 
+  full_state(137, 0.0), // full_state vector
   state_roll_des_filter(full_state.data()), // Maps the elements [0:1]
   state_pitch_des_filter(full_state.data() + 2), // Maps the elements [2:3]
   state_roll_dot_des_filter(full_state.data() + 4), // Maps the elements [4:5]
@@ -71,11 +76,13 @@ MRAC::StateController::StateController() :
   K_hat_x_rotational(full_state.data() + 71), // Maps the elements [71:79]
   K_hat_r_rotational(full_state.data() + 80), // Maps the elements [80:88]
   Theta_hat_rotational(full_state.data() + 89), // Maps the elements [89:106]
-  integral_angular_velocity_error_ref(full_state.data() + 107) // Maps the elements [107:109]
+  integral_angular_velocity_error_ref(full_state.data() + 107), // Maps the elements [107:109]
+  K_hat_g_translational(full_state.data() + 110), // Maps the elements [110:127]
+  K_hat_g_rotational(full_state.data() + 128) // Maps the elements [128:136]
 {}
 
 // Constructor
-MRAC::ControllerSpecificInternalMembers::ControllerSpecificInternalMembers() : 
+TwoLayerMRAC::ControllerSpecificInternalMembers::ControllerSpecificInternalMembers() : 
   translational_position_error_ref(Eigen::Matrix<double, 3, 1>::Zero()),
   r_cmd_translational(Eigen::Matrix<double, 3, 1>::Zero()),
   x_ref_dot_translational(Eigen::Matrix<double, 6, 1>::Zero()),
@@ -84,6 +91,7 @@ MRAC::ControllerSpecificInternalMembers::ControllerSpecificInternalMembers() :
   K_hat_x_dot_translational(Eigen::Matrix<double, 6, 3>::Zero()),
   K_hat_r_dot_translational(Eigen::Matrix<double, 3, 3>::Zero()),
   Theta_hat_dot_translational(Eigen::Matrix<double, 6, 3>::Zero()),
+  K_hat_g_dot_translational(Eigen::Matrix<double, 6, 3>::Zero()),
   mu_adaptive_translational(Eigen::Matrix<double, 3, 1>::Zero()),
   dead_zone_value_translational(0.0),
   proj_op_activated_K_hat_x_translational(false),
@@ -106,6 +114,7 @@ MRAC::ControllerSpecificInternalMembers::ControllerSpecificInternalMembers() :
   K_hat_x_dot_rotational(Eigen::Matrix<double, 3, 3>::Zero()),
   K_hat_r_dot_rotational(Eigen::Matrix<double, 3, 3>::Zero()),
   Theta_hat_dot_rotational(Eigen::Matrix<double, 6, 3>::Zero()),
+  K_hat_g_dot_rotational(Eigen::Matrix<double, 3, 3>::Zero()),
   tau_adaptive_rotational(Eigen::Vector3d::Zero()),
   dead_zone_value_rotational(0.0),
   proj_op_activated_K_hat_x_rotational(false),
@@ -118,23 +127,28 @@ MRAC::ControllerSpecificInternalMembers::ControllerSpecificInternalMembers() :
   inner_loop_dynamic_inversion(Eigen::Vector3d::Zero())
 {}
 
-MRAC::StateController& MRAC::getStateController()
+TwoLayerMRAC::ErrorIntegrator& TwoLayerMRAC::getErrorIntegrator()
+{
+  return error_integrator_;
+}
+
+TwoLayerMRAC::StateController& TwoLayerMRAC::getStateController()
 {
   return state_;
 }
 
-const double& MRAC::getTimeStepRK4() const
+const double& TwoLayerMRAC::getTimeStepRK4() const
 {
   return time_step_rk4_;
 }
 
-const GainsMRAC& MRAC::getGains() const
+const GainsTwoLayerMRAC& TwoLayerMRAC::getGains() const
 {
   return gains_;
 }
 
 // Getter function that returns a reference to the current getControllerSpecificInternalMembers object
-const MRAC::ControllerSpecificInternalMembers& MRAC::getControllerSpecificInternalMembers() const
+const TwoLayerMRAC::ControllerSpecificInternalMembers& TwoLayerMRAC::getControllerSpecificInternalMembers() const
 {
   return csim_;
 }
@@ -142,24 +156,24 @@ const MRAC::ControllerSpecificInternalMembers& MRAC::getControllerSpecificIntern
 /*
   Getter function that returns a pointer to the log_data_ instance
 */
-std::shared_ptr<LogData_MRAC> MRAC::getLogData() const
+std::shared_ptr<LogData_TwoLayerMRAC> TwoLayerMRAC::getLogData() const
 {
   return log_data_;
 }
 
-const std::string& MRAC::getControllerName()
+const std::string& TwoLayerMRAC::getControllerName()
 {
   return controller_name_;
 }
 
 /*
   Function to read the tuning gains coming from the .json file and assign it to the
-  gains_ struct instantiated in the MRAC class
+  gains_ struct instantiated in the TwoLayerMRAC class
 */
-void MRAC::readJSONfile(const std::string& fileName)
+void TwoLayerMRAC::readJSONfile(const std::string& fileName)
 {
-  // Define the path where the MRAC gains JSON files are located
-  const std::string path = "./src/flightstack/params/control/mrac/";
+  // Define the path where the TwoLayerMRAC gains JSON files are located
+  const std::string path = "./src/flightstack/params/control/two_layer_mrac/";
 
   // Concatenate the path with the file name
   std::string jsonFile = path + fileName;
@@ -188,10 +202,12 @@ void MRAC::readJSONfile(const std::string& fileName)
   gains_.Gamma_x_translational = extractMatrixFromJSON<double, 6, 6>(j["ADAPTIVE"]["Gamma_x_translational"]);
 	gains_.Gamma_r_translational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["Gamma_r_translational"]);
   gains_.Gamma_Theta_translational = extractMatrixFromJSON<double, 6, 6>(j["ADAPTIVE"]["Gamma_Theta_translational"]);
+  gains_.Gamma_g_translational = extractMatrixFromJSON<double, 6, 6>(j["ADAPTIVE"]["Gamma_g_translational"]);
   gains_.Q_translational = extractMatrixFromJSON<double, 6, 6>(j["ADAPTIVE"]["Q_translational"]);
   gains_.sigma_x_translational = j["ADAPTIVE"]["sigma_x_translational"];
   gains_.sigma_r_translational = j["ADAPTIVE"]["sigma_r_translational"];
   gains_.sigma_Theta_translational = j["ADAPTIVE"]["sigma_Theta_translational"];
+  gains_.sigma_g_translational = j["ADAPTIVE"]["sigma_g_translational"];
   gains_.dead_zone_delta_translational = j["ADAPTIVE"]["dead_zone_delta_translational"];
   gains_.dead_zone_e0_translational = j["ADAPTIVE"]["dead_zone_e0_translational"];
   gains_.x_e_x_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_x_translational"]);
@@ -203,13 +219,19 @@ void MRAC::readJSONfile(const std::string& fileName)
   gains_.x_e_Theta_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_Theta_translational"]);
   gains_.S_diagonal_Theta_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["S_diagonal_Theta_translational"]);
   gains_.alpha_Theta_translational = j["ADAPTIVE"]["alpha_Theta_translational"];
+  gains_.x_e_g_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_g_translational"]);
+  gains_.S_diagonal_g_translational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["S_diagonal_g_translational"]);
+  gains_.alpha_g_translational = j["ADAPTIVE"]["alpha_g_translational"];
+  gains_.A_transient_translational = extractMatrixFromJSON<double, 6, 6>(j["ADAPTIVE"]["A_transient_translational"]);
   gains_.Gamma_x_rotational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["Gamma_x_rotational"]);
 	gains_.Gamma_r_rotational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["Gamma_r_rotational"]);
   gains_.Gamma_Theta_rotational = extractMatrixFromJSON<double, 6, 6>(j["ADAPTIVE"]["Gamma_Theta_rotational"]);
+  gains_.Gamma_g_rotational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["Gamma_g_rotational"]);
   gains_.Q_rotational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["Q_rotational"]);
   gains_.sigma_x_rotational = j["ADAPTIVE"]["sigma_x_rotational"];
   gains_.sigma_r_rotational = j["ADAPTIVE"]["sigma_r_rotational"];
   gains_.sigma_Theta_rotational = j["ADAPTIVE"]["sigma_Theta_rotational"];
+  gains_.sigma_g_rotational = j["ADAPTIVE"]["sigma_g_rotational"];
   gains_.dead_zone_delta_rotational = j["ADAPTIVE"]["dead_zone_delta_rotational"];
   gains_.dead_zone_e0_rotational = j["ADAPTIVE"]["dead_zone_e0_rotational"];
   gains_.x_e_x_rotational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["x_e_x_rotational"]);
@@ -221,13 +243,17 @@ void MRAC::readJSONfile(const std::string& fileName)
   gains_.x_e_Theta_rotational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["x_e_Theta_rotational"]);
   gains_.S_diagonal_Theta_rotational = extractMatrixFromJSON<double, 18, 1>(j["ADAPTIVE"]["S_diagonal_Theta_rotational"]);
   gains_.alpha_Theta_rotational = j["ADAPTIVE"]["alpha_Theta_rotational"];
+  gains_.x_e_g_rotational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["x_e_g_rotational"]);
+  gains_.S_diagonal_g_rotational = extractMatrixFromJSON<double, 9, 1>(j["ADAPTIVE"]["S_diagonal_g_rotational"]);
+  gains_.alpha_g_rotational = j["ADAPTIVE"]["alpha_g_rotational"];
+  gains_.A_transient_rotational = extractMatrixFromJSON<double, 3, 3>(j["ADAPTIVE"]["A_transient_rotational"]);
 
 }
 
 /*
   Function that given the gains read from the JSON file, initializes the rest of the parameters accordingly
 */
-void MRAC::initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& gains_)
+void TwoLayerMRAC::initializeControllerParameters(VehicleInfo& vehicle_info, GainsTwoLayerMRAC& gains_)
 {
   // Initialize to zero the 6x6 matrix and set the top-right 3x3 block as follows
   gains_.A_translational.setZero();
@@ -263,35 +289,39 @@ void MRAC::initializeControllerParameters(VehicleInfo& vehicle_info, GainsMRAC& 
   gains_.B_ref_rotational = Eigen::Matrix3d::Identity();
 
   // Solve the continuos Lyapunov equation to compute P_translational
-  gains_.P_translational = RealContinuousLyapunovEquation(gains_.A_ref_translational,
+  gains_.P_translational = RealContinuousLyapunovEquation(gains_.A_transient_translational,
                                                           gains_.Q_translational);
 
   // Solve the continuos Lyapunov equation to compute P_rotational
-  gains_.P_rotational = RealContinuousLyapunovEquation(gains_.A_ref_rotational,
+  gains_.P_rotational = RealContinuousLyapunovEquation(gains_.A_transient_rotational,
                                                        gains_.Q_rotational);
 
   // Projection operator. Generate the S matrices from their ellipsoid semi-axis terms contained in S_diagonal
   gains_.S_x_translational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_x_translational);
   gains_.S_r_translational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_r_translational);
   gains_.S_Theta_translational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_Theta_translational);
+  gains_.S_g_translational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_g_translational);
   gains_.S_x_rotational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_x_rotational);
   gains_.S_r_rotational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_r_rotational);
   gains_.S_Theta_rotational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_Theta_rotational);
+  gains_.S_g_rotational = projection_operator::generateEllipsoidMatrixFromDiagonal(gains_.S_diagonal_g_rotational);
 
   // Projection operator. Compute epsilon from alpha
   gains_.epsilon_x_translational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_x_translational);
   gains_.epsilon_r_translational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_r_translational);
   gains_.epsilon_Theta_translational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_Theta_translational);
+  gains_.epsilon_g_translational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_g_translational);
   gains_.epsilon_x_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_x_rotational);
   gains_.epsilon_r_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_r_rotational);
   gains_.epsilon_Theta_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_Theta_rotational);
+  gains_.epsilon_g_rotational = projection_operator::computeEpsilonFromAlpha(gains_.alpha_g_rotational);
   
 }
 
 /*
   Assigning the right-hand side of the differential equations to the first time derivative of the full_state.
 */
-void MRAC::assignSystemToDxdt(const state_type /* &x */, state_type &dxdt, const double /* t */) 
+void TwoLayerMRAC::assignSystemToDxdt(const state_type /* &x */, state_type &dxdt, const double /* t */) 
 {
   int current_index = 0; // Starting index for assignments
 
@@ -327,6 +357,10 @@ void MRAC::assignSystemToDxdt(const state_type /* &x */, state_type &dxdt, const
   this->assignElementsToDxdt(this->csim_.Theta_hat_dot_rotational, dxdt, current_index);
   // Assign to elements [107:109] of 'dxdt' --> 'angular_velocity_error_ref'
   this->assignElementsToDxdt(this->csim_.angular_velocity_error_ref, dxdt, current_index);
+  // Assign to elements [110:127] of 'dxdt' --> 'K_hat_g_dot_translational'
+  this->assignElementsToDxdt(this->csim_.K_hat_g_dot_translational, dxdt, current_index);
+  // Assign to elements [128:136] of 'dxdt' --> 'K_hat_g_dot_rotational'
+  this->assignElementsToDxdt(this->csim_.K_hat_g_dot_rotational, dxdt, current_index);
 }
 
 /*
@@ -334,9 +368,9 @@ void MRAC::assignSystemToDxdt(const state_type /* &x */, state_type &dxdt, const
   This function calculates the internal states and derivatives (first and second) of the roll and pitch
   desired angles using the provided filter coefficients and the current state variables.
 */
-void MRAC::computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
-                                                VehicleInfo& vehicle_info, 
-                                                StateController& state_)
+void TwoLayerMRAC::computeFilterDifferentiatorVariables(ControlInternalMembers& cim, 
+                                                        VehicleInfo& vehicle_info, 
+                                                        StateController& state_)
 {
   cim.internal_state_roll_des_filter = vehicle_info.A_filter_roll_des * state_.state_roll_des_filter 
                                      + vehicle_info.B_filter_roll_des * cim.roll_desired;
@@ -361,12 +395,12 @@ void MRAC::computeFilterDifferentiatorVariables(ControlInternalMembers& cim,
 /*
   OUTER LOOP CONTROLLER
 */
-void MRAC::computeOuterLoop(ControlInternalMembers& cim,
-                            VehicleInfo& vehicle_info,
-                            StateController& state_, 
-                            ControlReferences& cr,
-                            GainsMRAC& gains_,
-                            ControllerSpecificInternalMembers& csim_)
+void TwoLayerMRAC::computeOuterLoop(ControlInternalMembers& cim,
+                                    VehicleInfo& vehicle_info,
+                                    StateController& state_, 
+                                    ControlReferences& cr,
+                                    GainsTwoLayerMRAC& gains_,
+                                    ControllerSpecificInternalMembers& csim_)
 {
   // Compute the translational_position_error [actual - reference_model]
   this->computeTranslationalPositionError(cim, cr.position, state_.x_ref_translational.head<3>());
@@ -413,19 +447,22 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
   x_translational.head<3>() = cr.position;
   x_translational.tail<3>() = cr.velocity;
 
-  // Tracking error [transposed]
-  Eigen::Matrix<double, 1, 6> e_translational_transposed = (x_translational - state_.x_ref_translational).transpose();
+  // Tracking error
+  Eigen::Matrix<double, 6, 1> e_translational = x_translational - state_.x_ref_translational;
 
-  // Precomputing (e^T * P * B)
-  Eigen::Matrix<double, 1, 3> eTranspose_P_B_translational = e_translational_transposed * 
-                                                             gains_.P_translational * 
-                                                             gains_.B_translational;
+  // epsilon Two-Layer transpose equal to e_translational assuming e_transient always zero
+  Eigen::Matrix<double, 1, 6> epsilon_twolayer_translational_transposed = e_translational.transpose();
 
-  // Precomputing the norm of (e^T * P * B)
-  double eTranspose_P_B_norm_translational = eTranspose_P_B_translational.norm();
+  // Precomputing (epsilon^T * P * B)
+  Eigen::Matrix<double, 1, 3> epsilonTranspose_P_B_translational = epsilon_twolayer_translational_transposed * 
+                                                                    gains_.P_translational * 
+                                                                    gains_.B_translational;
+
+  // Precomputing the norm of (epsilon^T * P * B)
+  double epsilonTranspose_P_B_norm_translational = epsilonTranspose_P_B_translational.norm();
 
   // Computing the scalar value output from the dead-zone modification modulation function
-  csim_.dead_zone_value_translational = deadZoneModulationFunction(e_translational_transposed,
+  csim_.dead_zone_value_translational = deadZoneModulationFunction(e_translational,
                                                                     gains_.dead_zone_delta_translational,
                                                                     gains_.dead_zone_e0_translational);
 
@@ -434,9 +471,9 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
     adaptiveLawDeadzoneEmodification(gains_.Gamma_x_translational,
                                      csim_.dead_zone_value_translational,
                                      -x_translational,
-                                     eTranspose_P_B_translational,
+                                     epsilonTranspose_P_B_translational,
                                      gains_.sigma_x_translational,
-                                     eTranspose_P_B_norm_translational,
+                                     epsilonTranspose_P_B_norm_translational,
                                      state_.K_hat_x_translational);
 
   // Adaptive law K_hat_r
@@ -444,9 +481,9 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
     adaptiveLawDeadzoneEmodification(gains_.Gamma_r_translational,
                                      csim_.dead_zone_value_translational,
                                      -csim_.r_cmd_translational,
-                                     eTranspose_P_B_translational,
+                                     epsilonTranspose_P_B_translational,
                                      gains_.sigma_r_translational,
-                                     eTranspose_P_B_norm_translational,
+                                     epsilonTranspose_P_B_norm_translational,
                                      state_.K_hat_r_translational);
 
   // Adaptive law Theta_hat
@@ -454,10 +491,20 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
     adaptiveLawDeadzoneEmodification(gains_.Gamma_Theta_translational,
                                      csim_.dead_zone_value_translational,
                                      csim_.augmented_regressor_vector_translational,
-                                     eTranspose_P_B_translational,
+                                     epsilonTranspose_P_B_translational,
                                      gains_.sigma_Theta_translational,
-                                     eTranspose_P_B_norm_translational,
+                                     epsilonTranspose_P_B_norm_translational,
                                      state_.Theta_hat_translational);
+
+  // Adaptive law K_hat_g
+  csim_.K_hat_g_dot_translational = 
+    adaptiveLawDeadzoneEmodification(gains_.Gamma_g_translational,
+                                     csim_.dead_zone_value_translational,
+                                     -e_translational,
+                                     epsilonTranspose_P_B_translational,
+                                     gains_.sigma_g_translational,
+                                     epsilonTranspose_P_B_norm_translational,
+                                     state_.K_hat_g_translational);
 
   if constexpr (config_param::USE_PROJECTION_OPERATOR){
 
@@ -495,13 +542,25 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
 
     csim_.Theta_hat_dot_translational = proj_op_output_Theta_hat_translational.projected_matrix;
     csim_.proj_op_activated_Theta_hat_translational = proj_op_output_Theta_hat_translational.projection_operator_activated;
+
+    // Projection operator K_hat_g
+    MatrixProjectionOutput<decltype(state_.K_hat_g_translational)> proj_op_output_K_hat_g_translational = 
+      ellipsoid::projectionMatrix(state_.K_hat_g_translational, 
+                                  csim_.K_hat_g_dot_translational,
+                                  gains_.x_e_g_translational,
+                                  gains_.S_g_translational,
+                                  gains_.epsilon_g_translational);
+
+    csim_.K_hat_g_dot_translational = proj_op_output_K_hat_g_translational.projected_matrix;
+    csim_.proj_op_activated_K_hat_g_translational = proj_op_output_K_hat_g_translational.projection_operator_activated;
   }
 
   // Adaptive control law
   csim_.mu_adaptive_translational = 
       state_.K_hat_x_translational.transpose() * x_translational
     + state_.K_hat_r_translational.transpose() * csim_.r_cmd_translational
-    - state_.Theta_hat_translational.transpose() * csim_.augmented_regressor_vector_translational;
+    - state_.Theta_hat_translational.transpose() * csim_.augmented_regressor_vector_translational
+    + state_.K_hat_g_translational.transpose() * e_translational;
 
   // Total virtual control input
   cim.mu_translational_raw_global = csim_.mu_PID_baseline_translational + 
@@ -515,12 +574,12 @@ void MRAC::computeOuterLoop(ControlInternalMembers& cim,
 /*
   INNER LOOP CONTROLLER, using 'desired' instead of 'reference-model' in the baseline
 */
-void MRAC::computeInnerLoop(ControlInternalMembers& cim,
-                            VehicleInfo& vehicle_info,
-                            StateController& state_, 
-                            ControlReferences& cr,
-                            GainsMRAC& gains_,
-                            ControllerSpecificInternalMembers& csim_)
+void TwoLayerMRAC::computeInnerLoop(ControlInternalMembers& cim,
+                                    VehicleInfo& vehicle_info,
+                                    StateController& state_, 
+                                    ControlReferences& cr,
+                                    GainsTwoLayerMRAC& gains_,
+                                    ControllerSpecificInternalMembers& csim_)
 {
   // Compute angular_error [actual - desired]
   this->computeAngularError(cim, cr.euler_angles_rpy, cim.angular_position_desired);
@@ -593,19 +652,22 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
   csim_.augmented_regressor_vector_rotational.head<3>() = csim_.tau_PID_baseline_rotational;
   csim_.augmented_regressor_vector_rotational.tail<3>() = regressor_vector_rotational;
 
-  // Tracking error [transposed]
-  Eigen::Matrix<double, 1, 3> e_rotational_transposed = (cr.angular_velocity - state_.omega_ref_rotational).transpose();
+  // Tracking error
+  Eigen::Matrix<double, 3, 1> e_rotational = cr.angular_velocity - state_.omega_ref_rotational;
 
-  // Precomputing (e^T * P * B)
-  Eigen::Matrix<double, 1, 3> eTranspose_P_B_rotational = e_rotational_transposed * 
-                                                          gains_.P_rotational * 
-                                                          gains_.B_rotational;
+  // epsilon Two-Layer transpose equal to e_rotational assuming e_transient always zero
+  Eigen::Matrix<double, 1, 3> epsilon_twolayer_rotational_transposed = e_rotational.transpose();
 
-  // Precomputing the norm of (e^T * P * B)
-  double eTranspose_P_B_norm_rotational = eTranspose_P_B_rotational.norm();
+  // Precomputing (epsilon^T * P * B)
+  Eigen::Matrix<double, 1, 3> epsilonTranspose_P_B_rotational = epsilon_twolayer_rotational_transposed * 
+                                                                gains_.P_rotational * 
+                                                                gains_.B_rotational;
+
+  // Precomputing the norm of (epsilon^T * P * B)
+  double epsilonTranspose_P_B_norm_rotational = epsilonTranspose_P_B_rotational.norm();
 
   // Computing the scalar value output from the dead-zone modification modulation function
-  csim_.dead_zone_value_rotational = deadZoneModulationFunction(e_rotational_transposed,
+  csim_.dead_zone_value_rotational = deadZoneModulationFunction(e_rotational,
                                                                  gains_.dead_zone_delta_rotational,
                                                                  gains_.dead_zone_e0_rotational);
 
@@ -614,9 +676,9 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
     adaptiveLawDeadzoneEmodification(gains_.Gamma_x_rotational,
                                      csim_.dead_zone_value_rotational,
                                      -cr.angular_velocity,
-                                     eTranspose_P_B_rotational,
+                                     epsilonTranspose_P_B_rotational,
                                      gains_.sigma_x_rotational,
-                                     eTranspose_P_B_norm_rotational,
+                                     epsilonTranspose_P_B_norm_rotational,
                                      state_.K_hat_x_rotational);
 
   // Adaptive law K_hat_r
@@ -624,9 +686,9 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
     adaptiveLawDeadzoneEmodification(gains_.Gamma_r_rotational,
                                      csim_.dead_zone_value_rotational,
                                      -csim_.r_cmd_rotational,
-                                     eTranspose_P_B_rotational,
+                                     epsilonTranspose_P_B_rotational,
                                      gains_.sigma_r_rotational,
-                                     eTranspose_P_B_norm_rotational,
+                                     epsilonTranspose_P_B_norm_rotational,
                                      state_.K_hat_r_rotational);
 
   // Adaptive law Theta_hat
@@ -634,10 +696,20 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
     adaptiveLawDeadzoneEmodification(gains_.Gamma_Theta_rotational,
                                      csim_.dead_zone_value_rotational,
                                      csim_.augmented_regressor_vector_rotational,
-                                     eTranspose_P_B_rotational,
+                                     epsilonTranspose_P_B_rotational,
                                      gains_.sigma_Theta_rotational,
-                                     eTranspose_P_B_norm_rotational,
+                                     epsilonTranspose_P_B_norm_rotational,
                                      state_.Theta_hat_rotational);
+
+  // Adaptive law K_hat_g
+  csim_.K_hat_g_dot_rotational = 
+    adaptiveLawDeadzoneEmodification(gains_.Gamma_g_rotational,
+                                     csim_.dead_zone_value_rotational,
+                                     -e_rotational,
+                                     epsilonTranspose_P_B_rotational,
+                                     gains_.sigma_g_rotational,
+                                     epsilonTranspose_P_B_norm_rotational,
+                                     state_.K_hat_g_rotational);
 
   if constexpr (config_param::USE_PROJECTION_OPERATOR){
 
@@ -675,13 +747,25 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
 
     csim_.Theta_hat_dot_rotational = proj_op_output_Theta_hat_rotational.projected_matrix;
     csim_.proj_op_activated_Theta_hat_rotational = proj_op_output_Theta_hat_rotational.projection_operator_activated;
+
+    // Projection operator K_hat_g
+    MatrixProjectionOutput<decltype(state_.K_hat_g_rotational)> proj_op_output_K_hat_g_rotational = 
+      ellipsoid::projectionMatrix(state_.K_hat_g_rotational, 
+                                  csim_.K_hat_g_dot_rotational,
+                                  gains_.x_e_g_rotational,
+                                  gains_.S_g_rotational,
+                                  gains_.epsilon_g_rotational);
+
+    csim_.K_hat_g_dot_rotational = proj_op_output_K_hat_g_rotational.projected_matrix;
+    csim_.proj_op_activated_K_hat_g_rotational = proj_op_output_K_hat_g_rotational.projection_operator_activated; 
   }
 
   // Adaptive control law
   csim_.tau_adaptive_rotational = 
       state_.K_hat_x_rotational.transpose() * cr.angular_velocity
     + state_.K_hat_r_rotational.transpose() * csim_.r_cmd_rotational
-    - state_.Theta_hat_rotational.transpose() * csim_.augmented_regressor_vector_rotational;
+    - state_.Theta_hat_rotational.transpose() * csim_.augmented_regressor_vector_rotational
+    + state_.K_hat_g_rotational.transpose() * e_rotational;
 
   // Total control input
     cim.U2_U3_U4 = csim_.tau_PID_baseline_rotational + 
@@ -691,9 +775,9 @@ void MRAC::computeInnerLoop(ControlInternalMembers& cim,
 
 
 /*
-  MRAC Control algorithm
+  TwoLayerMRAC Control algorithm
 */
-void MRAC::computeControlAlgorithm() 
+void TwoLayerMRAC::computeControlAlgorithm() 
 {
 
   /*

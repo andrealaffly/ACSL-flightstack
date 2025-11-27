@@ -44,10 +44,15 @@
 #include <chrono>
 
 #include <Eigen/Dense>
-#include <boost/numeric/odeint.hpp>
+// #include <boost/numeric/odeint.hpp>
+#include <boost/numeric/odeint/stepper/runge_kutta_fehlberg78.hpp>
+#include <boost/numeric/odeint/stepper/runge_kutta_cash_karp54.hpp>
+#include <boost/numeric/odeint/stepper/runge_kutta_dopri5.hpp>
+#include <boost/numeric/odeint/stepper/runge_kutta4.hpp>
 
 #include "vehicle_info.hpp"
 #include "piecewise_polynomial_trajectory.hpp"
+#include "outer_loop_safety_mechanism.hpp"
 
 using namespace boost::numeric::odeint;
 
@@ -70,8 +75,9 @@ public:
     // Constructor
     ControlInternalMembers();
 
-    Eigen::Vector3d mu_translational_raw; // translational virtual resultant force before applying safety mechanism
-    Eigen::Vector3d mu_translational; // translational virtual resultant force after applying safety mechanism
+    Eigen::Vector3d mu_translational_raw_global; // translational virtual force in global coordinates before applying safety mechanism
+    Eigen::Vector3d mu_translational_raw_local; // translational virtual force in local coordinates before applying safety mechanism
+    Eigen::Vector3d mu_translational; // translational virtual force in local coordinates after applying safety mechanism
     Eigen::Vector4d U_control_inputs; // U1, U2, U3, U4
     Eigen::Ref<Eigen::Vector3d> U2_U3_U4; // reference vector to U_control_inputs which includes only U2, U3, U4
     Eigen::Vector3d angular_position_desired; // [roll_desired, pitch_desired, user_defined_yaw]
@@ -130,21 +136,22 @@ public:
   MultiThreadedNode& getNode() const;
   const VehicleInfo& getVehicleInfo() const;
   const ControlInternalMembers& getControlInternalMembers() const;
+  const outer_loop_safety_mechanism::OuterLoopSafetyMechanism& getOuterLoopSafetyMechanism() const;
   const std::chrono::duration<double, std::micro>& getAlgorithmExecutionTimeMicroseconds() const;
 
   // Setter function
   void setAlgorithmExecutionTimeMicroseconds(std::chrono::duration<double, std::micro> duration);
 
-  Eigen::Matrix3d jacobianMatrix(const double& roll, const double& pitch);
+  Eigen::Matrix3d jacobianMatrix(const double roll, const double pitch);
 
-  Eigen::Matrix3d jacobianMatrixDot(const double& roll,
-                                    const double& pitch,
-                                    const double& roll_dot, 
-                                    const double& pitch_dot);
+  Eigen::Matrix3d jacobianMatrixDot(const double roll,
+                                    const double pitch,
+                                    const double roll_dot, 
+                                    const double pitch_dot);
 
-  Eigen::Matrix3d jacobianMatrixInverse(const double& roll, const double& pitch);
+  Eigen::Matrix3d jacobianMatrixInverse(const double roll, const double pitch);
 
-  Eigen::Matrix3d rotationMatrix321GlobalToLocal(const double& roll, const double& pitch, const double& yaw);
+  Eigen::Matrix3d rotationMatrix321GlobalToLocal(const double roll, const double pitch, const double yaw);
 
   void computeNormalizedThrustQuadcopterMode(ControlInternalMembers& cim, VehicleInfo& vehicle_info);
 
@@ -166,8 +173,23 @@ public:
 
   double makeYawAngularErrorContinuous(double yaw, double user_defined_yaw);
 
-  //define_const_stepper
-  runge_kutta4< state_type > stepper;
+  /*********************************************************************************************************************
+   * Choose INTEGRATOR
+  *********************************************************************************************************************/
+   
+  // // Runge-Kutta 4 integrator
+  // runge_kutta4< state_type > stepper;
+
+  // // Dormand-Prince 5 integrator
+  // runge_kutta_dopri5< state_type > stepper;
+
+  // // Fehlberg 78 integrator
+  // runge_kutta_fehlberg78< state_type > stepper;
+
+  // // Cash-Karp integrator
+  runge_kutta_cash_karp54< state_type > stepper;
+
+  /********************************************************************************************************************/
 
   template <typename T>
   inline void assignElementsToDxdt(T& entity, state_type &dxdt, int& current_index)
@@ -195,11 +217,30 @@ public:
   */
   template <typename T>
   inline double deadZoneModulationFunction(const T& e_vector,
-                                           const double& delta,
-                                           const double& e_0)
+                                           const double delta,
+                                           const double e_0)
   {
     return std::max(0.0, std::min(1.0, (e_vector.norm() - delta * e_0)/((1.0 - delta) * e_0)));
- }
+  }
+
+  /*
+    Adaptive law formula equipped with the dead-zone modification and e-modification
+  */
+  template <typename Der1, typename Der2, typename Der3, typename Der4>
+  inline auto adaptiveLawDeadzoneEmodification(const Der1& Gamma_gain,
+                                               const double dead_zone_value,
+                                               const Der2& pi_vector,
+                                               const Der3& eTranspose_P_B,
+                                               const double sigma_gain,
+                                               const double eTranspose_P_B_norm,
+                                               const Der4& K_hat_state)
+  {
+    auto K_hat_state_dot = Gamma_gain * dead_zone_value * (
+                            pi_vector * eTranspose_P_B 
+                            - sigma_gain * eTranspose_P_B_norm * K_hat_state);
+
+    return K_hat_state_dot;
+  }
 
 protected:
 
@@ -208,6 +249,8 @@ protected:
   ControlInternalMembers cim;
 
   ControlReferences cr;
+
+  outer_loop_safety_mechanism::OuterLoopSafetyMechanism safe_mech;
 
   // Third standard basis vector e_3
   static inline const Eigen::Vector3d e3_basis = Eigen::Vector3d(0.0, 0.0, 1.0);

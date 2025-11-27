@@ -23,32 +23,33 @@
  **********************************************************************************************************************/
 
 /***********************************************************************************************************************
- * File:        logging_mrac.cpp
+ * File:        logging_funnel_two_layer_mrac.cpp
  * Author:      Mattia Gramuglia
- * Date:        June 13, 2024
+ * Date:        December 04, 2024
  * For info:    Andrea L'Afflitto 
  *              a.lafflitto@vt.edu
  * 
- * Description: Logger for the MRAC controller.
+ * Description: Logger for the FunnelTwoLayerMRAC controller.
  * 
  * GitHub:    https://github.com/andrealaffly/ACSL-flightstack.git
  **********************************************************************************************************************/
 
-#include "mrac.hpp"
-#include "logging_mrac.hpp"
+#include "funnel_two_layer_mrac.hpp"
+#include "logging_funnel_two_layer_mrac.hpp"
 #include "multi_threaded_node.hpp"
 
+
 // Define the logger for LogData
-src::logger LogData_MRAC::logger_logdata;
+src::logger LogData_FunnelTwoLayerMRAC::logger_logdata;
 
 // Constructor
-LogData_MRAC::LogData_MRAC(MultiThreadedNode& node, MRAC& controller) :
+LogData_FunnelTwoLayerMRAC::LogData_FunnelTwoLayerMRAC(MultiThreadedNode& node, FunnelTwoLayerMRAC& controller) :
   node_(node),
   controller_(controller)
 {}
 
 // Function to print headers
-void LogData_MRAC::logInitializeHeaders()
+void LogData_FunnelTwoLayerMRAC::logInitializeHeaders()
 {
 	std::ostringstream oss;
 
@@ -267,101 +268,383 @@ void LogData_MRAC::logInitializeHeaders()
       << "tau_adaptive_rotational z [Nm], "
       << "dead_zone_value_translational [-], "
       << "dead_zone_value_rotational [-], "
+      << "K_hat_g_translational index-00 [-], "
+      << "K_hat_g_translational index-10 [-], "
+      << "K_hat_g_translational index-20 [-], "
+      << "K_hat_g_translational index-30 [-], "
+      << "K_hat_g_translational index-40 [-], "
+      << "K_hat_g_translational index-50 [-], "
+      << "K_hat_g_translational index-01 [-], "
+      << "K_hat_g_translational index-11 [-], "
+      << "K_hat_g_translational index-21 [-], "
+      << "K_hat_g_translational index-31 [-], "
+      << "K_hat_g_translational index-41 [-], "
+      << "K_hat_g_translational index-51 [-], "
+      << "K_hat_g_translational index-02 [-], "
+      << "K_hat_g_translational index-12 [-], "
+      << "K_hat_g_translational index-22 [-], "
+      << "K_hat_g_translational index-32 [-], "
+      << "K_hat_g_translational index-42 [-], "
+      << "K_hat_g_translational index-52 [-], "
+      << "K_hat_g_rotational index-00 [-], "
+      << "K_hat_g_rotational index-10 [-], "
+      << "K_hat_g_rotational index-20 [-], "
+      << "K_hat_g_rotational index-01 [-], "
+      << "K_hat_g_rotational index-11 [-], "
+      << "K_hat_g_rotational index-21 [-], "
+      << "K_hat_g_rotational index-02 [-], "
+      << "K_hat_g_rotational index-12 [-], "
+      << "K_hat_g_rotational index-22 [-], "   
       << "proj_op_activated_K_hat_x_translational, "
       << "proj_op_activated_K_hat_r_translational, "
-      << "proj_op_activated_Theta_hat_translational, "
+      << "proj_op_activated_Theta_hat_translational, "      
+      << "proj_op_activated_K_hat_g_translational, "
       << "proj_op_activated_K_hat_x_rotational, "
       << "proj_op_activated_K_hat_r_rotational, "
       << "proj_op_activated_Theta_hat_rotational, "
+      << "proj_op_activated_K_hat_g_rotational, "
+      << "Mu translational raw local x [N], "
+      << "Mu translational raw local y [N], "
+      << "Mu translational raw local z [N], "
+      << "Safety Mechanism tSphere [-], "
+      << "Safety Mechanism tEllipticCone [-], "
+      << "Safety Mechanism tPlane [-], "
+      << "Safety Mechanism tPrime [-], "
+      << "Safety Mechanism safe_mech_activated [-], "
+      << "eta_funnel_translational [-], "
+      << "eta_dot_funnel_translational [-], "
+      << "xi_funnel_translational [-], "
+      << "Ve_funnel_translational [-], "
+      << "lambda_sat_funnel_translational [-], "
+      << "sigma_nom_funnel_translational [-], "
+      << "sigma_ideal_funnel_translational [-], "
+      << "H_funnel_translational [-], "
+      << "case_eta_dot_funnel_translational [-], "
+      << "Translational tracking error derivative x [m/s], "
+      << "Translational tracking error derivative y [m/s], "
+      << "Translational tracking error derivative z [m/s], "
+      << "Translational tracking error derivative vx [m/s^2], "
+      << "Translational tracking error derivative vy [m/s^2], "
+      << "Translational tracking error derivative vz [m/s^2], "
+      << "Outer loop Derivative term Filtered x [-], "
+      << "Outer loop Derivative term Filtered y [-], "
+      << "Outer loop Derivative term Filtered z [-], "
   ;
       
-	BOOST_LOG(LogData_MRAC::logger_logdata) << oss.str();
+  {
+    BOOST_LOG_SCOPED_LOGGER_ATTR(LogData_FunnelTwoLayerMRAC::logger_logdata,
+      "Tag", attrs::constant<std::string>("LogDataTag"));
+    BOOST_LOG(LogData_FunnelTwoLayerMRAC::logger_logdata) << oss.str();
+  }
 }
 
-// Function to initialize the logging system
-void LogData_MRAC::logInitializeLogging()
+// // Function to initialize the logging system
+// void LogData_FunnelTwoLayerMRAC::logInitializeLogging()
+// {
+//   // Use the initial timestamp (in microseconds)
+//   const uint64_t initial_timestamp_us = node_.getInitialTimestamp();  // microseconds since epoch
+//   std::time_t initial_time_t = static_cast<std::time_t>(initial_timestamp_us / 1'000'000); // convert to seconds
+
+//   // Convert to date string: "%Y%m%d"
+//   std::stringstream date_ss;
+//   date_ss << std::put_time(std::localtime(&initial_time_t), "%Y%m%d");
+//   this->logging_info_.date = date_ss.str();
+
+//   // Convert to timestamp string: "%Y%m%d_%H%M%S"
+//   std::stringstream timestamp_ss;
+//   timestamp_ss << std::put_time(std::localtime(&initial_time_t), "%Y%m%d_%H%M%S");
+//   this->logging_info_.timestamp = timestamp_ss.str();
+
+//   // Create the directory path for the logs
+//   const std::string controller_name = ControlType::getControllerName();
+//   this->logging_info_.base_dir = "./src/flightstack/log/" + this->logging_info_.date + "/" + controller_name;
+//   this->logging_info_.logs_dir = this->logging_info_.base_dir + "/logs";
+//   this->logging_info_.gains_dir = this->logging_info_.base_dir + "/gains";
+//   this->logging_info_.info_dir = this->logging_info_.base_dir + "/info";
+//   this->logging_info_.der_gains_dir = this->logging_info_.base_dir + "/der_gains";
+//   this->logging_info_.logs_debug_dir = this->logging_info_.base_dir + "/logs_debug";
+//   this->logging_info_.safe_mech_dir = this->logging_info_.info_dir + "/safe_mech";
+//   this->logging_info_.git_info_dir = this->logging_info_.info_dir + "/git_info";
+
+//   // Create directories
+//   for (const auto& dir : {
+//     this->logging_info_.base_dir,
+//     this->logging_info_.logs_dir, 
+//     this->logging_info_.gains_dir,
+//     this->logging_info_.info_dir,
+//     this->logging_info_.der_gains_dir,
+//     this->logging_info_.safe_mech_dir,
+//     this->logging_info_.git_info_dir})
+//   {
+//     if (!std::filesystem::exists(dir)) {
+//       std::filesystem::create_directories(dir);
+//     }
+//   }
+
+//   // Generate the filenames with the timestamp
+//   std::stringstream log_ss;
+//   log_ss << this->logging_info_.logs_dir << "/log_" << this->logging_info_.timestamp << ".log";
+//   this->logging_info_.log_filename = log_ss.str();
+
+//   std::stringstream gains_target_ss;
+//   gains_target_ss << this->logging_info_.gains_dir << "/gains_" << this->logging_info_.timestamp << ".json";
+//   this->logging_info_.gains_target_filename = gains_target_ss.str();
+
+//   std::stringstream safe_mech_target_ss;
+//   safe_mech_target_ss << this->logging_info_.safe_mech_dir << "/safe_mech_" << this->logging_info_.timestamp << ".json";
+//   this->logging_info_.safe_mech_target_filename = safe_mech_target_ss.str();
+
+//   std::stringstream der_gains_ss;
+//   der_gains_ss << this->logging_info_.der_gains_dir << "/der_gains_" << this->logging_info_.timestamp << ".json";
+//   this->logging_info_.der_gains_filename = der_gains_ss.str();
+
+//   std::stringstream log_debug_ss;
+//   log_debug_ss << this->logging_info_.logs_debug_dir << "/log_debug_" << this->logging_info_.timestamp << ".log";
+//   this->logging_info_.log_debug_filename = log_debug_ss.str(); 
+
+//   std::stringstream git_info_ss;
+//   git_info_ss << this->logging_info_.git_info_dir << "/git_info_" << this->logging_info_.timestamp << ".json";
+//   this->logging_info_.git_info_filename = git_info_ss.str();
+
+//   // ========== Main Log File Setup ===========
+
+//   // Define a synchronous sink with a text ostream backend
+//   typedef sinks::synchronous_sink<sinks::text_ostream_backend> text_sink;
+//   boost::shared_ptr<text_sink> logdata_sink = boost::make_shared<text_sink>();
+
+//   // Add a stream to the interr sink (for the new log file)
+//   logdata_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(this->logging_info_.log_filename));
+
+//   // Set the formatter for the sink
+//   logdata_sink->set_formatter(
+//     expr::stream
+//     << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] " // Format date and time
+//     << "[" << expr::attr<boost::log::attributes::current_thread_id::value_type>("ThreadID") << "] " // Current thread ID
+//     << "[" << expr::attr<std::string>("Tag") << "] " // Tag attribute value
+//     << "[" << expr::attr<boost::log::attributes::current_process_id::value_type>("ProcessID") << "] " // Current process ID
+//     << "[" << expr::attr<unsigned int>("LineID") << "] " // Line ID
+//     << expr::smessage // Log message
+//   );
+
+//   // Set a filter for the sink
+//   logdata_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "LogDataTag");
+
+//   // Add the interr sink to the logging core
+//   logging::core::get()->add_sink(logdata_sink);
+
+//   // =========================================
+
+//   logging::add_common_attributes(); // Add attributes like timestamp
+
+//   // Copy the gains file to the logging_info_.gains_dir with a new name containing the time info
+//   std::string gains_source_file = "./src/flightstack/params/control/funnel_two_layer_mrac/gains_funnel_two_layer_mrac.json";
+//   if (std::filesystem::exists(gains_source_file)) {
+//     // std::cout << "GAINS FILE PRESENT" << std::endl;
+//     std::filesystem::copy(gains_source_file, this->logging_info_.gains_target_filename);
+//   } else {
+//     std::cout << "GAINS FILE NOT PRESENT" << std::endl;
+//   }
+
+//   // Copy the outer_loop_safety_mechanism file to the logging_info_.info_dir with a new name containing the time info
+//   std::string safe_mech_source_file = "./src/flightstack/params/control/outer_loop_safety_mechanism.json";
+//   if (std::filesystem::exists(safe_mech_source_file)) {
+//     // std::cout << "SAFETY MECHANISM PARAMETERS FILE PRESENT" << std::endl;
+//     std::filesystem::copy(safe_mech_source_file, this->logging_info_.safe_mech_target_filename);
+//   } else {
+//     std::cout << "SAFETY MECHANISM PARAMETERS FILE NOT PRESENT" << std::endl;
+//   }
+
+//   logInitializeHeaders();
+
+//   // ====== DEBUG Log File Setup ======
+//   if constexpr (config_param::USE_DEBUG_LOGGER){
+
+//     // Check if the "logs_debug" subdirectory exists within the logging_info_.base_dir, create it if needed
+//     if (!std::filesystem::exists(this->logging_info_.logs_debug_dir)) {
+//       std::filesystem::create_directories(this->logging_info_.logs_debug_dir);
+//     }
+
+//     // Define a synchronous sink for the debug log file
+//     boost::shared_ptr<text_sink> debug_sink = boost::make_shared<text_sink>();
+
+//     // Add a stream to the debug sink (for the debug log file)
+//     debug_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(this->logging_info_.log_debug_filename));
+
+//     // Set the formatter for the debug log file
+//     debug_sink->set_formatter(
+//       expr::stream
+//       << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] "
+//       << "[" << expr::attr<std::string>("Tag") << "] "
+//       << expr::smessage // Log message
+//     );
+
+//     // Add a filter to log only messages with the "DebugLogTag"
+//     debug_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "DebugLogTag");
+
+//     // Add the debug sink to the logging core
+//     logging::core::get()->add_sink(debug_sink);
+//   }
+
+//   // ====== Write Git Metadata Info ======
+//   auto git_info = acsl_utils::git_info::getGitRepoInfo();
+
+//   std::ofstream git_out(this->logging_info_.git_info_filename);
+//   if (git_out.is_open()) {
+//     git_out << git_info.to_json().dump(2); // Pretty-print
+//     git_out.close();
+//   } else {
+//     std::cerr << "Failed to write git metadata file: " << this->logging_info_.git_info_filename << std::endl;
+//   }
+// }
+
+void LogData_FunnelTwoLayerMRAC::logInitializeLogging()
 {
-  // Get the current date and time
-  auto now = std::chrono::system_clock::now();
-  std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+  generateTimestampAndDate();
+  createLogDirectories();
+  generateLogFilenames();
+  setupMainLogSink();
+  copyParameterFiles();
+  setupDebugLogSink();
+  writeGitMetadata();
+  logInitializeHeaders();
+}
 
-  // Get the current date in the desired format
+void LogData_FunnelTwoLayerMRAC::generateTimestampAndDate()
+{
+  const uint64_t initial_timestamp_us = node_.getInitialTimestamp();  // microseconds since epoch
+  std::time_t initial_time_t = static_cast<std::time_t>(initial_timestamp_us / 1'000'000); // convert to seconds
+
   std::stringstream date_ss;
-  date_ss << std::put_time(std::localtime(&now_c), "%Y%m%d"); // Current date
-  std::string current_date = date_ss.str();
+  date_ss << std::put_time(std::localtime(&initial_time_t), "%Y%m%d");
+  logging_info_.date = date_ss.str();
 
-  // Create the directory path for the logs
-  std::string log_base_directory = "./src/flightstack/log/" + current_date + "/" + ControlType::getControllerName();
+  std::stringstream timestamp_ss;
+  timestamp_ss << std::put_time(std::localtime(&initial_time_t), "%Y%m%d_%H%M%S");
+  logging_info_.timestamp = timestamp_ss.str();
+}
 
-  // Check if the directory exists, and create it if it doesn't
-  if (!std::filesystem::exists(log_base_directory)) {
-    std::filesystem::create_directories(log_base_directory);
+void LogData_FunnelTwoLayerMRAC::createLogDirectories()
+{
+  const std::string controller_name = ControlType::getControllerName();
+  logging_info_.base_dir = "./src/flightstack/log/" + logging_info_.date + "/" + controller_name;
+  logging_info_.logs_dir = logging_info_.base_dir + "/logs";
+  logging_info_.gains_dir = logging_info_.base_dir + "/gains";
+  logging_info_.info_dir = logging_info_.base_dir + "/info";
+  logging_info_.der_gains_dir = logging_info_.base_dir + "/der_gains";
+  logging_info_.logs_debug_dir = logging_info_.base_dir + "/logs_debug";
+  logging_info_.safe_mech_dir = logging_info_.info_dir + "/safe_mech";
+  logging_info_.git_info_dir = logging_info_.info_dir + "/git_info";
+  logging_info_.low_pass_filter_dir = logging_info_.info_dir + "/low_pass_filter";
+
+  for (const auto& dir : {
+    logging_info_.base_dir,
+    logging_info_.logs_dir,
+    logging_info_.gains_dir,
+    logging_info_.info_dir,
+    logging_info_.der_gains_dir,
+    logging_info_.safe_mech_dir,
+    logging_info_.git_info_dir,
+    logging_info_.low_pass_filter_dir})
+  {
+    if (!std::filesystem::exists(dir)) {
+      std::filesystem::create_directories(dir);
+    }
   }
+}
 
-  // Check if the "logs" subdirectory exists within the log_base_directory, create it if needed
-  std::string logs_directory = log_base_directory + "/logs";
-  if (!std::filesystem::exists(logs_directory)) {
-      std::filesystem::create_directories(logs_directory);
-  }
+void LogData_FunnelTwoLayerMRAC::generateLogFilenames()
+{
+  logging_info_.log_filename = logging_info_.logs_dir + "/log_" + logging_info_.timestamp + ".log";
+  logging_info_.gains_target_filename = logging_info_.gains_dir + "/gains_" + logging_info_.timestamp + ".json";
+  logging_info_.safe_mech_target_filename = logging_info_.safe_mech_dir + "/safe_mech_" + logging_info_.timestamp + ".json";
+  logging_info_.der_gains_filename = logging_info_.der_gains_dir + "/der_gains_" + logging_info_.timestamp + ".json";
+  logging_info_.log_debug_filename = logging_info_.logs_debug_dir + "/log_debug_" + logging_info_.timestamp + ".log";
+  logging_info_.git_info_filename = logging_info_.git_info_dir + "/git_info_" + logging_info_.timestamp + ".json";
+  logging_info_.low_pass_filter_filename = logging_info_.low_pass_filter_dir + "/low_pass_filter_" + logging_info_.timestamp + ".json";
+}
 
-  // Check if the "gains" subdirectory exists within the log_base_directory, create it if needed
-  std::string gains_directory = log_base_directory + "/gains";
-  if (!std::filesystem::exists(gains_directory)) {
-      std::filesystem::create_directories(gains_directory);
-  }
+void LogData_FunnelTwoLayerMRAC::setupMainLogSink()
+{
+  using text_sink = sinks::synchronous_sink<sinks::text_ostream_backend>;
+  auto logdata_sink = boost::make_shared<text_sink>();
+  logdata_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(logging_info_.log_filename));
 
-  // Generate the log file name with a timestamp
-  std::stringstream log_ss;
-  log_ss << logs_directory << "/log_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".log";
-  std::string log_filename = log_ss.str();
-
-  // Add the "Tag" attribute with a constant value of "LogDataTag" to the logger
-  LogData_MRAC::logger_logdata.add_attribute("Tag", attrs::constant<std::string>("LogDataTag"));
-
-  // Define a synchronous sink with a text ostream backend
-  typedef sinks::synchronous_sink<sinks::text_ostream_backend> text_sink;
-  boost::shared_ptr<text_sink> logdata_sink = boost::make_shared<text_sink>();
-
-  // Add a stream to the backend (in this case, a file stream)
-  logdata_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(log_filename));
-
-  // Set the formatter for the sink
   logdata_sink->set_formatter(
     expr::stream
-    << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] " // Format date and time
-    << "[" << expr::attr<boost::log::attributes::current_thread_id::value_type>("ThreadID") << "] " // Current thread ID
-    << "[" << expr::attr<std::string>("Tag") << "] " // Tag attribute value
-    << "[" << expr::attr<boost::log::attributes::current_process_id::value_type>("ProcessID") << "] " // Current process ID
-    << "[" << expr::attr<unsigned int>("LineID") << "] " // Line ID
-    << expr::smessage // Log message
+    << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] "
+    << "[" << expr::attr<boost::log::attributes::current_thread_id::value_type>("ThreadID") << "] "
+    << "[" << expr::attr<std::string>("Tag") << "] "
+    << "[" << expr::attr<boost::log::attributes::current_process_id::value_type>("ProcessID") << "] "
+    << "[" << expr::attr<unsigned int>("LineID") << "] "
+    << expr::smessage
   );
 
-  // Add the sink to the logging core
-  logging::core::get()->add_sink(logdata_sink);
-
-  // Set a filter for the sink
   logdata_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "LogDataTag");
+  logging::core::get()->add_sink(logdata_sink);
+  logging::add_common_attributes();
+}
 
-  logging::add_common_attributes(); // Add attributes like timestamp
-
-  // Copy the gains file to the gains_directory with a new name containing the time info
-  std::string source_file = "./src/flightstack/params/control/mrac/gains_mrac.json";
-  std::stringstream target_ss;
-  target_ss << gains_directory << "/gains_mrac_" << std::put_time(std::localtime(&now_c), "%Y%m%d_%H%M%S") << ".json";
-  std::string target_file = target_ss.str();
-
-  if (std::filesystem::exists(source_file)) {
-    std::cout << "GAINS FILE PRESENT" << std::endl;
-    std::filesystem::copy(source_file, target_file);
+void LogData_FunnelTwoLayerMRAC::copyParameterFiles()
+{
+  const std::string gains_source_file = "./src/flightstack/params/control/funnel_two_layer_mrac/gains_funnel_two_layer_mrac.json";
+  if (std::filesystem::exists(gains_source_file)) {
+    std::filesystem::copy(gains_source_file, logging_info_.gains_target_filename);
   } else {
     std::cout << "GAINS FILE NOT PRESENT" << std::endl;
   }
 
-  logInitializeHeaders();
+  const std::string safe_mech_source_file = "./src/flightstack/params/control/outer_loop_safety_mechanism.json";
+  if (std::filesystem::exists(safe_mech_source_file)) {
+    std::filesystem::copy(safe_mech_source_file, logging_info_.safe_mech_target_filename);
+  } else {
+    std::cout << "SAFETY MECHANISM PARAMETERS FILE NOT PRESENT" << std::endl;
+  }
+
+  const std::string low_pass_filter_source_file = "./src/flightstack/params/control/low_pass_filter.json";
+  if (std::filesystem::exists(low_pass_filter_source_file)) {
+    std::filesystem::copy(low_pass_filter_source_file, logging_info_.low_pass_filter_filename);
+  } else {
+    std::cout << "LOW PASS FILTER PARAMETERS FILE NOT PRESENT" << std::endl;
+  }
 }
 
+void LogData_FunnelTwoLayerMRAC::setupDebugLogSink()
+{
+  if constexpr (!config_param::USE_DEBUG_LOGGER) return;
+
+  if (!std::filesystem::exists(logging_info_.logs_debug_dir)) {
+    std::filesystem::create_directories(logging_info_.logs_debug_dir);
+  }
+
+  using text_sink = sinks::synchronous_sink<sinks::text_ostream_backend>;
+  auto debug_sink = boost::make_shared<text_sink>();
+  debug_sink->locked_backend()->add_stream(boost::make_shared<std::ofstream>(logging_info_.log_debug_filename));
+
+  debug_sink->set_formatter(
+    expr::stream
+    << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f") << "] "
+    << "[" << expr::attr<std::string>("Tag") << "] "
+    << expr::smessage
+  );
+
+  debug_sink->set_filter(expr::has_attr("Tag") && expr::attr<std::string>("Tag") == "DebugLogTag");
+  logging::core::get()->add_sink(debug_sink);
+}
+
+void LogData_FunnelTwoLayerMRAC::writeGitMetadata()
+{
+  auto git_info = acsl_utils::git_info::getGitRepoInfo();
+  std::ofstream git_out(logging_info_.git_info_filename);
+  if (git_out.is_open()) {
+    git_out << git_info.to_json().dump(2);
+  } else {
+    std::cerr << "Failed to write git metadata file: " << logging_info_.git_info_filename << std::endl;
+  }
+}
+
+
 // Function to log the data
-void LogData_MRAC::logLogData()
+void LogData_FunnelTwoLayerMRAC::logLogData()
 {
 	std::ostringstream oss;
 
@@ -580,6 +863,33 @@ void LogData_MRAC::logLogData()
       << controller_.getControllerSpecificInternalMembers().tau_adaptive_rotational(2) << ", "
       << controller_.getControllerSpecificInternalMembers().dead_zone_value_translational << ", "
       << controller_.getControllerSpecificInternalMembers().dead_zone_value_rotational << ", "
+      << controller_.getStateController().K_hat_g_translational(0,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(1,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(2,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(3,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(4,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(5,0) << ", "
+      << controller_.getStateController().K_hat_g_translational(0,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(1,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(2,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(3,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(4,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(5,1) << ", "
+      << controller_.getStateController().K_hat_g_translational(0,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(1,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(2,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(3,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(4,2) << ", "
+      << controller_.getStateController().K_hat_g_translational(5,2) << ", "
+      << controller_.getStateController().K_hat_g_rotational(0,0) << ", "
+      << controller_.getStateController().K_hat_g_rotational(1,0) << ", "
+      << controller_.getStateController().K_hat_g_rotational(2,0) << ", "
+      << controller_.getStateController().K_hat_g_rotational(0,1) << ", "
+      << controller_.getStateController().K_hat_g_rotational(1,1) << ", "
+      << controller_.getStateController().K_hat_g_rotational(2,1) << ", "
+      << controller_.getStateController().K_hat_g_rotational(0,2) << ", "
+      << controller_.getStateController().K_hat_g_rotational(1,2) << ", "
+      << controller_.getStateController().K_hat_g_rotational(2,2) << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_x_translational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_r_translational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_Theta_hat_translational << ", "
@@ -588,8 +898,69 @@ void LogData_MRAC::logLogData()
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_r_rotational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_Theta_hat_rotational << ", "
       << controller_.getControllerSpecificInternalMembers().proj_op_activated_K_hat_g_rotational << ", "
-      ;
+      << controller_.getControlInternalMembers().mu_translational_raw_local(0) << ", "
+      << controller_.getControlInternalMembers().mu_translational_raw_local(1) << ", "
+      << controller_.getControlInternalMembers().mu_translational_raw_local(2) << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tSphere << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tEllipticCone << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tPlane << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().tPrime << ", "
+      << controller_.getOuterLoopSafetyMechanism().getSafetyMechanismMembers().safe_mech_activated << ", "
+      << controller_.getStateController().eta_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().eta_dot_funnel_translational.value() << ", "
+      << controller_.getControllerSpecificInternalMembers().xi_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().Ve_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().lambda_sat_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().sigma_nom_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().sigma_ideal_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().H_function_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().case_eta_dot_funnel_translational << ", "
+      << controller_.getControllerSpecificInternalMembers().e_dot_translational(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().e_dot_translational(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().e_dot_translational(2) << ", "
+      << controller_.getControllerSpecificInternalMembers().e_dot_translational(3) << ", "
+      << controller_.getControllerSpecificInternalMembers().e_dot_translational(4) << ", "
+      << controller_.getControllerSpecificInternalMembers().e_dot_translational(5) << ", "
+      << controller_.getControllerSpecificInternalMembers().outer_loop_D_filtered(0) << ", "
+      << controller_.getControllerSpecificInternalMembers().outer_loop_D_filtered(1) << ", "
+      << controller_.getControllerSpecificInternalMembers().outer_loop_D_filtered(2) << ", "
+    ; 
 
-	BOOST_LOG(LogData_MRAC::logger_logdata) << oss.str();
+  {
+    BOOST_LOG_SCOPED_LOGGER_ATTR(LogData_FunnelTwoLayerMRAC::logger_logdata,
+      "Tag", attrs::constant<std::string>("LogDataTag"));
+    BOOST_LOG(LogData_FunnelTwoLayerMRAC::logger_logdata) << oss.str();
+  }
+
+  /* 
+    Log to the DEBUG log file
+  */
+  if constexpr (config_param::USE_DEBUG_LOGGER){
+    std::ostringstream oss_debug;
+
+    oss_debug << ", "
+      << node_.getCurrentTime() << ", "
+    ;
+
+    // Log all elements of xerr 
+    for (uint8_t i = 0; i < controller_.getErrorIntegrator().xerr.size(); ++i) {
+      oss_debug << controller_.getErrorIntegrator().xerr[i] << ", ";
+    }
+
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_x_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_r_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().Theta_hat_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_g_dot_translational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_x_dot_rotational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_r_dot_rotational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().Theta_hat_dot_rotational);
+    logMatrixColumnMajor(oss_debug, controller_.getControllerSpecificInternalMembers().K_hat_g_dot_rotational);
+
+    {
+      BOOST_LOG_SCOPED_LOGGER_ATTR(LogData_FunnelTwoLayerMRAC::logger_logdata,
+        "Tag", attrs::constant<std::string>("DebugLogTag"));
+      BOOST_LOG(LogData_FunnelTwoLayerMRAC::logger_logdata) << oss_debug.str();
+    }
+  }
 }
 

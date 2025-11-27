@@ -51,12 +51,15 @@ find_package(lifecycle_msgs REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/eigen)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/config)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/control)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/control/funnel_two_layer_mrac)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/control/mrac)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/control/pid)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/control/two_layer_mrac)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/logging)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/mocap)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/flightstack/pixhawk_interface)
@@ -69,10 +72,15 @@ set(SOURCES
   src/config/config.cpp
   src/control/control.cpp
   src/control/control_callback.cpp
+  src/control/outer_loop_safety_mechanism.cpp
+  src/control/funnel_two_layer_mrac/funnel_two_layer_mrac.cpp
+  src/control/funnel_two_layer_mrac/logging_funnel_two_layer_mrac.cpp
   src/control/mrac/logging_mrac.cpp
   src/control/mrac/mrac.cpp
   src/control/pid/logging_pid.cpp
   src/control/pid/pid.cpp
+  src/control/two_layer_mrac/two_layer_mrac.cpp
+  src/control/two_layer_mrac/logging_two_layer_mrac.cpp
   src/logging/logging_mocap.cpp
   src/main.cpp
   src/mocap/io_context.cpp
@@ -109,6 +117,23 @@ install(TARGETS
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
+
+  find_package(ament_cmake_gtest REQUIRED)
+
+  ament_add_gtest(test_low_pass_filter
+    test/utils/low_pass_filter_test.cpp
+  )
+
+  if(TARGET test_low_pass_filter)
+    target_include_directories(test_low_pass_filter PUBLIC
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+    )
+    # Optional: link extra libraries if needed
+    # target_link_libraries(test_low_pass_filter some_library)
+
+    # Correct way to label the test for CTest
+    set_tests_properties(test_low_pass_filter PROPERTIES LABELS "flightstack_core")
+  endif()
 endif()
 
 ament_package()

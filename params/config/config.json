@@ -1,4 +1,18 @@
 {
-  "user_defined_trajectory_file": "bean_trajectory0p6.json",
-  "hover_after_trajectory_time_seconds": 5.0
+  "user_defined_trajectory_file": "bean_trajectory0p3.json",
+
+  "hover_after_trajectory_time_seconds": 5.0,
+
+  "motor_failure_start_time_seconds": 10.0,
+  "motor_failure_duration_time_seconds": 10.0,
+  "motor_failure_efficiencies": [
+    [1.0],
+    [1.0],
+    [1.0],
+    [1.0],
+    [1.0],
+    [1.0],
+    [1.0],
+    [1.0]
+  ]
 }

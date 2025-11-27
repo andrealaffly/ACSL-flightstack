@@ -142,7 +142,7 @@ void PID::readJSONfile(const std::string& fileName)
 /*
   Assigning the right-hand side of the differential equations to the first time derivative of the full_state.
 */
-void PID::assignSystemToDxdt(state_type /* &x */, state_type &dxdt, const double /* t */) 
+void PID::assignSystemToDxdt(const state_type /* &x */, state_type &dxdt, const double /* t */) 
 {
   int current_index = 0; // Starting index for assignments
 
@@ -210,13 +210,16 @@ void PID::computeOuterLoop(ControlInternalMembers& cim,
   csim_.outer_loop_D = - gains_.KD_translational * (cr.velocity - cr.user_defined_velocity);
   csim_.outer_loop_I = - gains_.KI_translational * state_.integral_translational_position_error;
 
-  cim.mu_translational_raw = csim_.outer_loop_dynamic_inversion + 
+  cim.mu_translational_raw_global = csim_.outer_loop_dynamic_inversion + 
     vehicle_info.mass * (
       csim_.outer_loop_P
     + csim_.outer_loop_D
     + csim_.outer_loop_I
     + cr.user_defined_acceleration
   );
+
+  // Convert the mu_translational from global to local coordinates
+  cim.mu_translational_raw_local = cim.rotation_matrix_321_global_to_local * cim.mu_translational_raw_global;
 }
 
 /*
@@ -266,7 +269,16 @@ void PID::computeControlAlgorithm()
   */
   this->computeOuterLoop(cim, vehicle_info, state_, cr, gains_, csim_);
 
-  /* IMPLEMENT THE SAFETY MECHANISM HERE */
+  /* 
+    SAFETY MECHANISM 
+  */
+  if constexpr (config_param::USE_OUTER_LOOP_SAFETY_MECHANISM){
+    cim.mu_translational = safe_mech.applySafetyMechansim(
+      cim.mu_translational_raw_local,
+      -csim_.outer_loop_dynamic_inversion);
+  } else {
+    cim.mu_translational = cim.mu_translational_raw_local;
+  }
 
   /*
   Compute:
